@@ -1,7 +1,6 @@
 import csv
 from datetime import datetime
 from itertools import zip_longest
-
 import requests
 from bs4 import BeautifulSoup
 from collections import defaultdict
