@@ -1,12 +1,10 @@
 import os
 import time
-
 import requests
 from bs4 import BeautifulSoup
 from collections import defaultdict
 import pandas as pd
 from datetime import datetime
-
 from openpyxl import load_workbook
 
 
