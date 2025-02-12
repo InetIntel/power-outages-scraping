@@ -1,9 +1,8 @@
-import csv
-from datetime import datetime
-from itertools import zip_longest
 import requests
-from bs4 import BeautifulSoup
+import json
 from collections import defaultdict
+from bs4 import BeautifulSoup
+from datetime import datetime
 
 
 class ScrapeWebpage:
@@ -12,7 +11,7 @@ class ScrapeWebpage:
         self.url = "https://www.ikejaelectric.com/cnn/"
 
     def fetch(self):
-        res = defaultdict(list)
+        res = list()
         response = requests.get(self.url)
         if response.status_code == 200:
             soup = BeautifulSoup(response.text, 'html.parser')
@@ -20,28 +19,37 @@ class ScrapeWebpage:
             for outage in outages:
                 state_class = outage.find(class_=['post-category'])
                 date_class = outage.find(class_=['post-date'])
+                tmp = []
                 if state_class:
-                    state = state_class.text
+                    state = "STATE:" + state_class.text
+                    tmp.append(state)
                     date = date_class.text
                     date = datetime.strptime(date, "%a, %d %b %Y").strftime("%Y-%m-%d")
-                    if date not in res[state]:
-                        res[state].append(date)
+                    date = "Date:" + date
+                    tmp.append(date)
+                    info = outage.find('h3', class_='post-title')
+                    info = info.get_text(separator=" ", strip=True).split(" ")
+                    i = 0
+                    while i < len(info):
+                        text = info[i].strip()
+                        i += 1
+                        while i < len(info) and ":" not in info[i]:
+                            text += info[i].strip() + " "
+                            i += 1
+                        tmp.append(text[:-1])
+                res.append(tmp)
             return res
         else:
             print(f"Failed to retrieve the webpage. Status code: {response.status_code}")
 
     def scrape(self):
         data = self.fetch()
-        self.process(data)
+        self.save_json(data)
 
-    def process(self, data):
-        file_name = "outage_" + datetime.today().strftime("%Y-%m-%d") + ".csv"
-        with open(file_name, mode="w", newline='') as file:
-            writer = csv.DictWriter(file, fieldnames=data.keys())
-            writer.writeheader()
-            rows = zip_longest(*data.values(), fillvalue=None)
-            for row in rows:
-                writer.writerow(dict(zip(data.keys(), row)))
+    def save_json(self, data):
+        file_name = "outage_" + datetime.today().strftime("%Y-%m-%d") + ".json"
+        with open(file_name, "w", encoding="utf-8") as file:
+            json.dump(data, file, indent=4)
 
 scrape_webpage = ScrapeWebpage()
 scrape_webpage.scrape()
