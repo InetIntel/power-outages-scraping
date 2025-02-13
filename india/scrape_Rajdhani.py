@@ -1,7 +1,6 @@
 import json
 import os
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from datetime import datetime
@@ -51,15 +50,12 @@ class ScrapeRajdhani:
         res = []
         for row in table_rows[1:]:
             columns = row.find_elements(By.TAG_NAME, "td")
-            # Assuming each row has several columns with the data you're looking for
             if len(columns) > 0:
-                # Extract data from each column (adjust the index based on the table structure)
                 outage_details = {
                     "DIVISION": columns[0].text,
                     "TIME(HRS)": columns[1].text,
                     "REASON": columns[2].text,
                     "AREA": columns[3].text
-                    # Add more columns as needed
                 }
                 res.append(outage_details)
         self.save_json(res)
