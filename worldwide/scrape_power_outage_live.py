@@ -1,20 +1,20 @@
 import os
 import time
-import requests
-from bs4 import BeautifulSoup
 from collections import defaultdict
-import pandas as pd
+import requests
+import json
+from bs4 import BeautifulSoup
 from datetime import datetime
-from openpyxl import load_workbook
 
 
 class ScrapePowerOutageLive:
 
-    def __init__(self, country, country_url):
+    def __init__(self, country_name, country_url):
         self.base_url = "https://poweroutage.live"
         self.country_url = country_url
         self.url = self.base_url + self.country_url
-        self.country = country
+        self.country = country_name
+        self.states = {}
 
 
     def fetch(self):
@@ -41,21 +41,29 @@ class ScrapePowerOutageLive:
             url = self.base_url + link
             data = self.process(url)
             times, state = self.find_outage_times(data)
-            if len(state) > 31:
-                state = state[:31]
-            self.generate_xls(state, self.country, times)
+            self.states[state] = times
+
 
 
     def find_outage_times(self, data):
         times = dict()
         date, state = data
         for day in date.keys():
-            times[day] = []
+            times[day] = dict()
+            times[day]["power_present"] = []
+            times[day]["no_power"] = []
+            times[day]["possible_shutdown"] = []
+            times[day]["no_info"] = []
             hours, outages = date[day]
             for i, outage in enumerate(outages):
-                # if outage == "●":
-                if outage == "✕":
-                    times[day].append(hours[i])
+                if outage == "●":
+                    times[day]["power_present"].append(hours[i])
+                elif outage == "✕":
+                    times[day]["no_power"].append(hours[i])
+                if outage == "±":
+                    times[day]["possible_shutdown"].append(hours[i])
+                if outage == "-":
+                    times[day]["no_info"].append(hours[i])
         return times, state
 
     def process(self, url):
@@ -108,32 +116,11 @@ class ScrapePowerOutageLive:
         else:
             print(f"Failed to fetch the page. Status Code: {response.status_code}")
 
-    def generate_xls(self, state, country, times):
+def save_json(data):
 
-        file_name = country + "_" + datetime.today().strftime("%Y-%m-%d") + ".xlsx"
-
-        if os.path.exists(file_name):
-            book = load_workbook(file_name)
-            if state not in book.sheetnames:
-                book.create_sheet(state)
-            book.save(file_name)
-            with pd.ExcelWriter(file_name, engine='openpyxl', mode='a', if_sheet_exists='replace') as writer:
-                # Write the DataFrame to the specified sheet
-                dates = list(times.keys())
-                hours = [f"{i:02d}" for i in range(24)]
-                df = pd.DataFrame(index=hours, columns=dates)
-                for date, hours in times.items():
-                    for hour in hours:
-                        df.at[hour, date] = "X"
-                df.to_excel(writer, sheet_name=state, index=True)
-        else:
-            dates = list(times.keys())
-            hours = [f"{i:02d}" for i in range(24)]
-            df = pd.DataFrame(index=hours, columns=dates)
-            for date, hours in times.items():
-                for hour in hours:
-                    df.at[hour, date] = "X"
-            df.to_excel(file_name, sheet_name=state, index=True)
+    file_path = os.path.join("./worldwide/data", "outage_" + datetime.today().strftime("%Y-%m-%d") + ".json")
+    with open(file_path, "w", encoding="utf-8") as file:
+        json.dump(data, file, indent=4)
 
 def get_countries():
     url = "https://poweroutage.live/"
@@ -141,18 +128,24 @@ def get_countries():
     res = []
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
-        links = [a['href'] for a in soup.select('.links-list li')]
-        for link in links:
-            res.append("/" + link)
+        countries = [a for a in soup.select('.links-list li a')]
+        for c in countries:
+            link = "/" + c['href']
+            country = c.get_text(strip=True)
+            res.append((link, country))
     return res
 
-countries = get_countries()
+# countries = get_countries()
 
-country_urls = ["/pk"]
-for country_url in country_urls:
-    country = country_url[1:]
-    scrapePowerOutageLive = ScrapePowerOutageLive(country, country_url)
+outage_schedule = {}
+
+countries = [("/pk", "Pakistan")]
+for country_url, country_name in countries:
+
+    scrapePowerOutageLive = ScrapePowerOutageLive(country_name, country_url)
     scrapePowerOutageLive.scrape()
+    outage_schedule[country_name] = scrapePowerOutageLive.states
+    save_json(outage_schedule)
     time.sleep(1)
 
 

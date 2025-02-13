@@ -40,7 +40,8 @@ class ScrapeXls:
         response = requests.get(file_url)
         if response.status_code == 200:
             filename = os.path.basename(file_url)
-            with open(filename, "wb") as file:
+            file_path = os.path.join("./india/data", filename)
+            with open(file_path, "wb") as file:
                 file.write(response.content)
             print(f"Download successful! File saved as {filename}")
         else:

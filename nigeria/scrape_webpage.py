@@ -1,6 +1,7 @@
+import os
+
 import requests
 import json
-from collections import defaultdict
 from bs4 import BeautifulSoup
 from datetime import datetime
 
@@ -47,8 +48,8 @@ class ScrapeWebpage:
         self.save_json(data)
 
     def save_json(self, data):
-        file_name = "outage_" + datetime.today().strftime("%Y-%m-%d") + ".json"
-        with open(file_name, "w", encoding="utf-8") as file:
+        file_path = os.path.join("./nigeria/data", "outage_" + datetime.today().strftime("%Y-%m-%d") + ".json")
+        with open(file_path, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=4)
 
 scrape_webpage = ScrapeWebpage()
