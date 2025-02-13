@@ -19,24 +19,24 @@ class ScrapeWebpage:
             for outage in outages:
                 state_class = outage.find(class_=['post-category'])
                 date_class = outage.find(class_=['post-date'])
-                tmp = []
+                tmp = dict()
                 if state_class:
-                    state = "STATE:" + state_class.text
-                    tmp.append(state)
+                    tmp["STATE"] = state_class.text
                     date = date_class.text
                     date = datetime.strptime(date, "%a, %d %b %Y").strftime("%Y-%m-%d")
-                    date = "Date:" + date
-                    tmp.append(date)
+                    tmp["Date"] = date
                     info = outage.find('h3', class_='post-title')
                     info = info.get_text(separator=" ", strip=True).split(" ")
                     i = 0
                     while i < len(info):
-                        text = info[i].strip()
+                        key = info[i].strip()
+                        tmp[key] = ""
+                        text = ""
                         i += 1
                         while i < len(info) and ":" not in info[i]:
                             text += info[i].strip() + " "
                             i += 1
-                        tmp.append(text[:-1])
+                        tmp[key] = text.strip()
                 res.append(tmp)
             return res
         else:
