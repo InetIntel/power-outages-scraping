@@ -29,7 +29,7 @@ class ScrapeWebpage:
                     info = info.get_text(separator=" ", strip=True).split(" ")
                     i = 0
                     while i < len(info):
-                        key = info[i].strip()
+                        key = info[i].strip()[:-1]
                         tmp[key] = ""
                         text = ""
                         i += 1
