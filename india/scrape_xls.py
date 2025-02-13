@@ -40,7 +40,8 @@ class ScrapeXls:
         response = requests.get(file_url)
         if response.status_code == 200:
             filename = os.path.basename(file_url)
-            with open(filename, "wb") as file:
+            file_path = os.path.join("./india/data", filename)
+            with open(file_path, "wb") as file:
                 file.write(response.content)
             print(f"Download successful! File saved as {filename}")
         else:
@@ -51,7 +52,9 @@ class ScrapeXls:
         file_url = self.parse(response, report_name)
         self.download(file_url)
 
-
+folder_path = "./india/data"
+if not os.path.exists(folder_path):
+    os.makedirs(folder_path)
 scrape_xls = ScrapeXls()
 reports = ["10.Daily Outage Report", "11. Daily Outage Report"]
 for report in reports:
