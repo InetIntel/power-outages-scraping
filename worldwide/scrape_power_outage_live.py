@@ -137,6 +137,11 @@ def get_countries():
 
 # countries = get_countries()
 
+
+folder_path = "./worldwide/data"
+if not os.path.exists(folder_path):
+    os.makedirs(folder_path)
+
 outage_schedule = {}
 
 countries = [("/pk", "Pakistan")]

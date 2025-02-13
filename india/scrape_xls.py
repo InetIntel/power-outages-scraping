@@ -52,7 +52,9 @@ class ScrapeXls:
         file_url = self.parse(response, report_name)
         self.download(file_url)
 
-
+folder_path = "./india/data"
+if not os.path.exists(folder_path):
+    os.makedirs(folder_path)
 scrape_xls = ScrapeXls()
 reports = ["10.Daily Outage Report", "11. Daily Outage Report"]
 for report in reports:
