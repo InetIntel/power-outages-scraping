@@ -15,6 +15,11 @@ class ScrapePowerOutageLive:
         self.url = self.base_url + self.country_url
         self.country = country_name
         self.states = {}
+        self.check_folder()
+
+    def check_folder(self):
+        folder_path = "./data"
+        os.makedirs(folder_path, exist_ok=True)
 
 
     def fetch(self):
@@ -139,8 +144,7 @@ def get_countries():
 
 
 folder_path = "./worldwide/data"
-if not os.path.exists(folder_path):
-    os.makedirs(folder_path)
+os.makedirs(folder_path, exist_ok=True)
 
 outage_schedule = {}
 
