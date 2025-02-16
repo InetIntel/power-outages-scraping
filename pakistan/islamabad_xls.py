@@ -22,6 +22,7 @@ class IslamabadXls:
         else:
             return response
 
+
     def parse(self, response):
         soup = BeautifulSoup(response.text, "html.parser")
         links = [a["href"] for a in soup.find_all("a", href=True) if a.get_text(strip=True) == "Click To View"]

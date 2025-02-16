@@ -15,6 +15,7 @@ class ScrapeXls:
         folder_path = "./india/data"
         os.makedirs(folder_path, exist_ok=True)
 
+
     def fetch(self):
         response = requests.get(self.page_url)
         if response.status_code != 200:
