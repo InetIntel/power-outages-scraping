@@ -1,2 +1,4 @@
 # JetBrains IDE
 .idea
+*/__pycache__/
+*.json
