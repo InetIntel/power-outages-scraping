@@ -10,6 +10,11 @@ class ScrapeXls:
         self.page_url = "https://npp.gov.in/publishedReports"
         self.base_url = "https://npp.gov.in"
 
+
+    def check_folder(self):
+        folder_path = "./india/data"
+        os.makedirs(folder_path, exist_ok=True)
+
     def fetch(self):
         response = requests.get(self.page_url)
         if response.status_code != 200:
@@ -50,11 +55,9 @@ class ScrapeXls:
     def scrape(self, report_name):
         response = self.fetch()
         file_url = self.parse(response, report_name)
+        self.check_folder()
         self.download(file_url)
 
-folder_path = "./india/data"
-if not os.path.exists(folder_path):
-    os.makedirs(folder_path)
 scrape_xls = ScrapeXls()
 reports = ["10.Daily Outage Report", "11. Daily Outage Report"]
 for report in reports:
