@@ -55,4 +55,4 @@ class PlannedDisconnectionSpider(scrapy.Spider):
 
 
 if __name__ == "__main__":
-    cmdline.execute("scrapy runspider Vinnytsia.py".split())
+    cmdline.execute("scrapy runspider Vinnytsia.py -O Vinnytsia.json".split())
