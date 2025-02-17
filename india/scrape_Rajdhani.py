@@ -36,18 +36,22 @@ class ScrapeRajdhani:
     def selection(self, driver):
         dropdown = driver.find_element(By.TAG_NAME, "select")
         select_date = Select(dropdown)
-        today_date = datetime.today().strftime("%d-%m-%Y")
-        select_date.select_by_value(today_date)
-        time.sleep(2)
-        dropdown = driver.find_elements(By.TAG_NAME, "select")
-        select_division = Select(dropdown[1])
-        select_division.select_by_visible_text("All Division")
-        time.sleep(2)
-        search_button = driver.find_element(By.XPATH, "//span[@class='lfr-btn-label' and text()='Search']")
-        search_button.click()
-        time.sleep(2)
-        table_rows = driver.find_elements(By.XPATH, "//table[@class='table table-bordered table-striped']//tr")
-        return table_rows
+        try:
+            today_date = datetime.today().strftime("%d-%m-%Y")
+            select_date.select_by_value(today_date)
+            time.sleep(2)
+            dropdown = driver.find_elements(By.TAG_NAME, "select")
+            select_division = Select(dropdown[1])
+            select_division.select_by_visible_text("All Division")
+            time.sleep(2)
+            search_button = driver.find_element(By.XPATH, "//span[@class='lfr-btn-label' and text()='Search']")
+            search_button.click()
+            time.sleep(2)
+            table_rows = driver.find_elements(By.XPATH, "//table[@class='table table-bordered table-striped']//tr")
+            return table_rows
+        except Exception as e:
+            print("Today's outage schedule is not published.")
+
 
     def process(self, table_rows):
         res = []
@@ -66,7 +70,11 @@ class ScrapeRajdhani:
     def run(self):
         driver = self.fetch()
         data = self.selection(driver)
-        self.process(data)
+        if data:
+            self.process(data)
+        else:
+            print("No outage data is found.")
+        driver.quit()
 
 urls = [('https://www.bsesdelhi.com/web/brpl/maintenance-outage-schedule', "BSES_Rajdhani_"),
         ("https://www.bsesdelhi.com/web/bypl/maintenance-outage-schedule", "BSES_Yamuna_")]
