@@ -33,6 +33,7 @@ class ScrapePDF:
 
     def download(self, file_url, filename):
         response = requests.get(file_url)
+        self.check_folder()
         if response.status_code == 200:
             filename += ".pdf"
             file_path = os.path.join("./data", filename)
