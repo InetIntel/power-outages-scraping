@@ -50,7 +50,7 @@ class ScrapeRajdhani:
             table_rows = driver.find_elements(By.XPATH, "//table[@class='table table-bordered table-striped']//tr")
             return table_rows
         except Exception as e:
-            print("Today's outage schedule is not published.")
+            print(f"Today's outage schedule is not published for {self.file_name[:-1]}")
 
 
     def process(self, table_rows):
@@ -73,7 +73,7 @@ class ScrapeRajdhani:
         if data:
             self.process(data)
         else:
-            print("No outage data is found.")
+            print(f"No outage data is found for {self.file_name[:-1]}.")
         driver.quit()
 
 urls = [('https://www.bsesdelhi.com/web/brpl/maintenance-outage-schedule', "BSES_Rajdhani_"),

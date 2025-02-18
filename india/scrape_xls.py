@@ -12,7 +12,7 @@ class ScrapeXls:
 
 
     def check_folder(self):
-        folder_path = "./india/data"
+        folder_path = "./data"
         os.makedirs(folder_path, exist_ok=True)
 
 
@@ -46,7 +46,7 @@ class ScrapeXls:
         response = requests.get(file_url)
         if response.status_code == 200:
             filename = os.path.basename(file_url)
-            file_path = os.path.join("./india/data", filename)
+            file_path = os.path.join("./data", filename)
             with open(file_path, "wb") as file:
                 file.write(response.content)
             print(f"Download successful! File saved as {filename}")

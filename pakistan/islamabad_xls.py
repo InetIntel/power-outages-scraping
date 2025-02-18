@@ -44,7 +44,6 @@ class IslamabadXls:
         response = self.fetch()
         links = self.parse(response)
         self.check_folder()
-        print(len(links))
         for link in links:
             self.download(link)
 

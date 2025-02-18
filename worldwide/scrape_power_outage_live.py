@@ -123,7 +123,7 @@ class ScrapePowerOutageLive:
 
 def save_json(data):
 
-    file_path = os.path.join("./worldwide/data", "outage_" + datetime.today().strftime("%Y-%m-%d") + ".json")
+    file_path = os.path.join("./data", "outage_" + datetime.today().strftime("%Y-%m-%d") + ".json")
     with open(file_path, "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4)
 
@@ -143,7 +143,7 @@ def get_countries():
 # countries = get_countries()
 
 
-folder_path = "./worldwide/data"
+folder_path = "./data"
 os.makedirs(folder_path, exist_ok=True)
 
 outage_schedule = {}
