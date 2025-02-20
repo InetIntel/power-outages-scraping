@@ -2,6 +2,7 @@ import os
 from datetime import datetime
 import requests
 import urllib3
+from bs4 import BeautifulSoup
 
 
 class Hyderabad:
@@ -17,15 +18,15 @@ class Hyderabad:
 
     def fetch(self):
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
-        response = requests.get(self.url, verify=False)
         self.check_folder()
-        if response.status_code == 200:
-            path = os.path.join(self.folder_path, self.today + "_shutdown_schedule.html")
-            with open(path, "w", encoding="utf-8") as file:
-                file.write(response.text)
+        response = requests.get(self.url, verify=False)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        div_element = soup.find('table', class_='table table-bordered table-striped table-responsive sschedule')
+        div_html = str(div_element)
+        html_filename = os.path.join(self.folder_path, self.today + "_shutdown_schedule.html")
+        with open(html_filename, 'w', encoding='utf-8') as file:
+            file.write(div_html)
             print("HTML file saved successfully.")
-        else:
-            print("Failed to retrieve the webpage.")
 
 
 
