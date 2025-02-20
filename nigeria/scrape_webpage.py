@@ -10,11 +10,13 @@ class ScrapeWebpage:
 
     def __init__(self):
         self.url = "https://www.ikejaelectric.com/cnn/"
+        self.today = datetime.today().strftime("%Y-%m-%d")
+        self.folder_path = None
 
 
     def check_folder(self):
-        folder_path = "./data"
-        os.makedirs(folder_path, exist_ok=True)
+        self.folder_path = "./data/" + self.today
+        os.makedirs(self.folder_path, exist_ok=True)
 
     def fetch(self):
         res = list()
@@ -54,7 +56,7 @@ class ScrapeWebpage:
 
     def save_json(self, data):
         self.check_folder()
-        file_path = os.path.join("./data", "outage_" + datetime.today().strftime("%Y-%m-%d") + ".json")
+        file_path = os.path.join(self.folder_path, "outage_" + self.today + ".json")
         with open(file_path, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=4)
 

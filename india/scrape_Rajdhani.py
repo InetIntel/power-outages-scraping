@@ -12,15 +12,17 @@ class ScrapeRajdhani:
     def __init__(self, url, file_name):
         self.url = url
         self.file_name = file_name
+        self.today = datetime.today().strftime("%Y-%m-%d")
+        self.folder_path = None
 
 
     def check_folder(self):
-        folder_path = "./data"
-        os.makedirs(folder_path, exist_ok=True)
+        self.folder_path = "./data/" + self.today
+        os.makedirs(self.folder_path, exist_ok=True)
 
     def save_json(self, data):
         self.check_folder()
-        file_path = os.path.join("./data", self.file_name + "outage_" + datetime.today().strftime("%Y-%m-%d") + ".json")
+        file_path = os.path.join(self.folder_path, self.file_name + "outage_" + self.today + ".json")
         with open(file_path, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=4)
 
@@ -50,7 +52,7 @@ class ScrapeRajdhani:
             table_rows = driver.find_elements(By.XPATH, "//table[@class='table table-bordered table-striped']//tr")
             return table_rows
         except Exception as e:
-            print(f"Today's outage schedule is not published for {self.file_name[:-1]}")
+            print(f"Outage schedule is not published for {self.file_name[:-1]} on {self.today}")
 
 
     def process(self, table_rows):

@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import os
-
+from datetime import datetime
 
 
 class ScrapeXls:
@@ -9,11 +9,13 @@ class ScrapeXls:
     def __init__(self):
         self.page_url = "https://npp.gov.in/publishedReports"
         self.base_url = "https://npp.gov.in"
+        self.today = datetime.today().strftime("%Y-%m-%d")
+        self.folder_path = None
 
 
     def check_folder(self):
-        folder_path = "./data"
-        os.makedirs(folder_path, exist_ok=True)
+        self.folder_path = "./data/" + self.today
+        os.makedirs(self.folder_path, exist_ok=True)
 
 
     def fetch(self):
@@ -46,7 +48,7 @@ class ScrapeXls:
         response = requests.get(file_url)
         if response.status_code == 200:
             filename = os.path.basename(file_url)
-            file_path = os.path.join("./data", filename)
+            file_path = os.path.join(self.folder_path, filename)
             with open(file_path, "wb") as file:
                 file.write(response.content)
             print(f"Download successful! File saved as {filename}")
