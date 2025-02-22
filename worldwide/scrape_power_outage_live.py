@@ -65,8 +65,10 @@ class ScrapePowerOutageLive:
                     times[day]["power_present"].append(hours[i])
                 elif outage == "✕":
                     times[day]["no_power"].append(hours[i])
+                    print(f"Outage at {hours[i]} on {day} in {self.states}, {self.country}")
                 if outage == "±":
                     times[day]["possible_shutdown"].append(hours[i])
+                    print(f"Possible shutdown at {hours[i]} on {day} in {self.states}, {self.country}")
                 if outage == "-":
                     times[day]["no_info"].append(hours[i])
         return times, state
@@ -140,7 +142,7 @@ def get_countries():
             res.append((link, country))
     return res
 
-# countries = get_countries()
+countries = get_countries()
 
 
 folder_path = "./data"
@@ -148,7 +150,7 @@ os.makedirs(folder_path, exist_ok=True)
 
 outage_schedule = {}
 
-countries = [("/pk", "Pakistan")]
+# countries = [("/pk", "Pakistan")]
 for country_url, country_name in countries:
 
     scrapePowerOutageLive = ScrapePowerOutageLive(country_name, country_url)
