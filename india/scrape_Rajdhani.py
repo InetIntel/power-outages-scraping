@@ -48,7 +48,7 @@ class ScrapeRajdhani:
             time.sleep(2)
             search_button = driver.find_element(By.XPATH, "//span[@class='lfr-btn-label' and text()='Search']")
             search_button.click()
-            time.sleep(2)
+            time.sleep(4)
             table_rows = driver.find_elements(By.XPATH, "//table[@class='table table-bordered table-striped']//tr")
             return table_rows
         except Exception as e:
@@ -67,7 +67,9 @@ class ScrapeRajdhani:
                     "AREA": columns[3].text
                 }
                 res.append(outage_details)
+        time.sleep(2)
         self.save_json(res)
+        print(f"Data is saved for {self.day}")
 
     def run(self):
         driver = self.fetch()

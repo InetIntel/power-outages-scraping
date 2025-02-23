@@ -1,0 +1,44 @@
+[
+    {
+        "DIVISION": "DIVISION",
+        "TIME(HRS)": "TIME(HRS)",
+        "REASON": "REASON",
+        "AREA": "AREA"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-16:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "GHIRNI VILLAGE GHIRNI,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-16:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "ISLAM COLONY MEHRAULI,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-16:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "MEHRAULI VILLAGE MEHRAULI,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-15:00",
+        "REASON": "11KV FEEDER-TREE TRIMMING",
+        "AREA": "KAPAS HERA EXTENSION KAPAS HERA,PUSHPANJALI FARMS,PALAM FARMS,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-16:00",
+        "REASON": "RMU-MAINTENANCE",
+        "AREA": "VASANT ENCLAVE"
+    },
+    {
+        "DIVISION": "SAKET",
+        "TIME(HRS)": "10:00-16:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "NEW COLONY KHIDKI EXTENSION MALVIYA NAGAR,"
+    }
+]
