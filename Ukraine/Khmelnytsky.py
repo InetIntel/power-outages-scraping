@@ -37,16 +37,16 @@ class PlannedDisconnectionSpider(scrapy.Spider):
         # Extract relevant data from the page
         # Adjust the selectors based on the structure of the webpage
         planned_disconnections = response.xpath('//tbody/tr[not(@class)]')
-        print("planned_disconnections", planned_disconnections)
+        # print("planned_disconnections", planned_disconnections)
 
         for disconnection in planned_disconnections:
-            print("disconnection", disconnection)
+            # print("disconnection", disconnection)
             planned_end_time = "".join(disconnection.xpath('.//td[5]/div//text()').getall())
             start_time = "".join(disconnection.xpath('.//td[4]/div//text()').getall())
-            disconnection_type = disconnection.xpath('.//td[2]//text()').get().strip()
-            city_list = disconnection.xpath('.//p[@class="city"]/text()').get().strip()
+            disconnection_type = disconnection.xpath('.//td[2]//text()').get("").strip()
+            city_list = disconnection.xpath('.//p[@class="city"]/text()').get("").strip()
             # street_list = disconnection.xpath('.//td[@class="addresses"]/text()').get()
-            inform_time = disconnection.xpath('.//td[3]/text()').get().strip()
+            inform_time = disconnection.xpath('.//td[3]/text()').get("").strip()
             yield {
                 'planned_end_time': planned_end_time,
                 'start_time': start_time,
