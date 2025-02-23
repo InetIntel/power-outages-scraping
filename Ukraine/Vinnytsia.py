@@ -15,13 +15,15 @@ class PlannedDisconnectionSpider(scrapy.Spider):
     months = ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12']
     regions = ['23', '25', '26', '27', '29', '30', '31', '32', '33', '35', '36', '37', '38', '39'
         , '41', '42', '43', '45', '46', '47', '48', '50', '51', '52', '53', '55', '56', '57']
+    types = ['planned', 'emergency']
 
     start_urls = []
 
     for year in years:
         for month in months:
             for region in regions:
-                start_urls.append(f"https://voe.com.ua/disconnection/planned/{year}/{month}/{region}")
+                for type in types:
+                    start_urls.append(f"https://voe.com.ua/disconnection/{type}/{year}/{month}/{region}")
 
     def parse(self, response):
         # Extract relevant data from the page
