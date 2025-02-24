@@ -39,8 +39,7 @@ class ScrapeRajdhani:
         dropdown = driver.find_element(By.TAG_NAME, "select")
         select_date = Select(dropdown)
         try:
-            today_date = datetime.today().strftime("%d-%m-%Y")
-            select_date.select_by_value(today_date)
+            select_date.select_by_value(self.today)
             time.sleep(2)
             dropdown = driver.find_elements(By.TAG_NAME, "select")
             select_division = Select(dropdown[1])
@@ -48,7 +47,7 @@ class ScrapeRajdhani:
             time.sleep(2)
             search_button = driver.find_element(By.XPATH, "//span[@class='lfr-btn-label' and text()='Search']")
             search_button.click()
-            time.sleep(4)
+            time.sleep(5)
             table_rows = driver.find_elements(By.XPATH, "//table[@class='table table-bordered table-striped']//tr")
             return table_rows
         except Exception as e:
@@ -69,7 +68,7 @@ class ScrapeRajdhani:
                 res.append(outage_details)
         time.sleep(2)
         self.save_json(res)
-        print(f"Data is saved for {self.day}")
+        print(f"Data is saved for {self.today}")
 
     def run(self):
         driver = self.fetch()

@@ -42,10 +42,10 @@ class Tnpdcl:
 
     def get_file(self, driver, number):
         wait = WebDriverWait(driver, 20)
-        input_element = wait.until(EC.visibility_of_element_located((By.ID, "j_idt5:cap")))
+        input_element = wait.until(EC.visibility_of_element_located((By.ID, "j_idt6:cap")))
         input_element.clear()
         input_element.send_keys(number)
-        submit_button = wait.until(EC.element_to_be_clickable((By.ID, "j_idt5:submit3")))
+        submit_button = wait.until(EC.element_to_be_clickable((By.ID, "j_idt6:submit3")))
         submit_button.click()
         excel_button = wait.until(EC.element_to_be_clickable((By.CLASS_NAME, "btn.btn-default.buttons-excel.buttons-html5")))
         excel_button.click()
@@ -56,7 +56,7 @@ class Tnpdcl:
 
     def getNumber(self, driver):
         wait = WebDriverWait(driver, 20)
-        img_element = wait.until(EC.visibility_of_element_located((By.ID, "j_idt5:imgCaptchaId")))
+        img_element = wait.until(EC.visibility_of_element_located((By.ID, "j_idt6:imgCaptchaId")))
         img_src = img_element.get_attribute("src")
         response = requests.get(img_src, stream=True)
         if response.status_code == 200:
