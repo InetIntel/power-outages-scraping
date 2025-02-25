@@ -39,6 +39,7 @@ class ScrapeRajdhani:
         dropdown = driver.find_element(By.TAG_NAME, "select")
         select_date = Select(dropdown)
         try:
+            time.sleep(2)
             select_date.select_by_value(self.today)
             time.sleep(2)
             dropdown = driver.find_elements(By.TAG_NAME, "select")
@@ -66,7 +67,7 @@ class ScrapeRajdhani:
                     "AREA": columns[3].text
                 }
                 res.append(outage_details)
-        time.sleep(2)
+        time.sleep(3)
         self.save_json(res)
         print(f"Data is saved for {self.today}")
 
