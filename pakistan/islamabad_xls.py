@@ -1,6 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 import os
+from datetime import datetime
 
 
 
@@ -8,11 +9,13 @@ class IslamabadXls:
 
     def __init__(self, url):
         self.page_url = url
+        self.today = datetime.today().strftime("%Y-%m-%d")
+        self.folder_path = None
 
 
     def check_folder(self):
-        folder_path = "./data"
-        os.makedirs(folder_path, exist_ok=True)
+        self.folder_path = "./data/" + self.today
+        os.makedirs(self.folder_path, exist_ok=True)
 
     def fetch(self):
         response = requests.get(self.page_url)
@@ -33,7 +36,7 @@ class IslamabadXls:
         response = requests.get(file_url)
         if response.status_code == 200:
             filename = os.path.basename(file_url)
-            file_path = os.path.join("./data", filename)
+            file_path = os.path.join(self.folder_path, filename)
             with open(file_path, "wb") as file:
                 file.write(response.content)
             print(f"Download successful! File saved as {filename}")

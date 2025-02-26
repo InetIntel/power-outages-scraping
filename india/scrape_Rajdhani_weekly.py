@@ -1,7 +1,6 @@
 import json
 import os
 from datetime import datetime, timedelta
-
 from bs4 import BeautifulSoup
 import requests
 
@@ -10,10 +9,13 @@ class ScrapeRajdhaniWeekly:
 
     def __init__(self, url):
         self.url = url
+        self.today = datetime.today().strftime("%Y-%m-%d")
+        self.folder_path = None
 
     def check_folder(self):
-        folder_path = "./data"
-        os.makedirs(folder_path, exist_ok=True)
+        self.folder_path = "./data/" + self.today
+        os.makedirs(self.folder_path, exist_ok=True)
+
 
     def fetch(self):
         response = requests.get(self.url)
@@ -47,7 +49,7 @@ class ScrapeRajdhaniWeekly:
 
     def save_json(self, data, week):
         self.check_folder()
-        file_path = os.path.join("./data", "weekly_outage_report_" + week + ".json")
+        file_path = os.path.join(self.folder_path, "weekly_outage_report_" + week + ".json")
         with open(file_path, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=4)
 

@@ -1,5 +1,5 @@
 import os
-
+from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 
@@ -9,6 +9,8 @@ class Fesco:
     def __init__(self, url, base_url):
         self.url = url
         self.base_url = base_url
+        self.today = datetime.today().strftime("%Y-%m-%d")
+        self.folder_path = None
 
     def fetch(self):
         response = requests.get(self.url)
@@ -34,8 +36,8 @@ class Fesco:
         return res
 
     def check_folder(self):
-        folder_path = "./data"
-        os.makedirs(folder_path, exist_ok=True)
+        self.folder_path = "./data/" + self.today
+        os.makedirs(self.folder_path, exist_ok=True)
 
     def download(self, data):
         self.check_folder()
@@ -43,7 +45,7 @@ class Fesco:
             response = requests.get(file_url)
             if response.status_code == 200:
                 filename += ".pdf"
-                file_path = os.path.join("./data", filename)
+                file_path = os.path.join(self.folder_path, filename)
                 with open(file_path, "wb") as file:
                     file.write(response.content)
                 print(f"Download successful! File saved as {filename}")

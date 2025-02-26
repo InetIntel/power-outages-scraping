@@ -8,6 +8,8 @@ import os
 class Quetta:
     def __init__(self, url):
         self.url = url
+        self.today = datetime.today().strftime("%Y-%m-%d")
+        self.folder_path = None
 
     def fetch(self):
         response = requests.get(self.url)
@@ -27,12 +29,12 @@ class Quetta:
         return rows
 
     def check_folder(self):
-        folder_path = "./data"
-        os.makedirs(folder_path, exist_ok=True)
+        self.folder_path = "./data/" + self.today
+        os.makedirs(self.folder_path, exist_ok=True)
 
     def save_json(self, data):
         self.check_folder()
-        file_path = os.path.join("./data", "quetta_shutdown_schedule_" + datetime.today().strftime("%Y-%m-%d") + ".json")
+        file_path = os.path.join(self.folder_path, "quetta_shutdown_schedule_" + datetime.today().strftime("%Y-%m-%d") + ".json")
         with open(file_path, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=4)
 

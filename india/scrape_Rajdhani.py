@@ -12,15 +12,17 @@ class ScrapeRajdhani:
     def __init__(self, url, file_name):
         self.url = url
         self.file_name = file_name
+        self.today = datetime.today().strftime("%Y-%m-%d")
+        self.folder_path = None
 
 
     def check_folder(self):
-        folder_path = "./data"
-        os.makedirs(folder_path, exist_ok=True)
+        self.folder_path = "./data/" + self.today
+        os.makedirs(self.folder_path, exist_ok=True)
 
     def save_json(self, data):
         self.check_folder()
-        file_path = os.path.join("./data", self.file_name + "outage_" + datetime.today().strftime("%Y-%m-%d") + ".json")
+        file_path = os.path.join(self.folder_path, self.file_name + "outage_" + self.today + ".json")
         with open(file_path, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=4)
 
@@ -37,8 +39,8 @@ class ScrapeRajdhani:
         dropdown = driver.find_element(By.TAG_NAME, "select")
         select_date = Select(dropdown)
         try:
-            today_date = datetime.today().strftime("%d-%m-%Y")
-            select_date.select_by_value(today_date)
+            time.sleep(2)
+            select_date.select_by_value(self.today)
             time.sleep(2)
             dropdown = driver.find_elements(By.TAG_NAME, "select")
             select_division = Select(dropdown[1])
@@ -46,11 +48,11 @@ class ScrapeRajdhani:
             time.sleep(2)
             search_button = driver.find_element(By.XPATH, "//span[@class='lfr-btn-label' and text()='Search']")
             search_button.click()
-            time.sleep(2)
+            time.sleep(5)
             table_rows = driver.find_elements(By.XPATH, "//table[@class='table table-bordered table-striped']//tr")
             return table_rows
         except Exception as e:
-            print(f"Today's outage schedule is not published for {self.file_name[:-1]}")
+            print(f"Outage schedule is not published for {self.file_name[:-1]} on {self.today}")
 
 
     def process(self, table_rows):
@@ -65,7 +67,9 @@ class ScrapeRajdhani:
                     "AREA": columns[3].text
                 }
                 res.append(outage_details)
+        time.sleep(3)
         self.save_json(res)
+        print(f"Data is saved for {self.today}")
 
     def run(self):
         driver = self.fetch()

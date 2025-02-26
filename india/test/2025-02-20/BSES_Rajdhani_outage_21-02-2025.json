@@ -1,0 +1,68 @@
+[
+    {
+        "DIVISION": "DIVISION",
+        "TIME(HRS)": "TIME(HRS)",
+        "REASON": "REASON",
+        "AREA": "AREA"
+    },
+    {
+        "DIVISION": "SARITA VIHAR",
+        "TIME(HRS)": "11:00-15:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "GAYATRI KUNJ ALI,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-16:00",
+        "REASON": "11KV FEEDER-MAINTENANCE",
+        "AREA": "GRAND HYATT HOTEL"
+    },
+    {
+        "DIVISION": "NEW FRIENDS COLONY",
+        "TIME(HRS)": "11:00-15:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "BLOCK C JA BAI EXTENSION OKHLA,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-16:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "POCKET 1 SECR B VASANT KUNJ,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-15:00",
+        "REASON": "11KV FEEDER-TREE TRIMMING",
+        "AREA": "KAPAS HERA EXTENSION KAPAS HERA,KAPAS HERA ESTATE,"
+    },
+    {
+        "DIVISION": "NEW FRIENDS COLONY",
+        "TIME(HRS)": "11:00-16:00",
+        "REASON": "11KV FEEDER-PREVENTIVE MAINTENANCE",
+        "AREA": "BLOCK B NEW FRIENDS COLONY,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-16:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "POCKET A SECR A VASANT KUNJ,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-15:00",
+        "REASON": "HT INTERMEDIATE FEEDER-MAINTENANCE",
+        "AREA": "PALAM FARMS,SLASH PUR VILLAGE PALAM FARMS,"
+    },
+    {
+        "DIVISION": "SAKET",
+        "TIME(HRS)": "10:00-16:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "POCKET C PHASE I SHEIKH SARAI,"
+    },
+    {
+        "DIVISION": "SAKET",
+        "TIME(HRS)": "10:00-16:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "POCKET C PHASE I SHEIKH SARAI,"
+    }
+]

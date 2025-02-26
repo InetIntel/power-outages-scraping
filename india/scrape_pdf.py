@@ -1,3 +1,4 @@
+from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 import os
@@ -6,6 +7,8 @@ import os
 class ScrapePDF:
     def __init__(self, url):
         self.url = url
+        self.today = datetime.today().strftime("%Y-%m-%d")
+        self.folder_path = None
 
 
     def fetch(self):
@@ -27,8 +30,8 @@ class ScrapePDF:
 
 
     def check_folder(self):
-        folder_path = "./data"
-        os.makedirs(folder_path, exist_ok=True)
+        self.folder_path = "./data/" + self.today
+        os.makedirs(self.folder_path, exist_ok=True)
 
 
     def download(self, file_url, filename):
@@ -36,7 +39,7 @@ class ScrapePDF:
         self.check_folder()
         if response.status_code == 200:
             filename += ".pdf"
-            file_path = os.path.join("./data", filename)
+            file_path = os.path.join(self.folder_path, filename)
             with open(file_path, "wb") as file:
                 file.write(response.content)
             print(f"Download successful! File saved as {filename}")
