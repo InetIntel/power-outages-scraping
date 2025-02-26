@@ -5,6 +5,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from datetime import datetime
 import time
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class ScrapeRajdhani:
@@ -12,7 +14,7 @@ class ScrapeRajdhani:
     def __init__(self, url, file_name):
         self.url = url
         self.file_name = file_name
-        self.today = datetime.today().strftime("%Y-%m-%d")
+        self.today = datetime.today().strftime("%d-%m-%Y")
         self.folder_path = None
 
 
@@ -39,7 +41,6 @@ class ScrapeRajdhani:
         dropdown = driver.find_element(By.TAG_NAME, "select")
         select_date = Select(dropdown)
         try:
-            time.sleep(2)
             select_date.select_by_value(self.today)
             time.sleep(2)
             dropdown = driver.find_elements(By.TAG_NAME, "select")
@@ -47,6 +48,7 @@ class ScrapeRajdhani:
             select_division.select_by_visible_text("All Division")
             time.sleep(2)
             search_button = driver.find_element(By.XPATH, "//span[@class='lfr-btn-label' and text()='Search']")
+            time.sleep(2)
             search_button.click()
             time.sleep(5)
             table_rows = driver.find_elements(By.XPATH, "//table[@class='table table-bordered table-striped']//tr")
