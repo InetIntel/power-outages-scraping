@@ -14,12 +14,13 @@ class ScrapeRajdhani:
     def __init__(self, url, file_name):
         self.url = url
         self.file_name = file_name
+        self.day = datetime.today().strftime("%Y-%m-%d")
         self.today = datetime.today().strftime("%d-%m-%Y")
         self.folder_path = None
 
 
     def check_folder(self):
-        self.folder_path = "./data/" + self.today
+        self.folder_path = "./data/" + self.day
         os.makedirs(self.folder_path, exist_ok=True)
 
     def save_json(self, data):
