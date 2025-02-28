@@ -25,7 +25,7 @@ class Fesco:
         table = soup.find('table', id='table1')
         rows = table.find_all('tr')
         report_rows = [row for row in rows if row.find('a', href=True)]
-        last_two_reports = report_rows[-2:]
+        last_two_reports = report_rows[-1:]
         res = []
         for row in last_two_reports:
             links = row.find_all('a', href=True)
