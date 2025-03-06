@@ -117,8 +117,8 @@ class ScrapePowerOutageLive:
                     data[tomorrow_times[0]] = (tomorrow_times[1:], tomorrow_outage_marks[1:])
                 else:
                     print("No table found after the H2 tag.")
-            # else:
-            #     print("No H2 tag with 'Schedule for tomorrow' found.")
+            else:
+                print("No H2 tag with 'Schedule for tomorrow' found.")
             return data, state
         else:
             print(f"Failed to fetch the page. Status Code: {response.status_code}")
@@ -142,7 +142,7 @@ def get_countries():
             res.append((link, country))
     return res
 
-# countries = get_countries()
+countries = get_countries()
 
 
 folder_path = "./data"
@@ -150,7 +150,7 @@ os.makedirs(folder_path, exist_ok=True)
 
 outage_schedule = {}
 
-countries = [("/pk", "Pakistan")]
+# countries = [("/pk", "Pakistan")]
 for country_url, country_name in countries:
 
     scrapePowerOutageLive = ScrapePowerOutageLive(country_name, country_url)
