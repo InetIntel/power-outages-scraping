@@ -123,9 +123,9 @@ class ScrapePowerOutageLive:
         else:
             print(f"Failed to fetch the page. Status Code: {response.status_code}")
 
-def save_json(data):
+def save_json(country,data):
 
-    file_path = os.path.join("./data", "outage_" + datetime.today().strftime("%Y-%m-%d") + ".json")
+    file_path = os.path.join("./data", country+"_outage_" + datetime.today().strftime("%Y-%m-%d") + ".json")
     with open(file_path, "w", encoding="utf-8") as file:
         json.dump(data, file, indent=4)
 
@@ -156,7 +156,8 @@ for country_url, country_name in countries:
     scrapePowerOutageLive = ScrapePowerOutageLive(country_name, country_url)
     scrapePowerOutageLive.scrape()
     outage_schedule[country_name] = scrapePowerOutageLive.states
-    save_json(outage_schedule)
+    save_json(country_name,outage_schedule)
+    print(f"Outage data for {country_name} is saved")
     time.sleep(1)
 
 
