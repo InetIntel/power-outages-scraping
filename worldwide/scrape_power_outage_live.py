@@ -156,7 +156,7 @@ for country_url, country_name in countries:
     scrapePowerOutageLive = ScrapePowerOutageLive(country_name, country_url)
     scrapePowerOutageLive.scrape()
     outage_schedule[country_name] = scrapePowerOutageLive.states
-    save_json(country_name,outage_schedule)
+    save_json(country_name,outage_schedule[country_name])
     print(f"Outage data for {country_name} is saved")
     time.sleep(1)
 
