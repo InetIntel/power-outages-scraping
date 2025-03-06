@@ -79,7 +79,7 @@ class ScrapePowerOutageLive:
         data = defaultdict(tuple)
         if response.status_code == 200:
             soup = BeautifulSoup(response.text, 'html.parser')
-            schedule_for_today = soup.find('h2', string="Schedule for today")
+            schedule_for_today = soup.find('h2')
             if schedule_for_today:
                 table_today = schedule_for_today.find_next('table')
                 if table_today:
@@ -99,7 +99,7 @@ class ScrapePowerOutageLive:
                     print("No table found after the H2 tag.")
             else:
                 print("No H2 tag with 'Schedule for today' found.")
-            schedule_for_tomorrow = soup.find('h2', string="Schedule for tomorrow")
+            schedule_for_tomorrow = soup.find('h2')
             if schedule_for_tomorrow:
                 table_tomorrow = schedule_for_tomorrow.find_next('table')
                 if table_tomorrow:
@@ -117,8 +117,8 @@ class ScrapePowerOutageLive:
                     data[tomorrow_times[0]] = (tomorrow_times[1:], tomorrow_outage_marks[1:])
                 else:
                     print("No table found after the H2 tag.")
-            else:
-                print("No H2 tag with 'Schedule for tomorrow' found.")
+            # else:
+            #     print("No H2 tag with 'Schedule for tomorrow' found.")
             return data, state
         else:
             print(f"Failed to fetch the page. Status Code: {response.status_code}")
@@ -142,7 +142,7 @@ def get_countries():
             res.append((link, country))
     return res
 
-countries = get_countries()
+# countries = get_countries()
 
 
 folder_path = "./data"
@@ -150,7 +150,7 @@ os.makedirs(folder_path, exist_ok=True)
 
 outage_schedule = {}
 
-# countries = [("/pk", "Pakistan")]
+countries = [("/pk", "Pakistan")]
 for country_url, country_name in countries:
 
     scrapePowerOutageLive = ScrapePowerOutageLive(country_name, country_url)
