@@ -39,20 +39,26 @@ class ScrapeRajdhani:
         return driver
 
     def selection(self, driver):
-        dropdown = driver.find_element(By.TAG_NAME, "select")
+        dropdown = WebDriverWait(driver, 20).until(
+            EC.presence_of_element_located((By.TAG_NAME, "select"))
+        )
         select_date = Select(dropdown)
         try:
             select_date.select_by_value(self.today)
             time.sleep(2)
-            dropdown = driver.find_elements(By.TAG_NAME, "select")
+            dropdown = WebDriverWait(driver, 20).until(
+                EC.presence_of_all_elements_located((By.TAG_NAME, "select"))
+            )
             select_division = Select(dropdown[1])
             select_division.select_by_visible_text("All Division")
-            time.sleep(2)
-            search_button = driver.find_element(By.XPATH, "//span[@class='lfr-btn-label' and text()='Search']")
-            time.sleep(2)
+            search_button = WebDriverWait(driver, 20).until(
+                EC.element_to_be_clickable((By.XPATH, "//span[@class='lfr-btn-label' and text()='Search']"))
+            )
             search_button.click()
-            time.sleep(5)
-            table_rows = driver.find_elements(By.XPATH, "//table[@class='table table-bordered table-striped']//tr")
+            table_rows = WebDriverWait(driver, 20).until(
+                EC.presence_of_all_elements_located(
+                    (By.XPATH, "//table[@class='table table-bordered table-striped']//tr"))
+            )
             return table_rows
         except Exception as e:
             print(f"Outage schedule is not published for {self.file_name[:-1]} on {self.today}")
