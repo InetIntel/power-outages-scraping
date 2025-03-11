@@ -1,0 +1,52 @@
+from nigeria.scrape_webpage import ScrapeWebpage
+from pakistan.fesco import Fesco
+from pakistan.hyderabad import Hyderabad
+from pakistan.islamabad_xls import IslamabadXls
+from pakistan.quetta import Quetta
+from india.goa import Goa
+from india.scrape_Rajdhani_weekly import ScrapeRajdhaniWeekly
+from india.tangedco import Tangedco
+from india.tnpdcl import Tnpdcl
+from india.scrape_xls import ScrapeXls
+from india.scrape_Rajdhani import ScrapeRajdhani
+
+
+def scrape():
+
+    tnebltd = Tnpdcl()
+    tnebltd.scrape()
+
+    tnebnet = Tangedco()
+    tnebnet.scrape()
+
+    bsesdelhi_weekly = ScrapeRajdhaniWeekly()
+    bsesdelhi_weekly.scrape()
+
+    goaelectricity = Goa()
+    goaelectricity.scrape()
+
+    npp = ScrapeXls()
+    npp.scrape()
+
+    bsesdelhi = ScrapeRajdhani()
+    bsesdelhi.scrape()
+
+    ikejaelectric = ScrapeWebpage()
+    ikejaelectric.scrape()
+
+    fesco = Fesco()
+    fesco.scrape()
+
+    hesco = Hyderabad()
+    hesco.scrape()
+
+    iesco = IslamabadXls()
+    iesco.scrape()
+
+    qesco = Quetta()
+    qesco.scrape()
+    print("ALL DONE")
+
+
+if __name__ == "__main__":
+    scrape()

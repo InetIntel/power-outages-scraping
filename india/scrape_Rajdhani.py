@@ -11,34 +11,34 @@ from selenium.webdriver.support import expected_conditions as EC
 
 class ScrapeRajdhani:
 
-    def __init__(self, url, file_name):
-        self.url = url
-        self.file_name = file_name
+    def __init__(self):
         self.day = datetime.today().strftime("%Y-%m-%d")
         self.today = datetime.today().strftime("%d-%m-%Y")
         self.folder_path = None
+        self.urls = [('https://www.bsesdelhi.com/web/brpl/maintenance-outage-schedule', "BSES_Rajdhani_"),
+        ("https://www.bsesdelhi.com/web/bypl/maintenance-outage-schedule", "BSES_Yamuna_")]
 
 
     def check_folder(self):
         self.folder_path = "./data/" + self.day
         os.makedirs(self.folder_path, exist_ok=True)
 
-    def save_json(self, data):
+    def save_json(self, data, file_name):
         self.check_folder()
-        file_path = os.path.join(self.folder_path, self.file_name + "outage_" + self.today + ".json")
+        file_path = os.path.join(self.folder_path, file_name + "outage_" + self.today + ".json")
         with open(file_path, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=4)
 
 
-    def fetch(self):
+    def fetch(self, url):
         options = webdriver.ChromeOptions()
         options.add_experimental_option("detach", True)
         driver = webdriver.Chrome(options=options)
-        driver.get(self.url)
+        driver.get(url)
         time.sleep(2)
         return driver
 
-    def selection(self, driver):
+    def selection(self, driver, file_name):
         dropdown = WebDriverWait(driver, 20).until(
             EC.presence_of_element_located((By.TAG_NAME, "select"))
         )
@@ -61,10 +61,10 @@ class ScrapeRajdhani:
             )
             return table_rows
         except Exception as e:
-            print(f"Outage schedule is not published for {self.file_name[:-1]} on {self.today}")
+            print(f"Outage schedule is not published for {file_name[:-1]} on {self.today}")
 
 
-    def process(self, table_rows):
+    def process(self, table_rows, file_name):
         res = []
         for row in table_rows[1:]:
             columns = row.find_elements(By.TAG_NAME, "td")
@@ -77,24 +77,24 @@ class ScrapeRajdhani:
                 }
                 res.append(outage_details)
         time.sleep(3)
-        self.save_json(res)
+        self.save_json(res, file_name)
         print(f"Data is saved for {self.today}")
 
-    def run(self):
-        driver = self.fetch()
-        data = self.selection(driver)
-        if data:
-            self.process(data)
-        else:
-            print(f"No outage data is found for {self.file_name[:-1]}.")
-        driver.quit()
+    def scrape(self):
+        for url, file_name in self.urls:
+            driver = self.fetch(url)
+            data = self.selection(driver, file_name)
+            if data:
+                self.process(data, file_name)
+            else:
+                print(f"No outage data is found for {file_name[:-1]}.")
+            driver.quit()
+            time.sleep(2)
 
-urls = [('https://www.bsesdelhi.com/web/brpl/maintenance-outage-schedule', "BSES_Rajdhani_"),
-        ("https://www.bsesdelhi.com/web/bypl/maintenance-outage-schedule", "BSES_Yamuna_")]
-for url, file_name in urls:
-    scrapeRajdhani = ScrapeRajdhani(url, file_name)
-    scrapeRajdhani.run()
-    time.sleep(2)
+
+# bsesdelhi = ScrapeRajdhani()
+# bsesdelhi.scrape()
+
 
 
 

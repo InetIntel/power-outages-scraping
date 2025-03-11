@@ -1,0 +1,1052 @@
+[
+    {
+        "DIVISION": "DIVISION",
+        "TIME(HRS)": "TIME(HRS)",
+        "REASON": "REASON",
+        "AREA": "AREA"
+    },
+    {
+        "DIVISION": "SAKET",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "DJB MALVIYA NAGAR"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "GHIRNI VILLAGE GHIRNI,"
+    },
+    {
+        "DIVISION": "SAKET",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "PHASE II SHEIKH SARAI,"
+    },
+    {
+        "DIVISION": "SARITA VIHAR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "MADANPUR KHADAR VILLAGE MADANPUR KHADAR,"
+    },
+    {
+        "DIVISION": "SARITA VIHAR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDS-MAINTENANCE",
+        "AREA": "BLOCK B MOLARBAND EXTENSION BADARPUR,BLOCK A MOLARBAND EXTENSION BADARPUR,BLOCK C MOLARBAND EXTENSION BADARPUR,"
+    },
+    {
+        "DIVISION": "KHANPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDS-MAINTENANCE",
+        "AREA": "BLOCK C PULPEHLADPUR,"
+    },
+    {
+        "DIVISION": "KHANPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDS-MAINTENANCE",
+        "AREA": "BLOCK J 2 DEVLI SANGAM VIHAR,BLOCK I 2 SANGAM VIHAR,"
+    },
+    {
+        "DIVISION": "UTTAM NAGAR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDS-MAINTENANCE",
+        "AREA": "BLOCK B SITAPURI PART 2 SITAPURI,BLOCK H SITAPURI PART 2 SITAPURI,BLOCK A SITAPURI PART 2 SITAPURI,BLOCK E SITAPURI PART 2 SITAPURI,"
+    },
+    {
+        "DIVISION": "MUNDKA",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "BLOCK C TYAGI VIHAR MUNDKA,"
+    },
+    {
+        "DIVISION": "NEW FRIENDS COLONY",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "LT CIRCUIT-MAINTENANCE",
+        "AREA": "CANAL COLONY OKHLA,"
+    },
+    {
+        "DIVISION": "TAGORE GARDEN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "POCKET AD TAGORE GARDEN TAGORE GARDEN EXTENSION,"
+    },
+    {
+        "DIVISION": "NEHRU PLACE",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "MASJID MOTH GREATER KAILASH,"
+    },
+    {
+        "DIVISION": "JAFFARPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "11KV FEEDER-MAINTENANCE",
+        "AREA": "DARYAPUR KHURD VILLAGE,QAZIPUR VILLAGE,MALIKPUR ZER VILLAGE,KHERA DABAS VILLAGE,JAFARPUR KALAN VILLAGE,UJWA VILLAGE,SAMAZPUR KHALSA,"
+    },
+    {
+        "DIVISION": "NEW FRIENDS COLONY",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "11KV FEEDER-PREVENTIVE MAINTENANCE",
+        "AREA": "BLOCK H SRINIVAS PURI,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "LT CIRCUIT-NETWORK UPGRADATION",
+        "AREA": "GANDHI PARK DINPUR,SHYAM VIHAR - II DINPUR,SHIV PURI II DINPUR,"
+    },
+    {
+        "DIVISION": "JAFFARPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "11KV FEEDER-MAINTENANCE",
+        "AREA": "RAWTA VILLAGE,DAURALA VILLAGE,GHALLBPUR VILLAGE,DARYAPUR KHURD VILLAGE,GHUMAN HERA JAINPUR VILLAGE,GHUMANHERA,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "LAKHI NATH KUTI MEHRAULI,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HT INTERMEDIATE FEEDER-MAINTENANCE",
+        "AREA": "POCKET 3 SECR D VASANT KUNJ,"
+    },
+    {
+        "DIVISION": "NIZAMUDDIN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "HARI NAGAR ASHRAM,"
+    },
+    {
+        "DIVISION": "NIZAMUDDIN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "BLOCK G SOUTH EXTENSION PART 1,"
+    },
+    {
+        "DIVISION": "JAFFARPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "11KV FEEDER-MAINTENANCE",
+        "AREA": "QAZIPUR VILLAGE,SARANGPUR VILLAGE,DHANSA VILLAGE,JAFARPUR KALAN VILLAGE,ISSAPUR VILLAGE,SAMAZPUR KHALSA,BADHOSRA,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "ANAND GRAM GHIRNI,"
+    },
+    {
+        "DIVISION": "CHHATARPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HT INTERMEDIATE FEEDER-MAINTENANCE",
+        "AREA": "BHATI KALAN,ASOLA,DERA VILLAGE,"
+    },
+    {
+        "DIVISION": "HAUZ KHAS",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "BLOCK L KAUSALYA PARK PADMINI ENCLAVE HAUZ KHAS,"
+    },
+    {
+        "DIVISION": "SARITA VIHAR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDS-MAINTENANCE",
+        "AREA": "MADANPUR KHADAR,"
+    },
+    {
+        "DIVISION": "KHANPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "TUGHLAKABAD INSTITUTIONAL AREA VAYUSENABAD,"
+    },
+    {
+        "DIVISION": "NIZAMUDDIN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "BLOCK C LAJPAT NAGAR I LAJPAT NAGAR,"
+    },
+    {
+        "DIVISION": "CHHATARPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "DLF FARMS,"
+    },
+    {
+        "DIVISION": "SAKET",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "BLOCK F SAKET,"
+    },
+    {
+        "DIVISION": "MOHAN GARDEN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDS-MAINTENANCE",
+        "AREA": "PHASE 1 OM VIHAR NAWADA,"
+    },
+    {
+        "DIVISION": "ALAKNANDA",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "E-BLOCK MASJID MOTH,"
+    },
+    {
+        "DIVISION": "NANGLOI",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "11KV FEEDER-MAINTENANCE",
+        "AREA": "VIRAT APARTMENT PASCHIM VIHAR,BLOCK C JAWALAPURI PASCHIM VIHAR,BLOCK S JAWALAPURI EXTENSION PASCHIM VIHAR,CAMP 5 JAWALAPURI PASCHIM VIHAR,"
+    },
+    {
+        "DIVISION": "TAGORE GARDEN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "BLOCK J SHAM NAGAR VISHNU GARDEN,"
+    },
+    {
+        "DIVISION": "MUNDKA",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "BAKKARWALA VILLAGE BAKARWALA,"
+    },
+    {
+        "DIVISION": "HAUZ KHAS",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "DEER PARK HAUZ KHAS,"
+    },
+    {
+        "DIVISION": "TAGORE GARDEN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "BLOCK 9 NURSERY TILAK NAGAR,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HT INTERMEDIATE FEEDER-MAINTENANCE",
+        "AREA": "PALAM FARMS,SLASH PUR VILLAGE PALAM FARMS,"
+    },
+    {
+        "DIVISION": "MOHAN GARDEN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDS-MAINTENANCE",
+        "AREA": "BLOCK RK MOHAN GARDEN RAZAPUR KHURD,"
+    },
+    {
+        "DIVISION": "VIKASPURI",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "LIONS ENCLAVE,"
+    },
+    {
+        "DIVISION": "SARITA VIHAR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDS-MAINTENANCE",
+        "AREA": "MADANPUR KHADAR,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "MASUDPUR VILLAGE SECR B VASANT KUNJ,"
+    },
+    {
+        "DIVISION": "PUNJABI BAGH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "POCKET GH1 PASCHIM VIHAR,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "RAJOKRI VILLAGE RAJOKRI,"
+    },
+    {
+        "DIVISION": "ALAKNANDA",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "RMU-DEFECT IN OPERATION MECHANISM",
+        "AREA": "COMMUNITY CENTER CUM LIBRARY ALAKNANDA,"
+    },
+    {
+        "DIVISION": "PUNJABI BAGH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "MADIPUR PUNJABI BAGH,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "HT INTERMEDIATE FEEDER-TREE TOUCHING",
+        "AREA": "ROSHAN PURA NAJAFGARH,ROSHAN VIHAR 1 NAJAFGARH,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "POCKET 1 BEES SUTRI COLONY SECR 19 DWARKA,"
+    },
+    {
+        "DIVISION": "VIKASPURI",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "BLOCK A 3 UTTAM NAGAR,"
+    },
+    {
+        "DIVISION": "JAFFARPUR",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "11KV FEEDER-MAINTENANCE",
+        "AREA": "NEHA COLONY NEW GOPAL NAGAR NAJAFGARH,GOPAL EXTENSION II NAJAFGARH,BLOCK Z CHETAN VIHAR NEW GOPAL NAGAR NAJAFGARH,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "LT CIRCUIT-MAINTENANCE",
+        "AREA": "SHIV NAGAR DICHAON KALAN,"
+    },
+    {
+        "DIVISION": "MOHAN GARDEN",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "VIPIN GARDEN EXTENSION VIPIN GARDEN NAWADA,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "HVDS-MAINTENANCE",
+        "AREA": "SHYAM ENCLAVE DINPUR,BLOCK E SHYAM VIHAR I NAJAFGARH,"
+    },
+    {
+        "DIVISION": "JANAKPURI",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "B-32 MAYAPURI"
+    },
+    {
+        "DIVISION": "JAFFARPUR",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "11KV FEEDER-MAINTENANCE",
+        "AREA": "GOPAL NAGAR NAJAFGARH,SARSWATI ENCLAVE GOPAL NAGAR NAJAFGARH,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "BLOCK B INDRA PARK MASUDABAD NAJAFGARH,"
+    },
+    {
+        "DIVISION": "NEHRU PLACE",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "BLOCK K LAJPAT NAGAR IV LAJPAT NAGAR,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "KANGANHERI VILLAGE,CHAWLA,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "HT INTERMEDIATE FEEDER-MAINTENANCE",
+        "AREA": "DAULATPUR VILLAGE,JHATIKARA,BADUSARAI,PAPRAWAT VILLAGE,SHIKARPUR VILLAGE,PIND WALA KHURD VILLAGE,PREM NAGAR PAPRAWAT VILLAGE,KANGANHERI VILLAGE,ASALATPUR KHAWAD,REWLA KHANPUR VILLAGE,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-16:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "ANAND GRAM GHITORNI,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-16:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "LAKHI NATH KUTI MEHRAULI,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-15:00",
+        "REASON": "HT INTERMEDIATE FEEDER-MAINTENANCE",
+        "AREA": "PALAM FARMS,SLASH PUR VILLAGE PALAM FARMS,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "10:00-14:00",
+        "REASON": "TRANSFORMER-PREVENTIVE MAINTENANCE",
+        "AREA": "RAJOKRI VILLAGE RAJOKRI,"
+    },
+    {
+        "DIVISION": "SARITA VIHAR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDSMAINTENANCE",
+        "AREA": "Block D Molarband Extension Badarpur,Block E 2 Molarband Extension Badarpur,Block E 1 Molarband Extension Badarpur,Block F Molarband Extension Badarpur,"
+    },
+    {
+        "DIVISION": "TAGORE GARDEN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "LT CIRCUITNETWORK UPGRADATION",
+        "AREA": "Block B 2 Raghubir Nagar Tagore Garden Extension,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Ghitorni Village Ghitorni,"
+    },
+    {
+        "DIVISION": "CHHATARPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "LT CIRCUITMAINTENANCE",
+        "AREA": "Phase-V Aya Nagar Extension Aya Nagar,"
+    },
+    {
+        "DIVISION": "MOHAN GARDEN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "LT CIRCUITMAINTENANCE",
+        "AREA": "Nawada Extension Nawada,"
+    },
+    {
+        "DIVISION": "SAKET",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "DJB MALVIYA NAGAR"
+    },
+    {
+        "DIVISION": "R K PURAM",
+        "TIME(HRS)": "11:00-13:00",
+        "REASON": "RMUMAINTENANCE",
+        "AREA": "BASANT LOK COMM. CENTER"
+    },
+    {
+        "DIVISION": "HAUZ KHAS",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block A 2 Nauroji Nagar Safdarjung Enclave,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERNETWORK UPGRADATION",
+        "AREA": "Satyampuram,"
+    },
+    {
+        "DIVISION": "R K PURAM",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "LT CIRCUITNETWORK UPGRADATION",
+        "AREA": "Jharera Village Asmara Lines Delhi Cantonment,"
+    },
+    {
+        "DIVISION": "ALAKNANDA",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "H-Block Kalka Ji,"
+    },
+    {
+        "DIVISION": "SAKET",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Phase II Sheikh Sarai,"
+    },
+    {
+        "DIVISION": "ALAKNANDA",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Govindpuri,"
+    },
+    {
+        "DIVISION": "HAUZ KHAS",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block L Kausalya Park Padmini Enclave Hauz Khas,"
+    },
+    {
+        "DIVISION": "NIZAMUDDIN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block G South Extension Part 1,"
+    },
+    {
+        "DIVISION": "UTTAM NAGAR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERNETWORK UPGRADATION",
+        "AREA": "Bindapur,"
+    },
+    {
+        "DIVISION": "PALAM",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Durga Park Colony Dasrathpuri,"
+    },
+    {
+        "DIVISION": "NANGLOI",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "LT CIRCUITMAINTENANCE",
+        "AREA": "Ranjeet Vihar,"
+    },
+    {
+        "DIVISION": "NANGLOI",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "LT CIRCUITNETWORK UPGRADATION",
+        "AREA": "Block G Nihal Vihar Adhyapak Nagar Nangloi,"
+    },
+    {
+        "DIVISION": "NEW FRIENDS COLONY",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "11KV FEEDERPREVENTIVE MAINTENANCE",
+        "AREA": "Block H Srinivas Puri,"
+    },
+    {
+        "DIVISION": "TAGORE GARDEN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Pocket AD Tagore Garden Tagore Garden Extension,"
+    },
+    {
+        "DIVISION": "NEHRU PLACE",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Masjid Moth Greater Kailash,"
+    },
+    {
+        "DIVISION": "CHHATARPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HT INTERMEDIATE FEEDERMAINTENANCE",
+        "AREA": "Bhati Kalan,Asola,Dera Village,"
+    },
+    {
+        "DIVISION": "NIZAMUDDIN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block C Lajpat Nagar I Lajpat Nagar,"
+    },
+    {
+        "DIVISION": "SARITA VIHAR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDSMAINTENANCE",
+        "AREA": "Madanpur Khadar,"
+    },
+    {
+        "DIVISION": "KHANPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDSMAINTENANCE",
+        "AREA": "Block J 2 Devli Sangam Vihar,Block I 2 Sangam Vihar,"
+    },
+    {
+        "DIVISION": "PUNJABI BAGH",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block H Karampura West Karampura,"
+    },
+    {
+        "DIVISION": "UTTAM NAGAR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDSMAINTENANCE",
+        "AREA": "Block B Sitapuri Part 2 Sitapuri,Block H Sitapuri Part 2 Sitapuri,Block A Sitapuri Part 2 Sitapuri,Block E Sitapuri Part 2 Sitapuri,"
+    },
+    {
+        "DIVISION": "ALAKNANDA",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "RMUMAINTENANCE",
+        "AREA": "Pocket 52 Chittaranjan Park,"
+    },
+    {
+        "DIVISION": "HAUZ KHAS",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Deer Park Hauz Khas,"
+    },
+    {
+        "DIVISION": "TAGORE GARDEN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block 9 Nursery Tilak Nagar,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERNETWORK UPGRADATION",
+        "AREA": "Ekta Vihar & Rajiv Vihar,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "RMULOW PRESSURE OF GAS IN RMU",
+        "AREA": "Sector D Vasant Kunj,"
+    },
+    {
+        "DIVISION": "VIKASPURI",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "LIONS ENCLAVE,"
+    },
+    {
+        "DIVISION": "CHHATARPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "DLF Farms,"
+    },
+    {
+        "DIVISION": "TAGORE GARDEN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block J Sham Nagar Vishnu Garden,"
+    },
+    {
+        "DIVISION": "MUNDKA",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block C Tyagi Vihar Mundka,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Lakhi Nath Kuti Mehrauli,"
+    },
+    {
+        "DIVISION": "NIZAMUDDIN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Hari Nagar Ashram,"
+    },
+    {
+        "DIVISION": "MOHAN GARDEN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block A Mahavir Enclave Nawada,"
+    },
+    {
+        "DIVISION": "SARITA VIHAR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDSMAINTENANCE",
+        "AREA": "Block B Molarband Extension Badarpur,Block A Molarband Extension Badarpur,Block C Molarband Extension Badarpur,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERCIVIL WORK",
+        "AREA": "Pocket 1 Sector B Vasant Kunj,"
+    },
+    {
+        "DIVISION": "NANGLOI",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "LT CIRCUITMAINTENANCE",
+        "AREA": "Rail Neer Plant Nangloi,"
+    },
+    {
+        "DIVISION": "SARITA VIHAR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Madanpur Khadar Village Madanpur Khadar,"
+    },
+    {
+        "DIVISION": "KHANPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Tughlakabad Institutional Area Vayusenabad,"
+    },
+    {
+        "DIVISION": "CHHATARPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Gadpur Farm DLF Farms,"
+    },
+    {
+        "DIVISION": "MOHAN GARDEN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDSMAINTENANCE",
+        "AREA": "Block RK Mohan Garden Razapur Khurd,"
+    },
+    {
+        "DIVISION": "TAGORE GARDEN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Ravi Nagar Vishnu Garden,"
+    },
+    {
+        "DIVISION": "NEW FRIENDS COLONY",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "LT CIRCUITMAINTENANCE",
+        "AREA": "Canal Colony Okhla,"
+    },
+    {
+        "DIVISION": "SAKET",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block F Saket,"
+    },
+    {
+        "DIVISION": "NANGLOI",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "LT CIRCUITNETWORK UPGRADATION",
+        "AREA": "Pradhan Enclave,"
+    },
+    {
+        "DIVISION": "MUNDKA",
+        "TIME(HRS)": "11:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Bakkarwala Village Bakarwala,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Anand Gram Ghitorni,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HT INTERMEDIATE FEEDERMAINTENANCE",
+        "AREA": "Palam Farms,Slash Pur Village Palam Farms,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HT INTERMEDIATE FEEDERMAINTENANCE",
+        "AREA": "Pocket 3 Sector D Vasant Kunj,"
+    },
+    {
+        "DIVISION": "JANAKPURI",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDSHVDS TRANSFORMER",
+        "AREA": "Block 5 Subhash Nagar,Block 4 Subhash Nagar,"
+    },
+    {
+        "DIVISION": "UTTAM NAGAR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Anup Nagar Adarsh Nagar Bindapur,"
+    },
+    {
+        "DIVISION": "NANGLOI",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "LT CIRCUITMAINTENANCE",
+        "AREA": "Block RR Miyanwali Nagar Paschim Vihar,"
+    },
+    {
+        "DIVISION": "MOHAN GARDEN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDSMAINTENANCE",
+        "AREA": "Phase 1 Om Vihar Nawada,"
+    },
+    {
+        "DIVISION": "MUNDKA",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HT INTERMEDIATE FEEDERMAINTENANCE",
+        "AREA": "Tilangpur Kotla,"
+    },
+    {
+        "DIVISION": "KHANPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "HVDSMAINTENANCE",
+        "AREA": "Block C Pulpehladpur,"
+    },
+    {
+        "DIVISION": "UTTAM NAGAR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "LT CIRCUITNEW U/G LT CABLE CONNECTION",
+        "AREA": "Anup Nagar Adarsh Nagar Bindapur,Mahavir Enclave Part 3 Mahavir Enclave,"
+    },
+    {
+        "DIVISION": "UTTAM NAGAR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERCIVIL WORK",
+        "AREA": "Santosh Park Uttam Nagar,"
+    },
+    {
+        "DIVISION": "SAKET",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block H Saket,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERCIVIL WORK",
+        "AREA": "Pocket 3 Sector B Vasant Kunj,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERNETWORK UPGRADATION",
+        "AREA": "Todarmal Colony Najafgarh,Roshan Vihar Najafgarh,Roshan Pura Najafgarh,Prem Nagar Najafgarh,"
+    },
+    {
+        "DIVISION": "NANGLOI",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "11KV FEEDERMAINTENANCE",
+        "AREA": "Virat Apartment Paschim Vihar,Block C Jawalapuri Paschim Vihar,Block S Jawalapuri Extension Paschim Vihar,Camp 5 Jawalapuri Paschim Vihar,"
+    },
+    {
+        "DIVISION": "CHHATARPUR",
+        "TIME(HRS)": "11:00-15:00",
+        "REASON": "RMUMAINTENANCE",
+        "AREA": "Block F Chhatarpur Village Chhatarpur,Block A1 Chhatarpur Village Chhatarpur,Block C Chhatarpur Extension Chhatarpur,Rajpur Khurd Village Chhatarpur,Ansal Villas Sat Bari,"
+    },
+    {
+        "DIVISION": "NANGLOI",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block A Mira Bagh Paschim Vihar,"
+    },
+    {
+        "DIVISION": "SARITA VIHAR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "11KV FEEDERPREVENTIVE MAINTENANCE",
+        "AREA": "Mithapur,"
+    },
+    {
+        "DIVISION": "PALAM",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Nanda Block Mahavir Enclave Part 1 Mahavir Enclave,"
+    },
+    {
+        "DIVISION": "KHANPUR",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "RMUMAINTENANCE",
+        "AREA": "Block C Devli Sangam Vihar,"
+    },
+    {
+        "DIVISION": "TAGORE GARDEN",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "LT CIRCUITNETWORK UPGRADATION",
+        "AREA": "Block R Janta Colony Tagore Garden Extension,Block D Janta Colony Tagore Garden Extension,Block G Janta Colony Tagore Garden Extension,Shivaji Enclave Tagore Garden Extension,"
+    },
+    {
+        "DIVISION": "ALAKNANDA",
+        "TIME(HRS)": "11:00-14:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "E-Block Masjid Moth,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Ranaji Enclave Masudabad Najafgarh,"
+    },
+    {
+        "DIVISION": "PUNJABI BAGH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "West Punjabi Bagh Punjabi Bagh,"
+    },
+    {
+        "DIVISION": "PUNJABI BAGH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERCIVIL WORK",
+        "AREA": "Block B Bhagwan Das Colony Punjabi Bagh East Punjabi Bagh,"
+    },
+    {
+        "DIVISION": "PUNJABI BAGH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "LT CIRCUITNETWORK UPGRADATION",
+        "AREA": "Punjabi Bagh Extension Punjabi Bagh,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Masudpur Village Sector B Vasant Kunj,"
+    },
+    {
+        "DIVISION": "NIZAMUDDIN",
+        "TIME(HRS)": "10:00-15:00",
+        "REASON": "TRANSFORMERNETWORK UPGRADATION",
+        "AREA": "Pocket C Siddhartha Nagar,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Pocket 1 Bees Sutri Colony Sector 19 Dwarka,"
+    },
+    {
+        "DIVISION": "JANAKPURI",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block C1 Janak Puri,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Rajokri Village Rajokri,"
+    },
+    {
+        "DIVISION": "PUNJABI BAGH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Madipur Punjabi Bagh,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Kanganheri Village,Chawla,"
+    },
+    {
+        "DIVISION": "VIKASPURI",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Budhela Village Vikas Puri,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "HT INTERMEDIATE FEEDERMAINTENANCE",
+        "AREA": "Daulatpur Village,Jhatikara,Badusarai,Paprawat Village,Shikarpur Village,Pind Wala Khurd Village,Prem Nagar Paprawat Village,Kanganheri Village,Asalatpur Khawad,Rewla Khanpur Village,"
+    },
+    {
+        "DIVISION": "SAKET",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "LT CIRCUITMAINTENANCE",
+        "AREA": "Adhchini Village Qutab Enclave,"
+    },
+    {
+        "DIVISION": "JAFFARPUR",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "11KV FEEDERMAINTENANCE",
+        "AREA": "Rawta Village,"
+    },
+    {
+        "DIVISION": "JAFFARPUR",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "11KV FEEDERMAINTENANCE",
+        "AREA": "Gopal Nagar Najafgarh,Sarswati Enclave Gopal Nagar Najafgarh,"
+    },
+    {
+        "DIVISION": "JANAKPURI",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block A-1 Janak Puri,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "HT INTERMEDIATE FEEDERTREE TOUCHING",
+        "AREA": "Roshan Pura Najafgarh,Roshan Vihar 1 Najafgarh,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block B Indra Park Masudabad Najafgarh,"
+    },
+    {
+        "DIVISION": "JAFFARPUR",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERNETWORK UPGRADATION",
+        "AREA": "Mandhela Khurd Village,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "LT CIRCUITMAINTENANCE",
+        "AREA": "Shiv Nagar Dichaon Kalan,"
+    },
+    {
+        "DIVISION": "DWARKA",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "LT CIRCUITNETWORK UPGRADATION",
+        "AREA": "Jain Park Om Vihar Uttam Nagar,"
+    },
+    {
+        "DIVISION": "DWARKA",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "LT CIRCUITNETWORK UPGRADATION",
+        "AREA": "Nand Vihar Sector 16A Dwarka,"
+    },
+    {
+        "DIVISION": "JAFFARPUR",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Issapur Village,"
+    },
+    {
+        "DIVISION": "ALAKNANDA",
+        "TIME(HRS)": "10:00-17:00",
+        "REASON": "RMUDEFECT IN OPERATION MECHANISM",
+        "AREA": "Community Center Cum Library Alaknanda,"
+    },
+    {
+        "DIVISION": "UTTAM NAGAR",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "LT CIRCUITNEW LTAB CIRCUIT LAYING",
+        "AREA": "Block D JJ Colony Uttam Nagar,"
+    },
+    {
+        "DIVISION": "VIKASPURI",
+        "TIME(HRS)": "10:00-14:00",
+        "REASON": "11KV FEEDERMAINTENANCE",
+        "AREA": "Block A JJ Colony Uttam Nagar,JJ Colony Uttam Nagar,"
+    },
+    {
+        "DIVISION": "NEHRU PLACE",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "National Park Lajpat Nagar,"
+    },
+    {
+        "DIVISION": "JAFFARPUR",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "11KV FEEDERMAINTENANCE",
+        "AREA": "Khera Dabas Village,"
+    },
+    {
+        "DIVISION": "UTTAM NAGAR",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERROUTINE MAINTENANCE",
+        "AREA": "Block A Ram Datt Enclave Uttam Nagar,"
+    },
+    {
+        "DIVISION": "JANAKPURI",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Block J 13 Rajouri Garden,"
+    },
+    {
+        "DIVISION": "NIZAMUDDIN",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERNETWORK UPGRADATION",
+        "AREA": "Block J Lajpat Nagar II Lajpat Nagar,"
+    },
+    {
+        "DIVISION": "VIKASPURI",
+        "TIME(HRS)": "10:00-14:00",
+        "REASON": "TRANSFORMERNETWORK UPGRADATION",
+        "AREA": "JJ Colony Uttam Nagar,"
+    },
+    {
+        "DIVISION": "PUNJABI BAGH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Pocket GH1 Paschim Vihar,"
+    },
+    {
+        "DIVISION": "VASANT KUNJ",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "LT CIRCUITMAINTENANCE",
+        "AREA": "Rangpuri Pahari Rangpuri,"
+    },
+    {
+        "DIVISION": "NAJAFGARH",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "HVDSMAINTENANCE",
+        "AREA": "Shyam Enclave Dinpur,Block E Shyam Vihar I Najafgarh,"
+    },
+    {
+        "DIVISION": "MOHAN GARDEN",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Vipin Garden Extension Vipin Garden Nawada,"
+    },
+    {
+        "DIVISION": "JANAKPURI",
+        "TIME(HRS)": "10:00-13:00",
+        "REASON": "TRANSFORMERPREVENTIVE MAINTENANCE",
+        "AREA": "Pocket D 1C Lajwanti Garden Janak Puri,"
+    }
+]

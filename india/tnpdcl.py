@@ -12,9 +12,9 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 class Tnpdcl:
-    def __init__(self, url, base_url):
-        self.url = url
-        self.base_url = base_url
+    def __init__(self):
+        self.url = 'https://www.tnebltd.gov.in/outages/viewshutdown.xhtml'
+        self.base_url = "https://www.tnebltd.gov.in/outages/"
         self.today = datetime.today().strftime("%Y-%m-%d")
         self.folder_path = None
 
@@ -73,17 +73,17 @@ class Tnpdcl:
             print("Failed to download CAPTCHA image.")
 
 
-    def run(self):
+    def scrape(self):
         driver = self.fetch()
         number = self.getNumber(driver)
         self.get_file(driver, number)
+        print("scraping is done for tnebltd")
 
 
 
 
-url = 'https://www.tnebltd.gov.in/outages/viewshutdown.xhtml'
-base_url = "https://www.tnebltd.gov.in/outages/"
-tnpdcl = Tnpdcl(url, base_url)
-tnpdcl.run()
+
+# tnebltd = Tnpdcl()
+# tnebltd.scrape()
 
 

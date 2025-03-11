@@ -7,8 +7,8 @@ from bs4 import BeautifulSoup
 
 class Goa:
 
-    def __init__(self, url):
-        self.url = url
+    def __init__(self):
+        self.url = "https://www.goaelectricity.gov.in/Goa_power_outage.aspx#"
         self.today = datetime.today().strftime("%Y-%m-%d")
         self.folder_path = None
 
@@ -16,7 +16,7 @@ class Goa:
         self.folder_path = "./data/" + self.today
         os.makedirs(self.folder_path, exist_ok=True)
 
-    def fetch(self):
+    def scrape(self):
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         self.check_folder()
         response = requests.get(self.url, verify=False)
@@ -26,10 +26,10 @@ class Goa:
         html_filename = os.path.join(self.folder_path, self.today + "_planned_power_outage.html")
         with open(html_filename, 'w', encoding='utf-8') as file:
             file.write(div_html)
-            print("HTML file saved successfully.")
+            print("scraping is done for goaelectricity")
 
 
 
-url = "https://www.goaelectricity.gov.in/Goa_power_outage.aspx#"
-goa = Goa(url)
-goa.fetch()
+#
+# goa = Goa()
+# goa.scrape()

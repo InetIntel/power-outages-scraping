@@ -7,8 +7,8 @@ import requests
 
 class ScrapeRajdhaniWeekly:
 
-    def __init__(self, url):
-        self.url = url
+    def __init__(self):
+        self.url = "https://www.bsesdelhi.com/web/brpl/weekly-dashboard"
         self.today = datetime.today().strftime("%Y-%m-%d")
         self.folder_path = None
 
@@ -53,11 +53,12 @@ class ScrapeRajdhaniWeekly:
         with open(file_path, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=4)
 
-    def run(self):
+    def scrape(self):
         table = self.fetch()
         self.process(table)
+        print("scraping is done for bsesdelhi")
 
 
-url = "https://www.bsesdelhi.com/web/brpl/weekly-dashboard"
-scrapeRajdhaniWeekly = ScrapeRajdhaniWeekly(url)
-scrapeRajdhaniWeekly.run()
+
+# scrapeRajdhaniWeekly = ScrapeRajdhaniWeekly()
+# scrapeRajdhaniWeekly.scrape()
