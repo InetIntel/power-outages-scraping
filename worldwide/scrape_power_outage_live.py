@@ -16,9 +16,10 @@ class ScrapePowerOutageLive:
         self.country = country_name
         self.states = {}
         self.check_folder()
+        self.today = datetime.today().strftime("%Y-%m-%d")
 
     def check_folder(self):
-        folder_path = "./data"
+        folder_path = "./data/" + self.today
         os.makedirs(folder_path, exist_ok=True)
 
 
