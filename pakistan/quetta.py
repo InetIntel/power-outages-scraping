@@ -6,8 +6,8 @@ import os
 
 
 class Quetta:
-    def __init__(self, url):
-        self.url = url
+    def __init__(self):
+        self.url = "http://www.qesco.com.pk/Shutdown.aspx#google_vignette"
         self.today = datetime.today().strftime("%Y-%m-%d")
         self.folder_path = None
 
@@ -39,12 +39,13 @@ class Quetta:
             json.dump(data, file, indent=4)
 
 
-    def run(self):
+    def scrape(self):
         response = self.fetch()
         data = self.parse(response)
         self.save_json(data)
+        print("scraping is done for qesco")
 
-url = "http://www.qesco.com.pk/Shutdown.aspx#google_vignette"
-quetta = Quetta(url)
-quetta.run()
+
+# quetta = Quetta()
+# quetta.scrape()
 

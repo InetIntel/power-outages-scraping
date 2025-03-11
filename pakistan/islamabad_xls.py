@@ -7,8 +7,8 @@ from datetime import datetime
 
 class IslamabadXls:
 
-    def __init__(self, url):
-        self.page_url = url
+    def __init__(self):
+        self.page_url = "https://www.iesco.com.pk/index.php/customer-services/annual-maintenance-schedule"
         self.today = datetime.today().strftime("%Y-%m-%d")
         self.folder_path = None
 
@@ -29,7 +29,7 @@ class IslamabadXls:
     def parse(self, response):
         soup = BeautifulSoup(response.text, "html.parser")
         links = [a["href"] for a in soup.find_all("a", href=True) if a.get_text(strip=True) == "Click To View"]
-        full_links = [requests.compat.urljoin(url, link) for link in links]
+        full_links = [requests.compat.urljoin(self.page_url, link) for link in links]
         return full_links
 
     def download(self, file_url):
@@ -49,8 +49,9 @@ class IslamabadXls:
         self.check_folder()
         for link in links:
             self.download(link)
+        print("scraping is done for iesco")
 
 
-url = "https://www.iesco.com.pk/index.php/customer-services/annual-maintenance-schedule"
-islamabadXls = IslamabadXls(url)
-islamabadXls.scrape()
+
+# islamabadXls = IslamabadXls()
+# islamabadXls.scrape()

@@ -59,8 +59,9 @@ class ScrapeWebpage:
         file_path = os.path.join(self.folder_path, "outage_" + self.today + ".json")
         with open(file_path, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=4)
+            print("scraping is done for ikejaelectric")
 
-scrape_webpage = ScrapeWebpage()
-scrape_webpage.scrape()
+# scrape_webpage = ScrapeWebpage()
+# scrape_webpage.scrape()
 
 

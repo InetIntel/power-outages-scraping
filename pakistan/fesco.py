@@ -6,9 +6,9 @@ from bs4 import BeautifulSoup
 
 class Fesco:
 
-    def __init__(self, url, base_url):
-        self.url = url
-        self.base_url = base_url
+    def __init__(self):
+        self.url = "http://mis.fesco.com.pk/fescoweb/old.fesco.com.pk/News/shutdown_Choice.asp"
+        self.base_url = "http://mis.fesco.com.pk/fescoweb/old.fesco.com.pk/News/"
         self.today = datetime.today().strftime("%Y-%m-%d")
         self.folder_path = None
 
@@ -52,14 +52,13 @@ class Fesco:
             else:
                 print(f"Failed to download file. Status code: {response.status_code}")
 
-    def run(self):
+    def scrape(self):
         response = self.fetch()
         data = self.parse(response)
         self.download(data)
+        print("scraping is done for fesco")
 
 
 
-url = "http://mis.fesco.com.pk/fescoweb/old.fesco.com.pk/News/shutdown_Choice.asp"
-base_url = "http://mis.fesco.com.pk/fescoweb/old.fesco.com.pk/News/"
-fesco = Fesco(url, base_url)
-fesco.run()
+# fesco = Fesco()
+# fesco.scrape()

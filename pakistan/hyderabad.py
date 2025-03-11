@@ -7,8 +7,8 @@ from bs4 import BeautifulSoup
 
 class Hyderabad:
 
-    def __init__(self, url):
-        self.url = url
+    def __init__(self):
+        self.url = "http://www.hesco.gov.pk/shutdownschedule.asp"
         self.today = datetime.today().strftime("%Y-%m-%d")
         self.folder_path = None
 
@@ -16,7 +16,7 @@ class Hyderabad:
         self.folder_path = "./data/" + self.today
         os.makedirs(self.folder_path, exist_ok=True)
 
-    def fetch(self):
+    def scrape(self):
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         self.check_folder()
         response = requests.get(self.url, verify=False)
@@ -26,10 +26,10 @@ class Hyderabad:
         html_filename = os.path.join(self.folder_path, self.today + "_shutdown_schedule.html")
         with open(html_filename, 'w', encoding='utf-8') as file:
             file.write(div_html)
-            print("HTML file saved successfully.")
+            print("scraping is done for hesco")
 
 
 
-url = "http://www.hesco.gov.pk/shutdownschedule.asp"
-hyderabad = Hyderabad(url)
-hyderabad.fetch()
+
+# hyderabad = Hyderabad()
+# hyderabad.scrape()

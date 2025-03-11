@@ -5,9 +5,9 @@ import os
 
 
 class ScrapePDF:
-    def __init__(self, url):
-        self.url = url
-        self.today = datetime.today().strftime("%Y-%m-%d")
+    def __init__(self):
+        self.url = "https://posoco.in/en/grid-disturbancesincidence/%e0%a4%97%e0%a5%8d%e0%a4%b0%e0%a4%bf%e0%a4%a1-%e0%a4%97%e0%a4%a1%e0%a4%bc%e0%a4%ac%e0%a4%a1%e0%a4%bc%e0%a5%80-%e0%a4%98%e0%a4%9f%e0%a4%a8%e0%a4%be%e0%a4%8f%e0%a4%82-2024-25/"
+        self.month = datetime.today().strftime("%Y-%m")
         self.folder_path = None
 
 
@@ -30,7 +30,7 @@ class ScrapePDF:
 
 
     def check_folder(self):
-        self.folder_path = "./data/" + self.today
+        self.folder_path = "./monthy_data/" + self.month
         os.makedirs(self.folder_path, exist_ok=True)
 
 
@@ -47,14 +47,15 @@ class ScrapePDF:
             print(f"Failed to download file. Status code: {response.status_code}")
 
 
-    def run(self):
+    def scrape(self):
         response = self.fetch()
         link, file_name = self.parse(response)
         self.download(link, file_name)
+        print("scraping is done for posoco")
 
 
-url = "https://posoco.in/en/grid-disturbancesincidence/%e0%a4%97%e0%a5%8d%e0%a4%b0%e0%a4%bf%e0%a4%a1-%e0%a4%97%e0%a4%a1%e0%a4%bc%e0%a4%ac%e0%a4%a1%e0%a4%bc%e0%a5%80-%e0%a4%98%e0%a4%9f%e0%a4%a8%e0%a4%be%e0%a4%8f%e0%a4%82-2024-25/"
-scrapePDF = ScrapePDF(url)
-scrapePDF.run()
+
+# scrapePDF = ScrapePDF()
+# scrapePDF.scrape()
 
 

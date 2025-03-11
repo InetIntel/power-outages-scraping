@@ -11,6 +11,7 @@ class ScrapeXls:
         self.base_url = "https://npp.gov.in"
         self.today = datetime.today().strftime("%Y-%m-%d")
         self.folder_path = None
+        self.reports =["10.Daily Outage Report", "11. Daily Outage Report"]
 
 
     def check_folder(self):
@@ -55,13 +56,13 @@ class ScrapeXls:
         else:
             print(f"Failed to download file. Status code: {response.status_code}")
 
-    def scrape(self, report_name):
-        response = self.fetch()
-        file_url = self.parse(response, report_name)
-        self.check_folder()
-        self.download(file_url)
+    def scrape(self):
+        for report in self.reports:
+            response = self.fetch()
+            file_url = self.parse(response, report)
+            self.check_folder()
+            self.download(file_url)
+        print("scraping is done for npp")
 
-scrape_xls = ScrapeXls()
-reports = ["10.Daily Outage Report", "11. Daily Outage Report"]
-for report in reports:
-    scrape_xls.scrape(report)
+# npp = ScrapeXls()
+# npp.scrape()
