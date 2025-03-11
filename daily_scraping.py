@@ -9,6 +9,7 @@ from india.tangedco import Tangedco
 from india.tnpdcl import Tnpdcl
 from india.scrape_xls import ScrapeXls
 from india.scrape_Rajdhani import ScrapeRajdhani
+from india.tata import Tata
 
 
 def scrape():
@@ -45,6 +46,10 @@ def scrape():
 
     qesco = Quetta()
     qesco.scrape()
+
+    tatapower = Tata()
+    tatapower.scrape()
+
     print("ALL DONE")
 
 
