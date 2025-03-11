@@ -71,6 +71,7 @@ class Tata:
         driver.quit()
 
 
+
 if __name__ == "__main__":
     tatapower = Tata()
     tatapower.scrape()

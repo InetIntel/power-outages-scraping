@@ -50,6 +50,7 @@ def scrape():
     tatapower = Tata()
     tatapower.scrape()
 
+
     print("ALL DONE")
 
 
