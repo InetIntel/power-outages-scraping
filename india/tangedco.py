@@ -29,6 +29,6 @@ class Tangedco:
 
 
 
-
-# tnebnet = Tangedco()
-# tnebnet.scrape()
+if __name__ == "__main__":
+    tnebnet = Tangedco()
+    tnebnet.scrape()

@@ -77,7 +77,7 @@ class ScrapeRajdhani:
                 }
                 res.append(outage_details)
         time.sleep(3)
-        self.save_json(res, file_name)
+        self.save_json(res[1:], file_name)
         print(f"Data is saved for {self.today}")
 
     def scrape(self):
