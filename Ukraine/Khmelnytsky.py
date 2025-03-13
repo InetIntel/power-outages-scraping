@@ -19,7 +19,7 @@ class PlannedDisconnectionSpider(scrapy.Spider):
             '4', '12', '17', '21', '23', '24',
         ]
         now = datetime.datetime.now()
-        five_days_later = now + datetime.timedelta(days=5)
+        five_days_later = now + datetime.timedelta(days=1)
         formatted_start_date = now.strftime("%d.%m.%Y")
         formatted_end_date = five_days_later.strftime("%d.%m.%Y")
         for region in regions:
