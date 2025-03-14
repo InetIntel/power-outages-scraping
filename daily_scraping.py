@@ -17,8 +17,9 @@ def scrape():
     tnebltd = Tnpdcl()
     tnebltd.scrape()
 
-    # tnebnet = Tangedco()
-    # tnebnet.scrape()
+
+    tnebnet = Tangedco()
+    tnebnet.scrape()
 
     bsesdelhi_weekly = ScrapeRajdhaniWeekly()
     bsesdelhi_weekly.scrape()

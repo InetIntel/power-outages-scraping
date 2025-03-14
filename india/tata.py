@@ -41,14 +41,24 @@ class Tata:
         wait = WebDriverWait(driver, 20)
         wait.until(EC.presence_of_element_located((By.ID, "table1")))
         headers = driver.find_elements(By.XPATH, "//thead//th")
-        titles = [header.text for header in headers]
+        # titles = [header.text for header in headers]
         rows = driver.find_elements(By.XPATH, "//tbody[@id='tbodyid']/tr")
         data = []
         for row in rows:
             cols = row.find_elements(By.TAG_NAME, "td")
-            row_data = dict()
-            for i in range(len(cols)):
-                row_data[titles[i]] = cols[i].text
+            start_time = datetime.strptime(cols[3].text, "%B %d, %Y %H:%M")
+            end_time = datetime.strptime(cols[4].text, "%B %d, %Y %H:%M")
+            row_data = {
+                "country": "India",
+                "start": start_time.strftime("%Y-%m-%d_%H-%M-%S"),
+                "end": end_time.strftime("%Y-%m-%d_%H-%M-%S"),
+                "duration_(hours)": int((end_time - start_time).total_seconds() / 3600),
+                "event_category": cols[2].text,
+                # "REASON": columns[2].text,
+                "area_affected": {cols[0].text: cols[1].text.split(",")}
+            }
+            # for i in range(len(cols)):
+            #     row_data[titles[i]] = cols[i].text
             data.append(row_data)
         return data
 

@@ -27,15 +27,19 @@ class ScrapeWebpage:
             for outage in outages:
                 state_class = outage.find(class_=['post-category'])
                 date_class = outage.find(class_=['post-date'])
-                tmp = dict()
+                details = dict()
                 if state_class:
-                    tmp["STATE"] = state_class.text
+                    details["country"] = "Nigeria"
+                    state = state_class.text
                     date = date_class.text
                     date = datetime.strptime(date, "%a, %d %b %Y").strftime("%Y-%m-%d")
-                    tmp["Date"] = date
+                    details["start"] = date
                     info = outage.find('h3', class_='post-title')
                     info = info.get_text(separator=" ", strip=True).split(" ")
                     i = 0
+
+                    details["event_category"] = "historical outage"
+                    tmp = dict()
                     while i < len(info):
                         key = info[i].strip()[:-1]
                         tmp[key] = ""
@@ -45,7 +49,9 @@ class ScrapeWebpage:
                             text += info[i].strip() + " "
                             i += 1
                         tmp[key] = text.strip()
-                res.append(tmp)
+                    areas = tmp["AFFECTED"].split(",")
+                    details["area_affected"] = {state: areas}
+                res.append(details)
             return res
         else:
             print(f"Failed to retrieve the webpage. Status code: {response.status_code}")
@@ -61,7 +67,9 @@ class ScrapeWebpage:
             json.dump(data, file, indent=4)
             print("scraping is done for ikejaelectric")
 
-# scrape_webpage = ScrapeWebpage()
-# scrape_webpage.scrape()
+
+if __name__ == "__main__":
+    scrape_webpage = ScrapeWebpage()
+    scrape_webpage.scrape()
 
 

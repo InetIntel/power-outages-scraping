@@ -66,18 +66,25 @@ class ScrapeRajdhani:
 
     def process(self, table_rows, file_name):
         res = []
-        for row in table_rows[1:]:
+        for row in table_rows[2:]:
             columns = row.find_elements(By.TAG_NAME, "td")
+            division = columns[0].text
+            hours = columns[1].text.split("-")
+            start = datetime.strptime(hours[0], "%H:%M")
+            end = datetime.strptime(hours[1], "%H:%M")
             if len(columns) > 0:
                 outage_details = {
-                    "DIVISION": columns[0].text,
-                    "TIME(HRS)": columns[1].text,
-                    "REASON": columns[2].text,
-                    "AREA": columns[3].text
+                    "country": "India",
+                    "start": self.day + "_" + start.strftime("%H-%M-%S"),
+                    "end": self.day + "_" + end.strftime("%H-%M-%S"),
+                    "duration_(hours)": int((end - start).total_seconds()/3600),
+                    "event_category": "maintenance schedule",
+                    # "REASON": columns[2].text,
+                    "area_affected": {division: columns[3].text[:-1].split(",")}
                 }
                 res.append(outage_details)
         time.sleep(3)
-        self.save_json(res[1:], file_name)
+        self.save_json(res, file_name)
         print(f"Data is saved for {self.today}")
 
     def scrape(self):
@@ -92,8 +99,9 @@ class ScrapeRajdhani:
             time.sleep(2)
 
 
-# bsesdelhi = ScrapeRajdhani()
-# bsesdelhi.scrape()
+if __name__ == "__main__":
+    bsesdelhi = ScrapeRajdhani()
+    bsesdelhi.scrape()
 
 
 
