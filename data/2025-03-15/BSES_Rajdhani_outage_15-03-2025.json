@@ -1,0 +1,641 @@
+[
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "TAGORE GARDEN": [
+                "BLOCK RG RAGHUBIR NAGAR TAGORE GARDEN EXTENSION"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "DWARKA": [
+                "SECR 10 DWARKA"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "NEW FRIENDS COLONY": [
+                "BLOCK A NEW FRIENDS COLONY WEST NEW FRIENDS COLONY"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "SAKET": [
+                "BLOCK G SAKET"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "ALAKNANDA": [
+                "SHAHEED RAJIV GANDHI COLONY GOVINDPURI"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "JANAKPURI": [
+                "A-43 MAYA PUR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "MOHAN GARDEN": [
+                "BLOCK C VIPIN GARDEN NAWADA"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "NAJAFGARH": [
+                "NANGLI SANKRANTI NANGLI SAKRAWATI"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "PUNJABI BAGH": [
+                "WEST PUNJABI BAGH PUNJABI BAGH"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "NAJAFGARH": [
+                "POCHANPUR DWARKA"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "NAJAFGARH": [
+                "DHARAMPURA NAJAFGARH"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "NAJAFGARH": [
+                "HASANPUR VILLAGE",
+                "ASALETPUR KHAWAD VILLAGE",
+                "DAULATPUR VILLAGE",
+                "KHERA DABAS VILLAGE",
+                "JHATIKARA",
+                "PIND WALA KALAN VILLAGE",
+                "ASALATPUR KHAWAD",
+                "UJWA VILLAGE"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "NAJAFGARH": [
+                "REWLA KHANPUR VILLAGE"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_12-00-00",
+        "end": "2025-03-15_15-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "DWARKA": [
+                "SECR 10 DWARKA"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "VASANT KUNJ": [
+                "ANAND GRAM GHIRNI"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "SAKET": [
+                "SFS B1 SHIEKH SARAI PH-"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "VASANT KUNJ": [
+                "ANAND GRAM GHIRNI"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "CHHATARPUR": [
+                "SULTANPUR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "VASANT KUNJ": [
+                "ANAND GRAM GHIRNI"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "KHANPUR": [
+                "BLOCK J 2 DEVLI SANGAM VIHAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "NIZAMUDDIN": [
+                "PRAGATI VIHAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "HAUZ KHAS": [
+                "B-6",
+                " S.J ENCLAV"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "JAFFARPUR": [
+                "KHERA DABAS VILLAGE",
+                "KHARKHARI ROND VILLAGE",
+                "JAFARPUR KALAN VILLAGE",
+                "UJWA VILLAGE",
+                "SAMAZPUR KHALSA",
+                "RAWTA JAFARPUR KALAN VILLAGE",
+                "SHERPUR EXTENTION"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "SARITA VIHAR": [
+                "RAJ NAGAR MADANPUR KHADAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "TAGORE GARDEN": [
+                "RAVI NAGAR VISHNU GARDEN"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "VIKASPURI": [
+                "SHIV VIHAR HASTSAL",
+                "GUPTA ENCLAVE",
+                "SHIV VIHAR WEST"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "JAFFARPUR": [
+                "AIR FORCE RADA"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "JAFFARPUR": [
+                "QAZIPUR VILLAGE",
+                "SARANGPUR VILLAGE",
+                "DHANSA VILLAGE",
+                "JAFARPUR KALAN VILLAGE",
+                "ISSAPUR VILLAGE",
+                "SAMAZPUR KHALSA",
+                "BADHOSRA"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "JAFFARPUR": [
+                "MANDHELA KHURD VILLAGE",
+                "MANDHELA KALAN VILLAGE",
+                "RAWTA JAFARPUR KALAN VILLAGE",
+                "KAIR VILLAGE"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "KHANPUR": [
+                "BLOCK G VISHWAKARMA COLONY PULPEHLADPUR",
+                "BLOCK C LAL KUAN",
+                "BLOCK C VISHWAKARMA COLONY PULPEHLADPUR",
+                "BLOCK B VISHWAKARMA COLONY PULPEHLADPUR",
+                "BLOCK F VISHWAKARMA COLONY PULPEHLADPUR",
+                "BLOCK A VISHWAKARMA COLONY PULPEHLADPUR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "TAGORE GARDEN": [
+                "BLOCK RG RAGHUBIR NAGAR TAGORE GARDEN EXTENSION"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "NEHRU PLACE": [
+                "NEHRU PLACE"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "MUNDKA": [
+                "NEW PVC MARKET TIKRI KALAN"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "VASANT KUNJ": [
+                "ROOPAM WALA KUNWA MEHRAULI"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "VIKASPURI": [
+                "SHIV VIHAR HASTSAL",
+                "GUPTA ENCLAVE",
+                "SHIV VIHAR WEST"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "JAFFARPUR": [
+                "GHALLBPUR VILLAGE",
+                "SARANGPUR VILLAGE",
+                "JHULJHULI VILLAGE",
+                "JAFARPUR KALAN VILLAGE"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "KHANPUR": [
+                "POCKET C JAWAHAR PARK KHANPUR",
+                "POCKET D JAWAHAR PARK KHANPUR",
+                "POCKET E JAWAHAR PARK KHANPUR",
+                "BLOCK F KHANPUR COLONY KHANPUR",
+                "POCKET A JAWAHAR PARK KHANPUR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "NAJAFGARH": [
+                "DHARAMPURA NAJAFGARH"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "ALAKNANDA": [
+                "W-BLOCK GK-2"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "SAKET": [
+                "BLOCK D SAKET"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "HAUZ KHAS": [
+                "BLOCK C QUTAB INSTITUTIONAL AREA"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "NEW FRIENDS COLONY": [
+                "BLOCK K PART 1 ABUL FAZAL ENCLAVE JAMIA NAGAR OKHLA"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "R K PURAM": [
+                "SECR 8 RAMAKRISHNA PURAM"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "HAUZ KHAS": [
+                "GAUTAM NAGAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "HAUZ KHAS": [
+                "AYURVIGYAN NAGAR S/S NO.-"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "ALAKNANDA": [
+                "MANGALA APARTMENT"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_16-00-00",
+        "duration_(hours)": 5,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "VASANT KUNJ": [
+                "ANAND GRAM GHITORNI"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_16-00-00",
+        "duration_(hours)": 5,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "VASANT KUNJ": [
+                "ANAND GRAM GHITORNI"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_16-00-00",
+        "duration_(hours)": 5,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "VASANT KUNJ": [
+                "ROOPAM WALA KUNWA MEHRAULI"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_16-00-00",
+        "duration_(hours)": 5,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "VASANT KUNJ": [
+                "ANAND GRAM GHITORNI"
+            ]
+        }
+    }
+]
