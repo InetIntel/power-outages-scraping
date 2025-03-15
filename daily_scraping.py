@@ -17,6 +17,7 @@ def scrape():
     tnebltd = Tnpdcl()
     tnebltd.scrape()
 
+
     tnebnet = Tangedco()
     tnebnet.scrape()
 

@@ -1,0 +1,580 @@
+[
+    {
+        "country": "India",
+        "start": "2025-03-15_09-00-00",
+        "end": "2025-03-15_11-00-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "DARYAGANJ": [
+                "LIG/MIG RES/NON COMM AREA-FEROJ SHAH KOTLA STADIUM-AJMERI GATE"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "YAMUNA VIHAR": [
+                "GHONDA PATTI CHAUHAN",
+                "MAUJ PUR COMPLEX 1",
+                "NORTH GHONDA",
+                "BLOCK C-GHONDA"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-30-00",
+        "end": "2025-03-15_13-30-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "DARYAGANJ": [
+                "COMMUNITY CENTRE-JAMA MASZID-CHANDNI CHOWK",
+                "MOTIA MAHAL-CHANDNI CHOWK"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_12-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "YAMUNA VIHAR": [
+                "BLOCK B-SUBHASH MOHALLA-BHAJANPURA",
+                "BLOCK E-SUBHASH MOHALLA-BHAJANPURA",
+                "BLOCK B5-YAMUNA PUR (GONDA) BLOCK B-YAMUNA VIHAR",
+                "TIKONA PARK-BHAJANPURA"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "PATEL NAGAR": [
+                "BLOCK 45-EAST PATEL NAGAR",
+                "BLOCK 47-EAST PATEL NAGAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_09-30-00",
+        "end": "2025-03-15_12-30-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "KARAWAL NAGAR": [
+                "TUKMIRPUR-EXT.-SONIA VIHAR",
+                "A BLOCK-DAYALPUR-SONIA VIHAR",
+                "F BLOCK-SADATPUR-KHAJOORI",
+                "C BLOCK-VILLAGE DAYALPUR-SONIA VIHAR",
+                "BLOCK D-SADATPUR-NEHRU VIHAR",
+                "B BLOCK-DAYALPUR-SONIA VIHAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "SHANKAR ROAD": [
+                "BLOCK 8A-OLD RAJENDRA NAGAR",
+                "PART I- BLOCK C-NEW RAJENDRA NAGAR",
+                "BLOCK 10-OLD RAJENDRA NAGAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "PAHARGANJ": [
+                "FYAZ GANJ-NAWAB GANJ-SADAR BAZAR",
+                "TELI WARA-NAWAB GANJ-SADAR BAZAR",
+                "NAWAB GANJ-SADAR BAZAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_12-30-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "YAMUNA VIHAR": [
+                "NAYAGAON-NEW KATWARA-USMAN PUR",
+                "NEW USMANPUR-NEW KATWARA-USMAN PUR",
+                "GAMRI-GHONDA",
+                "JAG JEEVAN NAGAR-NEW KATWARA GHONDA-USMAN PUR GHONDA",
+                "BLOCK B-KARTAR NAGAR-GHONDA",
+                "BLOCK F-ZERO PUSTA-USMAN PUR",
+                "MCD COLONY-NEW KATWARA-USMAN PUR",
+                "JAG JEEVAN NAGAR-NEW KATWARA-SHASTRI PARK-USMAN PUR-SHASTRI PARK",
+                "LIG/MIG RES/NON COMM AREA-SHASTRI PARK-USMAN PUR",
+                "LIG/MIG RES/NON COMM AREA-ZERO PUSTA-USMAN PUR",
+                "BLOCK G-ZERO PUSTA-USMAN PUR",
+                "BLOCK H-ZERO PUSTA-USMAN PUR",
+                "YAMUNA VIHAR YAMUNA FLOOD PLAINS"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_12-30-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "KRISHNA NAGAR": [
+                "JITAR NAGAR BLOCK A-GAGAN VIHAR-JAGATPURI",
+                "BLOCK J-JAGATPURI",
+                "BLOCK B-JAGATPURI",
+                "BLOCK A-BALDEV PARK EAST-JAGATPURI",
+                "GAGAN VIHAR-JAGATPURI",
+                "BLOCK H-JAGATPURI",
+                "BLOCK K-JAGATPURI",
+                "BLOCK B-JAGATPURI"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_12-30-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "LAXMI NAGAR": [
+                "BLOCK B-SWASTHYA VIHAR-LAKSHMI NAGAR",
+                "LAXMI NAGAR COMMERCIAL COPLEX-SWASTHYA VIHAR-LAKSHMI NAGAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "GT ROAD": [
+                "BLOCK 1-RAM NAGAR-SILAMPUR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "KRISHNA NAGAR": [
+                "BLOCK 11-GEETA COLONY"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-03-00",
+        "end": "2025-03-15_12-03-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "NAND NAGRI": [
+                "BLOCK C-DURGA PURI",
+                "BLOCK A- BHARTIYA BODH SABHA-HARDEV PURI",
+                "BLOCK B-HARDEV PURI",
+                "BLOCK D-HARDEV PURI"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-03-00",
+        "end": "2025-03-15_12-33-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "MAYUR VIHAR I AND II": [
+                "MAYUR VIHAR EXTN.",
+                "BLOCK 32-HIMMATPURI-MAYUR VIHAR",
+                "BLOCK 29-HIMMATPURI-MAYUR VIHAR",
+                "BLOCK 33-HIMMATPURI-MAYUR VIHAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-15-00",
+        "end": "2025-03-15_13-15-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "MAYUR VIHAR I AND II": [
+                "MAYUR VIHAR EXTN.",
+                "BLOCK 32-HIMMATPURI-MAYUR VIHAR",
+                "BLOCK 29-HIMMATPURI-MAYUR VIHAR",
+                "BLOCK 33-HIMMATPURI-MAYUR VIHAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-30-00",
+        "end": "2025-03-15_13-30-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "PATEL NAGAR": [
+                "BLOCK 35-RAMJAS SPORTS COMPLEX-FARIDPURI"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-30-00",
+        "end": "2025-03-15_13-30-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "VASUNDHARA ENCLAVE": [
+                "PKT A3-MAYUR VIHAR PHASE III",
+                "PKT B8-MAYUR VIHAR PHASE III"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-30-00",
+        "end": "2025-03-15_13-30-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "YAMUNA VIHAR": [
+                "SUBHASH PARK-GORAKH PARK-SILAMPUR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_13-30-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "PAHARGANJ": [
+                "CHOWK NAI BASTI-SADAR BAZAR",
+                "SADAR BAZAR B G ROAD",
+                "MODEL BASTI-SADAR BAZAR B G ROAD",
+                "KABRISTAN-SADAR BAZAR B G ROAD",
+                "FIRE STATION RANI JHANSI ROAD-SADAR BAZAR B G ROAD",
+                "DDA FLATS- MOTIAKHAN DUMP SCHEME-MOTIA KHAN-SADAR BAZAR",
+                "SHAHI IDGAH-SADAR BAZAR - P.P QUARTERS",
+                "SFS FLATS- MOTIAKHAN DUMP SCHEME-MOTIA KHAN-SADAR BAZAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-03-00",
+        "end": "2025-03-15_14-03-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "LAXMI NAGAR": [
+                "LAXMI NAGAR COMMERCIAL COPLEX-SWASTHYA VIHAR-LAKSHMI NAGAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-03-00",
+        "end": "2025-03-15_14-03-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "LAXMI NAGAR": [
+                "BLOCK B-VINOD NAGAR EAST-INDRAPRASTHA EXTENSION",
+                "BLOCK A-VINOD NAGAR EAST-INDRAPRASTHA EXTENSION",
+                "BLOCK A-MANDAWALI-INDRAPRASTHA EXTENSION",
+                "FAJALPUR-MANDAWALI-INDRAPRASTHA EXTENSION"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_14-03-00",
+        "end": "2025-03-15_17-03-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "PATEL NAGAR": [
+                "BLOCK 35-RAMJAS SPORTS COMPLEX-FARIDPURI",
+                "CLOSED FACTORY-FARIDPURI-ANAND PARBAT",
+                "BLOCK T-FARIDPURI-WEST PATEL NAGAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_10-30-00",
+        "end": "2025-03-15_12-30-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "MAYUR VIHAR I AND II": [
+                "TRILOKPURI PHASE I-MAYUR VIHAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "YAMUNA VIHAR": [
+                "BLOCK R-BRAHM PURI-USMAN PUR",
+                "BLOCK T-GAUTAM PURI-USMAN PUR",
+                "MCD COLONY-NEW KATWARA-USMAN PUR",
+                "JAG JEEVAN NAGAR-NEW KATWARA-SHASTRI PARK-USMAN PUR-SHASTRI PARK"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "YAMUNA VIHAR": [
+                "JAFFRABAD-MAUJ PUR",
+                "MAUJ PUR COMPLEX 1"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "PAHARGANJ": [
+                "BLOCK L-AMAR NAGAR-SADAR BAZAR",
+                "BLOCK A-AMAR NAGAR-SADAR BAZAR",
+                "BLOCK L-RAM NAGAR-SADAR BAZAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "YAMUNA VIHAR": [
+                "JAFFRABAD-MAUJ PUR",
+                "MAUJ PUR COMPLEX 1"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "LAXMI NAGAR": [
+                "BLOCK F-GURU ANGAD NAGAR WEST-LAKSHMI NAGAR",
+                "BLOCK C-GURU ANGAD NAGAR WEST-LAKSHMI NAGAR",
+                "GURU RAMDAS NAGAR-LAKSHMI NAGAR",
+                "GYAN KUNJ-WEST GURU ANGAD NAGAR-LAKSHMI NAGAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_14-00-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "LAXMI NAGAR": [
+                "GANESH NAGAR-SHAKARPUR KHAS",
+                "BLOCK WA&O-SHAKARPUR KHAS",
+                "BLOCK S-SHAKARPUR KHAS"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-00-00",
+        "end": "2025-03-15_13-00-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "PAHARGANJ": [
+                "BLOCK T-AHATA KEDARA-SADAR BAZAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-03-00",
+        "end": "2025-03-15_13-03-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "KARKARDOOMA": [
+                "KASTURBA NAGAR-SHAHDARA",
+                "JAWALA NAGAR-SHAHDARA"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-03-00",
+        "end": "2025-03-15_13-03-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "GT ROAD": [
+                "ROHITASH NAGAR EAST-SILAMPUR",
+                "BLOCK 1-BALBIR NAGAR-SILAMPUR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-03-00",
+        "end": "2025-03-15_13-03-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "MAYUR VIHAR I AND II": [
+                "CL-CHILLA SARDA BANGAR VILLAGE-MAYUR VIHAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-03-00",
+        "end": "2025-03-15_14-03-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "LAXMI NAGAR": [
+                "BLOCK G-LAKSHMI NAGAR",
+                "BLOCK D-LALITA PARK-LAKSHMI NAGAR",
+                "LAKSHMI NAGAR BLOCK L",
+                "BLOCK F-LALITA PARK-LAKSHMI NAGAR",
+                "BLOCK K-JAGAT RAM PARK-LAKSHMI NAGAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-03-00",
+        "end": "2025-03-15_14-03-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "NAND NAGRI": [
+                "SABOLI COLONY-MANDOLI",
+                "SABOLI VILLAGE-MANDOLI",
+                "VILLAGE SABOLI-SABOLI COLONY-MANDOLI",
+                "BLOCK K-VILLAGE SABOLI-MANDOLI",
+                "BLOCK B-SHAKTI GARDEN"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-03-00",
+        "end": "2025-03-15_14-03-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "NAND NAGRI": [
+                "SEWA DHAM-MANDOLI"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-03-00",
+        "end": "2025-03-15_13-03-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "YAMUNA VIHAR": [
+                "NAYAGAON-NEW KATWARA-USMAN PUR",
+                "NEW USMANPUR-NEW KATWARA-USMAN PUR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_11-03-00",
+        "end": "2025-03-15_13-03-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "NAND NAGRI": [
+                "MANSAROVAR PARK-DURGA PURI",
+                "BLOCK F-DURGA PURI",
+                "SHIV MANDIR-EAST JYOTI NAGAR"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_13-00-00",
+        "end": "2025-03-15_15-00-00",
+        "duration_(hours)": 2,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "PATEL NAGAR": [
+                "RAJENDRA BHAWAN-RAJENDRA PLACE-RAJENDRA NAGAR",
+                "MIG FLATS-PRASAD NAGAR-KAROL BAGH"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-15_14-03-00",
+        "end": "2025-03-15_17-03-00",
+        "duration_(hours)": 3,
+        "event_category": "maintenance schedule",
+        "area_affected": {
+            "NAND NAGRI": [
+                "BLOCK D-ASHOK NAGAR-EAST JYOTI NAGAR",
+                "BLOCK E-ASHOK NAGAR-EAST JYOTI NAGAR"
+            ]
+        }
+    }
+]

@@ -21,11 +21,26 @@ class Quetta:
 
     def parse(self, response):
         soup = BeautifulSoup(response.text, "html.parser")
-        headers = [th.get_text(strip=True) for th in soup.find_all("th")]
+        # headers = [th.get_text(strip=True) for th in soup.find_all("th")]
         rows = []
         for tr in soup.find_all("tr")[1:]:
             data = [td.get_text(strip=True) for td in tr.find_all("td")]
-            rows.append(dict(zip(headers, data)))
+            date = str(datetime.strptime(data[2], "%d-%m-%Y").strftime("%Y-%m-%d")) + "_"
+            times = data[3].split(",")
+            start = times[0]+":00"
+            end = times[1]+":00"
+            start_time = datetime.strptime(start, "%H:%M")
+            end_time = datetime.strptime(end, "%H:%M")
+            tmp = {
+                "country": "Pakistan",
+                "start": date+start,
+                "end": date+end,
+                "duration_(hours)": int((end_time - start_time).total_seconds() / 3600),
+                "event_category": data[4],
+                "area_affected": {data[0]: data[1]}
+            }
+            rows.append(tmp)
+            # rows.append(dict(zip(headers, data)))
         return rows
 
     def check_folder(self):
@@ -45,7 +60,7 @@ class Quetta:
         self.save_json(data)
         print("scraping is done for qesco")
 
-
-# quetta = Quetta()
-# quetta.scrape()
+if __name__ == "__main__":
+    quetta = Quetta()
+    quetta.scrape()
 
