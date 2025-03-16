@@ -1,5 +1,6 @@
 # Import necessary libraries
 import json
+import re
 
 import scrapy
 from scrapy import cmdline
@@ -29,8 +30,40 @@ class PlannedDisconnectionSpider(scrapy.Spider):
                               f"disconn_selector={disconnection_type}&n_date={start_date}&k_date={end_date}&&dept_id={dept_id}")
 
     def parse(self, response):
-        yield json.loads(response.body)
+        response_json = json.loads(response.body)
+        # Define the date format
+        date_format = "%d.%m.%Y %H:%M"
+        if isinstance(response_json['DISCONNECTIONS'], list):
+            print(response_json['DISCONNECTIONS'])
+        else:
+            for number, disconnection in response_json['DISCONNECTIONS'].items():
+                start = disconnection['DATE_START']
+                end = disconnection['DATE_STOP'].split("(")[0].strip()
+
+                # Parse the date strings into datetime objects
+                start_time = datetime.strptime(start, date_format)
+                stop_time = datetime.strptime(end, date_format)
+                duration = (stop_time - start_time).total_seconds() / 3600
+
+                event_category = disconnection['DISCONN_TYPE']
+                country = 'Ukraine'
+                areas_affected = disconnection['ADDRESS']
+                # Regular expression to find text between <br> tags
+                matches = re.findall(r'<br>(.*?)<br>', areas_affected)
+
+                cleaned_matches_areas = [match for match in matches]
+
+                yield {
+                    "start": str(start_time),
+                    "end": str(stop_time),
+                    "duration_(hours)": "{:.2f}".format(duration),
+                    "event_category": "Planned" if event_category == '\u041f\u043b\u0430\u043d\u043e\u0432\u0435' else "Emergency",
+                    "country": country,
+                    "areas_affected": cleaned_matches_areas
+                }
+
+
 
 
 if __name__ == "__main__":
-    cmdline.execute("scrapy runspider Cherkasy.py -O Cherkasy.json".split())
+    cmdline.execute("scrapy runspider Cherkasy.py -O Cherkasy.json -s FEED_EXPORT_ENCODING=utf-8".split())

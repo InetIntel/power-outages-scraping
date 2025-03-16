@@ -19,9 +19,9 @@ class PlannedDisconnectionSpider(scrapy.Spider):
             '4', '12', '17', '21', '23', '24',
         ]
         now = datetime.datetime.now()
-        five_days_later = now + datetime.timedelta(days=1)
+        one_day_later = now + datetime.timedelta(days=1)
         formatted_start_date = now.strftime("%d.%m.%Y")
-        formatted_end_date = five_days_later.strftime("%d.%m.%Y")
+        formatted_end_date = one_day_later.strftime("%d.%m.%Y")
         for region in regions:
             yield scrapy.FormRequest(
                 'https://hoe.com.ua/shutdown/eventlist',
@@ -37,6 +37,7 @@ class PlannedDisconnectionSpider(scrapy.Spider):
         # Extract relevant data from the page
         # Adjust the selectors based on the structure of the webpage
         planned_disconnections = response.xpath('//tbody/tr[not(@class)]')
+        date_format = "%d.%m.%Y %H:%M"
         # print("planned_disconnections", planned_disconnections)
 
         for disconnection in planned_disconnections:
@@ -46,16 +47,16 @@ class PlannedDisconnectionSpider(scrapy.Spider):
             disconnection_type = disconnection.xpath('.//td[2]//text()').get("").strip()
             city_list = disconnection.xpath('.//p[@class="city"]/text()').get("").strip()
             # street_list = disconnection.xpath('.//td[@class="addresses"]/text()').get()
-            inform_time = disconnection.xpath('.//td[3]/text()').get("").strip()
+            # inform_time = disconnection.xpath('.//td[3]/text()').get("").strip()
             yield {
-                'planned_end_time': planned_end_time,
-                'start_time': start_time,
-                'city_list': city_list,
-                'disconnection_type': disconnection_type,
-                'inform_time': inform_time
+                'end':str(datetime.datetime.strptime(planned_end_time, date_format)),
+                'start': str(datetime.datetime.strptime(start_time, date_format)),
+                'duration_(hours)': "{:.2f}".format((datetime.datetime.strptime(planned_end_time, date_format) - datetime.datetime.strptime(start_time, date_format)).total_seconds() / 3600),
+                'areas_affected': city_list,
+                'disconnection_type': "Planned" if disconnection_type == "\u041f\u043b\u0430\u043d\u043e\u0432\u0456" else "Emergency",
             }
 
 
 
 if __name__ == "__main__":
-    cmdline.execute("scrapy runspider Khmelnytsky.py -O Khmelnytsky.json".split())
+    cmdline.execute("scrapy runspider Khmelnytsky.py -O Khmelnytsky.json -s FEED_EXPORT_ENCODING=utf-8".split())
