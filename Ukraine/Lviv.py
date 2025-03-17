@@ -7,7 +7,7 @@ from datetime import datetime
 
 class PlannedDisconnectionSpider(scrapy.Spider):
     # Name of the spider
-    name = "planned_disconnection_cherkasy"
+    name = "planned_disconnection_lviv"
 
     # Start URL for the spider
     now = datetime.now()

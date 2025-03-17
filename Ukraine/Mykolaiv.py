@@ -32,7 +32,20 @@ class PlannedDisconnectionSpider(scrapy.Spider):
 
     def parse(self, response):
         response_body = json.loads(response.body)
-        yield response_body
+        items = response_body['data']
+        date_format = "%Y-%m-%dT%H:%M:%S.%fZ"
+        for item in items:
+            start = datetime.datetime.strptime(item['start_at'], date_format)
+            end = datetime.datetime.strptime(item['finish_at'], date_format)
+            duration = (end - start).total_seconds() / 3600
+            yield {
+                "end": end,
+                "start": start,
+                "duration_(hours)": "{:.2f}".format(duration),
+                "event_type": item['type'],
+                "areas_affected": item['addr'],
+                "country": "Ukraine"
+            }
 
         if "next_page_url" in response_body:
             next_page_url = response_body["next_page_url"]
@@ -53,4 +66,4 @@ class PlannedDisconnectionSpider(scrapy.Spider):
 
 
 if __name__ == "__main__":
-    cmdline.execute("scrapy runspider Mykolaiv.py -O Mykolaiv.json".split())
+    cmdline.execute("scrapy runspider Mykolaiv.py -O Mykolaiv.json -s FEED_EXPORT_ENCODING=utf-8".split())
