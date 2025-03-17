@@ -19,17 +19,20 @@ class Goa:
     def scrape(self):
         urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
         self.check_folder()
-        response = requests.get(self.url, verify=False)
-        soup = BeautifulSoup(response.content, 'html.parser')
-        div_element = soup.find('div', class_='content_rt')
-        div_html = str(div_element)
-        html_filename = os.path.join(self.folder_path, self.today + "_planned_power_outage.html")
-        with open(html_filename, 'w', encoding='utf-8') as file:
-            file.write(div_html)
-            print("scraping is done for goaelectricity")
+        try:
+            response = requests.get(self.url, verify=False)
+            soup = BeautifulSoup(response.content, 'html.parser')
+            div_element = soup.find('div', class_='content_rt')
+            div_html = str(div_element)
+            html_filename = os.path.join(self.folder_path, self.today + "_planned_power_outage.html")
+            with open(html_filename, 'w', encoding='utf-8') as file:
+                file.write(div_html)
+                print("scraping is done for goaelectricity")
+        except Exception as e:
+            print("No response from GOA.")
 
 
 
-#
-# goa = Goa()
-# goa.scrape()
+if __name__ == "__main__":
+    goa = Goa()
+    goa.scrape()
