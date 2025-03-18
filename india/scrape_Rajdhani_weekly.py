@@ -59,6 +59,6 @@ class ScrapeRajdhaniWeekly:
         print("scraping is done for bsesdelhi")
 
 
-
-# scrapeRajdhaniWeekly = ScrapeRajdhaniWeekly()
-# scrapeRajdhaniWeekly.scrape()
+if __name__ == "__main__":
+    scrapeRajdhaniWeekly = ScrapeRajdhaniWeekly()
+    scrapeRajdhaniWeekly.scrape()

@@ -52,6 +52,6 @@ class IslamabadXls:
         print("scraping is done for iesco")
 
 
-
-# islamabadXls = IslamabadXls()
-# islamabadXls.scrape()
+if __name__ == "__main__":
+    islamabadXls = IslamabadXls()
+    islamabadXls.scrape()

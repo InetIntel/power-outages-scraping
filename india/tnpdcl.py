@@ -82,8 +82,8 @@ class Tnpdcl:
 
 
 
-
-# tnebltd = Tnpdcl()
-# tnebltd.scrape()
+if __name__ == "__main__":
+    tnebltd = Tnpdcl()
+    tnebltd.scrape()
 
 

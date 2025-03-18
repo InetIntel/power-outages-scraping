@@ -54,8 +54,8 @@ class ScrapePDF:
         print("scraping is done for posoco")
 
 
-
-# scrapePDF = ScrapePDF()
-# scrapePDF.scrape()
+if __name__ == "__main__":
+    scrapePDF = ScrapePDF()
+    scrapePDF.scrape()
 
 
