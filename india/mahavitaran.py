@@ -89,6 +89,6 @@ class Mahavitaran:
         # options_text = [option.get_text() for option in options]
         return month
 
-
-# mahadiscom = Mahavitaran()
-# mahadiscom.scrape()
+if __name__ == "__main__":
+    mahadiscom = Mahavitaran()
+    mahadiscom.scrape()

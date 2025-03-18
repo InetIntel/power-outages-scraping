@@ -64,5 +64,6 @@ class ScrapeXls:
             self.download(file_url)
         print("scraping is done for npp")
 
-# npp = ScrapeXls()
-# npp.scrape()
+if __name__ == "__main__":
+    npp = ScrapeXls()
+    npp.scrape()

@@ -59,6 +59,6 @@ class Fesco:
         print("scraping is done for fesco")
 
 
-
-# fesco = Fesco()
-# fesco.scrape()
+if __name__ == "__main__":
+    fesco = Fesco()
+    fesco.scrape()

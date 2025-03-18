@@ -30,6 +30,6 @@ class Hyderabad:
 
 
 
-
-# hyderabad = Hyderabad()
-# hyderabad.scrape()
+if __name__ == "__main__":
+    hyderabad = Hyderabad()
+    hyderabad.scrape()

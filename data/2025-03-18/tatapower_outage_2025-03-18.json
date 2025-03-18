@@ -1,0 +1,102 @@
+[
+    {
+        "country": "India",
+        "start": "2025-03-20_10-00-00",
+        "end": "2025-03-20_12-00-00",
+        "duration_(hours)": 2,
+        "event_category": "Routine maintenance",
+        "area_affected": {
+            "North Mira Bhayender": [
+                "Hatkesh Udhog Nagar",
+                "Gaurav Sankalp Phase 1",
+                "Gaurav Sankalp Phase 2"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-20_10-00-00",
+        "end": "2025-03-20_12-00-00",
+        "duration_(hours)": 2,
+        "event_category": "Routine maintenance",
+        "area_affected": {
+            "North Mira Bhayender": [
+                "Hatkesh Udhog Nagar",
+                "Gaurav Sankalp Phase 1",
+                "Gaurav Sankalp Phase 2"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-27_10-00-00",
+        "end": "2025-03-27_12-00-00",
+        "duration_(hours)": 2,
+        "event_category": "Routine maintenance",
+        "area_affected": {
+            "North Borivali": [
+                "Queens Park"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-27_10-00-00",
+        "end": "2025-03-27_12-00-00",
+        "duration_(hours)": 2,
+        "event_category": "Routine maintenance",
+        "area_affected": {
+            "North Borivali": [
+                "Queens Park"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-28_10-00-00",
+        "end": "2025-03-28_12-00-00",
+        "duration_(hours)": 2,
+        "event_category": "Routine maintenance",
+        "area_affected": {
+            "North Mira Bhayender": [
+                "Govond Nagar"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-28_10-00-00",
+        "end": "2025-03-28_12-00-00",
+        "duration_(hours)": 2,
+        "event_category": "Routine maintenance",
+        "area_affected": {
+            "North Mira Bhayender": [
+                "Govond Nagar"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-31_10-00-00",
+        "end": "2025-03-31_12-00-00",
+        "duration_(hours)": 2,
+        "event_category": "Routine maintenance",
+        "area_affected": {
+            "North Mira Bhayender": [
+                "Gaurav City"
+            ]
+        }
+    },
+    {
+        "country": "India",
+        "start": "2025-03-31_10-00-00",
+        "end": "2025-03-31_12-00-00",
+        "duration_(hours)": 2,
+        "event_category": "Routine maintenance",
+        "area_affected": {
+            "North Mira Bhayender": [
+                "Gaurav City"
+            ]
+        }
+    }
+]
