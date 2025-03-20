@@ -60,6 +60,7 @@ class Quetta:
         self.save_json(data)
         print("scraping is done for qesco")
 
+
 if __name__ == "__main__":
     quetta = Quetta()
     quetta.scrape()

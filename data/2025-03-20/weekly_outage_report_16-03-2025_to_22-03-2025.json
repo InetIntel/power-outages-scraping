@@ -1,0 +1,232 @@
+[
+    {
+        "Division": "ALAKNANDA",
+        "No of Feeder": "93",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "1",
+        "Average No of Disruptions / Fdr / Week": "0.01",
+        "Hour of Disruptions / Week": "00Hr:44m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:00m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "CHHATARPUR",
+        "No of Feeder": "70",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "6",
+        "Average No of Disruptions / Fdr / Week": "0.09",
+        "Hour of Disruptions / Week": "02Hr:54m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:02m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "DWARKA",
+        "No of Feeder": "114",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "5",
+        "Average No of Disruptions / Fdr / Week": "0.04",
+        "Hour of Disruptions / Week": "03Hr:07m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:01m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "HAUZ KHAS",
+        "No of Feeder": "96",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "0",
+        "Average No of Disruptions / Fdr / Week": "0.0",
+        "Hour of Disruptions / Week": "00Hr:00m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:00m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "JAFFARPUR",
+        "No of Feeder": "36",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "0",
+        "Average No of Disruptions / Fdr / Week": "0.0",
+        "Hour of Disruptions / Week": "00Hr:00m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:00m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "JANAKPURI",
+        "No of Feeder": "117",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "4",
+        "Average No of Disruptions / Fdr / Week": "0.03",
+        "Hour of Disruptions / Week": "02Hr:59m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:01m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "KHANPUR",
+        "No of Feeder": "76",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "3",
+        "Average No of Disruptions / Fdr / Week": "0.04",
+        "Hour of Disruptions / Week": "02Hr:29m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:01m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "MOHAN GARDEN",
+        "No of Feeder": "38",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "5",
+        "Average No of Disruptions / Fdr / Week": "0.13",
+        "Hour of Disruptions / Week": "03Hr:34m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:05m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "MUNDKA",
+        "No of Feeder": "51",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "4",
+        "Average No of Disruptions / Fdr / Week": "0.08",
+        "Hour of Disruptions / Week": "02Hr:14m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:02m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "NAJAFGARH",
+        "No of Feeder": "76",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "0",
+        "Average No of Disruptions / Fdr / Week": "0.0",
+        "Hour of Disruptions / Week": "00Hr:00m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:00m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "NANGLOI",
+        "No of Feeder": "79",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "2",
+        "Average No of Disruptions / Fdr / Week": "0.03",
+        "Hour of Disruptions / Week": "01Hr:23m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:01m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "NEHRU PLACE",
+        "No of Feeder": "88",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "2",
+        "Average No of Disruptions / Fdr / Week": "0.02",
+        "Hour of Disruptions / Week": "01Hr:22m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:00m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "NEW FRIENDS COLONY",
+        "No of Feeder": "81",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "1",
+        "Average No of Disruptions / Fdr / Week": "0.01",
+        "Hour of Disruptions / Week": "00Hr:38m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:00m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "NIZAMUDDIN",
+        "No of Feeder": "111",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "3",
+        "Average No of Disruptions / Fdr / Week": "0.03",
+        "Hour of Disruptions / Week": "02Hr:17m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:01m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "PALAM",
+        "No of Feeder": "116",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "1",
+        "Average No of Disruptions / Fdr / Week": "0.01",
+        "Hour of Disruptions / Week": "00Hr:35m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:00m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "PUNJABI BAGH",
+        "No of Feeder": "60",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "3",
+        "Average No of Disruptions / Fdr / Week": "0.05",
+        "Hour of Disruptions / Week": "01Hr:37m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:01m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "R K PURAM",
+        "No of Feeder": "77",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "1",
+        "Average No of Disruptions / Fdr / Week": "0.01",
+        "Hour of Disruptions / Week": "00Hr:44m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:00m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "SAKET",
+        "No of Feeder": "86",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "2",
+        "Average No of Disruptions / Fdr / Week": "0.02",
+        "Hour of Disruptions / Week": "01Hr:25m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:00m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "SARITA VIHAR",
+        "No of Feeder": "70",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "4",
+        "Average No of Disruptions / Fdr / Week": "0.06",
+        "Hour of Disruptions / Week": "02Hr:26m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:02m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "TAGORE GARDEN",
+        "No of Feeder": "81",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "0",
+        "Average No of Disruptions / Fdr / Week": "0.0",
+        "Hour of Disruptions / Week": "00Hr:00m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:00m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "UTTAM NAGAR",
+        "No of Feeder": "37",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "0",
+        "Average No of Disruptions / Fdr / Week": "0.0",
+        "Hour of Disruptions / Week": "00Hr:00m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:00m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "VASANT KUNJ",
+        "No of Feeder": "134",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "3",
+        "Average No of Disruptions / Fdr / Week": "0.02",
+        "Hour of Disruptions / Week": "01Hr:47m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:00m",
+        "Reason for Power Disruption": "Breakdown"
+    },
+    {
+        "Division": "VIKASPURI",
+        "No of Feeder": "59",
+        "Average Hours of Steady Voltage supplied to consumer / week": "100%",
+        "No of Disruptions / Week": "5",
+        "Average No of Disruptions / Fdr / Week": "0.08",
+        "Hour of Disruptions / Week": "03Hr:21m",
+        "Average Hour of Disruptions / Fdr / Week": "00Hr:03m",
+        "Reason for Power Disruption": "Breakdown"
+    }
+]
