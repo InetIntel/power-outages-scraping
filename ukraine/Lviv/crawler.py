@@ -28,4 +28,4 @@ class PlannedDisconnectionSpider(scrapy.Spider):
 
 
 if __name__ == "__main__":
-    cmdline.execute("scrapy runspider Lviv.py -O Lviv.json".split())
+    cmdline.execute("scrapy runspider crawler.py -O Lviv.json".split())

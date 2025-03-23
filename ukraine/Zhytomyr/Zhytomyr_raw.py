@@ -53,4 +53,4 @@ class PlannedDisconnectionSpider(scrapy.Spider):
 
 
 if __name__ == "__main__":
-    cmdline.execute("scrapy runspider Zhytomyr.py -O Zhytomyr.json".split())
+    cmdline.execute("scrapy runspider Zhytomyr_raw.py -O Zhytomyr_raw.json".split())

@@ -44,7 +44,7 @@ class PlannedDisconnectionSpider(scrapy.Spider):
                 "duration_(hours)": "{:.2f}".format(duration),
                 "event_type": item['type'],
                 "areas_affected": item['addr'],
-                "country": "Ukraine"
+                "country": "ukraine"
             }
 
         if "next_page_url" in response_body:
@@ -66,4 +66,4 @@ class PlannedDisconnectionSpider(scrapy.Spider):
 
 
 if __name__ == "__main__":
-    cmdline.execute("scrapy runspider Mykolaiv.py -O Mykolaiv.json -s FEED_EXPORT_ENCODING=utf-8".split())
+    cmdline.execute("scrapy runspider crawler.py -O Mykolaiv.json -s FEED_EXPORT_ENCODING=utf-8".split())

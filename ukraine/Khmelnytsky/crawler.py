@@ -59,4 +59,4 @@ class PlannedDisconnectionSpider(scrapy.Spider):
 
 
 if __name__ == "__main__":
-    cmdline.execute("scrapy runspider Khmelnytsky.py -O Khmelnytsky.json -s FEED_EXPORT_ENCODING=utf-8".split())
+    cmdline.execute("scrapy runspider crawler.py -O Khmelnytsky.json -s FEED_EXPORT_ENCODING=utf-8".split())

@@ -35,7 +35,7 @@ class PlannedDisconnectionSpider(scrapy.Spider):
             actual_end_time = disconnection.xpath('.//td[@class="accend_fact"]/text()').get()
             start_time = disconnection.xpath('.//td[@class="accbegin"]/text()').get()
             disconnection_type = disconnection.xpath('.//td[@class="acctype"]/text()').get()
-            city_list = disconnection.xpath('.//td[@class="city_list"]/text()').get()
+            village_list = [{"type":"village", "area":area} for area in disconnection.xpath('.//td[@class="village_list"]/text()').get().split(",")]
             # street_list = disconnection.xpath('.//td[@class="addresses"]/text()').get()
             # status = disconnection.xpath('.//td[@class="status"]/text()').get()
             # inform_time = disconnection.xpath('.//td[@class="dtupdate"]/text()').get()
@@ -53,7 +53,7 @@ class PlannedDisconnectionSpider(scrapy.Spider):
                 'end': str(end_time),
                 'start': str(start_time),
                 'duration': duration,
-                'areas_affected': city_list,
+                'areas_affected': village_list,
                 'event_category': "Planned" if disconnection_type == '\u041f\u043b\u0430\u043d\u043e\u0432\u0435 \u0432\u0456\u0434\u043a\u043b\u044e\u0447\u0435\u043d\u043d\u044f' else 'Emergency',
             }
 
