@@ -7,10 +7,10 @@ from scrapy import cmdline
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
-from ukraine.utils import current_year, current_month, current_date
+from ukraine.constants import current_year, current_month, current_date, root_dir
 
 current_dir = "/".join(os.getcwd().split("/")[-2:])
-save_file = f'./power_outage_data/{current_dir}/raw/{current_year}/{current_month}/power_outages.UA.cherkasky.raw.{current_date}.json'
+save_file = f'{root_dir}/power_outage_data/{current_dir}/raw/{current_year}/{current_month}/power_outages.UA.cherkasky.raw.{current_date}.json'
 
 
 class PlannedDisconnectionSpider(scrapy.Spider):
