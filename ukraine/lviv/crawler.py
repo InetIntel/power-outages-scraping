@@ -1,9 +1,10 @@
 # Import necessary libraries
 import json
-
 import scrapy
 from scrapy import cmdline
 from datetime import datetime
+from utils import mk_dir, raw_file
+
 
 class PlannedDisconnectionSpider(scrapy.Spider):
     # Name of the spider
@@ -28,4 +29,5 @@ class PlannedDisconnectionSpider(scrapy.Spider):
 
 
 if __name__ == "__main__":
-    cmdline.execute("scrapy runspider crawler.py -O Lviv.json".split())
+    mk_dir()
+    cmdline.execute(f"scrapy runspider crawler.py -O {raw_file} -s FEED_EXPORT_ENCODING=utf-8".split())
