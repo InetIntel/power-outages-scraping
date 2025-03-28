@@ -2,18 +2,17 @@ import json
 import os
 import re
 from datetime import datetime
-from ukraine.cherkasy.crawler import save_file
+
+from utils import raw_file, processed_file
 
 
 def post_process_cherkasy():
-    file = open(save_file, 'r')
+    file = open(raw_file, 'r')
     data = json.load(file)
         # Define the date format
     date_format = "%d.%m.%Y %H:%M"
-    output_file = save_file.replace("raw", "processed")
-    os.makedirs("/".join(output_file.split('/')[:-1]), exist_ok=True)
     res = []
-    with open(output_file, 'w', encoding='utf-8') as f:
+    with open(processed_file, 'w', encoding='utf-8') as f:
         for disconnection_item in data:
             if isinstance(disconnection_item['DISCONNECTIONS'], list):
                 print(disconnection_item['DISCONNECTIONS'])

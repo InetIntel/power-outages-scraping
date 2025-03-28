@@ -6,11 +6,8 @@ import scrapy
 from scrapy import cmdline
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
+from utils import raw_file, mk_dir
 
-from ukraine.constants import current_year, current_month, current_date, root_dir
-
-current_dir = "/".join(os.getcwd().split("/")[-2:])
-save_file = f'{root_dir}/power_outage_data/{current_dir}/raw/{current_year}/{current_month}/power_outages.UA.cherkasky.raw.{current_date}.json'
 
 
 class PlannedDisconnectionSpider(scrapy.Spider):
@@ -38,4 +35,5 @@ class PlannedDisconnectionSpider(scrapy.Spider):
         yield json.loads(response.body)
 
 if __name__ == "__main__":
-    cmdline.execute(f"scrapy runspider crawler.py -O {save_file}  -s FEED_EXPORT_ENCODING=utf-8".split())
+    mk_dir()
+    cmdline.execute(f"scrapy runspider crawler.py -O {raw_file}  -s FEED_EXPORT_ENCODING=utf-8".split())
