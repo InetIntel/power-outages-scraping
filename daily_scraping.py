@@ -7,7 +7,7 @@ from india.goa import Goa
 from india.scrape_Rajdhani_weekly import ScrapeRajdhaniWeekly
 from india.tangedco import Tangedco
 from india.tnpdcl import Tnpdcl
-from india.scrape_xls import ScrapeXls
+from india.npp import Npp
 from india.scrape_Rajdhani import ScrapeRajdhani
 from india.tata import Tata
 
@@ -17,9 +17,9 @@ def scrape():
     tnebltd = Tnpdcl()
     tnebltd.scrape()
 
-
-    tnebnet = Tangedco()
-    tnebnet.scrape()
+    # this is an inactive website
+    # tnebnet = Tangedco()
+    # tnebnet.scrape()
 
     bsesdelhi_weekly = ScrapeRajdhaniWeekly()
     bsesdelhi_weekly.scrape()
@@ -27,27 +27,27 @@ def scrape():
     goaelectricity = Goa()
     goaelectricity.scrape()
 
-    npp = ScrapeXls()
+    npp = Npp()
     npp.scrape()
 
     bsesdelhi = ScrapeRajdhani()
     bsesdelhi.scrape()
-
-    ikejaelectric = ScrapeWebpage()
-    ikejaelectric.scrape()
-
-    fesco = Fesco()
-    fesco.scrape()
-
-    hesco = Hyderabad()
-    hesco.scrape()
-
-    iesco = IslamabadXls()
-    iesco.scrape()
-
-    qesco = Quetta()
-    qesco.scrape()
-
+    #
+    # ikejaelectric = ScrapeWebpage()
+    # ikejaelectric.scrape()
+    #
+    # fesco = Fesco()
+    # fesco.scrape()
+    #
+    # hesco = Hyderabad()
+    # hesco.scrape()
+    #
+    # iesco = IslamabadXls()
+    # iesco.scrape()
+    #
+    # qesco = Quetta()
+    # qesco.scrape()
+    #
     tatapower = Tata()
     tatapower.scrape()
 

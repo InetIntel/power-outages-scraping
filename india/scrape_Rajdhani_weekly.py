@@ -3,6 +3,7 @@ import os
 from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 import requests
+from india.process_Rajdhani_weekly import Process_Rajdhani_weekly
 
 
 class ScrapeRajdhaniWeekly:
@@ -11,17 +12,27 @@ class ScrapeRajdhaniWeekly:
         self.url = "https://www.bsesdelhi.com/web/brpl/weekly-dashboard"
         self.today = datetime.today().strftime("%Y-%m-%d")
         self.folder_path = None
+        self.year = str(datetime.now().year)
+        self.month = str(datetime.now().month).zfill(2)
 
-    def check_folder(self):
-        self.folder_path = "./data/" + self.today
+    def check_folder(self, type):
+        self.folder_path = "./india/rajdhani_weekly/" + type + "/" + self.year + "/" + self.month
         os.makedirs(self.folder_path, exist_ok=True)
 
 
     def fetch(self):
         response = requests.get(self.url)
-        soup = BeautifulSoup(response.text, "html.parser")
-        table = soup.find("tbody", {"id": "billDetailsData"})
-        return table
+        self.check_folder("raw")
+        file_name = "power_outages.IND.rajdhani_weekly.raw." + self.today + ".html"
+        file_path = os.path.join(self.folder_path, file_name)
+        with open(file_path, "w", encoding="utf-8") as file:
+            file.write(response.text)
+            print("Raw file is saved for Rajdhani_weekly")
+        process = Process_Rajdhani_weekly(self.year, self.month, self.today, self.folder_path + "/" + file_name)
+        process.run()
+        # soup = BeautifulSoup(response.text, "html.parser")
+        # table = soup.find("tbody", {"id": "billDetailsData"})
+        # return table
 
 
     def process(self, table):
@@ -34,8 +45,7 @@ class ScrapeRajdhaniWeekly:
             for i in range(len(titles)):
                 data[titles[i]] = row_data[i]
             res.append(data)
-        week = self.get_week()
-        self.save_json(res, week)
+        self.save_json(res)
 
 
     def get_week(self):
@@ -47,16 +57,16 @@ class ScrapeRajdhaniWeekly:
         week = start_date_str + "_to_" + end_date_str
         return week
 
-    def save_json(self, data, week):
-        self.check_folder()
-        file_path = os.path.join(self.folder_path, "weekly_outage_report_" + week + ".json")
+    def save_json(self, data):
+        self.check_folder("processed")
+        file_path = os.path.join(self.folder_path, "power_outages.IND.rajdhani_weekly.raw." + self.today + ".json")
         with open(file_path, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=4)
 
     def scrape(self):
-        table = self.fetch()
-        self.process(table)
-        print("scraping is done for bsesdelhi")
+        self.fetch()
+        # self.process(table)
+
 
 
 if __name__ == "__main__":

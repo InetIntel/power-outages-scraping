@@ -1,0 +1,845 @@
+<html lang="EN" class="mdl-js"><head><style>.ssQIHO-checkbox-menu-item>span>span{background-color:#000;display:inline-block}@media (forced-colors:active),(prefers-contrast:more){.ssQIHO-checkbox-menu-item>span>span{background-color:ButtonText}}
+</style><style>.gm-style .gm-style-mtc label,.gm-style .gm-style-mtc div{font-weight:400}.gm-style .gm-style-mtc ul,.gm-style .gm-style-mtc li{-webkit-box-sizing:border-box;box-sizing:border-box}.gm-style-mtc-bbw{display:-webkit-box;display:-webkit-flex;display:flex;-webkit-flex-wrap:wrap;flex-wrap:wrap}.gm-style-mtc-bbw .gm-style-mtc:first-of-type>button{border-start-start-radius:2px;border-end-start-radius:2px}.gm-style-mtc-bbw .gm-style-mtc:last-of-type>button{border-start-end-radius:2px;border-end-end-radius:2px}sentinel{}
+</style><style>.LGLeeN-keyboard-shortcuts-view{display:-webkit-box;display:-webkit-flex;display:-moz-box;display:-ms-flexbox;display:flex}.LGLeeN-keyboard-shortcuts-view table,.LGLeeN-keyboard-shortcuts-view tbody,.LGLeeN-keyboard-shortcuts-view td,.LGLeeN-keyboard-shortcuts-view tr{background:inherit;border:none;margin:0;padding:0}.LGLeeN-keyboard-shortcuts-view table{display:table}.LGLeeN-keyboard-shortcuts-view tr{display:table-row}.LGLeeN-keyboard-shortcuts-view td{-moz-box-sizing:border-box;box-sizing:border-box;display:table-cell;color:#000;padding:6px;vertical-align:middle;white-space:nowrap}.LGLeeN-keyboard-shortcuts-view td:first-child{text-align:end}.LGLeeN-keyboard-shortcuts-view td kbd{background-color:#e8eaed;border-radius:2px;border:none;-moz-box-sizing:border-box;box-sizing:border-box;color:inherit;display:inline-block;font-family:Google Sans Text,Roboto,Arial,sans-serif;line-height:16px;margin:0 2px;min-height:20px;min-width:20px;padding:2px 4px;position:relative;text-align:center}
+</style><style>.gm-control-active>img{-webkit-box-sizing:content-box;box-sizing:content-box;display:none;left:50%;pointer-events:none;position:absolute;top:50%;-webkit-transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%);transform:translate(-50%,-50%)}.gm-control-active>img:nth-child(1){display:block}.gm-control-active:focus>img:nth-child(1),.gm-control-active:hover>img:nth-child(1),.gm-control-active:active>img:nth-child(1),.gm-control-active:disabled>img:nth-child(1){display:none}.gm-control-active:focus>img:nth-child(2),.gm-control-active:hover>img:nth-child(2){display:block}.gm-control-active:active>img:nth-child(3){display:block}.gm-control-active:disabled>img:nth-child(4){display:block}sentinel{}
+</style><link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700|Google+Sans+Text:400,500,700&amp;lang=en"><link type="text/css" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Google+Sans+Text:400&amp;text=%E2%86%90%E2%86%92%E2%86%91%E2%86%93&amp;lang=en"><style>.gm-style .gm-style-cc a,.gm-style .gm-style-cc button,.gm-style .gm-style-cc span,.gm-style .gm-style-mtc div{font-size:10px;-webkit-box-sizing:border-box;box-sizing:border-box}.gm-style .gm-style-cc a,.gm-style .gm-style-cc button,.gm-style .gm-style-cc span{outline-offset:3px}sentinel{}
+</style><style>@media print {  .gm-style .gmnoprint, .gmnoprint {    display:none  }}@media screen {  .gm-style .gmnoscreen, .gmnoscreen {    display:none  }}</style><style>.gm-style-moc{background-color:rgba(0,0,0,.45);pointer-events:none;text-align:center;-webkit-transition:opacity ease-in-out;transition:opacity ease-in-out}.gm-style-mot{color:white;font-family:Roboto,Arial,sans-serif;font-size:22px;margin:0;position:relative;top:50%;transform:translateY(-50%);-webkit-transform:translateY(-50%);-ms-transform:translateY(-50%)}sentinel{}
+</style><style>.gm-style img{max-width: none;}.gm-style {font: 400 11px Roboto, Arial, sans-serif; text-decoration: none;}</style>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="copyright" content="Smart Energy Water">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+
+    <title globalize="ML_DASHBOARD_Anchor_Outages" inputtype="null" validatemessage="null" title="Click to navigate to 'Outage' module">Outages </title>
+    <link href="https://customerportal.tatapower.com/TPCD/css/style-EN.css" rel="stylesheet" media="all">
+    <link rel="preload" as="font" href="fonts/Diodrum-Medium.woff" type="font/woff2" crossorigin="anonymous">
+    <link href="/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+
+    <link href="/TPCD/Content/cssCommonJSCSS?v=ckxs-C2-83jp627DLWpv__7ilY3mCeo6kVvZHw89MDc1" rel="stylesheet">
+
+<script src="/TPCD/Bundles/jsCommonJSCSS?v=RoI36ZdSKeGg-pjwZlUBC9duffPqAKYMgNcYEb6xo2w1"></script>
+
+
+
+    <script src="js/bootstrap.min.js"></script>
+
+    <meta name="react-film" content="version=3.0.1"><meta name="react-scroll-to-bottom:version" content="4.1.1"><meta name="web-speech-cognitive-services" content="version=7.1.1"><meta name="botframework-directlinespeech:version" content="4.14.1"><meta name="botframework-webchat:bundle:variant" content="full"><meta name="botframework-webchat:bundle:version" content="4.14.1"><meta name="botframework-webchat:core:version" content="4.14.1"><meta name="botframework-webchat:ui:version" content="4.14.1"><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/60/6/common.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/60/6/util.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/60/6/map.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/60/6/log.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/60/6/onion.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/60/6/infowindow.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/60/6/controls.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/vt?pb=!1m4!1m3!1i12!2i1142!3i1489!1m4!1m3!1i12!2i1143!3i1489!1m4!1m3!1i12!2i1142!3i1490!1m4!1m3!1i12!2i1142!3i1491!1m4!1m3!1i12!2i1143!3i1490!1m4!1m3!1i12!2i1143!3i1491!1m4!1m3!1i12!2i1142!3i1492!1m4!1m3!1i12!2i1143!3i1492!1m4!1m3!1i12!2i1144!3i1489!1m4!1m3!1i12!2i1145!3i1489!1m4!1m3!1i12!2i1144!3i1490!1m4!1m3!1i12!2i1144!3i1491!1m4!1m3!1i12!2i1145!3i1490!1m4!1m3!1i12!2i1145!3i1491!1m4!1m3!1i12!2i1144!3i1492!1m4!1m3!1i12!2i1145!3i1492!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e3!12m1!5b1&amp;callback=_xdc_._8zw2gv&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=105273"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/60/6/marker.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps-api-v3/api/js/60/6/overlay.js"></script><script type="text/javascript" charset="UTF-8" src="https://maps.googleapis.com/maps/vt?pb=!1m4!1m3!1i12!2i1142!3i1489!1m4!1m3!1i12!2i1143!3i1489!1m4!1m3!1i12!2i1142!3i1490!1m4!1m3!1i12!2i1142!3i1491!1m4!1m3!1i12!2i1143!3i1490!1m4!1m3!1i12!2i1143!3i1491!1m4!1m3!1i12!2i1142!3i1492!1m4!1m3!1i12!2i1143!3i1492!1m4!1m3!1i12!2i1144!3i1489!1m4!1m3!1i12!2i1145!3i1489!1m4!1m3!1i12!2i1144!3i1490!1m4!1m3!1i12!2i1144!3i1491!1m4!1m3!1i12!2i1145!3i1490!1m4!1m3!1i12!2i1145!3i1491!1m4!1m3!1i12!2i1144!3i1492!1m4!1m3!1i12!2i1145!3i1492!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e3!12m1!5b1&amp;callback=_xdc_._8zw2gv&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=105273"></script></head><body><input type="hidden" class="activeli_list" value="outages" tabindex="1">
+    <script crossorigin="anonymous" src="https://cdn.botframework.com/botframework-webchat/4.14.1/webchat.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="js/polyfill.min.js"></script>
+    <script src="js/moment.js"></script>
+    <script src="//maps.googleapis.com/maps/api/js?libraries=places,drawing,geometry&amp;v=3.53&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw"></script>
+    
+    <link href="css/md.css">
+
+    <link href="/TPCD/Content/cssMaster?v=RdakNuWSAd8gPTkJZDOtyUjFo6TnL-ZwttqTM1JBMoQ1" rel="stylesheet">
+
+    <link href="/TPCD/Content/cssOutages?v=xPHQWrSvewspEoR6Q6R37IdH0hLGMfZN8N7vx11QEdQ1" rel="stylesheet">
+
+    <script src="/TPCD/bundles/jsOutages?v=EHft-LB92XpOYnP1D4kMStKmSprGaGWjRjU14Il8kXo1"></script>
+
+    <script src="/TPCD/Bundles/0826321e6-f0ca-4fb6-bf05-d346620eb287/jsApplicationLabels_EN?v=bnHKxzGWZsryZzWmmGpG8ftgL-x9XZ02YElIYXPFt_k1"></script>
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setInterval(function () {
+                $($('body').find('#right_side_Div_ForReportOutages img')).attr('alt', 'Banner');
+            }, 500);
+        });
+        $(document).keypress(
+            function (event) {
+                if (event.which == '13') {
+                    event.preventDefault();
+                    // $("#ZipOrCountySearch").trigger("click");
+                    $("#CANumberSearch").trigger("click");
+                }
+            });
+
+        var googleKey = 'AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw';
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('body').find('*').filter('.focusclass').focus();
+            ($('body').find('input,a,select,textarea,button')).attr('tabindex', '1');
+            $('.gis-footprint-area ul #imgCurrent').attr('tabindex', '1');
+            $('.gis-footprint-area ul #btnRefresh').attr('tabindex', '1');
+            $('.distance_area > ul > li').width(100 / $(".distance_area > ul > li:visible").length + '%');
+             
+            var PowerFailure = $("#hdnPowerFailure").val().toString();
+            if (PowerFailure == "1") {
+               var PowerFailurehref= document.getElementById("btnReportOutage").getAttribute('href');
+                window.location=PowerFailurehref;
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("span#imgCurrent").on("keypress", function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault(); // Stop the default behaviour
+                    $("img#imgCurrent").trigger("click");
+                }
+            });
+
+            $("span#btnRefresh").on("keydown", function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    $("img#btnRefresh").trigger("click");
+                }
+            });
+
+            $("input#GIStxtGoogleSearch").on("keydown", function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    $("a#GISsearchGoogleMap").trigger("click");
+                }
+            });
+
+            $("a#GISsearchGoogleMap").on("keydown", function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    $("a#GISsearchGoogleMap").trigger("click");
+                }
+            });
+
+            $("a#crent").on("keydown", function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    $("a#crent").trigger("click");
+                }
+            });
+
+            $("a#plnd").on("keydown", function (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    $("a#plnd").trigger("click");
+                }
+            });
+        });
+
+    </script>
+
+    <img src="images/print-icon.png" style="padding-right: 7px; margin-top: -36px; float: right;" onclick="printarea();" alt="PrintArea">
+
+
+    <a href="#" tabindex="1" class="focusclass focusclass_pagename" style="height: 0; width: 0; font-size: 0; float: left;">https://customerportal.tatapower.com/TPCD/OuterOutage.aspx#</a>
+    <div id="skipnav">
+        <h1 class="skipnav"><a tabindex="1" href="#showDiv">Skip to Content (Press Enter)</a></h1>
+    </div>
+    <form method="post" action="./OuterOutage.aspx" id="form1">
+<div class="aspNetHidden">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="" tabindex="1">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="" tabindex="1">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="" tabindex="1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="MgRyl5GkwJgf3OqasY8P+yN9+ILiw7a9hqtsCUf7yrzwdCQvZy7FzMmnF1ATQD5WXxUwTfph+0u2gTIACeBNyd9igloTDgy+l6MLxFpW+WHWdVo4Q1ey6peg6XzuozASx3LYXmTvGe2a8A1/dHOTpYsoEdoYvUUdzIzFNfV7byuShjMZYSQJtdhpNFM47LDOrekYxH78+8VSPm5axslm5xpFlo/xt6sv+5VpsADigwboxZOVij5Jzsfb8ra2l1MllkT3V9ULAZkbzrWJ0ibbxiJg4cpKGMb2nKuUvF39znH15skro5nsf18uUcEYldf7zaEx+w5SGTwrmbRaK1Dl2q65UV+iRvtqyIBOorKcVzROJebcMUuGN97UsjZj3QJzzL2iRVqaFMv98KjnJPRVauKH/JeKWTeojcD5lfi1lfb8pgKJdlmmZfQPxMoMGBRCkB/bLrsmT5TobQ3SRV/eh0pnHqWB3IuhsBsQ2uKqAcmH3ApJalsyrc1JNVydS3mcRx1eTuE2ik1z6nyJgeAyDLH4RgSQw7X5Q3tNmvv9bBAktD3JSKJmMwlA2pVV1h282upY35DdILm1/7L87rNPCq22eXW8X43YYSHdIk6CsVIN532qc6D4hw95j9iCuTMgWT1FfXbKjLKOLLq1Z5woO+lVCwL05B/6b5yMkv04R88hUt7l3Hd9mHPqzjziiv6tECHxEyO/1EvMIWz1yp6YmC4XkE16jG/pLH5Hv+NZY1b6x1dXdiCfbWKkz6Rb9OIWBPFd45/oo94rcoXKaxLaRk9zsb2g3KuAjKtw5OyapPucUwOsO2yWA8a9Ldad3o63M72uHg05ETfGKHrcxcGW1aXJV03t5+ybo/RQHXbOjpeXA7RbWR94r376ri5kZRXAMCjpDYuJbXco/J6EkoRbGr4sRctbVEboXuJFjov9lEPo0TJWgEETksbZeVwk1zlq5wSQmlC+a2TCg/76dcYk5zLptwDJuhvCYB8UNIHeRkv7TqmvOMvuQa4Ou0TR/qyS8GkstPjPV7HC4ewU6Yv8oXPsHwKl1lkYjN6NKtGz4ZRIxBrJVaKeJrqHSgKRYN7irKoc7AztbV3HG0yDTH3/Mbz2mTfUuuCKpCeYuw8U03cF7xvnwhe6EvMLEdGWMVj2e783qI9819sPxk/p4AL8tmkk3h28yP+yzeM8bQd0/pD+KG+skvk+GRLEL9ZyUWqN5R1h00wSI98N5X00CswP+H6KDZzt9D8DQqHAo0Y2t/IIrJyLVb87pW9dDFs82A1UOSVXn509K5snAEFzN1ZAFnKPtExLsZJAb37xm+fmBejr72DO/0DO/MCeqxW0MNB57Og2f+nvCWNtnK+jFnTcoq4JUdX/ecLJ5lBw8OGfQWhKueS+yusQ7jK4y0ILyoQWKK3rrJfLS5yq3cqGXI2je2/Gp/TP9kw8TNeykKU23Lf9oWoBWWAxQyY0FTyADZqnj0rm9mtO+VqSdO22UeIVzGcakTmHNk6P7PbGe9awALS5+8KBWwwfT70sbeR9jLvOUwur+7MZ51kqe7hbevLuHO8Y62orctkSvLLEj7CwwXHs2XHlMseDOAi97I1jFmOJ1hYmQprJoDk4BZfawnAC0Gj6YYrMYCehuIefWwEZ6q3viabnFyy0v8qrK3po2/FZq2X80ZOs4NGGThGdNeyEmqVPBTRxyWE3q/oSViUJwdNjaGLyY3ddbE9HKg9bqSrCsxBUuNvG/qwQyH7JHWXQpWfa3cPj+wAsu64yR56bA2JLs1DkOq8jplSvDnPfbLc5/+DVOGbynlfTOqkt8VRiL22stamJkjLP7eEv1F25eDCARQUqiP3f1qqWqGXkO2IDFBU3FSfWI1ZHnB0OCnmXbyKtSDQXy+q73HOTH37STiX48d1ksiaBRAGigqiBDR+W1GxN2o6iPL5K8pTNUfgGf+Kxyu0N1/2XGTwB/YWRJ1sZ5aJ9uEQigPxrDfwqYdO0i8xvn6JydB6Y+ujR+7klxNuHXHidopOkrlwyn2xHLK/3vPCZyTPOjlsUZYExB1ibNGf24/bGSQ3ChxO3xYvjekf/rSFtTO8whN8x72gSKTmvFcBz64Z7WFoc0TRcGFdgdcQSr1o6Pbvv/pRYUE+MSF33iu/QAVXgNiG6smsdXj1RqWdrcrfay6IyKW/uRN6o/CPhPMXDnaaUkc9iMR09RCgig64tTjA9TJv8t/XvYNHvMMOAcA/f5yQ835lmAwqHHocoXg==" tabindex="1">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['form1'];
+if (!theForm) {
+    theForm = document.form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="5DC1D2F4" tabindex="1">
+	<input type="hidden" name="__VIEWSTATEENCRYPTED" id="__VIEWSTATEENCRYPTED" value="" tabindex="1">
+	<input type="hidden" name="__EVENTVALIDATION" id="__EVENTVALIDATION" value="FMLU3XLuTb7gJJwS2zl0Jqm/Y9BO3gPnYS7JfrWf/Kmsb6FDAejhk+amo9OAfNg+42zuAsY3ZkhWPdFIPGWskShT3X2f4uA3en3lGIrQY99AIirtToURkWWW7bjThQ7jaNWCXUkouRcRNp26KMjjerdhEZUKOoUAlRw5U4zC6LssE3vRPD3+3nyQRCH7S4imyovXHhmxrMiCNoZ79AiRQlAeg4rIFYuEyqbvnDcbykXLKcdkrFF6FQz0g1rD3+ueDHgSx2IkVyLWYJQVOqi2CrIZAcr/p6JJm9Q8EIPl7NKnDD0JbgX7V+LFT5ZhoiBJZDXA2zyvaEQQI6nzsvlJyinMaQ1dpPGRMnvwItSMpDlvfA5fkDCpENK/4GixevZRPoUa+D9S/3DWZgDvfJgLse1AgewKQQb6P1XcIJmRVEqfnRuEj9DnsrdBwx2Ji3O/z5Dmjbul9BHFE+bd2pnqf43FDA+WBA/aR+NwACOifpzxrRoDW+r20n3v5pqIvNKeyInJqzDDMoLdYvWn6Io8UxX7bOyiY9WgCkeMLQ4ORXD4JG3ojjMaf+0/kOeb5ia7aUqA3a0B/nLQzNqt9D7GRSOgJH/Te4SpqsEyL53dy3r5pjrrn8BWM0WHwsZqvtcO+28o2oJMWmhgW1Cz2rxfBrE5at7xV6vhbe1EW22XBZ4cS2CLpy9K5GPoKgani5reEPm+Lq0nJ8IOh3n8828dH/lVvCvZDc1WSkttgFmxLX4slG9u" tabindex="1">
+</div>
+        
+<span id="titletext" style="display: none">Outages</span>
+<span id="IDEnterCityZip" style="display: none">Please enter city name or zip code</span>
+<span id="IDNoService" style="display: none">Utilities company does not provide service for this area.</span>
+<span id="IDEnterZip" style="display: none">Please enter Pin Code</span>
+<span id="IDGeo" style="display: none">Sorry, your browser doesn't support geolocation.</span>
+<span id="IDNoOutage" style="display: none">There are no current outages in this area.</span>
+<span id="IDNoPlannedOutage" style="display: none">There are no planned outages in this area.</span>
+<span id="IDAccessDenied" style="display: none">Please enable Location Settings to allow access to your current location.</span>
+
+<span id="lblLatitude" style="display: none;">Latitude:</span>
+<span id="lblLongitude" style="display: none;">Longitude:</span>
+<span id="lblLocationName" style="display: none;">Location Name:</span>
+<span id="lblMyLocation" style="display: none;">My Location</span>
+<span id="lblDate" style="display: none;">Date &amp; Time Of Outage</span>
+<span id="lblStatus" style="display: none;">Status</span>
+<span id="lblEstimatedtime" style="display: none;">Estimated Restoration</span>
+<span id="lblOutages" style="display: none;">Outages:</span>
+<span id="lblReport" style="display: none;">Report Info:</span>
+
+
+<span id="lblGeoErrorCode3" style="display: none;">Latitude</span>
+<span id="lblCustomersAffected" style="display: none;">Customers Affected</span>
+<span id="lblCommunityAffected" style="display: none;">Community Affected</span>
+<span id="lblCurrentLocation" style="display: none;">Your Current Location</span>
+<span id="lblAddplaceNotFound" style="display: none;">Sorry, address or place not found.</span>
+<span id="lblGeoLocationNotSupportedBrowser" style="display: none;">Geolocation is not supported by this browser.</span>
+
+<input type="hidden" name="OutageKeys2$hdnPinImageC" id="hdnPinImageC" value="images/outages/energy_icon_red_M.png" tabindex="1">
+<input type="hidden" name="OutageKeys2$hdnPinIcon1" id="hdnPinIcon1" value="images/pin_M.png" tabindex="1">
+<input type="hidden" name="OutageKeys2$hdnPinImageP" id="hdnPinImageP" value="images/outages/energy_icon_blue_M.png" tabindex="1">
+<input type="hidden" name="OutageKeys2$hdnPinImageCC" id="hdnPinImageCC" value="images/outages/energy_icon_red_M.png" tabindex="1">
+<input type="hidden" name="OutageKeys2$hdnPinImagePP" id="hdnPinImagePP" value="images/outages/energy_icon_blue_M.png" tabindex="1">
+<input type="hidden" name="OutageKeys2$hdnPinPng" id="hdnPinPng" value="images/outages/user-pin-icon_M.png" tabindex="1">
+<input type="hidden" name="OutageKeys2$hdnPinSvg" id="hdnPinSvg" value="images/outages/user-pin-icon_M.png" tabindex="1">
+
+        <!-- header starts -->
+        <link href="/TPCD/Content/CssOuterHeader?v=PqaUaM33HFi1qpjqDD_lgSJAbFW5D9EhM9DEF_Rkubc1" rel="stylesheet">
+
+<link href="/TPCD/Content/0826321e6-f0ca-4fb6-bf05-d346620eb287/cssTheme?v=XeaB3wYsJ7L-ZydrVugmTsofCxmLP8NxYM6fe3pggpQ1" rel="stylesheet">
+
+<script src="/TPCD/Bundles/jsOuterHeader?v=9XSrIfnJ6HuqG2jh_G5OdlL1EWKd60lc8toR7rfTw441"></script>
+
+<link rel="preload" as="font" href="fonts/Diodrum-Medium.woff" type="font/woff2" crossorigin="anonymous">
+<script>
+    $(document).ready(function () {
+        $(".sidebar_toggle").on("click", function () {
+            $(".nav_left").slideToggle(300);
+        });
+         $('.connect_with_us').attr('style', 'display: block');
+              
+
+    });
+</script>
+<script src="/TPCD/Bundles/0826321e6-f0ca-4fb6-bf05-d346620eb287/jsApplicationLabels_EN?v=bnHKxzGWZsryZzWmmGpG8ftgL-x9XZ02YElIYXPFt_k1"></script>
+
+
+<header class="main_header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-8">
+                <div class="logo">
+                    <!--<a href="/default.aspx" tabindex="0"  aria-label="Utility Co. Logo">-->
+                    <a href="https://customerportal.tatapower.com/Login/default.aspx" tabindex="0" aria-label="Utility Co. Logo">
+                        <img src="https://customerportal.tatapower.com/TPCD/images/scm_logo.png" alt="Utility Logo"></a>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-8 col-sm-8 col-xs-4">
+                <div style="float: right;" class="conect">
+
+                    <div class="back_to_login" id="rmclass">
+                        
+                        <a role="button" aria-label="click here to navigate to login page" href="https://customerportal.tatapower.com/Login/default.aspx" globalize="ML_OuterHeader_txt_BackToLogin" inputtype="" validatemessage="" title="Back to Login" tabindex="0">Back to Login</a>
+                    </div>
+                    <div class="rightF mR15 langPan">
+                        
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<div class="wrapper_dd" style="display: block">
+    <dl id="OuterHeader_LanguageDrpdwn_sample" class="dropdown" style="display:block;" aria-label="language dropdown select to change the language">
+        <dt id="OuterHeader_LanguageDrpdwn_preData" class="preData"><a href="#" tabindex="0"><i class="lan_txt_hide">Language</i><span class="value">EN</span><i class="material-icons" style="opacity: 1;">expand_more</i></a></dt>
+        <dd aria-label="select language">
+            <ul id="OuterHeader_LanguageDrpdwn_dp_language" class="dp_language" role="list" style="display: none;">
+            <li> <a href="#" tabindex="0"><i class="lan_txt_hide">ଓଡିଆ</i><span class="value">OR</span></a></li><li> <a href="#" tabindex="0"><i class="lan_txt_hide">हिन्दी</i><span class="value">HI</span></a></li><li> <a href="#" tabindex="0"><i class="lan_txt_hide">English</i><span class="value">EN</span></a></li></ul>
+        </dd>
+    </dl>
+      <span id="OuterHeader_LanguageDrpdwn_samplelable" style="display:none;"></span>
+</div>
+<input type="hidden" name="OuterHeader$LanguageDrpdwn$hdnLanguageCookie" id="hdnLanguageCookie" value="EN" tabindex="0">
+<input type="hidden" name="OuterHeader$LanguageDrpdwn$hdnBaseUrl" id="hdnBaseUrl" value="https://customerportal.tatapower.com/TPCD" tabindex="0">
+
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-lg hidden-sm hidden-md hidden-xs" style="height: 33px; float: left; width: 100%; background-color: rgb(255, 255, 255) ! important; border-top: 1px solid #f5f5f5; padding: 5px 0px;">
+                <div class="col-xs-6">
+                    <span class="back_button"><a href="default.aspx" tabindex="0">
+                        <img alt="Back Button" title="Back Button" src="/images/back_button.png">
+                    </a></span>
+                </div>
+                <div class="col-xs-6">
+                </div>
+            </div>
+        </div>
+        <div id="diverrorMessage" class="alert_box_header" style="display: none;">
+            <a href="#" class="close close_icon_color" tabindex="0">×</a><strong>Error!</strong><span id="spanerrorMessaegeicon"><em class="fa fa-warning fa_warning_header" aria-hidden="true"></em></span><span id="spanerrorMessaege"></span>
+        </div>
+    </div>
+    <input type="hidden" name="OuterHeader$hdnCSRFToken" id="hdnCSRFToken" value="FahS+tjpmbLGvA8ApNYFJi6TSb56Espmr1JIgQWv4PeAbHkpT71ukxzkP0Hsn0gV" tabindex="0">
+    <input type="hidden" name="OuterHeader$hdnLanguageCode" id="hdnLanguageCode" value="EN" tabindex="0">
+    <span globalize="ML_Validate_Msg" id="ValidErrorMsg" style="display: none" inputtype="" validatemessage="" title="Please enter a valid">Please enter a valid </span>
+    <span globalize="ML_Registration_Span_ErrMsg_Valid-Password" id="ML_Registration_Span_ErrMsg_Valid-Password" style="display: none" inputtype="" validatemessage="" title="The entered Password does not meet the minimum security requirements. Please enter a valid password. Password shall be at least 8 characters long and must contain one capital letter, one numeric and one special character (@, #, $, %, *, !, _, -, &amp;, +)">The entered Password does not meet the minimum security requirements. Please enter a valid password. Password shall be at least 8 characters long and must contain one capital letter, one numeric and one special character (@, #, $, %, *, !, _, -, &amp;, +)</span>
+    <span globalize="ML_OnetimePayment_Msg_CreditCard" id="ML_OnetimePayment_Msg_CreditCard" style="display: none" inputtype="" validatemessage="" title="Please enter Visa, MasterCard, Discover or American Express Card Numbers only.">Please enter Visa, MasterCard, Discover or American Express Card Numbers only.</span>
+    <input id="hdnCommonUrl" type="hidden" value="https://customerportal.tatapower.com/TPCD" tabindex="0">
+    <span globalize="ML_Msg_PasswordCheck_Reasonable" id="ML_Msg_PasswordCheck_Reasonable" style="display: none" inputtype="" validatemessage="" title="Weak Password">Weak Password </span>
+    <span globalize="ML_Msg_PasswordCheck_Strong" id="ML_Msg_PasswordCheck_Strong" style="display: none" inputtype="" validatemessage="" title="Strong Password">Strong Password </span>
+    <span globalize="ML_Msg_PasswordCheck_VeryStrong" id="ML_Msg_PasswordCheck_VeryStrong" style="display: none" inputtype="" validatemessage="" title="Very Strong Password">Very Strong Password </span>
+    <span globalize="ML_Msg_Invalid_Password" id="ML_Msg_Invalid_Password" style="display: none" inputtype="" validatemessage="" title="Invalid Password.">Invalid Password.</span>
+    <span globalize="ML_passwordmeter_lbl_show" id="ML_passwordmeter_lbl_show" style="display: none" inputtype="" validatemessage="null">Show Password</span>
+    <span globalize="ML_passwordmeter_lbl_hide" id="ML_passwordmeter_lbl_hide" style="display: none" inputtype="" validatemessage="null">Hide Password</span>
+    <span globalize="ML_Err_ValidUsrID" id="ML_Err_ValidUsrID" style="display: none" inputtype="" validatemessage="">The entered Username does not meet the minimum requirements. Please enter a valid Username. Username shall be at least 4 characters long and must contain alphabets, numbers and/or special characters (_, -, &amp;, +).</span>
+    <span globalize="ML_AddUpdatePayment_Span_Msg_EnterAllMandInfo" id="AllErrMsg" style="display: none" inputtype="" validatemessage="" title="Please enter all the mandatory information.">Please enter all the mandatory information.</span>
+    <span globalize="ML_Msg_ServiceAccountZeroNotAllowed" id="ML_Msg_ServiceAccountZeroNotAllowed" style="display: none" inputtype="" validatemessage="" title="Service Account Number 0 not allowed.">Service Account Number 0 not allowed.</span>
+    <span globalize="ML_MYACCOUNT_ContactNum_Primary" id="spnMobileNumber" style="display: none" inputtype="Phone" validatemessage="Please enter a valid 10 digit Mobile Number." title="Click to edit your Mobile Number">Mobile Number</span>
+    <span globalize="ML_Err_PwdValidation" id="ML_Err_PwdValidation" style="display: none" inputtype="" validatemessage="Password should have at least ">The entered Password does not meet the desired requirements. <br> Please enter a valid password. <br> Your password should comprise of</span>
+    <span globalize="ML_Err_PwdValidationRequiremnt" id="ML_Err_PwdValidationRequiremnt" style="display: none" inputtype="null" validatemessage="Password should have at least ">• 8-32 character;• One Uppercase Letter;• One Lowercase Letter;• Number;• Special Character like @#$%*!_-&amp;+;• No space allowed</span>
+    <span globalize="ML_PasswordIndctr_CapsLetter" id="ML_PasswordIndctr_CapsLetter" style="display: none" inputtype="" validatemessage="">one uppercase letter</span>
+</header>
+
+
+        <!-- header ends-->
+        <section class="drHeading">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <h1>
+                            
+                            <label globalize="ML_DASHBOARD_Anchor_Outages" inputtype="null" validatemessage="null">Outages</label>
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="inner_mid_section" id="devices" role="main" style="height: auto; margin-bottom: 15px;">
+
+            <div class="left_side_outage" id="left_side_outage_Div" style="display: block;">
+                <div class="left_side_top" id="left_side_top_Div">
+                    <div class="outage_search" style="">
+                        <input type="text" id="CANumberInputSearch" aria-labelledby="CANumberSearch" maxlength="12" placeholder="Search by CA Number" tabindex="1">
+                        <i id="CANumberSearch" class="material-icons" tabindex="0" aria-label="Click to Search" style="opacity: 1;">search</i>
+                    </div>
+                    <ul>
+                        <li class="outershowContent" type="list" style="display: none;"><a href="#" tabindex="1" aria-label="Click to List"><i class="material-icons" style="opacity: 1;">list</i></a></li>
+                        <li class="outershowContent" type="map" style=""><a href="#" tabindex="1" aria-label="Click to Map"><i class="material-icons" style="opacity: 1;">map</i></a></li>
+                    </ul>
+                </div>
+                <div class="rbtn_area" style="display: none;">
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect is-checked mdl-js-ripple-effect--ignore-events is-upgraded" for="option-1" data-upgraded=",MaterialRadio,MaterialRipple">
+                        <input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked="checked" tabindex="1">
+                        <span class="mdl-radio__label">City</span>
+                    <span class="mdl-radio__outer-circle"></span><span class="mdl-radio__inner-circle"></span><span class="mdl-radio__ripple-container mdl-js-ripple-effect mdl-ripple--center" data-upgraded=",MaterialRipple"><span class="mdl-ripple"></span></span></label>
+                    <label class="mdl-radio mdl-js-radio mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded" for="option-2" data-upgraded=",MaterialRadio,MaterialRipple">
+                        <input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2" tabindex="1">
+                        <span class="mdl-radio__label">Zip</span>
+                    <span class="mdl-radio__outer-circle"></span><span class="mdl-radio__inner-circle"></span><span class="mdl-radio__ripple-container mdl-js-ripple-effect mdl-ripple--center" data-upgraded=",MaterialRipple"><span class="mdl-ripple"></span></span></label>
+                </div>
+                <ul class="crPrOutage" style="display: none !important;">
+                    <li><a class="tbCurrent " href="javascript:void(0)" style="display: none" aria-label="Click to Current" tabindex="1">Current</a></li>
+                    <li><a class="tbPlanned active" href="javascript:void(0)" aria-label="Click to Planned" tabindex="1">Planned</a></li>
+                </ul>
+                <div class="green_area">
+                    <ul class="crntOutage" style="display: none;">
+                        <li>
+                            <i class="material-icons" style="opacity: 1;">offline_bolt</i>
+                            <span id="totalOutageSpan">2</span>
+                            <label>Planned Outages</label>
+                        </li>
+                        
+                    </ul>
+                    <ul class="plndOutage">
+                        <li style="width: 100% !important;">
+                            <i class="material-icons" style="opacity: 1;">offline_bolt</i>
+                            <span id="totalPOutageSpan">2</span>
+                            <label>Planned Outages</label>
+                        </li>
+                        
+                    </ul>
+                </div>
+                <div class="accordian_area" style="display: none;">
+                    <!--Accordion wrapper-->
+                    <div class="accordion md-accordion" id="accordionEx1" role="tablist" aria-multiselectable="true">
+
+                        <!-- Accordion card -->
+                        <div class="card">
+
+                            <!-- Card header -->
+                            <div class="card-header" role="tab" id="headingTwo1">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseTwo1" aria-expanded="false" aria-controls="collapseTwo1" tabindex="1">
+                                    <h5 class="mb-0">Map Legend <i class="material-icons" style="opacity: 1;">keyboard_arrow_down</i>
+                                    </h5>
+                                </a>
+                            </div>
+
+                            <!-- Card body -->
+                            <div id="collapseTwo1" class="collapse" role="tabpanel" aria-labelledby="headingTwo1" data-parent="#accordionEx1">
+                                <div class="card-body">
+                                    
+                                    <ul>
+                                        <li>
+                                            <img src="images/img1.png" alt="multiple" title="Icon Multiple" globalize="ML_Multiple" inputtype="" validatemessage=""><span>Multiple</span></li>
+                                        <li>
+                                            <img src="images/red-pin-s.png" alt="+2,000" title="Icon Individual"><span>Individual</span></li>
+
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- Accordion card -->
+
+                        <!-- Accordion card -->
+                        <div class="card">
+
+                            <!-- Card header -->
+                            <div class="card-header" role="tab" id="headingTwo2" style="display: none!important">
+                                <a class="collapsed" data-toggle="collapse" data-parent="#accordionEx1" href="#collapseTwo21" aria-expanded="false" aria-controls="collapseTwo21" tabindex="1">
+                                    <h5 class="mb-0 heading">Weather
+
+                                        <i class="material-icons" style="opacity: 1;">keyboard_arrow_down</i>
+                                    </h5>
+
+                                </a>
+                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-checked is-upgraded" for="switch-2" id="switch2lbl" data-upgraded=",MaterialSwitch,MaterialRipple">
+
+                                    <input type="checkbox" id="switch-2" aria-labelledby="switch2lbl" class="mdl-switch__input" checked="checked" tabindex="1">
+                                    <span class="mdl-switch__label"></span>
+                                    <span class="sr-only" aria-hidden="true">text</span>
+                                <div class="mdl-switch__track"></div><div class="mdl-switch__thumb"><span class="mdl-switch__focus-helper"></span></div><span class="mdl-switch__ripple-container mdl-js-ripple-effect mdl-ripple--center" data-upgraded=",MaterialRipple"><span class="mdl-ripple"></span></span></label>
+                            </div>
+                            <!-- Card body -->
+                            <div id="collapseTwo21" class="collapse" role="tabpanel" data-parent="#accordionEx1">
+                                <div class="card-body second_collapse">
+                                    <ul>
+                                        <li>
+                                            <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-js-ripple-effect--ignore-events is-upgraded" for="checkbox-2" data-upgraded=",MaterialCheckbox,MaterialRipple">
+                                                <input type="checkbox" class="mdl-checkbox__input" id="checkbox-2" tabindex="1">
+                                                <span class="mdl-checkbox__label">Loop</span>
+                                            <span class="mdl-checkbox__focus-helper"></span><span class="mdl-checkbox__box-outline"><span class="mdl-checkbox__tick-outline"></span></span><span class="mdl-checkbox__ripple-container mdl-js-ripple-effect mdl-ripple--center" data-upgraded=",MaterialRipple"><span class="mdl-ripple"></span></span></label>
+
+                                        </li>
+                                        <li><span>Rain</span><img src="images/rain-color.png" alt="Rain" title="Rain"></li>
+                                        <li><span>Frozen</span><img src="images/frozen-color.png" alt="Frozen" title="Frozen"></li>
+                                        <li><span>Snow</span><img src="images/snow-color.png" alt="Snow" title="Snow"></li>
+                                        <li><i>Light</i><b>Heavy</b></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Accordion card -->
+                    </div>
+                    <!-- Accordion wrapper -->
+                </div>
+                <div class="butn_link_area">
+                    <ul>
+                        <li>
+                            
+                            <a href="contact-us-connect-me_template.aspx?Ct=RP4C49zhmzCY2393XJbER58xjWdPjl0=" target="_blank" id="btnReportOutage" tabindex="1">Register for Power Failure</a></li>
+                        <li>
+                            <p>Information updates every 5 minutes</p>
+                        </li>
+
+                        <li><span>Updated <span id="updateTime">3/31/2025 10:3:54</span></span></li>
+                    </ul>
+
+                </div>
+                
+            </div>
+            <div class="right_side_outage" id="right_side_Div_ForReportOutages" style="width: 75%;">
+                
+                <div class="collapse_table" style="display: block;">
+                    <div class="county_zip" style="display: none;">
+                        <ul>
+                            <li class="county_zip_color" id="County_Tab"><a href="javascript:void(0)" tabindex="1">City</a></li>
+                            <li id="Zip_Tab"><a href="javascript:void(0)" tabindex="1">Zip Code</a></li>
+                        </ul>
+                    </div>
+                    <div class="map-chip" style="display: none !important;">
+                        <span class="mdl-chip mdl-chip--deletable" style="display: none !important;">
+                            <span id="serviceAddText1" class="mdl-chip__text" style="display: none !important;">Your service address is not part of an outage</span>
+
+                            <button type="button" class="mdl-chip__action" onclick="CloseInfoTag();" tabindex="1"><i class="material-icons" style="opacity: 1;">close</i></button>
+                        </span>
+                    </div>
+                    <div class="table_upper energy_mid_box" style="min-height: 494px;">
+                        <table id="table1">
+                            <thead>
+                                <tr>
+                                    
+                                    <th width="10%">Zone</th>
+                                    <th width="20%">Affected Area</th>
+                                    <th width="20%">Cause</th>
+                                    <th width="25%">Outage Start Time</th>
+                                    <th width="25%">Outage End Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyid"><tr data-toggle="collapse" data-target=".order1"><td>North Mira Bhayender</td><td>Gaurav City</td><td>Routine maintenance</td><td>March 31, 2025 10:00</td><td>March 31, 2025 12:00</td></tr><tr data-toggle="collapse" data-target=".order2"><td>North Mira Bhayender</td><td>Gaurav City</td><td>Routine maintenance</td><td>March 31, 2025 10:00</td><td>March 31, 2025 12:00</td></tr></tbody>
+
+                        </table>
+                    </div>
+                </div>
+
+
+                
+                <div class="map_area" style="display: none;">
+                    <div class="map_area_div" id="outage_map_canvas" style="height: 850px; width: 100%; position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div><button draggable="false" aria-label="Keyboard shortcuts" title="Keyboard shortcuts" type="button" style="background: none transparent; display: block; border: none; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: absolute; cursor: pointer; user-select: none; z-index: 1000002; outline-offset: 3px; right: 0px; bottom: 0px; transform: translateX(100%);"></button></div><div tabindex="0" aria-label="Map" aria-roledescription="map" role="region" aria-describedby="01CED64F-873D-4FE3-A744-B6DBC3AD855A" style="position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px;"><div id="01CED64F-873D-4FE3-A744-B6DBC3AD855A" style="display: none;"><div class="LGLeeN-keyboard-shortcuts-view"><table><tbody><tr><td><kbd aria-label="Left arrow">←</kbd></td><td aria-label="Move left.">Move left</td></tr><tr><td><kbd aria-label="Right arrow">→</kbd></td><td aria-label="Move right.">Move right</td></tr><tr><td><kbd aria-label="Up arrow">↑</kbd></td><td aria-label="Move up.">Move up</td></tr><tr><td><kbd aria-label="Down arrow">↓</kbd></td><td aria-label="Move down.">Move down</td></tr><tr><td><kbd>+</kbd></td><td aria-label="Zoom in.">Zoom in</td></tr><tr><td><kbd>-</kbd></td><td aria-label="Zoom out.">Zoom out</td></tr><tr><td><kbd>Home</kbd></td><td aria-label="Jump left by 75%.">Jump left by 75%</td></tr><tr><td><kbd>End</kbd></td><td aria-label="Jump right by 75%.">Jump right by 75%</td></tr><tr><td><kbd>Page Up</kbd></td><td aria-label="Jump up by 75%.">Jump up by 75%</td></tr><tr><td><kbd>Page Down</kbd></td><td aria-label="Jump down by 75%.">Jump down by 75%</td></tr></tbody></table></div></div></div><div class="gm-style" style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px;"><div style="position: absolute; z-index: 0; left: 0px; top: 0px; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; cursor: url(&quot;https://maps.gstatic.com/mapfiles/openhand_8_8.cur&quot;), default; touch-action: pan-x pan-y;"><div style="z-index: 1; position: absolute; left: 50%; top: 50%; width: 100%; will-change: transform; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 100; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; z-index: 988; transform: matrix(1, 0, 0, 1, -52, -14);"><div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -256px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -256px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 0px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 256px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 256px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 256px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 0px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -256px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -512px; top: 256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -512px; top: 0px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -512px; top: -256px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -512px; top: -512px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: -256px; top: -512px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 0px; top: -512px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div><div style="position: absolute; left: 256px; top: -512px; width: 256px; height: 256px;"><div style="width: 256px; height: 256px;"></div></div></div></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 101; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 102; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 103; width: 100%;"><div style="position: absolute; left: 0px; top: 0px; z-index: -1;"><div style="position: absolute; z-index: 988; transform: matrix(1, 0, 0, 1, -52, -14);"><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -256px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -256px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 256px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 256px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 256px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -256px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -512px; top: 256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -512px; top: 0px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -512px; top: -256px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -512px; top: -512px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: -256px; top: -512px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 0px; top: -512px;"></div><div style="width: 256px; height: 256px; overflow: hidden; position: absolute; left: 256px; top: -512px;"></div></div></div><div style="width: 36px; height: 47px; overflow: hidden; position: absolute; left: -18px; top: -47px; z-index: 0;"><img alt="Banner" src="images/userhome.png" draggable="false" style="position: absolute; left: 0px; top: 0px; user-select: none; width: 36px; height: 47px; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 0;"><div style="position: absolute; z-index: 988; transform: matrix(1, 0, 0, 1, -52, -14);"><div style="position: absolute; left: 0px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1144!3i1491!4i256!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=2255" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -256px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1143!3i1491!4i256!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=39299" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -256px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1143!3i1490!4i256!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=2674" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 0px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1144!3i1490!4i256!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=96701" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 256px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1145!3i1490!4i256!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=59657" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 256px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1145!3i1491!4i256!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=96282" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 256px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1145!3i1492!4i256!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=1836" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 0px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1144!3i1492!4i256!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=38880" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -256px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1143!3i1492!4i256!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=75924" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -512px; top: 256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1142!3i1492!4i256!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=112968" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -512px; top: 0px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1142!3i1491!4i256!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=76343" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -512px; top: -256px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1142!3i1490!4i256!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=39718" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -512px; top: -512px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1142!3i1489!4i256!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=89869" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: -256px; top: -512px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1143!3i1489!4i256!2m3!1e0!2sm!3i726484364!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=52825" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 0px; top: -512px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1144!3i1489!4i256!2m3!1e0!2sm!3i726484233!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=9213" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div><div style="position: absolute; left: 256px; top: -512px; width: 256px; height: 256px; transition: opacity 200ms linear;"><img draggable="false" alt="Banner" role="presentation" src="https://maps.googleapis.com/maps/vt?pb=!1m5!1m4!1i12!2i1145!3i1489!4i256!2m3!1e0!2sm!3i726484244!3m18!2sen-US!3sUS!5e18!12m5!1e68!2m2!1sset!2sRoadmap!4e2!12m3!1e37!2m1!1ssmartmaps!12m4!1e26!2m2!1sstyles!2zcy50OjJ8cy5lOmx8cC52Om9mZg!4e0!5m1!1e3!23i47083502&amp;key=AIzaSyCxckU490u-fh2AD44pXap2p6iKcMS15bw&amp;token=2082" style="width: 256px; height: 256px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div></div></div><div style="z-index: 3; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;"><div style="z-index: 4; position: absolute; left: 50%; top: 50%; width: 100%; will-change: transform; transform: translate(0px, 0px);"><div style="position: absolute; left: 0px; top: 0px; z-index: 104; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 105; width: 100%;"></div><div style="position: absolute; left: 0px; top: 0px; z-index: 106; width: 100%;"><slot></slot><span id="E78CECC0-EE55-4DF4-8D15-A06CC7A4D46D" style="display: none;">To navigate, press the arrow keys.</span><div title="" tabindex="-1" style="width: 36px; height: 47px; overflow: hidden; position: absolute; cursor: pointer; touch-action: none; left: -18px; top: -47px; z-index: 0;"><img alt="Banner" src="https://maps.gstatic.com/mapfiles/transparent.png" draggable="false" style="width: 36px; height: 47px; user-select: none; border: 0px; padding: 0px; margin: 0px; max-width: none;"></div></div><div style="position: absolute; left: 0px; top: 0px; z-index: 107; width: 100%;"></div></div></div><div class="gm-style-moc" style="z-index: 4; position: absolute; height: 100%; width: 100%; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; transition-property: opacity, display; transition-behavior: allow-discrete; opacity: 0; display: none;"><p class="gm-style-mot"></p></div></div><iframe aria-hidden="true" frameborder="0" tabindex="-1" style="z-index: -1; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; border: none; opacity: 0;"></iframe><div style="pointer-events: none; width: 100%; height: 100%; box-sizing: border-box; position: absolute; z-index: 1000002; opacity: 0; border: 2px solid rgb(26, 115, 232);"></div><div><div class="gmnoprint gm-style-mtc-bbw" role="menubar" style="margin: 10px; z-index: 0; position: absolute; cursor: pointer; left: 0px; top: 0px;"><div class="gm-style-mtc" style="float: left; position: relative;"><button draggable="false" aria-label="Show street map" title="Show street map" type="button" role="menuitemradio" aria-checked="true" aria-haspopup="true" id="19010056-77AB-4C41-83F8-6BA705EA6518" style="background: none padding-box rgb(255, 255, 255); display: table-cell; border: 0px; margin: 0px; padding: 0px 17px; text-transform: none; appearance: none; position: relative; cursor: pointer; user-select: none; overflow: hidden; text-align: center; height: 40px; vertical-align: middle; color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; font-size: 18px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; font-weight: 500;">Map</button><ul role="menu" aria-labelledby="19010056-77AB-4C41-83F8-6BA705EA6518" style="background-color: rgb(255, 255, 255); list-style: none; padding: 2px; margin: 0px; z-index: -1; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; position: absolute; left: 0px; top: 0px; text-align: left; display: none;"><li tabindex="-1" role="menuitemcheckbox" aria-label="Terrain" draggable="false" title="Show street map with terrain" aria-checked="false" class="ssQIHO-checkbox-menu-item" style="color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; user-select: none; font-size: 18px; background-color: rgb(255, 255, 255); padding: 5px 8px 5px 5px; direction: ltr; text-align: left; white-space: nowrap;"><span><span style="mask-image: url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22/%3E%3Cpath%20d%3D%22M19%203H5c-1.11%200-2%20.9-2%202v14c0%201.1.89%202%202%202h14c1.11%200%202-.9%202-2V5c0-1.1-.89-2-2-2zm-9%2014l-5-5%201.41-1.41L10%2014.17l7.59-7.59L19%208l-9%209z%22/%3E%3C/svg%3E&quot;); height: 1em; width: 1em; transform: translateY(0.15em); display: none;"></span><span style="mask-image: url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M19%205v14H5V5h14m0-2H5c-1.1%200-2%20.9-2%202v14c0%201.1.9%202%202%202h14c1.1%200%202-.9%202-2V5c0-1.1-.9-2-2-2z%22/%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22/%3E%3C/svg%3E&quot;); height: 1em; width: 1em; transform: translateY(0.15em);"></span></span><label style="cursor: inherit;">Terrain</label></li></ul></div><div class="gm-style-mtc" style="float: left; position: relative;"><button draggable="false" aria-label="Show satellite imagery" title="Show satellite imagery" type="button" role="menuitemradio" aria-checked="false" aria-haspopup="true" id="9FB60B49-96DA-44CE-9C46-B89AB8EEBEC7" style="background: none padding-box rgb(255, 255, 255); display: table-cell; border: 0px; margin: 0px; padding: 0px 17px; text-transform: none; appearance: none; position: relative; cursor: pointer; user-select: none; overflow: hidden; text-align: center; height: 40px; vertical-align: middle; color: rgb(86, 86, 86); font-family: Roboto, Arial, sans-serif; font-size: 18px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;">Satellite</button><ul role="menu" aria-labelledby="9FB60B49-96DA-44CE-9C46-B89AB8EEBEC7" style="background-color: rgb(255, 255, 255); list-style: none; padding: 2px; margin: 0px; z-index: -1; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; position: absolute; right: 0px; top: 0px; text-align: left; display: none;"><li tabindex="-1" role="menuitemcheckbox" aria-label="Labels" draggable="false" title="Show imagery with street names" aria-checked="true" class="ssQIHO-checkbox-menu-item" style="color: rgb(0, 0, 0); font-family: Roboto, Arial, sans-serif; user-select: none; font-size: 18px; background-color: rgb(255, 255, 255); padding: 5px 8px 5px 5px; direction: ltr; text-align: left; white-space: nowrap;"><span><span style="mask-image: url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22/%3E%3Cpath%20d%3D%22M19%203H5c-1.11%200-2%20.9-2%202v14c0%201.1.89%202%202%202h14c1.11%200%202-.9%202-2V5c0-1.1-.89-2-2-2zm-9%2014l-5-5%201.41-1.41L10%2014.17l7.59-7.59L19%208l-9%209z%22/%3E%3C/svg%3E&quot;); height: 1em; width: 1em; transform: translateY(0.15em);"></span><span style="mask-image: url(&quot;data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M19%205v14H5V5h14m0-2H5c-1.1%200-2%20.9-2%202v14c0%201.1.9%202%202%202h14c1.1%200%202-.9%202-2V5c0-1.1-.9-2-2-2z%22/%3E%3Cpath%20d%3D%22M0%200h24v24H0z%22%20fill%3D%22none%22/%3E%3C/svg%3E&quot;); height: 1em; width: 1em; transform: translateY(0.15em); display: none;"></span></span><label style="cursor: inherit;">Labels</label></li></ul></div></div></div><div></div><div></div><div></div><div><button draggable="false" aria-label="Toggle fullscreen view" title="Toggle fullscreen view" type="button" aria-pressed="false" class="gm-control-active gm-fullscreen-control" style="background: none rgb(255, 255, 255); border: 0px; margin: 10px; padding: 0px; text-transform: none; appearance: none; position: absolute; cursor: pointer; user-select: none; border-radius: 2px; height: 40px; width: 40px; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; overflow: hidden; top: 0px; right: 0px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2018%2018%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M0%200v6h2V2h4V0H0zm16%200h-4v2h4v4h2V0h-2zm0%2016h-4v2h6v-6h-2v4zM2%2012H0v6h6v-2H2v-4z%22/%3E%3C/svg%3E" alt="Banner" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2018%2018%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M0%200v6h2V2h4V0H0zm16%200h-4v2h4v4h2V0h-2zm0%2016h-4v2h6v-6h-2v4zM2%2012H0v6h6v-2H2v-4z%22/%3E%3C/svg%3E" alt="Banner" style="height: 18px; width: 18px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2018%2018%22%3E%3Cpath%20fill%3D%22%23111%22%20d%3D%22M0%200v6h2V2h4V0H0zm16%200h-4v2h4v4h2V0h-2zm0%2016h-4v2h6v-6h-2v4zM2%2012H0v6h6v-2H2v-4z%22/%3E%3C/svg%3E" alt="Banner" style="height: 18px; width: 18px;"></button></div><div></div><div></div><div></div><div></div><div><div class="gmnoprint gm-bundled-control gm-bundled-control-on-bottom" draggable="false" data-control-width="40" data-control-height="40" style="margin: 10px; user-select: none; position: absolute; bottom: 40px; right: 40px;"><div class="gmnoprint" data-control-width="40" data-control-height="40" style="display: none; position: absolute;"><div style="background-color: rgb(255, 255, 255); box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; border-radius: 2px; width: 40px; height: 40px;"><button draggable="false" aria-label="Rotate map clockwise" title="Rotate map clockwise" type="button" class="gm-control-active" style="background: none; display: none; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: relative; cursor: pointer; user-select: none; left: 0px; top: 0px; overflow: hidden; width: 40px; height: 40px;"><img alt="Banner" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M0%200h24v24H0V0z%22/%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M12.06%209.06l4-4-4-4-1.41%201.41%201.59%201.59h-.18c-2.3%200-4.6.88-6.35%202.64-3.52%203.51-3.52%209.21%200%2012.72%201.5%201.5%203.4%202.36%205.36%202.58v-2.02c-1.44-.21-2.84-.86-3.95-1.97-2.73-2.73-2.73-7.17%200-9.9%201.37-1.37%203.16-2.05%204.95-2.05h.17l-1.59%201.59%201.41%201.41zm8.94%203c-.19-1.74-.88-3.32-1.91-4.61l-1.43%201.43c.69.92%201.15%202%201.32%203.18H21zm-7.94%207.92V22c1.74-.19%203.32-.88%204.61-1.91l-1.43-1.43c-.91.68-2%201.15-3.18%201.32zm4.6-2.74l1.43%201.43c1.04-1.29%201.72-2.88%201.91-4.61h-2.02c-.17%201.18-.64%202.27-1.32%203.18z%22/%3E%3C/svg%3E" style="width: 20px; height: 20px;"><img alt="Banner" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M0%200h24v24H0V0z%22/%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M12.06%209.06l4-4-4-4-1.41%201.41%201.59%201.59h-.18c-2.3%200-4.6.88-6.35%202.64-3.52%203.51-3.52%209.21%200%2012.72%201.5%201.5%203.4%202.36%205.36%202.58v-2.02c-1.44-.21-2.84-.86-3.95-1.97-2.73-2.73-2.73-7.17%200-9.9%201.37-1.37%203.16-2.05%204.95-2.05h.17l-1.59%201.59%201.41%201.41zm8.94%203c-.19-1.74-.88-3.32-1.91-4.61l-1.43%201.43c.69.92%201.15%202%201.32%203.18H21zm-7.94%207.92V22c1.74-.19%203.32-.88%204.61-1.91l-1.43-1.43c-.91.68-2%201.15-3.18%201.32zm4.6-2.74l1.43%201.43c1.04-1.29%201.72-2.88%201.91-4.61h-2.02c-.17%201.18-.64%202.27-1.32%203.18z%22/%3E%3C/svg%3E" style="width: 20px; height: 20px;"><img alt="Banner" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M0%200h24v24H0V0z%22/%3E%3Cpath%20fill%3D%22%23111%22%20d%3D%22M12.06%209.06l4-4-4-4-1.41%201.41%201.59%201.59h-.18c-2.3%200-4.6.88-6.35%202.64-3.52%203.51-3.52%209.21%200%2012.72%201.5%201.5%203.4%202.36%205.36%202.58v-2.02c-1.44-.21-2.84-.86-3.95-1.97-2.73-2.73-2.73-7.17%200-9.9%201.37-1.37%203.16-2.05%204.95-2.05h.17l-1.59%201.59%201.41%201.41zm8.94%203c-.19-1.74-.88-3.32-1.91-4.61l-1.43%201.43c.69.92%201.15%202%201.32%203.18H21zm-7.94%207.92V22c1.74-.19%203.32-.88%204.61-1.91l-1.43-1.43c-.91.68-2%201.15-3.18%201.32zm4.6-2.74l1.43%201.43c1.04-1.29%201.72-2.88%201.91-4.61h-2.02c-.17%201.18-.64%202.27-1.32%203.18z%22/%3E%3C/svg%3E" style="width: 20px; height: 20px;"></button><div style="position: relative; overflow: hidden; width: 30px; height: 1px; margin: 0px 5px; background-color: rgb(230, 230, 230); display: none;"></div><button draggable="false" aria-label="Rotate map counterclockwise" title="Rotate map counterclockwise" type="button" class="gm-control-active" style="background: none; display: none; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: relative; cursor: pointer; user-select: none; left: 0px; top: 0px; overflow: hidden; width: 40px; height: 40px; transform: scaleX(-1);"><img alt="Banner" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M0%200h24v24H0V0z%22/%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M12.06%209.06l4-4-4-4-1.41%201.41%201.59%201.59h-.18c-2.3%200-4.6.88-6.35%202.64-3.52%203.51-3.52%209.21%200%2012.72%201.5%201.5%203.4%202.36%205.36%202.58v-2.02c-1.44-.21-2.84-.86-3.95-1.97-2.73-2.73-2.73-7.17%200-9.9%201.37-1.37%203.16-2.05%204.95-2.05h.17l-1.59%201.59%201.41%201.41zm8.94%203c-.19-1.74-.88-3.32-1.91-4.61l-1.43%201.43c.69.92%201.15%202%201.32%203.18H21zm-7.94%207.92V22c1.74-.19%203.32-.88%204.61-1.91l-1.43-1.43c-.91.68-2%201.15-3.18%201.32zm4.6-2.74l1.43%201.43c1.04-1.29%201.72-2.88%201.91-4.61h-2.02c-.17%201.18-.64%202.27-1.32%203.18z%22/%3E%3C/svg%3E" style="width: 20px; height: 20px;"><img alt="Banner" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M0%200h24v24H0V0z%22/%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M12.06%209.06l4-4-4-4-1.41%201.41%201.59%201.59h-.18c-2.3%200-4.6.88-6.35%202.64-3.52%203.51-3.52%209.21%200%2012.72%201.5%201.5%203.4%202.36%205.36%202.58v-2.02c-1.44-.21-2.84-.86-3.95-1.97-2.73-2.73-2.73-7.17%200-9.9%201.37-1.37%203.16-2.05%204.95-2.05h.17l-1.59%201.59%201.41%201.41zm8.94%203c-.19-1.74-.88-3.32-1.91-4.61l-1.43%201.43c.69.92%201.15%202%201.32%203.18H21zm-7.94%207.92V22c1.74-.19%203.32-.88%204.61-1.91l-1.43-1.43c-.91.68-2%201.15-3.18%201.32zm4.6-2.74l1.43%201.43c1.04-1.29%201.72-2.88%201.91-4.61h-2.02c-.17%201.18-.64%202.27-1.32%203.18z%22/%3E%3C/svg%3E" style="width: 20px; height: 20px;"><img alt="Banner" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20fill%3D%22none%22%20d%3D%22M0%200h24v24H0V0z%22/%3E%3Cpath%20fill%3D%22%23111%22%20d%3D%22M12.06%209.06l4-4-4-4-1.41%201.41%201.59%201.59h-.18c-2.3%200-4.6.88-6.35%202.64-3.52%203.51-3.52%209.21%200%2012.72%201.5%201.5%203.4%202.36%205.36%202.58v-2.02c-1.44-.21-2.84-.86-3.95-1.97-2.73-2.73-2.73-7.17%200-9.9%201.37-1.37%203.16-2.05%204.95-2.05h.17l-1.59%201.59%201.41%201.41zm8.94%203c-.19-1.74-.88-3.32-1.91-4.61l-1.43%201.43c.69.92%201.15%202%201.32%203.18H21zm-7.94%207.92V22c1.74-.19%203.32-.88%204.61-1.91l-1.43-1.43c-.91.68-2%201.15-3.18%201.32zm4.6-2.74l1.43%201.43c1.04-1.29%201.72-2.88%201.91-4.61h-2.02c-.17%201.18-.64%202.27-1.32%203.18z%22/%3E%3C/svg%3E" style="width: 20px; height: 20px;"></button><div style="position: relative; overflow: hidden; width: 30px; height: 1px; margin: 0px 5px; background-color: rgb(230, 230, 230); display: none;"></div><button draggable="false" aria-label="Tilt map" title="Tilt map" type="button" class="gm-tilt gm-control-active" style="background: none; display: block; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: relative; cursor: pointer; user-select: none; top: 0px; left: 0px; overflow: hidden; width: 40px; height: 40px;"><img alt="Banner" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2018%2016%22%3E%3Cpath%20fill%3D%22%23666%22%20d%3D%22M0%2016h8V9H0v7zm10%200h8V9h-8v7zM0%207h8V0H0v7zm10-7v7h8V0h-8z%22/%3E%3C/svg%3E" style="width: 18px;"><img alt="Banner" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2018%2016%22%3E%3Cpath%20fill%3D%22%23333%22%20d%3D%22M0%2016h8V9H0v7zm10%200h8V9h-8v7zM0%207h8V0H0v7zm10-7v7h8V0h-8z%22/%3E%3C/svg%3E" style="width: 18px;"><img alt="Banner" src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2018%2016%22%3E%3Cpath%20fill%3D%22%23111%22%20d%3D%22M0%2016h8V9H0v7zm10%200h8V9h-8v7zM0%207h8V0H0v7zm10-7v7h8V0h-8z%22/%3E%3C/svg%3E" style="width: 18px;"></button></div></div><gmp-internal-camera-control data-control-width="40" data-control-height="40" draggable="false" class="gmnoprint" style="position: absolute; cursor: pointer; user-select: none; left: 0px; top: 0px;"><button draggable="false" aria-label="Map camera controls" title="Map camera controls" type="button" class="gm-control-active" aria-expanded="false" aria-controls="7A538C54-3E6F-4DE3-BCD0-9A7176B41DB5" style="background: none 6px center / 28px no-repeat rgb(255, 255, 255); display: block; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: relative; cursor: pointer; user-select: none; width: 40px; height: 40px; border-radius: 50%; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2019.175l2.125-2.125%201.425%201.4L12%2022l-3.55-3.55%201.425-1.4L12%2019.175zM4.825%2012l2.125%202.125-1.4%201.425L2%2012l3.55-3.55%201.4%201.425L4.825%2012zm14.35%200L17.05%209.875l1.4-1.425L22%2012l-3.55%203.55-1.4-1.425L19.175%2012zM12%204.825L9.875%206.95%208.45%205.55%2012%202l3.55%203.55-1.425%201.4L12%204.825z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2019.175l2.125-2.125%201.425%201.4L12%2022l-3.55-3.55%201.425-1.4L12%2019.175zM4.825%2012l2.125%202.125-1.4%201.425L2%2012l3.55-3.55%201.4%201.425L4.825%2012zm14.35%200L17.05%209.875l1.4-1.425L22%2012l-3.55%203.55-1.4-1.425L19.175%2012zM12%204.825L9.875%206.95%208.45%205.55%2012%202l3.55%203.55-1.425%201.4L12%204.825z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2019.175l2.125-2.125L15.55%2018.45%2012%2022%208.45%2018.45%209.875%2017.05%2012%2019.175zM4.825%2012l2.125%202.125L5.55%2015.55%202%2012%205.55%208.45%206.95%209.875%204.825%2012zM19.175%2012L17.05%209.875%2018.45%208.45%2022%2012%2018.45%2015.55%2017.05%2014.125%2019.175%2012zM12%204.825L9.875%206.95%208.45%205.55%2012%202%2015.55%205.55%2014.125%206.95%2012%204.825z%22%20fill%3D%22%231A73E8%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2019.175l2.125-2.125L15.55%2018.45%2012%2022%208.45%2018.45%209.875%2017.05%2012%2019.175zM4.825%2012l2.125%202.125L5.55%2015.55%202%2012%205.55%208.45%206.95%209.875%204.825%2012zM19.175%2012L17.05%209.875%2018.45%208.45%2022%2012%2018.45%2015.55%2017.05%2014.125%2019.175%2012zM12%204.825L9.875%206.95%208.45%205.55%2012%202%2015.55%205.55%2014.125%206.95%2012%204.825z%22%20fill%3D%22%23D1D1D1%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"></button><menu id="7A538C54-3E6F-4DE3-BCD0-9A7176B41DB5" style="list-style: none; padding: 0px; display: none; position: absolute; z-index: 999999; margin: 10px; width: 140px; height: 140px; right: 100%; bottom: -10px;"><li><button draggable="false" aria-label="Move up" title="Move up" type="button" class="gm-control-active" style="background: none 6px center / 28px no-repeat rgb(255, 255, 255); display: block; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: absolute; cursor: pointer; user-select: none; width: 40px; height: 40px; border-radius: 50%; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; top: 0px; left: 50%; transform: translateX(-50%);"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2010.8l-4.6%204.6L6%2014l6-6%206%206-1.4%201.4-4.6-4.6z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2010.8l-4.6%204.6L6%2014l6-6%206%206L16.6%2015.4%2012%2010.8z%22%20fill%3D%22%23333%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2010.8l-4.6%204.6L6%2014l6-6%206%206-1.4%201.4-4.6-4.6z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2010.8l-4.6%204.6L6%2014l6-6%206%206L16.6%2015.4%2012%2010.8z%22%20fill%3D%22%23D1D1D1%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"></button></li><li><button draggable="false" aria-label="Move left" title="Move left" type="button" class="gm-control-active" style="background: none 6px center / 28px no-repeat rgb(255, 255, 255); display: block; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: absolute; cursor: pointer; user-select: none; width: 40px; height: 40px; border-radius: 50%; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; bottom: 50%; left: 0px; transform: translateY(50%);"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M14%2018l-6-6%206-6%201.4%201.4-4.6%204.6%204.6%204.6L14%2018z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M14%2018l-6-6%206-6L15.4%207.4%2010.8%2012%2015.4%2016.6%2014%2018z%22%20fill%3D%22%23333%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M14%2018l-6-6%206-6%201.4%201.4-4.6%204.6%204.6%204.6L14%2018z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M14%2018l-6-6%206-6L15.4%207.4%2010.8%2012%2015.4%2016.6%2014%2018z%22%20fill%3D%22%23D1D1D1%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"></button></li><li><button draggable="false" aria-label="Move right" title="Move right" type="button" class="gm-control-active" style="background: none 6px center / 28px no-repeat rgb(255, 255, 255); display: block; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: absolute; cursor: pointer; user-select: none; width: 40px; height: 40px; border-radius: 50%; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; bottom: 50%; right: 0px; transform: translateY(50%);"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12.6%2012L8%207.4%209.4%206l6%206-6%206L8%2016.6l4.6-4.6z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12.6%2012L8%207.4%209.4%206l6%206-6%206L8%2016.6%2012.6%2012z%22%20fill%3D%22%23333%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12.6%2012L8%207.4%209.4%206l6%206-6%206L8%2016.6l4.6-4.6z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12.6%2012L8%207.4%209.4%206l6%206-6%206L8%2016.6%2012.6%2012z%22%20fill%3D%22%23D1D1D1%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"></button></li><li><button draggable="false" aria-label="Move down" title="Move down" type="button" class="gm-control-active" style="background: none 6px center / 28px no-repeat rgb(255, 255, 255); display: block; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: absolute; cursor: pointer; user-select: none; width: 40px; height: 40px; border-radius: 50%; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; bottom: 0px; left: 50%; transform: translateX(-50%);"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2015.4l-6-6L7.4%208l4.6%204.6L16.6%208%2018%209.4l-6%206z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2015.4l-6-6L7.4%208l4.6%204.6L16.6%208%2018%209.4l-6%206z%22%20fill%3D%22%23333%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2015.4l-6-6L7.4%208l4.6%204.6L16.6%208%2018%209.4l-6%206z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M12%2015.4l-6-6L7.4%208l4.6%204.6L16.6%208%2018%209.4l-6%206z%22%20fill%3D%22%23666%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"></button></li><li><button draggable="false" aria-label="Zoom in" title="Zoom in" type="button" class="gm-control-active" style="background: none 6px center / 28px no-repeat rgb(255, 255, 255); display: block; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: absolute; cursor: pointer; user-select: none; overflow: hidden; width: 40px; height: 40px; border-radius: 50%; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; top: 0px; right: 0px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%20-960%20960%20960%22%20fill%3D%22%23666%22%3E%3Cpath%20d%3D%22M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240z%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%20-960%20960%20960%22%20fill%3D%22%23333%22%3E%3Cpath%20d%3D%22M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240z%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%20-960%20960%20960%22%20fill%3D%22%23111%22%3E%3Cpath%20d%3D%22M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240z%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%20-960%20960%20960%22%20fill%3D%22%23d1d1d1%22%3E%3Cpath%20d%3D%22M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240z%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"></button></li><li><button draggable="false" aria-label="Zoom out" title="Zoom out" type="button" class="gm-control-active" style="background: none 6px center / 28px no-repeat rgb(255, 255, 255); display: block; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: absolute; cursor: pointer; user-select: none; overflow: hidden; width: 40px; height: 40px; border-radius: 50%; box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 4px -1px; bottom: 0px; right: 0px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%20-960%20960%20960%22%20fill%3D%22%23666%22%3E%3Cpath%20d%3D%22M200-440v-80h560v80H200z%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%20-960%20960%20960%22%20fill%3D%22%23333%22%3E%3Cpath%20d%3D%22M200-440v-80h560v80H200z%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%20-960%20960%20960%22%20fill%3D%22%23111%22%3E%3Cpath%20d%3D%22M200-440v-80h560v80H200z%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%20-960%20960%20960%22%20fill%3D%22%23d1d1d1%22%3E%3Cpath%20d%3D%22M200-440v-80h560v80H200z%22/%3E%3C/svg%3E" alt="Banner" style="height: 28px; width: 28px;"></button></li></menu></gmp-internal-camera-control></div></div><div><div style="margin: 0px 5px; z-index: 1000000; position: absolute; left: 0px; bottom: 0px;"><a target="_blank" rel="noopener" title="Open this area in Google Maps (opens a new window)" aria-label="Open this area in Google Maps (opens a new window)" href="https://maps.google.com/maps?ll=43.894366,-79.435179&amp;z=12&amp;t=m&amp;hl=en-US&amp;gl=US&amp;mapclient=apiv3" style="display: inline;"><div style="width: 66px; height: 26px;"><img alt="Banner" src="data:image/svg+xml,%3Csvg%20fill%3D%22none%22%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2069%2029%22%3E%3Cg%20opacity%3D%22.3%22%20fill%3D%22%23000%22%20stroke%3D%22%23000%22%20stroke-width%3D%221.5%22%3E%3Cpath%20d%3D%22M17.4706%207.33616L18.0118%206.79504%2017.4599%206.26493C16.0963%204.95519%2014.2582%203.94522%2011.7008%203.94522c-4.613699999999999%200-8.50262%203.7551699999999997-8.50262%208.395779999999998C3.19818%2016.9817%207.0871%2020.7368%2011.7008%2020.7368%2014.1712%2020.7368%2016.0773%2019.918%2017.574%2018.3689%2019.1435%2016.796%2019.5956%2014.6326%2019.5956%2012.957%2019.5956%2012.4338%2019.5516%2011.9316%2019.4661%2011.5041L19.3455%2010.9012H10.9508V14.4954H15.7809C15.6085%2015.092%2015.3488%2015.524%2015.0318%2015.8415%2014.403%2016.4629%2013.4495%2017.1509%2011.7008%2017.1509%209.04835%2017.1509%206.96482%2015.0197%206.96482%2012.341%206.96482%209.66239%209.04835%207.53119%2011.7008%207.53119%2013.137%207.53119%2014.176%208.09189%2014.9578%208.82348L15.4876%209.31922%2016.0006%208.80619%2017.4706%207.33616z%22/%3E%3Cpath%20d%3D%22M24.8656%2020.7286C27.9546%2020.7286%2030.4692%2018.3094%2030.4692%2015.0594%2030.4692%2011.7913%2027.953%209.39009%2024.8656%209.39009%2021.7783%209.39009%2019.2621%2011.7913%2019.2621%2015.0594c0%203.25%202.514499999999998%205.6692%205.6035%205.6692zM24.8656%2012.8282C25.8796%2012.8282%2026.8422%2013.6652%2026.8422%2015.0594%2026.8422%2016.4399%2025.8769%2017.2905%2024.8656%2017.2905%2023.8557%2017.2905%2022.8891%2016.4331%2022.8891%2015.0594%2022.8891%2013.672%2023.853%2012.8282%2024.8656%2012.8282z%22/%3E%3Cpath%20d%3D%22M35.7511%2017.2905v0H35.7469C34.737%2017.2905%2033.7703%2016.4331%2033.7703%2015.0594%2033.7703%2013.672%2034.7343%2012.8282%2035.7469%2012.8282%2036.7608%2012.8282%2037.7234%2013.6652%2037.7234%2015.0594%2037.7234%2016.4439%2036.7554%2017.2961%2035.7511%2017.2905zM35.7387%2020.7286C38.8277%2020.7286%2041.3422%2018.3094%2041.3422%2015.0594%2041.3422%2011.7913%2038.826%209.39009%2035.7387%209.39009%2032.6513%209.39009%2030.1351%2011.7913%2030.1351%2015.0594%2030.1351%2018.3102%2032.6587%2020.7286%2035.7387%2020.7286z%22/%3E%3Cpath%20d%3D%22M51.953%2010.4357V9.68573H48.3999V9.80826C47.8499%209.54648%2047.1977%209.38187%2046.4808%209.38187%2043.5971%209.38187%2041.0168%2011.8998%2041.0168%2015.0758%2041.0168%2017.2027%2042.1808%2019.0237%2043.8201%2019.9895L43.7543%2020.0168%2041.8737%2020.797%2041.1808%2021.0844%2041.4684%2021.7772C42.0912%2023.2776%2043.746%2025.1469%2046.5219%2025.1469%2047.9324%2025.1469%2049.3089%2024.7324%2050.3359%2023.7376%2051.3691%2022.7367%2051.953%2021.2411%2051.953%2019.2723v-8.8366zm-7.2194%209.9844L44.7334%2020.4196C45.2886%2020.6201%2045.878%2020.7286%2046.4808%2020.7286%2047.1616%2020.7286%2047.7866%2020.5819%2048.3218%2020.3395%2048.2342%2020.7286%2048.0801%2021.0105%2047.8966%2021.2077%2047.6154%2021.5099%2047.1764%2021.7088%2046.5219%2021.7088%2045.61%2021.7088%2045.0018%2021.0612%2044.7336%2020.4201zM46.6697%2012.8282C47.6419%2012.8282%2048.5477%2013.6765%2048.5477%2015.084%2048.5477%2016.4636%2047.6521%2017.2987%2046.6697%2017.2987%2045.6269%2017.2987%2044.6767%2016.4249%2044.6767%2015.084%2044.6767%2013.7086%2045.6362%2012.8282%2046.6697%2012.8282zM55.7387%205.22081v-.75H52.0788V20.4412H55.7387V5.22081z%22/%3E%3Cpath%20d%3D%22M63.9128%2016.0614L63.2945%2015.6492%2062.8766%2016.2637C62.4204%2016.9346%2061.8664%2017.3069%2061.0741%2017.3069%2060.6435%2017.3069%2060.3146%2017.2088%2060.0544%2017.0447%2059.9844%2017.0006%2059.9161%2016.9496%2059.8498%2016.8911L65.5497%2014.5286%2066.2322%2014.2456%2065.9596%2013.5589%2065.7406%2013.0075C65.2878%2011.8%2063.8507%209.39832%2060.8278%209.39832%2057.8445%209.39832%2055.5034%2011.7619%2055.5034%2015.0676%2055.5034%2018.2151%2057.8256%2020.7369%2061.0659%2020.7369%2063.6702%2020.7369%2065.177%2019.1378%2065.7942%2018.2213L66.2152%2017.5963%2065.5882%2017.1783%2063.9128%2016.0614zM61.3461%2012.8511L59.4108%2013.6526C59.7903%2013.0783%2060.4215%2012.7954%2060.9017%2012.7954%2061.067%2012.7954%2061.2153%2012.8161%2061.3461%2012.8511z%22/%3E%3C/g%3E%3Cpath%20d%3D%22M11.7008%2019.9868C7.48776%2019.9868%203.94818%2016.554%203.94818%2012.341%203.94818%208.12803%207.48776%204.69522%2011.7008%204.69522%2014.0331%204.69522%2015.692%205.60681%2016.9403%206.80583L15.4703%208.27586C14.5751%207.43819%2013.3597%206.78119%2011.7008%206.78119%208.62108%206.78119%206.21482%209.26135%206.21482%2012.341%206.21482%2015.4207%208.62108%2017.9009%2011.7008%2017.9009%2013.6964%2017.9009%2014.8297%2017.0961%2015.5606%2016.3734%2016.1601%2015.7738%2016.5461%2014.9197%2016.6939%2013.7454h-4.9931V11.6512h7.0298C18.8045%2012.0207%2018.8456%2012.4724%2018.8456%2012.957%2018.8456%2014.5255%2018.4186%2016.4637%2017.0389%2017.8434%2015.692%2019.2395%2013.9838%2019.9868%2011.7008%2019.9868zM29.7192%2015.0594C29.7192%2017.8927%2027.5429%2019.9786%2024.8656%2019.9786%2022.1884%2019.9786%2020.0121%2017.8927%2020.0121%2015.0594%2020.0121%2012.2096%2022.1884%2010.1401%2024.8656%2010.1401%2027.5429%2010.1401%2029.7192%2012.2096%2029.7192%2015.0594zM27.5922%2015.0594C27.5922%2013.2855%2026.3274%2012.0782%2024.8656%2012.0782S22.1391%2013.2937%2022.1391%2015.0594C22.1391%2016.8086%2023.4038%2018.0405%2024.8656%2018.0405S27.5922%2016.8168%2027.5922%2015.0594zM40.5922%2015.0594C40.5922%2017.8927%2038.4159%2019.9786%2035.7387%2019.9786%2033.0696%2019.9786%2030.8851%2017.8927%2030.8851%2015.0594%2030.8851%2012.2096%2033.0614%2010.1401%2035.7387%2010.1401%2038.4159%2010.1401%2040.5922%2012.2096%2040.5922%2015.0594zM38.4734%2015.0594C38.4734%2013.2855%2037.2087%2012.0782%2035.7469%2012.0782%2034.2851%2012.0782%2033.0203%2013.2937%2033.0203%2015.0594%2033.0203%2016.8086%2034.2851%2018.0405%2035.7469%2018.0405%2037.2087%2018.0487%2038.4734%2016.8168%2038.4734%2015.0594zM51.203%2010.4357v8.8366C51.203%2022.9105%2049.0595%2024.3969%2046.5219%2024.3969%2044.132%2024.3969%2042.7031%2022.7955%2042.161%2021.4897L44.0417%2020.7095C44.3784%2021.5143%2045.1997%2022.4588%2046.5219%2022.4588%2048.1479%2022.4588%2049.1499%2021.4487%2049.1499%2019.568V18.8617H49.0759C48.5914%2019.4612%2047.6552%2019.9786%2046.4808%2019.9786%2044.0171%2019.9786%2041.7668%2017.8352%2041.7668%2015.0758%2041.7668%2012.3%2044.0253%2010.1319%2046.4808%2010.1319%2047.6552%2010.1319%2048.5914%2010.6575%2049.0759%2011.2323H49.1499V10.4357H51.203zM49.2977%2015.084C49.2977%2013.3512%2048.1397%2012.0782%2046.6697%2012.0782%2045.175%2012.0782%2043.9267%2013.3429%2043.9267%2015.084%2043.9267%2016.8004%2045.175%2018.0487%2046.6697%2018.0487%2048.1397%2018.0487%2049.2977%2016.8004%2049.2977%2015.084zM54.9887%205.22081V19.6912H52.8288V5.22081H54.9887zM63.4968%2016.6854L65.1722%2017.8023C64.6301%2018.6072%2063.3244%2019.9869%2061.0659%2019.9869%2058.2655%2019.9869%2056.2534%2017.827%2056.2534%2015.0676%2056.2534%2012.1439%2058.2901%2010.1483%2060.8278%2010.1483%2063.3818%2010.1483%2064.6301%2012.1768%2065.0408%2013.2773L65.2625%2013.8357%2058.6843%2016.5623C59.1853%2017.5478%2059.9737%2018.0569%2061.0741%2018.0569%2062.1746%2018.0569%2062.9384%2017.5067%2063.4968%2016.6854zM58.3312%2014.9115L62.7331%2013.0884C62.4867%2012.4724%2061.764%2012.0454%2060.9017%2012.0454%2059.8012%2012.0454%2058.2737%2013.0145%2058.3312%2014.9115z%22%20fill%3D%22%23fff%22/%3E%3C/svg%3E" draggable="false" style="position: absolute; left: 0px; top: 0px; width: 66px; height: 26px; user-select: none; border: 0px; padding: 0px; margin: 0px;"></div></a></div></div><div></div><div><div style="display: inline-flex; position: absolute; right: 0px; bottom: 0px;"><div class="gmnoprint" style="z-index: 1000001;"><div draggable="false" class="gm-style-cc" style="user-select: none; position: relative; height: 14px; line-height: 14px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(0, 0, 0); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><button draggable="false" aria-label="Keyboard shortcuts" title="Keyboard shortcuts" type="button" style="background: none; display: inline-block; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: relative; cursor: pointer; user-select: none; color: rgb(0, 0, 0); font-family: inherit; line-height: inherit;">Keyboard shortcuts</button></div></div></div><div class="gmnoprint" style="z-index: 1000001;"><div draggable="false" class="gm-style-cc" style="user-select: none; position: relative; height: 14px; line-height: 14px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(0, 0, 0); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><button draggable="false" aria-label="Map Data" title="Map Data" type="button" style="background: none; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: relative; cursor: pointer; user-select: none; color: rgb(0, 0, 0); font-family: inherit; line-height: inherit; display: none;">Map Data</button><span style="">Map data ©2025 Google</span></div></div></div><div class="gmnoscreen"><div style="font-family: Roboto, Arial, sans-serif; font-size: 11px; color: rgb(0, 0, 0); direction: ltr; text-align: right; background-color: rgb(245, 245, 245);">Map data ©2025 Google</div></div><button draggable="false" aria-label="Map Scale: 2 km per 72 pixels" title="Map Scale: 2 km per 72 pixels" type="button" class="gm-style-cc" aria-describedby="DE03B319-F733-45AA-9ED0-1564A7B45BEF" style="background: none; display: none; border: 0px; margin: 0px; padding: 0px; text-transform: none; appearance: none; position: relative; cursor: pointer; user-select: none; height: 14px; line-height: 14px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(0, 0, 0); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><span style="color: rgb(0, 0, 0);">2 km&nbsp;</span><div style="position: relative; display: inline-block; height: 8px; bottom: -1px; width: 76px;"><div style="width: 100%; height: 4px; position: absolute; left: 0px; top: 0px;"></div><div style="width: 4px; height: 8px; left: 0px; top: 0px;"></div><div style="width: 4px; height: 8px; position: absolute; right: 0px; bottom: 0px;"></div><div style="position: absolute; background-color: rgb(0, 0, 0); height: 2px; left: 1px; bottom: 1px; right: 1px;"></div><div style="position: absolute; width: 2px; height: 6px; left: 1px; top: 1px; background-color: rgb(0, 0, 0);"></div><div style="width: 2px; height: 6px; position: absolute; background-color: rgb(0, 0, 0); bottom: 1px; right: 1px;"></div></div></div><span id="DE03B319-F733-45AA-9ED0-1564A7B45BEF" style="display: none;">Click to toggle between metric and imperial units</span></button><div class="gmnoprint gm-style-cc" draggable="false" style="z-index: 1000001; user-select: none; position: relative; height: 14px; line-height: 14px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(0, 0, 0); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a href="https://www.google.com/intl/en-US_US/help/terms_maps.html" target="_blank" rel="noopener" style="text-decoration: none; cursor: pointer; color: rgb(0, 0, 0);">Terms</a></div></div><div draggable="false" class="gm-style-cc" style="user-select: none; position: relative; height: 14px; line-height: 14px;"><div style="opacity: 0.7; width: 100%; height: 100%; position: absolute;"><div style="width: 1px;"></div><div style="background-color: rgb(245, 245, 245); width: auto; height: 100%; margin-left: 1px;"></div></div><div style="position: relative; padding-right: 6px; padding-left: 6px; box-sizing: border-box; font-family: Roboto, Arial, sans-serif; font-size: 10px; color: rgb(0, 0, 0); white-space: nowrap; direction: ltr; text-align: right; vertical-align: middle; display: inline-block;"><a target="_blank" rel="noopener" title="Report errors in the road map or imagery to Google" dir="ltr" href="https://www.google.com/maps/@43.894366,-79.4351792,12z/data=!10m1!1e1!12b1?source=apiv3&amp;rapsrc=apiv3" style="font-family: Roboto, Arial, sans-serif; font-size: 10px; text-decoration: none; position: relative; color: rgb(0, 0, 0);">Report a map error</a></div></div></div></div></div></div></div>
+                    <div class="map-chip" style="display: none !important;">
+                        <span class="mdl-chip mdl-chip--deletable" style="display: none !important;">
+                            <span id="serviceAddText" class="mdl-chip__text" style="display: none !important;"></span>
+                            
+                            <button type="button" class="mdl-chip__action" onclick="CloseInfoTag();" tabindex="1"><i class="material-icons" style="opacity: 1;">close</i></button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <button type="button" class="btn btn-demo" data-toggle="modal" data-target="#myModal2" tabindex="1">
+                Right Sidebar Modal
+            </button>
+            <div class="modal right fade side_popup" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2" style="width: 100%;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close" tabindex="1">
+                                <span class="material-icons" style="opacity: 1;">clear</span>
+                            </button>
+                            <h4 class="modal-title" id="myModalLabel2">Outage Detail</h4>
+                        </div>
+                        <div class="steper" id="stepper">
+                            <i class="material-icons" id="leftIcon" style="opacity: 1;">chevron_left </i>
+                            <span id="spanPagging">
+                                <span id="startPage">0</span> of 
+                        <span id="lastPage">0</span>
+                            </span>
+                            <i class="material-icons" id="rightIcon" style="opacity: 1;">chevron_right </i>
+                        </div>
+                        <div class="modal-body">
+
+                            <div class="" id="divCustomersOut" style="display: none !important;">
+                                <i class="material-icons" style="opacity: 1;">report_problem</i>
+                                <label>Customers Out</label>
+                                <span id="CustomerAffectedSpan"></span>
+                            </div>
+
+                            <div class="side_popup_detail od_1" id="divOutageZN">
+                                <i class="material-icons" style="opacity: 1;">fmd_bad</i>
+                                <label>Zone Name</label>
+                                <span id="OutageZNSpan"></span>
+                            </div>
+                            <div class="side_popup_detail od_1" id="divOutageAFArea">
+                                <i class="material-icons" style="opacity: 1;">fmd_bad</i>
+                                <label>Affected Area</label>
+                                <span id="OutageAFAreaSpan"></span>
+                            </div>
+                            <div class="side_popup_detail od_1" id="divOutageCause">
+                                <i class="material-icons" style="opacity: 1;">engineering</i>
+                                <label>Cause</label>
+                                <span id="OutageCauseSpan"></span>
+                            </div>
+
+                            <div class="side_popup_detail od_1" id="divOutageStart">
+                                <i class="material-icons" style="opacity: 1;">event_busy</i>
+                                <label>Outage Start Time</label>
+                                <span id="OutagedateSpan"></span>
+                            </div>
+                            <div class="side_popup_detail od_1" id="divEstimatedRestoration">
+                                <i class="material-icons" style="opacity: 1;">event_available</i>
+                                <label>Outage End Time</label>
+                                <span id="RestorationdateSpan"></span>
+                            </div>
+
+                            <div class="side_popup_detail od_2">
+                                <i class="material-icons" style="opacity: 1;">offline_bolt</i>
+                                <label>Number Of Outages</label>
+                                <span id="NoOfOutagesSpan"></span>
+                            </div>
+                            <button class="zoom_btn" type="button" onclick="ZoomInClick()" tabindex="1"><i class="material-icons" style="opacity: 1;">zoom_in</i>Zoom Here</button>
+                        </div>
+
+                    </div>
+                    <!-- modal-content -->
+                </div>
+                <!-- modal-dialog -->
+            </div>
+
+
+            
+            <div id="divOutageByCANoPopup" class="modal fade alert_popup_common" role="dialog" tabindex="-1" aria-labelledby="OutagebyCANotitletxt">
+                <div class="modal-dialog">
+                    <div id="divOutageByCANoPopupHeader" class="modal-content editMain">
+                        <div class="modal-header">
+                            <h4 class="modal-title" globalize="ML_MyAccount_Msg_EditCommAdd" id="OutageByCANotitletxt" inputtype="" validatemessage="">Planned Outages</h4>
+                            <button type="button" class="close mailingaddressclose" title="OutageByCANo List" data-dismiss="modal" tabindex="1">×</button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="divOutageByCANoPopupBody">
+                                <table id="tblOutageByCANo">
+                                    <thead>
+                                        <tr>
+                                            <th>Consumer Number</th>
+                                            <th>Meter Sr No</th>
+                                            <th>Nature of Work</th>
+                                            <th>Outage Date</th>
+                                            <th>From Time</th>
+                                            <th>To Time</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tbodyOutageByCANo">
+                                    </tbody>
+
+                                </table>
+                                <br class="brPopup">
+                                <br class="brPopup">
+                                <p id="OtgByCANoPopupNote">Note: Planned Outage Information is for Direct consumers of Tata Power and is updated based on scheduling. The same may change depending on system condition.</p>
+                            </div>
+                        </div>
+                        <div class="modal-footer" style="display: none !important;">
+                            
+                            <input type="hidden" name="HiddenField1" id="HiddenField1" value="false" tabindex="1">
+                            <input type="hidden" name="HiddenField2" id="HiddenField2" value="false" tabindex="1">
+                             <input type="hidden" name="hdnPowerFailure" id="hdnPowerFailure" value="0" tabindex="1">
+                        </div>
+
+                    </div>
+
+
+
+                </div>
+            </div>
+
+
+
+            <select name="ddlAddress" onchange="javascript:setTimeout('__doPostBack(\'ddlAddress\',\'\')', 0)" id="ddlAddress" title="Click to select your preferred address" class="select_effect" globalize="ML_DASHBOARD_SELECT_ADDRESS" style="display: none" inputtype="" validatemessage="" tabindex="1">
+
+</select>
+            <input type="hidden" name="hdMapId" id="hdMapId" value="1" tabindex="1">
+            <input type="hidden" name="hdnLatitude" id="hdnLatitude" value="0" tabindex="1">
+            <input type="hidden" name="hdnLongitude" id="hdnLongitude" value="-122.0842499" tabindex="1">
+            <input type="hidden" name="HdnLatitudeLongitude" id="HdnLatitudeLongitude" value="0:-122.0842499" tabindex="1">
+            <input type="hidden" name="hdnfldPlan" id="hdnfldPlan" value="none" tabindex="1">
+            <input type="hidden" name="hdnfldCurrent" id="hdnfldCurrent" value="none" tabindex="1">
+            <input type="hidden" name="hdnPolygonColors" id="hdnPolygonColors" value=",,,,," tabindex="1">
+            <input type="hidden" name="hdnMetricDateFormat" id="hdnMetricDateFormat" value="MMMM d, yyyy" tabindex="1">
+            <input type="hidden" name="hdnCSRFToken" id="hdnCSRFToken" value="FahS+tjpmbLGvA8ApNYFJi6TSb56Espmr1JIgQWv4PeAbHkpT71ukxzkP0Hsn0gV" tabindex="1">
+            <input type="hidden" name="hdOutageModuleEnabled" id="hdOutageModuleEnabled" tabindex="1">
+            <input type="hidden" name="hdnCustomerServiceNumber" id="hdnCustomerServiceNumber" tabindex="1">
+            <input type="hidden" name="hdnforwardingaddressID" id="hdnforwardingaddressID" tabindex="1">
+            <input type="hidden" name="hdnPrimaryContactNumber" id="hdnPrimaryContactNumber" tabindex="1">
+
+            <span globalize="ML_LoginSupport_ErrorMsg" id="ML_LoginSupport_ErrorMsg" style="display: none" inputtype="" validatemessage="" title="We apologize for the inconvenience but the service is currently unavailable, please try again later.">We apologize for the inconvenience but the service is currently unavailable, please try again later.</span>
+            <span globalize="ML_Outage_Msg_No_Outage" id="ML_Outage_Msg_No_Outage" style="display: none" inputtype="" validatemessage="">No outages at your service address</span>
+            <span globalize="ML_Outage_Msg_Outage" id="ML_Outage_Msg_Outage" style="display: none" inputtype="" validatemessage="">Outage detected at your service address.</span>
+            <span style="display: none" id="spnShowMapViewDefault">1</span>
+            <span style="display: none" id="WeatherClientId">DGF26HyWcQrybkxQ5JSTV</span>
+            <span style="display: none" id="WeatherClientSecret">k1SpfIJiLGDhV7SwwJgpsLjK8rRwj8Y160Dvl4yR</span>
+
+            <span globalize="Ml_Srvc_Addrss_Role" id="Ml_Srvc_Addrss_Role" style="display: none" inputtype="" validatemessage="">Your service address is not part of an outage</span>
+            <span globalize="ML_SERVICE_OUTAGE" id="ML_SERVICE_OUTAGE" style="display: none" inputtype="" validatemessage="">Your service address is part of an outage</span>
+            <span globalize="ML_Outages_ErrMsg_NoPlannedOutages" id="ML_Outages_ErrMsg_NoPlannedOutages" style="display: none" inputtype="" validatemessage="" title="There are no planned outages in this area.">There are no planned outages in this area.</span>
+            <span globalize="ML_Outages_ErrMsg_NoOutages" id="ML_Outages_ErrMsg_NoOutages" style="display: none" inputtype="" validatemessage="" title="There are no current outages in this area.">There are no current outages in this area.</span>
+            <span globalize="ML_Empty_zip" id="ML_Empty_zip" style="display: none" inputtype="" validatemessage="">Please provide Valid Zip Code or Zip Code cannot be Empty.</span>
+
+            <span globalize="ML_Empty_CANumber" id="ML_Empty_CANumber" style="display: none" inputtype="" validatemessage="" title="Please enter a valid Consumer Number">Please enter a valid Consumer Number</span>
+            <span globalize="ML_Valid_Contry_Zip" id="ML_Valid_Contry_Zip" style="display: none" inputtype="" validatemessage="">Please Select either County or Zip Codeprovide and Then provide Valid County or Zip Code.</span>
+            <span globalize="ML_Numeric_zip" id="ML_Numeric_zip" style="display: none" inputtype="" validatemessage="">Please Enter only Numeric value for Zip code.</span>
+            <span globalize="ML_Country_Zip" id="ML_Country_Zip" style="display: none" inputtype="" validatemessage="">Please enter City or Zip Code.</span>
+            <span globalize="ML_Not_Empty_zip" id="ML_Not_Empty_zip" style="display: none" inputtype="" validatemessage="">Please provide valid City name or City name cannot be Empty.</span>
+
+            <span globalize="ML_Msg_SearchZipCode_Invalid" id="ML_Msg_SearchZipCode_Invalid" style="display: none" inputtype="" validatemessage="" title="Please enter a valid Zip Code.">Please enter a valid Zip Code.</span>
+
+
+        </section>
+        <div id="page_loader" style="display: none;">
+        </div>
+        <!-- footer starts -->
+        <link href="/TPCD/Content/CssFooter?v=HhVMjlibRZJE-aoMeraeATBLImfPs-gwQjcZmXSnEQM1" rel="stylesheet">
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.full_width_input_sec').keypress(function (e) {
+            $("span.error_messagecommon").remove();
+        });
+        $('.left_side_sec').on('change', function () {
+            $("span.error_messagecommon").remove();
+        });
+        if (window.MSCompatibleInfo != null) {
+            window.location.href = "browsersupport.html";
+        }
+    });
+</script>
+<script src="https://af661eb2-pm-assets-cdn.s3.amazonaws.com/resource-781477.9040659561.js"></script>
+<link href="https://tpwesternodisha-svc-v2.smartcmobile.com/SmartBot/bot.css" rel="stylesheet">
+<script src="https://tpwesternodisha-svc-v2.smartcmobile.com/SmartBot/userchat.js"></script>
+<script type="text/javascript">
+    function detectBrowser() {
+        if (navigator.userAgent.indexOf("Edg") != -1) {
+            return 'edge';
+        }
+        else if ((navigator.userAgent.indexOf("Opera") || navigator.userAgent.indexOf('OPR')) != -1) {
+            return 'Opera';
+        } else if (navigator.userAgent.indexOf("Chrome") != -1) {
+            return 'Chrome';
+        } else if (navigator.userAgent.indexOf("Safari") != -1) {
+            return 'Safari';
+        } else if (navigator.userAgent.indexOf("Firefox") != -1) {
+            return 'Firefox';
+        } else if ((navigator.userAgent.indexOf("MSIE") != -1) || (!!document.documentMode == true)) {
+            return 'IE';
+        } else {
+            return 'Unknown';
+        }
+    }
+    var browser = detectBrowser();
+    var isAuthenticated = false;
+    var accntnumber ='';
+    if (accntnumber != "") {
+        isAuthenticated = true;
+    }
+    const datachatbot = {        
+        serviceaccountnumber: '0',
+        firstname: "",
+        lastname: '',
+        osType: "Web",
+        browser: browser,
+        browserVersion: "",
+        sourceurl: window.location.href,
+        timeOffset: new Date().getTimezoneOffset(),
+        division: "TP",
+        vlgSession: "",
+        isAuthenticated: isAuthenticated,
+        xsrfToken: '',
+        ldcOfDomain: "",
+        multipleAccounts: "",
+        premiseId: "",
+        friendlyName: "",       
+        captchaToken: "",
+        uuId: 0,
+        accessToken: "",
+        refreshToken: "",
+        utilityAccountNumber: '',
+    }
+    if (datachatbot.userid > 0) {
+        var SessionToken = "";
+        SessionToken = '';
+        datachatbot.xsrfToken = datachatbot.userid + ':' + SessionToken;
+    }
+    console.log(datachatbot);
+    updateActivityData(datachatbot);
+    $(document).ready(function () {
+        $('.full_width_input_sec').keypress(function (e) {
+            $("span.error_messagecommon").remove();
+        });
+        $('.left_side_sec').on('change', function () {
+            $("span.error_messagecommon").remove();
+        });
+        if (window.MSCompatibleInfo != null) {
+            window.location.href = "browsersupport.html";
+        }
+    });
+</script>
+<div class="MuiGrid-root DashboardFooter">
+    <footer class="FooterMain">
+        <section class="skinny-footer">
+            <div class="container">
+
+                <div class="MuiGrid-root iPadReverse">
+                    <div class="col-xs-12 col-sm-12 col-lg-12">
+                        
+                        <ul class="group-links">
+                            
+                            
+                            <li id="faqlink" style="display: block;">
+                                
+                                <a role="button" href="https://customerportal.tatapower.com/TPCD/FAQ.aspx" class="faq_header" style="" globalize="ML_SideMenu_FAQ" aria-label="click to navigate to frequently asked questions" inputtype="" validatemessage="" title="FAQs" tabindex="1">FAQs</a>
+                                
+
+                            </li>
+
+                            
+                            <li style="display: "><a tabindex="1" href="https://customerportal.tatapower.com/TPCD/contact-us-connect-me_template.aspx?Ct=QHldJiVWMvx6Vw%2beSFgmsJI%3d" globalize="ml_contact_and_support" inputtype="" validatemessage="">Contact and Support</a></li>
+                            
+                            <li><a tabindex="1" href="https://customerportal.tatapower.com/TPCD/TnC.aspx" target="_blank" globalize="ML_CONNECTME_Lbl_Terms" inputtype="null" validatemessage="Please accept Terms &amp; Conditions." title="Terms &amp; Conditions">Terms &amp; Conditions</a></li>
+                            <li><a tabindex="1" href="https://customerportal.tatapower.com/TPCD/PrivacyPolicy.aspx" target="_blank" globalize="ML_Msg_PrivacyPolicy" inputtype="" validatemessage="" title="Privacy Policy">Privacy Policy</a></li>
+                        </ul>
+                        
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-lg-12">
+                        <div class="col-xs-12 col-sm-3 col-md-3 footrFirst">
+                            
+                            
+<div class="ver_no_login">
+    <p>Version&nbsp; 10S</p>
+    <span id="ML_ExpirationDateID" style="display: none">You entered an expiration date that has already passed. Please verify and re-enter your card details.</span>
+    <span globalize="ML_Msg_AlphabetsOnly" id="AlphabetsOnly" style="display: none" inputtype="" validatemessage="">Alphabets only.</span>
+    <span globalize="ML_Msg_NumbersOnly" id="NumbersOnly" style="display: none" inputtype="" validatemessage="">Numbers only.</span>
+    <span globalize="ML_CustomerRegistration_Msg_Captcha" id="spnValidation_Msg_Captcha" style="display: none" inputtype="" validatemessage="" title="Please verify Captcha.">Please verify Captcha.</span>
+    <input type="hidden" name="Footer$VersionNumber$hdnParamLanguageCode" id="hdnParamLanguageCode" value="EN" tabindex="1">
+    <input type="hidden" name="Footer$VersionNumber$hdnParamZipCodeMessage" id="hdnParamZipCodeMessage" tabindex="1">
+    <span id="IDfileExt" style="display: none">Invalid File Type. File extensions allowed are : PDF, JPEG, JPG </span>
+</div>
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-md-6 foot_copy_sec">
+                            <div class="copyright">
+                                <p>© 2025 Smart Energy Water | All rights reserved.</p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 col-sm-3 col-md-3">
+                            
+                            <span class="pw_logo_foot">
+
+                                <img alt="Powered By logo" src="https://customerportal.tatapower.com/TPCD/images/powered_by_grey.svg" title="Powered By logo">
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row" style="display: none;">
+                    <div class="col-xs-12 col-sm-12 col-lg-12">
+                        <div class="switch_contrast">
+                            <a href="javascript:void(0);" class="normals" tabindex="1">Color</a>
+                            <a href="javascript:void(0);" class="highc-inverted" tabindex="1">High Contrast Inverted</a>
+                            <a href="javascript:void(0);" class="highc-grayscale" tabindex="1">High Contrast Grayscale</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </footer>
+</div>
+
+<div class="chatbot">
+    <div id="webchat" role="main" style="display: none;"></div>
+    <a href="#" aria-label="Press ENTER to Open Chatbot conversation Window" class="closeicon plus" tabindex="1">
+        <span></span><span></span><span></span><div class="agentarea"><p> Hi I am ROSHNI, Your Virtual Power Assistant.</p></div><span></span></a>
+</div>
+
+<!-- Modal HTML -->
+
+
+
+<div class="landscap_fullwidthbox">
+    <img src="images/mob-landscape_img.png" alt="images">
+    <div class="landscape-txt">Please rotate your device in portrait mode</div>
+    <p>We do not support landscape mode. Please go back to portrait mode for the best experience</p>
+</div>
+<script type="text/javascript">
+
+    $(document).ready(function () {
+        $('.pw_logo_foot > a').keypress(function (event) {
+            if (event.which == '13') {
+                $(this).click();
+            }
+        });
+        var pageURL = $(location).attr("href");
+        $(".focusclass_pagename").text(pageURL);
+    });
+</script>
+<!-- END footer -->
+
+
+
+        <!-- footer ends -->
+
+
+    </form>
+    
+
+
+</body></html>
