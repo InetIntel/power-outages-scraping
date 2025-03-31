@@ -15,23 +15,23 @@ from india.tata import Tata
 def scrape():
 
     # India
-    # tnebltd = Tnpdcl()
-    # tnebltd.scrape()
-    #
-    # bsesdelhi_weekly = ScrapeRajdhaniWeekly()
-    # bsesdelhi_weekly.scrape()
-    #
-    # tatapower = Tata()
-    # tatapower.scrape()
-    #
-    # goaelectricity = Goa()
-    # goaelectricity.scrape()
-    #
-    # npp = Npp()
-    # npp.scrape()
-    #
-    # bsesdelhi = ScrapeRajdhani()
-    # bsesdelhi.scrape()
+    tnebltd = Tnpdcl()
+    tnebltd.scrape()
+
+    bsesdelhi_weekly = ScrapeRajdhaniWeekly()
+    bsesdelhi_weekly.scrape()
+
+    tatapower = Tata()
+    tatapower.scrape()
+
+    goaelectricity = Goa()
+    goaelectricity.scrape()
+
+    npp = Npp()
+    npp.scrape()
+
+    bsesdelhi = ScrapeRajdhani()
+    bsesdelhi.scrape()
 
     # Nigeria
     ikeja = Ikeja()

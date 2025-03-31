@@ -19,12 +19,14 @@ class Mahavitaran:
         self.folder_path = None
         self.page = 1
         self.year = str(datetime.now().year)
-        self.date = self.year + "-" + str(self.month.zfill(2))
+        self.m = self.month.split("-")[0]
+        self.m = datetime.strptime(self.m, "%b").strftime("%m")
+        self.date = self.year + "-" + str(self.m.zfill(2))
         self.check_folder()
 
 
     def check_folder(self):
-        self.folder_path = "./india/mahavitaran/raw/" + self.year + "/" + str(self.month.zfill(2))
+        self.folder_path = "./india/mahavitaran/raw/" + self.year + "/" + str(self.m.zfill(2))
         os.makedirs(self.folder_path, exist_ok=True)
 
 
