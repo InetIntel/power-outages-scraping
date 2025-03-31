@@ -5,7 +5,7 @@ from datetime import datetime
 
 
 
-class IslamabadXls:
+class Iesco:
 
     def __init__(self):
         self.page_url = "https://www.iesco.com.pk/index.php/customer-services/annual-maintenance-schedule"
@@ -53,5 +53,5 @@ class IslamabadXls:
 
 
 if __name__ == "__main__":
-    islamabadXls = IslamabadXls()
-    islamabadXls.scrape()
+    iesco = Iesco()
+    iesco.scrape()
