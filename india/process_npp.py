@@ -15,7 +15,7 @@ class Process_Npp:
 
 
     def check_folder(self, type):
-        self.folder_path = "./india/" + "/" + type + "/" + self.year + "/" + self.month
+        self.folder_path = "./india/npp/" + type + "/" + self.year + "/" + self.month
         os.makedirs(self.folder_path, exist_ok=True)
 
     def save_json(self, data):

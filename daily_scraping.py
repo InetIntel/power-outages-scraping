@@ -17,12 +17,13 @@ def scrape():
     tnebltd = Tnpdcl()
     tnebltd.scrape()
 
-    # this is an inactive website
-    # tnebnet = Tangedco()
-    # tnebnet.scrape()
+
 
     bsesdelhi_weekly = ScrapeRajdhaniWeekly()
     bsesdelhi_weekly.scrape()
+
+    tatapower = Tata()
+    tatapower.scrape()
 
     goaelectricity = Goa()
     goaelectricity.scrape()
@@ -48,8 +49,11 @@ def scrape():
     # qesco = Quetta()
     # qesco.scrape()
     #
-    tatapower = Tata()
-    tatapower.scrape()
+
+    # this is an inactive website
+    # tnebnet = Tangedco()
+    # tnebnet.scrape()
+
 
 
     print("ALL DONE")
