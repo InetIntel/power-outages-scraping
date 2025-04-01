@@ -44,7 +44,7 @@ class Process_Npp:
                 "area_affected": {row[0]: row[1]}
             }
             if not pd.isnull(row[8]):
-                end_date_time = row[7].split(" ")
+                end_date_time = row[8].split(" ")
                 end_date = end_date_time[0]
                 end_date = datetime.strptime(end_date, "%d/%m/%Y").strftime("%Y-%m-%d")
                 end_time = datetime.strptime(end_date_time[1], "%H:%M")
