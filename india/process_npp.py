@@ -40,8 +40,6 @@ class Process_Npp:
             data = {
                 "country": "India",
                 "start": start_date + "_" + start_time.strftime("%H-%M-%S"),
-                "event_category": row[9],
-                "area_affected": {row[0]: row[1]}
             }
             if not pd.isnull(row[8]):
                 end_date_time = row[8].split(" ")
@@ -53,6 +51,8 @@ class Process_Npp:
                 start = datetime.strptime(row[7], fmt)
                 end = datetime.strptime(row[8], fmt)
                 data["duration_(hours)"] = round((end - start).total_seconds() / 3600, 2)
+            data["event_category"] = row[9]
+            data["area_affected"] = {row[0]: row[1]}
             outage.append(data)
         return outage
 
