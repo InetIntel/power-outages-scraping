@@ -55,6 +55,7 @@ class Process_tata:
     def run(self):
         data = self.get_data()
         self.save_json(data)
+        print("Data is processed for TATA")
 
 
 if __name__ == "__main__":

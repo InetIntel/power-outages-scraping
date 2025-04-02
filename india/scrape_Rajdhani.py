@@ -68,7 +68,7 @@ class ScrapeRajdhani:
             file_path = os.path.join(self.folder_path, file_name)
             with open(file_path, "w", encoding="utf-8") as file:
                 file.write(response)
-                print("Raw file is download for TATA.")
+                print(f"Raw file is download for {provider}.")
             process = Process_BSES(self.year, self.month, self.day, self.folder_path + "/" + file_name)
             process.run(provider)
 

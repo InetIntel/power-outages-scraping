@@ -53,7 +53,7 @@ class Process_BSES:
                 res.append(outage_details)
         # time.sleep(3)
         self.save_json(res, provider)
-        print(f"Data is saved for {provider}")
+
 
     def run(self, provider):
         data = self.get_data()
