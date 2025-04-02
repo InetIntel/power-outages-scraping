@@ -15,40 +15,41 @@ from india.tata import Tata
 def scrape():
 
     # India
-    tnebltd = Tnpdcl()
-    tnebltd.scrape()
-
-    bsesdelhi_weekly = ScrapeRajdhaniWeekly()
-    bsesdelhi_weekly.scrape()
-
-    tatapower = Tata()
-    tatapower.scrape()
-
-    goaelectricity = Goa()
-    goaelectricity.scrape()
-
-    npp = Npp()
-    npp.scrape()
-
-    bsesdelhi = ScrapeRajdhani()
-    bsesdelhi.scrape()
-
-    # Nigeria
-    ikeja = Ikeja()
-    ikeja.scrape()
-
-    # fesco = Fesco()
-    # fesco.scrape()
+    # tnebltd = Tnpdcl()
+    # tnebltd.scrape()
     #
-    # hesco = Hyderabad()
-    # hesco.scrape()
+    # bsesdelhi_weekly = ScrapeRajdhaniWeekly()
+    # bsesdelhi_weekly.scrape()
     #
-    # iesco = IslamabadXls()
-    # iesco.scrape()
+    # tatapower = Tata()
+    # tatapower.scrape()
     #
-    # qesco = Quetta()
-    # qesco.scrape()
+    # goaelectricity = Goa()
+    # goaelectricity.scrape()
     #
+    # npp = Npp()
+    # npp.scrape()
+    #
+    # bsesdelhi = ScrapeRajdhani()
+    # bsesdelhi.scrape()
+    #
+    # # Nigeria
+    # ikeja = Ikeja()
+    # ikeja.scrape()
+
+    # Pakistan
+    fesco = Fesco()
+    fesco.scrape()
+    #
+    hesco = Hyderabad()
+    hesco.scrape()
+
+    iesco = Iesco()
+    iesco.scrape()
+
+    qesco = Quetta()
+    qesco.scrape()
+
 
     # this is an inactive website
     # tnebnet = Tangedco()

@@ -35,7 +35,7 @@ class Process_GOA:
                     "country": "India",
                     "start": date + "_" + start,
                     "end": date + "_" + end,
-                    "duration_(hours)": 5,
+                    "duration_(hours)": duration,
                     "event_category": "planned power outage",
                     "area_affected": cols[3].get_text(strip=True).split(", ")
                 }
