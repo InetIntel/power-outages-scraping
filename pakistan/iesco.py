@@ -5,16 +5,18 @@ from datetime import datetime
 
 
 
-class IslamabadXls:
+class Iesco:
 
     def __init__(self):
         self.page_url = "https://www.iesco.com.pk/index.php/customer-services/annual-maintenance-schedule"
         self.today = datetime.today().strftime("%Y-%m-%d")
         self.folder_path = None
+        self.year = str(datetime.now().year)
+        self.month = str(datetime.now().month).zfill(2)
 
 
-    def check_folder(self):
-        self.folder_path = "./data/" + self.today
+    def check_folder(self, type):
+        self.folder_path = "./pakistan/iesco/" + type + "/" + self.year + "/" + self.month
         os.makedirs(self.folder_path, exist_ok=True)
 
     def fetch(self):
@@ -35,7 +37,7 @@ class IslamabadXls:
     def download(self, file_url):
         response = requests.get(file_url)
         if response.status_code == 200:
-            filename = os.path.basename(file_url)
+            filename = "power_outages.PK.iesco.raw." + self.today + ".xlsx"
             file_path = os.path.join(self.folder_path, filename)
             with open(file_path, "wb") as file:
                 file.write(response.content)
@@ -43,15 +45,15 @@ class IslamabadXls:
         else:
             print(f"Failed to download file. Status code: {response.status_code}")
 
-    def scrape(self,):
+    def scrape(self):
         response = self.fetch()
         links = self.parse(response)
-        self.check_folder()
+        self.check_folder("raw")
         for link in links:
             self.download(link)
         print("scraping is done for iesco")
 
 
 if __name__ == "__main__":
-    islamabadXls = IslamabadXls()
-    islamabadXls.scrape()
+    iesco = Iesco()
+    iesco.scrape()

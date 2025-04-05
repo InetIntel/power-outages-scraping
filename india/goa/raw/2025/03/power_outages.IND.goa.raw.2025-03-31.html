@@ -1,0 +1,1113 @@
+
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <!--[if IE]>  <script src="js/html5shim.js"></script>   <![endif]-->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><title>
+	Goa Power Distribution
+</title><link rel="shortcut icon" type="image/x-icon" href="Images/favicon.ico" />
+    <!--style sheets-->
+    <link rel="stylesheet" type="text/css" href="css/style.css" /><link rel="stylesheet" type="text/css" href="css/reset.css" /><link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css" /><link href="CSS/FinalStyles.css" rel="stylesheet" type="text/css" /><link href="CSS/lightbox.css" rel="stylesheet" type="text/css" />
+    <!--script files-->
+
+    <script src="js/jquery_1.10.js"></script>
+
+    <script src="js/jquery.bxslider.min.js"></script>
+
+    <script src="js/lightbox.min.js"></script>
+
+    <script src="js/document_ready.js"></script>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            //Tab Jquery
+            $(".tab_content").hide();
+            $("ul.tabs li:first").addClass("active").show();
+            $(".tab_content:first").show();
+            $("ul.tabs li").click(function () {
+                $("ul.tabs li").removeClass("active");
+                $(this).addClass("active");
+                $(".tab_content").hide();
+                var activeTab = $(this).find("a").attr("href");
+                $(activeTab).fadeIn();
+                return false;
+            });
+        });
+    </script>
+    <style type="text/css">
+        .auto-style1 {
+            left: 0px;
+            top: 0px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {
+                    pageLanguage: "en",
+                    layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+                },
+                'google_translate_element'
+            );
+        }
+    </script>
+	
+	
+
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?
+cb=googleTranslateElementInit">
+</script>
+
+    <style type="text/css">
+        /* Style for the navigation bar */
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+        
+        /* Style for the navigation bar links */
+        .navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            
+            text-decoration: none;
+        }
+        
+        /* Style for the navigation bar links on hover */
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        
+        /* Style for the right corner element */
+        #google_translate_element {
+            float: right;
+            
+        }
+
+        .blink_me {
+            -webkit-border-radius: 10px;
+            border-radius: 10px;
+            border: none;
+            background-color: #30d17a !important;
+            cursor: pointer;
+            display: inline-block;
+            font-family: Arial;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            animation: glowing 1500ms infinite;
+        }
+
+        @keyframes glowing {
+            0% {
+                background-color: #B20000;
+                box-shadow: 0 0 3px #B20000;
+            }
+
+            50% {
+                background-color: #FF0000;
+                box-shadow: 0 0 40px #FF0000;
+            }
+
+            100% {
+                background-color: #B20000;
+                box-shadow: 0 0 3px #B20000;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <form name="form1" method="post" action="./Goa_power_outage.aspx" id="form1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTQ3NzU3NjMwNQ9kFgICAw9kFgICAw88KwARAwAPFgQeC18hRGF0YUJvdW5kZx4LXyFJdGVtQ291bnQCAmQBEBYAFgAWAAwUKwAAFgJmD2QWCAIBD2QWDGYPZBYCAgEPDxYCHgRUZXh0BQExZGQCAQ9kFgICAQ8PFgIfAgUKMDQtMDQtMjAyNWRkAgIPZBYCAgEPDxYCHwIFI1NodXRkb3dub2YgMzMvMTEgS1YgUmFpYSBTdWJzdGF0aW9uZGQCAw9kFgICAQ8PFgIfAgWzLiBWSVNIV0EgU0FSQVNXQVRJIFNPQ0lFVFkoOTUwS1ZBKSwgU0hBTlRJIEFTUk8oMTAwS1ZBKSwgTS9TIEdPVklORCBQT1kgT1hZR0VOIExURCgyMDBLVkEpLCBDSE9XR1VMRSBBQlAgQ09BVElOR1MgKElORElBKSBQVlQgTFREKDk1LCBNL1MgQ0hPV0dVTEUgJmFtcDsgQ28gTFREKDIwMEtWQSksIE0vUyBTSElST0RLQVIgU0hJUFlBUkQoMTUwS1ZBKSwgTS9TIEdPQSBPUkUgQ0FSUklFUlMoMzE1S1ZBKSwgTS9TIENob3dndWxlICZhbXA7IENvLVVuaXQgSUkoMjUwS1ZBKSwgVklKQVkgMSgxMDBLVkEpLCBDUk9TUyBST0FEKDIwMEtWQSksIE0vUyBWQVJVTiBCRVZFUkFHRVMgTFREKDk1MEtWQSksIERFRVBBUkFKIFJFU0lERU5USUFMKDIwMEtWQSksIFNCSSgxMDBLVkEpLCBNT05USVItMigxMDBLVkEpLCBQQUxNRUlSQSgxMDBLVkEpLCBNL1MgU0FJIFBPSU5UIENBUlMgUFZUIExURCg0MDBLVkEpLCBTVCBYQVZJRVIoMjAwS1ZBKSwgVkVURVJOQVJZKDIwMEtWQSksIEJBR0JIQVQgTkVXKDEwMEtWQSksIFVERE8oMjAwS1ZBKSwgQkVMTEEgVklTVEHCoCgyMDBLVkEpLCBTRU1JTkFSWSBERSBSQUNIT0woMTUwS1ZBKSwgUFJBQ0UgREUgUkFDSE9MKDEwMEtWQSksIFRBTENPTkRBKDYzS1ZBKSwgSUxIQSBERSBSQUNIT0wgT0xEKDEwMEtWQSksIElMSEEgREUgUkFDSE9MIE5FVygxMDBLVkEpLCBHQU5FUE9HQSBPTEQoMjAwS1ZBKSwgR0FORVBPR0EgTkVXKDIwMEtWQSksIFNBTlRFTU9MKDIwMEtWQSksIFNOT1cgRFJPUFMoMjAwS1ZBKSwgQ09MTEVBIERPTkdPUigxNTBLVkEpLCBSQUlBIEZPT1QgQkFMTCBHUk9VTkQoMjAwS1ZBKSwgUkFJQSBCQVpBUigyMDBLVkEpLCBXRVNUIERBTU9OKDIwMEtWQSksIERBR1dBTCgxNjBLVkEpLCBOQVRVUkFMIFJFQUwgRVNUQVRFKDIwMEtWQSksIE1BTk9SQSBGT09UIEJBTEwoMTAwS1ZBKSwgTU9STElaKDIwMEtWQSksIFJBSUFDSE9BTUJPKDIwMEtWQSksIERPTU5JQyBHQU9OS0FSIE5FVygxMDBLVkEpLCBET01OSUMgR0FPTktBUiBPTEQoMTAwS1ZBKSwgQkFSRUJIQVQgTkVXKDEwMEtWQSksIEJBUkVCSEFUIE9MRCgyMDBLVkEpLCBJQk0oMTAwS1ZBKSwgU09ORkFUT1IoMTAwS1ZBKSwgQk9SSU0oMTAwS1ZBKSwgR0FMTEkoMTAwS1ZBKSwgVkFOWEVNKDIwMEtWQSksIEZBUldBRE8oMTAwS1ZBKSwgQU5HQURJKDEwMEtWQSksIFBBTE9OREEoNjNLVkEpLCBDQVJWT1RBwqAoMjAwS1ZBKSwgU0hJUk9ES0FSKDIwMEtWQSksIE1PSElERElOKDEwMEtWQSksIE0vUyBWSUpBSSBNQVJJTkUgU0VSVklDRVMoMjAwS1ZBKSwgVE9MTEVBQkFORCgxMDBLVkEpLCBOQUNPUkRBKDIwMEtWQSksIE9MRCBERVZPVEVFKDE2MEtWQSksIE9SQ0hJRCBTT0NJRVRZKDIwMEtWQSksIEJBR0JIQVQgT0xEKDIwMEtWQSksIEFCSEFZL0FTSFdJTkkoMTUwS1ZBKSwgVEFNQkVUSU0oMjAwS1ZBKSwgQ09NQkhBVFQoMjAwS1ZBKSwgTUFJTkEgV0FERE8oMTAwS1ZBKSwgTUFJTkEgQkFaQVIoMTYwS1ZBKSwgREFHVUFMKDIwMEtWQSksIEdPTlNPSSg2M0tWQSksIEZJUkdVRU1CSEFUKDIwMEtWQSksIEJPTVNBTCg2M0tWQSksIEJBTkRPTCBORVcoMTAwS1ZBKSwgQkFORE9MIE9MRCgxNTBLVkEpLCBGT05ERUdBTEwoMTAwS1ZBKSwgQ1VSVE9SSU0gQkFaQVIgTkVXIChCQU5LKSgxMDBLVkEpLCBDVVJUT1JJTSBCQVpBUiBPTEQgKE1MQSBPRkZJQ0UpKDIwMEtWQSksIEJBVE9SQSgyMDBLVkEpLCBSVU1CT0RFTSgxMDBLVkEpLCBWRVRORU0oMjAwS1ZBKSwgVU5KSVJJTSgxMDBLVkEpLCBMSVRUTEUgSEVBUlQoNjNLVkEpLCBNVVhJIFdBRERPKDEwMEtWQSksIFBBTkRJQ09MKDEwMEtWQSksIEFHWEVNKDIwMEtWQSksIFJPVUxMRU0oMjAwS1ZBKSwgQ09OR0VNIE9MRCgxMDBLVkEpLCBDT05HRU0gTkVXKDEwMEtWQSksIFRFTUJJKDIwMEtWQSksIEdPVE5JIEJIQVRUKDEwMEtWQSksIFNUIEFOVEhPTlkoMTAwS1ZBKSwgTEVQUk9TWSBIT1NQSVRBTCg2M0tWQSksIFNPTlhFTSg2M0tWQSksIFZBTFFVSVNBUig2M0tWQSksIEtBTlRFKDEwMEtWQSksIE1PRFNBSSg2M0tWQSksIFpPRERJKDEwMEtWQSksIEJPUkxBKDEwMEtWQSksIE1BQ0FaQU5BIENIVVJDSCgxMDBLVkEpLCBDVVBBVE9SKDEwMEtWQSksIENVUEFUT1IgRE9OR09SKDYzS1ZBKSwgQ1VQQVRPUiBNVVhFUig2M0tWQSksIE5PVk8gQkFaQVIoMTUwS1ZBKSwgVVpSTygyMDBLVkEpLCBET05HUklNKDEwMEtWQSksIFdJTExJQU0oMjAwS1ZBKSwgQU1CT1JBKDIwMEtWQSksIEdBVU5DSE8gTUFSRygxMDBLVkEpLCBOSVJCT0dBKDIwMEtWQSksIE5FVyBERVZPVEVFKDEwMEtWQSksIENBUkNPTEEoMTAwS1ZBKSwgRE9OIEJPU0NPKDEwMEtWQSksIE9MRCBPUkdBTygxMDBLVkEpLCBORVcgT1JHQU8oMTAwS1ZBKSwgT1RFKDEwMEtWQSksIExPVVRPTElNIENIVVJDSCgxMDBLVkEpLCBWQVhFTSBDSEFQRUwoMTAwS1ZBKSwgSEVBTFRIIENFTlRFUigxMDBLVkEpLCBCSUcgRk9PVCgyMDBLVkEpLCBRVUVOTlkgQ0VOVFJFKDIwMEtWQSksIFNPTFZBKDYzS1ZBKSwgQ09TVEEgMSgyMDBLVkEpLCBORVcgR0FWT04oMTAwS1ZBKSwgT0xEIEdBVk9OKDEwMEtWQSksIE5BUVVFTElNKDIwMEtWQSksIENVUlJBKDYzS1ZBKSwgRUFTVCBEQU1BTigxMDBLVkEpLCBOQUlLKDEwMEtWQSksIEFkZXNoIEthcndhcmthcigyMDBLVkEpLCBSQUpFU0ggU0hJUk9ES0FSKDEwMEtWQSksIFJPU0FSSU8oMjAwS1ZBKSwgU05PVyBEUklGVCgxMDBLVkEpLCBTQVBOQSBERVZFTE9QRVJTIEkoMjAwS1ZBKSwgU0FQTkEgREVWRUxPUEVSUyBJSSgyMDBLVkEpLCBWSUpBWSAyKDIwMEtWQSksIFJBSUEgU2VjdGlvbiBvZmZpY2UoMjAwS1ZBKSwgUlVNQk9ERU0oMjAwS1ZBKSwgR09HQUxJKDIwMEtWQSksIEFSR0lDT0wgTkVXIERUUigxMDBLVkEpLCBST1kgTU9OVEVSSU8gMSgyMDBLVkEpLCBST1kgTU9OVEVSSU8gMigyMDBLVkEpLCBEQUdVQUwoMjAwS1ZBKSwgUGFuY2hiaGF0KDIwMEtWQSksIE5FVyBBR1hFTSgyMDBLVkEpLCBWSVNIV0EgU0FSQVNXQVRJIFNPQ0lFVFkoOTUwS1ZBKSwgU0hBTlRJIEFTUk8oMTAwS1ZBKSwgTS9TIEdPVklORCBQT1kgT1hZR0VOIExURCgyMDBLVkEpLCBDSE9XR1VMRSBBQlAgQ09BVElOR1MgKElORElBKSBQVlQgTFREKDk1LCBNL1MgQ0hPV0dVTEUgJmFtcDsgQ28gTFREKDIwMEtWQSksIE0vUyBTSElST0RLQVIgU0hJUFlBUkQoMTUwS1ZBKSwgTS9TIEdPQSBPUkUgQ0FSUklFUlMoMzE1S1ZBKSwgTS9TIENob3dndWxlICZhbXA7IENvLVVuaXQgSUkoMjUwS1ZBKSwgVklKQVkgMSgxMDBLVkEpLCBDUk9TUyBST0FEKDIwMEtWQSksIE0vUyBWQVJVTiBCRVZFUkFHRVMgTFREKDk1MEtWQSksIERFRVBBUkFKIFJFU0lERU5USUFMKDIwMEtWQSksIFNCSSgxMDBLVkEpLCBNT05USVItMigxMDBLVkEpLCBQQUxNRUlSQSgxMDBLVkEpLCBNL1MgU0FJIFBPSU5UIENBUlMgUFZUIExURCg0MDBLVkEpLCBTVCBYQVZJRVIoMjAwS1ZBKSwgVkVURVJOQVJZKDIwMEtWQSksIEJBR0JIQVQgTkVXKDEwMEtWQSksIFVERE8oMjAwS1ZBKSwgQkVMTEEgVklTVEHCoCgyMDBLVkEpLCBTRU1JTkFSWSBERSBSQUNIT0woMTUwS1ZBKSwgUFJBQ0UgREUgUkFDSE9MKDEwMEtWQSksIFRBTENPTkRBKDYzS1ZBKSwgSUxIQSBERSBSQUNIT0wgT0xEKDEwMEtWQSksIElMSEEgREUgUkFDSE9MIE5FVygxMDBLVkEpLCBHQU5FUE9HQSBPTEQoMjAwS1ZBKSwgR0FORVBPR0EgTkVXKDIwMEtWQSksIFNBTlRFTU9MKDIwMEtWQSksIFNOT1cgRFJPUFMoMjAwS1ZBKSwgQ09MTEVBIERPTkdPUigxNTBLVkEpLCBSQUlBIEZPT1QgQkFMTCBHUk9VTkQoMjAwS1ZBKSwgUkFJQSBCQVpBUigyMDBLVkEpLCBXRVNUIERBTU9OKDIwMEtWQSksIERBR1dBTCgxNjBLVkEpLCBOQVRVUkFMIFJFQUwgRVNUQVRFKDIwMEtWQSksIE1BTk9SQSBGT09UIEJBTEwoMTAwS1ZBKSwgTU9STElaKDIwMEtWQSksIFJBSUFDSE9BTUJPKDIwMEtWQSksIERPTU5JQyBHQU9OS0FSIE5FVygxMDBLVkEpLCBET01OSUMgR0FPTktBUiBPTEQoMTAwS1ZBKSwgQkFSRUJIQVQgTkVXKDEwMEtWQSksIEJBUkVCSEFUIE9MRCgyMDBLVkEpLCBJQk0oMTAwS1ZBKSwgU09ORkFUT1IoMTAwS1ZBKSwgQk9SSU0oMTAwS1ZBKSwgR0FMTEkoMTAwS1ZBKSwgVkFOWEVNKDIwMEtWQSksIEZBUldBRE8oMTAwS1ZBKSwgQU5HQURJKDEwMEtWQSksIFBBTE9OREEoNjNLVkEpLCBDQVJWT1RBwqAoMjAwS1ZBKSwgU0hJUk9ES0FSKDIwMEtWQSksIE1PSElERElOKDEwMEtWQSksIE0vUyBWSUpBSSBNQVJJTkUgU0VSVklDRVMoMjAwS1ZBKSwgVE9MTEVBQkFORCgxMDBLVkEpLCBOQUNPUkRBKDIwMEtWQSksIE9MRCBERVZPVEVFKDE2MEtWQSksIE9SQ0hJRCBTT0NJRVRZKDIwMEtWQSksIEJBR0JIQVQgT0xEKDIwMEtWQSksIEFCSEFZL0FTSFdJTkkoMTUwS1ZBKSwgVEFNQkVUSU0oMjAwS1ZBKSwgQ09NQkhBVFQoMjAwS1ZBKSwgTUFJTkEgV0FERE8oMTAwS1ZBKSwgTUFJTkEgQkFaQVIoMTYwS1ZBKSwgREFHVUFMKDIwMEtWQSksIEdPTlNPSSg2M0tWQSksIEZJUkdVRU1CSEFUKDIwMEtWQSksIEJPTVNBTCg2M0tWQSksIEJBTkRPTCBORVcoMTAwS1ZBKSwgQkFORE9MIE9MRCgxNTBLVkEpLCBGT05ERUdBTEwoMTAwS1ZBKSwgQ1VSVE9SSU0gQkFaQVIgTkVXIChCQU5LKSgxMDBLVkEpLCBDVVJUT1JJTSBCQVpBUiBPTEQgKE1MQSBPRkZJQ0UpKDIwMEtWQSksIEJBVE9SQSgyMDBLVkEpLCBSVU1CT0RFTSgxMDBLVkEpLCBWRVRORU0oMjAwS1ZBKSwgVU5KSVJJTSgxMDBLVkEpLCBMSVRUTEUgSEVBUlQoNjNLVkEpLCBNVVhJIFdBRERPKDEwMEtWQSksIFBBTkRJQ09MKDEwMEtWQSksIEFHWEVNKDIwMEtWQSksIFJPVUxMRU0oMjAwS1ZBKSwgQ09OR0VNIE9MRCgxMDBLVkEpLCBDT05HRU0gTkVXKDEwMEtWQSksIFRFTUJJKDIwMEtWQSksIEdPVE5JIEJIQVRUKDEwMEtWQSksIFNUIEFOVEhPTlkoMTAwS1ZBKSwgTEVQUk9TWSBIT1NQSVRBTCg2M0tWQSksIFNPTlhFTSg2M0tWQSksIFZBTFFVSVNBUig2M0tWQSksIEtBTlRFKDEwMEtWQSksIE1PRFNBSSg2M0tWQSksIFpPRERJKDEwMEtWQSksIEJPUkxBKDEwMEtWQSksIE1BQ0FaQU5BIENIVVJDSCgxMDBLVkEpLCBDVVBBVE9SKDEwMEtWQSksIENVUEFUT1IgRE9OR09SKDYzS1ZBKSwgQ1VQQVRPUiBNVVhFUig2M0tWQSksIE5PVk8gQkFaQVIoMTUwS1ZBKSwgVVpSTygyMDBLVkEpLCBET05HUklNKDEwMEtWQSksIFdJTExJQU0oMjAwS1ZBKSwgQU1CT1JBKDIwMEtWQSksIEdBVU5DSE8gTUFSRygxMDBLVkEpLCBOSVJCT0dBKDIwMEtWQSksIE5FVyBERVZPVEVFKDEwMEtWQSksIENBUkNPTEEoMTAwS1ZBKSwgRE9OIEJPU0NPKDEwMEtWQSksIE9MRCBPUkdBTygxMDBLVkEpLCBORVcgT1JHQU8oMTAwS1ZBKSwgT1RFKDEwMEtWQSksIExPVVRPTElNIENIVVJDSCgxMDBLVkEpLCBWQVhFTSBDSEFQRUwoMTAwS1ZBKSwgSEVBTFRIIENFTlRFUigxMDBLVkEpLCBCSUcgRk9PVCgyMDBLVkEpLCBRVUVOTlkgQ0VOVFJFKDIwMEtWQSksIFNPTFZBKDYzS1ZBKSwgQ09TVEEgMSgyMDBLVkEpLCBORVcgR0FWT04oMTAwS1ZBKSwgT0xEIEdBVk9OKDEwMEtWQSksIE5BUVVFTElNKDIwMEtWQSksIENVUlJBKDYzS1ZBKSwgRUFTVCBEQU1BTigxMDBLVkEpLCBOQUlLKDEwMEtWQSksIEFkZXNoIEthcndhcmthcigyMDBLVkEpLCBSQUpFU0ggU0hJUk9ES0FSKDEwMEtWQSksIFJPU0FSSU8oMjAwS1ZBKSwgU05PVyBEUklGVCgxMDBLVkEpLCBTQVBOQSBERVZFTE9QRVJTIEkoMjAwS1ZBKSwgU0FQTkEgREVWRUxPUEVSUyBJSSgyMDBLVkEpLCBWSUpBWSAyKDIwMEtWQSksIFJBSUEgU2VjdGlvbiBvZmZpY2UoMjAwS1ZBKSwgUlVNQk9ERU0oMjAwS1ZBKSwgR09HQUxJKDIwMEtWQSksIEFSR0lDT0wgTkVXIERUUigxMDBLVkEpLCBST1kgTU9OVEVSSU8gMSgyMDBLVkEpLCBST1kgTU9OVEVSSU8gMigyMDBLVkEpLCBEQUdVQUwoMjAwS1ZBKSwgUGFuY2hiaGF0KDIwMEtWQSksIE5FVyBBR1hFTSgyMDBLVkEpZGQCBA9kFgICAQ8PFgIfAgUIMDg6MDA6MDBkZAIFD2QWAgIBDw8WAh8CBQgxNTowMDowMGRkAgIPZBYMZg9kFgICAQ8PFgIfAgUBMmRkAgEPZBYCAgEPDxYCHwIFCjIxLTA0LTIwMjVkZAICD2QWAgIBDw8WAh8CBSZQbGFubmVkIHNodXRkb3duIGZvciBtYWludGFpbmFuY2Ugd29ya2RkAgMPZBYCAgEPDxYCHwIF/QEgS0hBREFQV0FEQSgyMDBLVkEpLCBHQVdBTlQoMjAwS1ZBKSwgR09MV0FETygyMDBLVkEpLCBSQU1CSEFXQU4oMjAwS1ZBKSwgWk9SQ0FOVE9SKDEwMEtWQSksIFJhbSB0ZW1wbGUoMjAwS1ZBKSwgQkFOREFSKDEwMEtWQSksIEtIQURBUFdBREEoMjAwS1ZBKSwgR0FXQU5UKDIwMEtWQSksIEdPTFdBRE8oMjAwS1ZBKSwgUkFNQkhBV0FOKDIwMEtWQSksIFpPUkNBTlRPUigxMDBLVkEpLCBSYW0gdGVtcGxlKDIwMEtWQSksIEJBTkRBUigxMDBLVkEpZGQCBA9kFgICAQ8PFgIfAgUIMDk6MDA6MDBkZAIFD2QWAgIBDw8WAh8CBQgxNTowMDowMGRkAgMPDxYCHgdWaXNpYmxlaGRkAgQPDxYCHwNoZGQYAQUPR1ZfcG93ZXJfb3V0YWdlDzwrAAwBCAIBZL3ziTSfYGjz745Sphpf1X9xCQuSGM5rKEkWISywfl52" />
+
+<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="43934BB4" />
+        
+        <!--Container starts here-->
+        <div class="container">
+            <!--wrapper starts here-->
+            <div class="wrapper">
+                <div class="container">
+    <div class="wrapper">
+    <div class="navbar">        
+        <div id="google_translate_element"></div>
+    </div>
+    </div>
+    </div>
+
+                <!--header starts here-->
+                <div class="header">
+                    <div class="top_header">
+                        
+                            <marquee style="color: #fff; padding: 5px 3px" behavior="scroll"
+                            direction="left" scrollamount="4" onmouseover="this.stop();" onmouseout="this.start();">
+                            Do Gaj Ki Doori, Mask Hai Zaroori --- Together we will fight COVID-19. FPPCA inclusion in electricity charges is mandatory as per JERC regulator and are bound to be calculated and claimed by Utilities all over the Country from time to time please read the article in the Web Archives.
+                </marquee>
+                    </div>
+                    <!--end top header-->
+                    <h1>
+                        <a href="#">
+                            <img src="Images/test-gov.png" id="logo" /></a></h1>
+                    <div style="width: 155px; float: left; margin: 10px 0 0 215px; color: #057ec2; font-size: 13px;">
+                        <span id="lbl_curnt_datetime"></span>
+                    </div>
+                    <div id="rt_btm_header">
+                        <ul>
+                            <li><a href="Home_page.aspx">Home</a></li>
+                            <li><a href="contactus.aspx">Contact Us</a> </li>
+                        <li><a href="SitemapPath.aspx">Site Map</a></li>
+                        </ul>
+                        
+                        <div class="search">
+                            
+                            <fieldset>
+                                <label for="srch">
+                                    <input type="text" class="txtBox" value="Search" onblur="if(this.value=='')this.value='Search';"
+                                        onfocus="if(this.value=='Search')this.value='';" name="search" id="srch">
+                                </label>
+                                <label for="btn">
+                                    <input class="btn" value="" id="btn" type="Submit">
+                                </label>
+                            </fieldset>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!--END header-->
+                <div class="clear">
+                </div>
+                
+                
+                
+                <!--Menu navigation starts here-->
+                <div class="menu_nav">
+                    <ul>
+                        <li><a href="Home_page.aspx">Home</a> </li>
+                        <li><a href="#">About Us</a>
+                            <ul class="sub_menu">
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Vision documentqq.pdf')">Our Vision</a></li>
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Goa at a glance.pdf')">Goa at a glance</a></li>
+                                
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Goa Power Network 16122020.pdf')">Goa Line Network Dec 2020</a></li>
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Webservices.pdf')">Webservices</a></li>
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/CompMech.pdf')">Complaint Mechanism</a></li>
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/About Website.pdf')">About Website</a></li>
+                                 <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Payscale-Posts.pdf')">Pay Structure and Posts</a></li>
+
+                                
+
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Loading PowTrf May17.htm')">Power Transformer Loadings Substationwise May 2017</a></li>
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Substations and Feeders.htm')">Substation & Associated Feeders</a></li>
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/FPPCA generalinfo.pdf')">Information on FPPCA and its purpose</a></li>
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Loading PowTrf May18.xlsx')">Power Transformer loadings Substation wise May 2018</a></li>
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Loading PowTrf May19.xlsx')">Power Transformer loadings substation wise May 2019</a></li>
+                            </ul>
+
+                        </li>
+                        <li><a href="#">Vendors/Tenders</a>
+                            <ul class="sub_menu">
+                                
+                                <li><a href="http://www.etender.goa.gov.in/">E-Tendering Website Login</a></li>
+                             
+                                <li><a href="#">Suspended Registration</a></li>
+                                <li><a href="#">Cancelled Registration</a></li>
+                                <li><a href="#">Blacklisted Agencies</a></li>
+                                <li><a href="Goa_tenders.aspx">Tender Archives</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Departmental Information</a>
+                             <ul class="sub_menu">
+
+                         
+                                
+                                    <li><a href="#">MoM with GSWB (Goa State Advisory Booard)</a>
+                                
+                                 <li><a href="#">MOM with GSWB & EFC</a>
+                                       <ul class="sub_menu_sub">
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/EFC-27032018-200KVSaligao S-s.pdf')">EFC 27-03-2018 (220KV Saligao S-s)</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/EFC_30Oct2018_Netravali.pdf')"> EFC- 30Oct2017 (Natravali UG Cabling)</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/EFC Mintes 15012018.pdf')"> EFC - 15-01-2018 (Porvorim U/g cabling)</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/EFC-13-07-2018- Verna Conductor change.pdf')">EFC 13072018 - (Verna Conductor replacement)</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/EFC Porvorim U_G Phase2.PDF')">EFC 26-09-2018 (Porvorim U/G cabling Phase II)</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/EFC-26092018-- 220-33KV Verna s-s GIS.PDF')">MOM of EFC related to GIS Verna Substation</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/GISSaligaoss22033KV.PDF')">220/33KV GIS Saligao ss Cabinet Approval</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Tuem22033KVGIS.PDF')">220/33KV GIS Tuem ss Cabinet Approval</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/110KV line conductor change PondaVerna-XeldemVerna.PDF')">110KV Change of Conductor to HTLS from Ponda to Verna & Xeldem to Verna GSWB Approval</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Renovation Saligao-Britona.PDF')">Renovation of line network and associated at Saligao & Britona VP GSWB Approval</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/EFC 15-02-19-LED 2nd Phase.PDF')">EFC LED Phase 2</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/GSWB-4072019-- R&I Shiroda.PDF')">Renovation of Lines and DTC under Shiroda</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/MOMGSWB-4072019-VPMardolVelingPriol.PDF')">GSWB - R&I at VP Mardol Veling & Priol</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/GSWB-29082019-LED Supply.PDF')">GSWB for LED supply Phase 2</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/GSWB11Nov19SupplyLTCables.PDF')">GSWB-11-11-2019(Supply of Various sizes of LT Power Cables)</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/GSWB-11Nov19-RTDAS.PDF')">GSWB 11-11-2019 (RT DAS)</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/EFC-11Nov19-5Proposals.PDF')">EFC 11-11-2019 (5 proposals)</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/GSWB 27Dec19- MOM NCRMP Anjuna feeder.PDF')">GSWB-27-12-2019 (Conversion of 11KV Anjuna feeder -NCRMP world bank fund)</a></li>
+                                       </ul>
+                                    </li>
+
+
+                           
+                            </ul>
+
+                        </li>
+                         <li><a href="#">Customer Services</a>
+                                                        <ul class="sub_menu">
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Gazette-Electricity-Rights-of-Consumers-Rules-2020.pdf')">Electricity-Rights-of-Consumers-Rules-2020</a>
+                                <ul class="sub_menu_sub">
+                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Rights of Consumers (Amendment 1) 2021.pdf')">Amendment 1(2021)</a></li>
+                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Rights of Consumers (Amendment 2) 2022.pdf')">Amendment 2(2022)</a></li>
+                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Rights of Consumers (Amendment 3) 2023.pdf')">Amendment 3(2023)</a></li>
+                                </ul>
+                                </li>
+
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/bharatbillpay.ppt')">BharatBill pay services</a></li>
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Divisions and areas covered.PDF')">Division and sub division wise Areas covered by Department</a></li>
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/CompMech.pdf')">Complaint mechanism</a></li>
+                                
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Consumer Assistance initiatives.pdf')">Various Enabled Consumer Services in the Department</a></li>
+                                
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/functioning_cgrf.png')">Functionig of CGRF</a></li>
+                                <li><a href="PostaL_address.aspx">CGRF</a> </li>
+                                <li><a href="#">Judgements passed by CGRF</a>
+
+                                     <ul class="sub_menu_sub">
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/0_New Doc 2020-01-30 15.26.11.pdf')">Judgement 1</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/0_New Doc 2020-01-30 15.18.21.pdf')">Judgement 2</a></li>
+                                                   
+                             
+                                                        
+                                         </ul>    
+                                         </li> 
+                                              <li><a href="#">Judgements passed by CGRF 2020</a>
+                                                         <ul class="sub_menu_sub">
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/02-2020  Scholar Builders Pvt. Ltd..pdf')">J-1</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/03-2020 Suhas Dessai.pdf')">J-2</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/04-2020 Neil D'souza.pdf')">J-3</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/05-2020 Satchit Naik.pdf')">J-4</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/07-2020 Appasaheb Dindalkumpi.pdf')">J-5</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/09-2020 Jophin Electricals Products.pdf')">J-6</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/10-2020 Saiprasad Sarshetty.pdf')">J-7</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/11-2020 Suryakant Parwar.pdf')">J-8</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/06-2020 Samantha Fernandes.pdf')">J-9</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/08-2020 Allwyn Fernandes.pdf')">J-10</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/12-2020 Balkrishna Vartikar.pdf')">J-11</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/14-2020 Mohit Steel Pvt. Ltd..pdf')">J-12</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/15-2020 Mandovi casting Pvt. Ltd..pdf')">J-13</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/17-2020 Shraddha Ispat Pvt. Ltd..pdf')">J-14</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/18-2020 Shirdi Steel Re-Rollers Pvt. Ltd..pdf')">J-15</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/P.no 19 of 2020 Custodio Fernandes.pdf')">J-16</a></li>
+
+
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/20-2020 Global Ispaat Pvt. Ltd..pdf')">J-17</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/21-2020 Shivam Ispat Pvt. Ltd..pdf')">J-18</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/22-2020 Balaji Rollings Pvt. Ltd..pdf')">J-19</a></li>
+
+                                                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/P.no 23 of 2020 Shrikant Vagalkar.pdf')">J-20</a></li>
+                                                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/P.no 24 of 2020 Santosh Gaonkar.pdf')">J-21</a></li>
+
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/25-2020 Mohit Ispat Pvt. Ltd..pdf')">J-22</a></li>
+                                                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/P.no 26 of 2020 Sidharth Parulekar.pdf')">J-23</a></li>
+                                                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/P.no 27 of 2020 Milagrina Couto.pdf')">J-24</a></li>
+
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/31-2020 Victor Hospital & Medical Services.pdf')">J-25</a></li>
+                                                       
+                                                                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/33 of 2020 Maria Pereira.pdf')">J-33</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/34 of 2020 Shrikant Wagalkar.pdf')">J-34</a></li>
+                                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/35 of 2020 Minguel Vaz.pdf')">J-35</a></li>
+                                                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/36 of 2020 Ruben Cadros.pdf')">J-36</a></li>
+                                                                                               
+                                                             
+                                                              </ul>
+                                 </li>
+                                         <li><a href="#">Judgements passed by CGRF 2021 </a>
+                                                         <ul class="sub_menu_sub">                                                                                                      
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/2 of 2021 Menino Rodriques.pdf')">J-2</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/4 of 2021 Ms Ashtek Consultancy Pvt. Ltd..pdf')">J-4</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/6 of 2021 Milan Naik.pdf')">J-6</a></li>
+                                                         
+                                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/37 of 2021 Schubert Sequeira.pdf')">J7-1</a></li>
+                                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/38 of 2021 Melroy Pinto.pdf')">J7-2</a></li>
+                                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/39 of 2021 Ms. Zara Infrastructure Pvt. Ltd..pdf')">J7-3</a></li>
+                                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/41 of 2021 Shekhar Gauns.pdf')">J7-4</a></li>
+                                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/42 of 2021 Mary D'mello.pdf')">J7-5</a></li>
+
+                                                            
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/8 of 2021 Vania Goes.pdf')">J-8</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/10 of 2021 Jaideep Bhosle.pdf')">J-10</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/12 of 2021 Prakash Mehta.pdf')">J-12</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/13 of 2021 Abubakar Dangi.pdf')">J-13</a></li>      
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/21 of 2021 Raymond Fernandes.pdf')">J-21</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/22 of 2021 Goan Hotels and Realty Pvt. Ltd..pdf')">J-22</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/23 of 2021 Muktar Minerals Pvt. Ltd..pdf')">J-23</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/25 of 2021 Hire Mahadev Parab.pdf')">J-25</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/27 of 2021 Benjamin Fernandes.pdf')">J-27</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/28 of 2021 Hire Mahadev Parab.pdf')">J-28</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/29 of 2021 Guala Closures (INDIA) Pvt. Ltd..pdf')">J-29</a></li>
+
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/24 of 2021 Laxmi Kaskar.pdf')">J-30</a></li>      
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/30 of 2021 Suman Devi Mishra.pdf')">J-31</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/31 of 2021 Suman Devi Mishra.pdf')">J-32</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/32 of 2021 Rajan Lotlikar.pdf')">J-33</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/33 of 2021 Bosco DCosta.pdf')">J-34</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/34 of 2021 Suresh Kamat.pdf')">J-35</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/35 of 2021 Anthony Fernandes.pdf')">J-36</a></li>
+                                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/36 of 2021 Annie Fernandes.pdf')">J-37</a></li>
+                    
+                                                                                                             
+                                                          </ul>                                                           
+                                                      </li>
+                                   <li><a href="#">Judgements passed by CGRF 2022 </a>
+                                                         <ul class="sub_menu_sub">        
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/01 of 2022.pdf')">J-1</a></li>
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/04 of 2022.pdf')">J-4</a></li>                                                                                                                                                    
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/05 of 2022.pdf')">J-5</a></li>
+                                                          
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/07 of 2022.pdf')">J-7</a></li>
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/10 of 2022.pdf')">J-10</a></li>
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/11 of 2022.pdf')">J-11</a></li>
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/13 of 2022.pdf')">J-13</a></li>
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/14 of 2022.pdf')">J-14</a></li>
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/15 of 2022.pdf')">J-15</a></li>
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/16 of 2022.pdf')">J-16</a></li>
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/17 of 2022.pdf')">J-17</a></li>
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/18 of 2022.pdf')">J-18</a></li>
+                                                           <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/20 of 2022.pdf')">J-20</a></li>
+                                                           <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/21 of 2022.pdf')">J-21</a></li>
+                                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/24 of 2022.pdf')">J-24</a></li>
+                                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/25 of 2022.pdf')">J-25</a></li>
+                                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/26 of 2022.pdf')">J-26</a></li>
+                                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/27 of 2022.pdf')">J-27</a></li>
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/28 of 2022.pdf')">J-28</a></li>
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/29 of 2022.pdf')">J-29</a></li>
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/30 of 2022.pdf')">J-30</a></li>
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/31 of 2022.pdf')">J-31</a></li>
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/32 of 2022.pdf')">J-32</a></li>
+                                                          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/33 of 2022.pdf')">J-33</a></li>
+                                                  
+                                                                                                                                                
+                                                          </ul>                                                           
+                                                      </li> 
+                                   <li><a href="#">Judgements passed by CGRF 2023 </a>
+                                       <ul class="sub_menu_sub">
+                                           <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/02 of 2023.pdf')">J-2</a></li>
+                                           <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/03 of 2023.pdf')">J-3</a></li>
+                                           <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/05 of 2023.pdf')">J-5</a></li>
+                                           <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/06 of 2023.pdf')">J-6</a></li>
+                                           <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/07 of 2023.pdf')">J-7</a></li>
+                                           <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/P.No. 12 of 2023.pdf')">Petition No. 12/2023 by Shri. Jose Garth Eliseu Leonardo do Rosario E Souza</a></li>
+                                           <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/P.No. 14 of 2023.pdf')">Petition No. 14/2023 by Smt. Berthalinha C, Novaes E. Lourenco</a></li>
+                                           <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/P.No. 15 of 2023.pdf')">Petition No. 15/2023 by Shri. Newton Fernandes</a></li>
+                                           <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/P.No. 16 of 2023.pdf')">Petition No. 16/2023 by Shri. Manoj R. Chauhan</a></li>
+                                           <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/P.No. 17 of 2023.pdf')">Petition No. 17/2023 by M/s. Goa Paper & Board Converters Pvt. ltd</a></li>
+                                           <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/18 of 2023.pdf')">18 of 2023 Smt. Radhabai Dhond R/o Vasco – Goa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/21 of 2023.pdf')">21 of 2023 Shri. Peter Sebastian Rodrigues R/o Raibandar - Goa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/22 of 2023.pdf')">22 of 2023 Smt. Merelina B.S. Dais R/o Navelim – Goa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/23 of 2023.pdf')">23 of 2023 Dhanashree Village Co-op Housing Society Ltd , Vaddem, Vasco - Goa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/25 of 2023.pdf')">25 of 2023 Adv. Sarvesh G. Kalangutkar R/o Mapusa – Goa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/26 of 2023.pdf')">26 of 2023 Shri. Carlos Gonsalves R/o Mapusa – Goa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/27 of 2023.pdf')">27 of 2023 Shri. Sushant G. Chari R/o Mapusa – Goa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/28 of 2023.pdf')">28 of 2023 Shri. Dhanendra Singh R/o Arambol, North – Goa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/29 of 2023.pdf')">29 of 2023 Shri. Yogesh A. Tendulkar R/o Nagoa – Goa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/30 of 2023.pdf')">30 of 2023 Smt. Brenda Costa R/o Bastora,Mapusa – Goa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/32 of 2023.pdf')">32 of 2023 Shri. Randhir Sinha R/o Arpora, Bardez – Goa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/33 of 2023.pdf')">33 of 2023 Smt. Nupur Phukan R/o Bainguinim – Goa</a></li>
+                                        <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/39 of 2023.pdf')">39 of 2023 Shri. Dilkush Ghurko Velip R/o Canacona – Goa</a></li>
+                                       </ul>
+                                   </li>
+                                   
+                                     <li><a href="#">Judgements passed by CGRF 2024</a>
+                                          <ul class="sub_menu_sub">
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/02 of 2024.pdf')">02 of 2024 Shri. Rohan Harmalkar R/o Sinquerim – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/03 of 2024.pdf')">03 of 2024 Ms.(Adv) Veena Ghode R/o Mapusa Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/04 of 2024.pdf')">04 of 2024 Adv. Melwin Viegas R/o Caranzalem – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/05 of 2024.pdf')">05 of 2024 Shri. Shabbir Khalif R/o Bardez – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/06 of 2024.pdf')">06 of 2024 Shri. Nitin Pednekar, R/o Ponda – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/07 of 2024.pdf')">07 of 2024 Demello Telepower Pvt . Ltd ,Saligao – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/09 of 2024.pdf')">09 of 2024 Casa Blanca Vagator Housing Maintenance Society Ltd., Anjuna – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/10 of 2024.pdf')">10 of 2024 Shri. Francis D’Silva R/o Goregaon East, Mumbai-63</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/11 of 2024.pdf')">11 of 2024 Goa Barge Owners Association R/o. Vasco – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/12 of 2024.pdf')">12 of 2024 Shri. Sanjan S. Naik R/o Margao – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/13 of 2024.pdf')">13 of 2024 Shri. Pradeep Mishra R/o Calangute –Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/14 of 2024.pdf')">14 of 2024 M/s. Rajaram Bandekar (Sirigao) Mines Pvt .Ltd , Vasco – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/15 of 2024.pdf')">15 of 2024 M/s. Narayan Bandekar & Sons Pvt. Ltd, Vasco – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/16 of 2024.pdf')">16 of 2024 Shri. Mukundraj Mudras R/o Santacruz – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/17 of 2024.pdf')">17 of 2024 Shri. Dhananjay Atmaram Jog R/o Panaji- Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/19 of 2024.pdf')">19 of 2024 Shri. Kamalakant P. Haldankar R/o Pernem - Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/20 of 2024.pdf')">20 of 2024 Shri. Anthony Menezes R/o Parra, North – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/21 of 2024.pdf')">21 of 2024 Shri. Mukesh kumar Sharma R/o Pernem – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/31 of 2024.pdf')">31 of 2024 Shri. Sushant Ray R/o Benaulim, Salcete – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/32 of 2024.pdf')">32 of 2024 Shri. Dhananjay Gadekar, R/o Pernem – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/33 of 2024.pdf')">33 of 2024 Smt. Rhea Vaz R/o Panjim – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/34 of 2024.pdf')">34 of 2024 Dr. Angeli Misra/ Dr. Asha Bhatnagar R/o Mapusa,  Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/35 of 2024.pdf')">35 of 2024 Shri. Hemant Mahadev Kambli R/o Sirsaim – Goa </a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/36 of 2024.pdf')">36 of 2024 Smt. Snehaprabha Tukaram Mangaonkar, Isani & Virani Hotels Private Ltd., Mapusa,  Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/37 of 2024.pdf')">37 of 2024 Shri. Ratnakar Tukaram Mangaonkar, Isani & Virani Hotels Private Ltd., Mapusa,  Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/38 of 2024.pdf')">38 of 2024 Shri. Joe Felix Fernandes R/o Alto Betim – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/39 of 2024.pdf')">39 of 2024 Shri. Sham Madan Kambli  R/o Pernem  – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/40 of 2024.pdf')">40 of 2024 Sai-Complex Co-op. Hsg. Society Ltd., Chicalim, Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/41 of 2024.pdf')">41 of 2024 M/s. Scholar Builders Pvt. Ltd., Caranzalem – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/42 of 2024.pdf')">42 of 2024 Shri. Pandurang V. Pednekar R/o Siolim – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/43 of 2024.pdf')">43 of 2024 Shri. Francis Rodrigues R/o Margao – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/45 of 2024.pdf')">45 of 2024 Adv. Tarzan D’ Costa R/o Panaji, Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/46 of 2024.pdf')">46 of 2024 Shri. Mukundraj Mudras R/o St. Cruz Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/47 of 2024.pdf')">47 of 2024 Shri. Harischandra D. Naik R/o Bicholim, Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/48 of 2024.pdf')">48 of 2024 M/s. Trimart Retail LLP, Gogol , Margao – Goa</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/49 of 2024.pdf')">49 of 2024 M/s. Tridentia Developers, Gogol , Margao – Goa</a></li>
+                                          </ul>
+                                     </li>                        
+                                    
+
+                                
+                                            
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/10 ways to reduce electricity bills corrected.pdf')">10 ways to reduce electricity bills</a></li>
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/ConsumerAssistance.pdf')">Important for Consumers</a></li>
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Bill Collection Centres.pdf')">Bill Collection Centres</a></li>
+                                
+
+                                 <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/CT meter box.pdf')">Details of CT meter Box to be installed</a></li>
+                                 <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Notice-Div-Grievances-Period.jpg')">Notice</a></li>
+                              
+                                 </ul>  
+                            </li>      
+                        <li><a href="#">Power Outage</a>
+                            <ul class="sub_menu">
+                            <li><a href="Goa_power_outage.aspx">Planned Power Outage</a></li>
+                            <li><a href="https://goaelectricity.gov.in:82/">Un Planned Power Outage</a></li>
+                        </ul>
+                        </li>    
+                        <li><a href="Goa_faq.aspx">FAQ</a> </li>
+                        
+                    </ul>
+                </div>
+                <!--END menu navigation-->
+                <div class="clear">
+                </div>
+                <!--Columns starts here-->
+                <div class="columns">
+<!--Left Column starts here-->
+                    <div class="lt_column">
+                        <div class="left_clm_in">
+                            <div class="lt_heading">
+                                <h2>General Information</h2>
+                            </div>
+                            <div class="lt_nav">
+                                <ul>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    <li><a href="#">Ease of Doing Business</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/NotificationEODB.PDF')">Circular-21Dec2018</a></li>
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Circular07102022.PDF')">Circular-07-Oct-2022</a></li>
+                                <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Divisions and areas covered.PDF')">Division and sub division wise Areas covered by Department</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('ged_address.aspx')">Prerequisites For New connection</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/ProcedureNewConnection2.PDF')">Procedure for New Electricity Connection</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('https://www.goaelectricity.gov.in:6443/FirstPage_NewConn.aspx')">Application for New Connections</a></li>
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/HelpNewConnection.pptx')">New Connection Help Guide</a>                                       
+                                             </li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Meter Specs 1ph - 3ph-1-3.pdf')">Single Phase Meter Specs</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Meter Specs3ph.pdf')">Three Phase Meter Specs</a></li>
+                                          
+                                           
+                                             
+
+                                            
+                                             
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/ConspPatternApril19-January 22.xlsx')">Consumption Pattern</a></li>
+
+
+
+
+                                            
+
+
+
+                                                           
+        
+
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/2021-36-SI-EOG-1.pdf')">Details of application fee for each service</a></li>
+                                            
+                                         
+
+                                               
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Dashboard_summary_DGSET_uptoMarch2022.pdf')">Dashboard New Diesel Generator Set Connections</a></li>
+                                           
+                                             
+
+                                          
+                                         
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('https://goaelectricity.gov.in:7777/')">Third party verification</a></li>
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Mandate for Online deliver of services.pdf')">Mandate for Online delivery of Services</a></li>
+  <!-- commented by Uma on 26.06.2024        <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/order08112022.pdf')">Order dated:31-Oct-2022</a></li> -->
+<!-- Added by Uma on 26.06.2024 -->          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Order_Dated_15032024.pdf')">Order dated:15-Mar-2024</a></li>
+<!-- Added by Uma on 23.06.2024 -->          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Gazette 30JUN2022 =MSME Conditions for Tender.pdf')">Gazzette 30June2022 MSME Conditions</a></li>
+                                              
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Attachment no. 173 (a).pdf')">Order-31/10/2022</a></li>                                
+                                             <li><a href="#">Application Related</a>
+                                                <ul class="sub_menu_sub">
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Online Services - Fees Structure.pdf')">Online Services - Fees Structure</a></li>
+                                                     
+                                                </ul>
+                                             </li>
+                                            
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Gazzette Notification 10Oct2024.pdf')">Gazzette Govt of Goa 10Oct2024- only online application accepted</a></li> 
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Note on adopting JERC notification  for CGRF.pdf')">Note on adopting JERC Notification on CGRF</a></li> 
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/CIRCULAR for Mandatory Documents HTLT Permanent  Temporary New Connection, Load Change and on Online Grievance Mechanism.pdf')">Circular for Mandatory Documents for HT/LT Permanent / Temporary New Connection, Load Change and on Online Grievance Mechanism</a></li>                                 
+                                        </ul>
+                                        </li>
+                                    <li><a href="#">Electrical Inspectorate Procedures & Forms</a>
+                                        <ul class="sub_menu">
+                                                                                        <li><a href="javascript:void(0);" onclick="javascipt:window.open('https://goaonline.gov.in/Appln/Uil/DeptServices?__DocId=ELI&__ServiceId=ELI55')">Online Application for DG Sets</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Abstract of Procedure.pdf')">Abstract for obtaining EI NOC's</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Flow Chart -procedures.pdf')">Flow Chart -procedures</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Approval for DG sets.pdf')">NOC for commissioning of DG set </a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Approval for DTC.pdf')">NOC for commissioning of DTC</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Approval for HT installations.pdf')">NOC for Commissioning of HT Units</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Period Inspection.pdf')">Inspection of Installations (periodic)</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/New Cinema Operator license Anx-E.pdf')">License for New Cinema Operators</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Renewal of Cinema Operator license Anx-F.pdf')">Renewal of Cinema Operator's License</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Renewal of Cinema Theatre License Anx-G.pdf')">Renewal of Cinema Theatre License</a></li>
+                                           <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/New Cinema Theatre license Anx-H.pdf')">License for New Cinema Theatre</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Inspection_Fees_ELECTRICAL_INSPECTOR.pdf')">Inspection fees chargable</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Attachment no. 178.pdf')">Order-19/09/2024</a></li> 
+                                        </ul>
+                                    </li>
+                                    <li><a href='#'><span>Rules &amp; Regulations</span></a>
+                                        <ul class="sub_menu">
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Gazette-Electricity-Rights-of-Consumers-Rules-2020.pdf')">Electricity-Rights-of-Consumers-Rules-2020</a>
+                                                 <ul class="sub_menu_sub">
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Rights of Consumers (Amendment 1) 2021.pdf')">Amendment 1(2021)</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Rights of Consumers (Amendment 2) 2022.pdf')">Amendment 2(2022)</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Rights of Consumers (Amendment 3) 2023.pdf')">Amendment 3(2023)</a></li>
+                                                 </ul>
+                                             </li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/GFR2005.pdf')">GRF 2005 Codes</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/TADA_on_Tour.png')">CPWD 2014</a></li>
+                                            
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Prepaid_AMR_Memorandum.pdf')">Prepaid AMR Memorandum</a></li>
+                                            
+                                            
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/ElectricityAct2003.zip')">Electricity Act 2003</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/5sept2008ACT.doc')">Goa Act 5-Sep-08</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/28May2008ACT.doc')">Goa Act 28-May-08</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/13Oct1986ACT.doc')">Goa Act 13-Oct-1986</a></li>
+                                            
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/JERC parameters.pdf')">JERC Regulations</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/SupplyCode2018.rar')">Supply Code 2018</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/ammendment to Supply Code 2018 - dt31-03-2022.pdf')">Ammendment to Supply Code 2018 dt31-03-2022</a></li>
+                                      
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Energy Conservation Act 2001.pdf')">Energy Conservation Act 2001</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Cheque-DDfacility-Withdrawn.pdf')">Cheque-DemandDraft not acceptable</a></li>
+                                            <li><a href="#')">Line Clearances</a>
+                                            <ul class="sub_menu_sub">
+                                                  <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Clearances1.JPG')">Clearances 1</a></li>
+                                                  <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Clearances2.JPG')">Clearances 2</a></li>
+                                             </ul>
+                                        
+                                    </li>
+                                            </ul>
+                                        </li>
+
+                                    <li><a href="#">Organization Setup</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/SEIorg_chart.pdf')">SEI Org Chart </a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/SEIIorg_chart.pdf')">SEII Org Chart</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/CEE_Off_Org_Chart.pdf')">CEE Office chart</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Know Your Department</a>
+                                        <ul class="sub_menu">
+<!-- commented by Uma - 13.06.2024          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Central Sector Allocation of Power as on FY2022.pdf')">Central Sector Allocation of Power as on FY2022</a></li> -->
+<!-- added by Uma - 13.06.2024   -->        <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Central Sector Allocation of Power w.e.f. 01.06.2024.pdf')">Central Sector Allocation of Power to Goa w.e.f. 01.06.2024</a></li>
+<!-- commented by Uma - 13.06.2024          <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/ALLOCATION  22 sept 18.xls')">Central Sector allocation of power w.e.f. 22-09-2018</a></li>  -->
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Goa-ALLOCATION-10112017.pdf')">Power Allocation Nov 2017</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/PowerAllocationMarch15.xls')">Power Allocation March-2015</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Tariff and other charges</a>
+                                        <ul class="sub_menu">
+                                          
+                                              
+                                              
+<!-- commented by Ashish on 1st Feb2024     <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/FPPCA 1st quarter.pdf')">FPPCA 1st Qtr FY2022-23</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/FPPCA 2nd Quarter FY 2022-23.pdf')">FPPCA 2nd Qtr FY2022-23</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/FPPCA 3rd qtr 2022-23.pdf')">FPPCA 3rd Qtr FY2022-23</a></li>
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/FPPCA 4th Quarter.pdf')">FPPCA 4th Qtr FY2022-23</a></li>   -->
+                                             
+                                            
+                                             
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/FPPCA for 4th Quarter of FY 2023-24.pdf')">FPPCA 4th Qtr FY2023-24</a></li>
+                                            
+                                            
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/FPPCA to be levied in March 2025.pdf')">FPPCA for Mar 2025</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/FPPCA to be levied for consumption of Feb-25.pdf')">FPPCA for Feb 2025</a></li> 
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/FPPCA Jan 2025.pdf')">FPPCA for Jan 2025</a></li> 
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/FPPCA to be levied on consumption of December 2024.pdf')">FPPCA for Dec 2024</a></li> 
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/FPPCA to be levied for consumption of Nov 2024.pdf')">FPPCA for Nov 2024</a></li> 
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Signed FPPCA to be levied for consumption of Oct 24.pdf')">FPPCA for Oct 2024</a></li> 
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/FPPCA to be levied for consumption of September 2024.pdf')">FPPCA for Sept 2024</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/FPPCA to be levied for consumption of August 2024.pdf')">FPPCA for August 2024</a></li>
+                                            
+                                          
+                                              
+                                        
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Tariff order for FY 2023-24.pdf')">Retail Tariff Order for FY 2023-24</a></li>
+                                             
+                                            
+                                           
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Rev in Electduty 31May2012.pdf')">Electricity Duty Revised dt 31 May 2012</a></li>
+ <!-- added by Uma on 05-Jul-2024-->         
+ <!-- added by Uma on 30-Aug-2024-->         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Tariff Order FY 2024-25 Official Gazette.pdf')">Tariff order for FY 2024-25 w.e.f. 16/06/2024</a></li>                                           
+ <!-- added by Uma on 14-Aug-2024-->         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Green Energy Tariff for FY 2024-25 for Goa.pdf')">Green Energy Tariff for FY 2024-25 for Goa</a></li> 
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Monthly FPPCA JULY 2024.pdf')">FPPCA for July 2024</a></li>  
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Forms and Formats</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/NewDCBformat.zip')">DCB Format</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">References</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Marrateapp-108-17042018.pdf')">Market rate app -17042018</a></li>
+                                           
+                                            <li><a href="#">Distribution Transformer spec notifications/ammendments</a>
+                                                <ul class="sub_menu_sub">
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Ministry of Power Notification.pdf')">Distribution Transformer spec notifications</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Draft Amendment.pdf')">Distribution Transformer spec ammendments</a></li>
+                                            </ul>
+                                            </li>
+                                            <li><a href="#">Steel Tables</a>
+                                                <ul class="sub_menu_sub">
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Equal unequal angles.jpg')">Equal & Unequal Angles</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Channels unequal angles.jpg')">Channels & Unequal Angles</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Unequal Anles.jpg')">Unequal Angles</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Beam n Channels.jpg')">Beams Channels</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Beams.jpg')">Beams</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Channels corrigendum.jpg')">Channels</a></li>
+                                                    <li><a href="#">Steel as per Indian Standard</a>
+                                                        <ul class="sub_menu_sub3">
+                                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/steel_beam n channels.jpg')">Beams Channels</a></li>
+                                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/steel angels.jpg')">Angles</a></li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Log Sheets for EHV Sub Substations</a>
+                                                <ul class="sub_menu_sub">
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Tivim_EHV.doc')">Log Sheets for Tivim EHV 220/110/33/11/0.44KV s/s</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Ponda_3x100MVA.xls')">Log Sheets for Ponda 220/110/33/11kv 3x100MVA s/s</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Ponda_50MVA.xls')">Log Sheets for Ponda 220/33kv 1x50MVA s/s</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Standard Data Rates</a>
+                                                <ul class="sub_menu_sub">
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/ScheduleRates2012-13.pdf')">Schedule Rates 2012-13</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Standard_data 2012-13.pdf')">Standard Data 2012-13</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Standard_dataLabor 2012-13.pdf')">Standard Data Labour 2012-13</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Standard_dataserviceconnection 2012-13.pdf')">Standard Data Service Connection 2012-13</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/REVISED GED standard rates.pdf')">Standard Data Rates 2018-2019</a></li>
+                                                </ul>
+                                            </li>
+                                            <!--<li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/LicensedContractors2014.pdf')">List of Licensed Contractors</a></li>-->
+                                           <!-- <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Contractor_License_2016.docx')">List of License Contractors 2016</a></li>-->
+                                           
+                                             <li><a href="#" >Licensed Contractors</a>
+                                                 <ul class="sub_menu_sub">
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/660 Volts (LT) Annexure1-2024-25  - List of contractors.pdf')">List of Licensed Contractors 2024-25 for voltage above 660 volts</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Annexure1-2024-25  - List of contractors.pdf')">List of Licensed Contractors for Low Tension (LT installations)</a></li>                                                    
+                                                </ul>
+                                             </li>
+
+                                            <li><a href="#">Important Earthing Practices</a>
+                                                <ul class="sub_menu_sub">
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/OM 6-5-A Earthing practices.doc')">Page 1</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/OM 6-5-B Earthing practices Additional.doc')">Page 2</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Guidelines for development of Sub Transmission and distribution system</a></li>                                            
+                                            <!-- SOC Code commented and Added by Umamaheswar on 21.08.2024 -->
+                                            
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Approved list of Makes-Vendors 2024.pdf')">List of approved makes 2024</a></li>
+                                            <!--EOC Code commented and Added by Umamaheswar on 21.08.2024 -->
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/33 -11KV Breakers & CR panels MRA 2024.pdf')">33 & 11 KV Breakers & CR Panels MRA 2024</a></li>
+<!-- Added by Uma on 23.06.2024 -->         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Gazette 30JUN2022 =MSME Conditions for Tender.pdf')">Gazzette 30June2022 MSME Conditions</a></li>                                        
+<!-- Added by Uma on 14.08.2024 -->         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/MRA-20-Supply of 33KV Single core, cable of size 1x630sqmm, 1x800sqmm & 1x1000sqmm.pdf')">MRA 33KV Single Core Cables 2024</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/CEEIformMarch14.xlsx')">Statistics</a> </li>
+                                    <li><a href="#">Rules and Manuals</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/cpwd2014.PDF')">CPWD Manual</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/operation_maintenance.zip')">SubTransmission & Distribution</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/ier1956.pdf')">IE Rules</a></li>
+                                            <li><a href="#">Transformer Service Manual</a>
+                                                <ul class="sub_menu_sub">
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/ServiceBook_Transformer book_1.doc')">Transformer Service Manual1</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/ServiceBook_Transformer book_2.xls')">Transformer Service Manual2</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="#">Energy Conservation</a>
+                                                <ul class="sub_menu_sub">
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Energy Conservation Act 20011.pdf')">Energy Conservation Act 2001</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/GSR486_eng.pdf')">GSR486_eng</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Notification S.O.318 (E).pdf')">Notification S.O.318 (E)</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/MEA Gazette of India-English version-Manner and conduct of EA_Part1.pdf')">MEA Gazette of India-English version-Manner and conduct of EA_Part1</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/EC Act (Amended - 2010) (2).pdf')">EC Act (Amended-2010)(2).pdf</a></li>
+                                                </ul>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+                     
+                                    <li><a href="#">Petition Admitted by JERC</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/1.ED-GOA Petition True-Up 2020-21 & 2021-22-Final.pdf')">Petition for True-up of FY 2020-21 & FY 2021-22</a>
+                                                <ul class="sub_menu_sub">
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Annexure-1_EDG_True up Petition 2020-21-JERC_Final For Public Notice.pdf')">Annexure-1A</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Annexure-2_A_Budgetary Support Letter FY 2020-21.pdf')">Annexure-2A</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Annexure-2_B_Budgetary Support Letter FY 2021-22.pdf')">Annexure-2B</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Annexure-3_A_CAG_Audit certificate_FY 2020-21.pdf')">Annexure-3A</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Annexure-3_B_CAG_Audit certificate_FY 2021-22.pdf')">Annexure-3B</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Annexure-4_A_EDG_Proforma_Accounts_FY_2020-21.pdf')">Annexure-4A</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Annexure-4_B_EDG_Proforma_Accounts_FY_2021-22.pdf')">Annexure-4B</a></li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/ED-GOA Tariff Petition APR FY 2022-23 & ARR FY 2023-24.pdf')">Petition for approval of Annual Performance Review (APR) of FY 2022-23 and Aggregate Revenue Requirement (ARR) for FY 2023-24 before the Hon'ble JERC</a>
+                                                                    
+                                              <ul class="sub_menu_sub">                                                  
+                                              <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Tariff Formats for APR FY 2022-23 & ARR FY 2023-24.pdf')">Tariff Formats for APR FY 2022-23 & ARR FY 2023-24</a></li>                                                  
+                                              </ul>
+                                            </li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/EDG Petition (TRUE-UP FY 2022-23, APR FY 2023-24 & ARR FY 2024-25)-Final.pdf')">EDG Petition (TRUE-UP FY 2022-23, APR FY 2023-24 & ARR FY 2024-25)</a>
+                                                <ul class="sub_menu_sub">
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Annexure-1 Tariff Formats.pdf')">Annexure-1 Tariff Formats</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Budgetary Support letter FY 2022-23.pdf')">Annexure-2A Budgetary Support letter FY 2022-23</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Budgetary Support Letter FY 2023-24.pdf')">Annexure-2B Budgetary Support Letter FY 2023-24</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Budgetary Support Letter FY 2024-25.pdf')">Annexure-2C Budgetary Support Letter FY 2024-25</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Final PPA of Kusum A component -EDG.pdf')">Annexure-3 PM KUSUM Model PPA</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Letter to CAG for FY 2022-23 Accounts Audit.pdf')">Annexure-4 Copy of Letter submitted to CAG</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/GOA_arrear bill payment in installments.pdf')">Annexure-5 KAPS 1&2 arrear bill</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/IOCL-EV.pdf')">Annexure-6 Request letter from IOCL (EV Stations)</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/DRAFT JERC.pdf')">Annexure-7 JERC Draft Regulations on Procurement of Renewable Energy</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Konkan railway details.pdf')">Annexure-8 Information of Railway consumers</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/FY 2022-23 merged format.pdf')">Annexure-9A Energy Audit reports of FY 2022-23 and FY 2023-24 (Q1 & Q2) to BEE</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/REPORT April 23 - June 23.pdf')">Annexure-9B Energy Audit reports of FY 2022-23 and FY 2023-24 (Q1 & Q2) to BEE</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Q2 FY 23 24 BEE FORMAT.pdf')">Annexure-9C Energy Audit reports of FY 2022-23 and FY 2023-24 (Q1 & Q2) to BEE</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/SBU-DIV-17.pdf')">Annexure-10 Data on Sub Divisions as Strategic Business Units (SBU)</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Details of Hotel Industries- Govt and Private Institutions and Hospitals - Monthwise from oct 21 to march 23.pdf')">Annexure-11A Collection of data based on consumer type</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Hotel Industries- Govt and Private Institutions and Hospitals - Monthwise from April 23 to October 23.pdf')">Annexure-11B Collection of data based on consumer type</a></li>                                                    
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+
+
+
+                                    <li><a href="#">Solar & others matters</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/EOI component A.pdf')">PM-KUSUM – Component A</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/PPA under Kusum A.docx')">PPA under PM KUSUM-A</a></li> 
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Gen and PowPurchase.pdf')">Generation & Power Purchase</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/NetmeteringFeb2018.pdf')">Net metering </a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/EnergyEff.pdf')">Energy Efficiency matters </a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/solar policy 2017.pdf')">Solar Policy 2017</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/SOLARTARIFF_1102.pdf')">Solar-TariffAug2016</a></li>
+                                            
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Extension of Solar Regulation and traiff.pdf')">Solar Reg&Trff-Extension</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Agreement for Net Metering.pdf')">Netmetering-agrmt</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Solar pv grid regulation 2019.pdf')">Solar Regulations July2019</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Appl RooftopSolar.pdf')">Application Rooftop Solar</a></li>
+                                            <li><a href="#">Goa Energy Conservation Building Code & Rules 2020</a>
+                                            <ul class="sub_menu_sub">
+                                                  <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Advertisement for comments and suggestions for draft Goa ECBC 2020 and draft Goa Rules 2020.pdf')">Advertisement for comments and suggestions for draft Goa ECBC 2020 and draft Goa Rules 2020</a></li>
+                                                  <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Draft Goa ECBC 2020.pdf')">Draft Goa ECBC 2020</a> </li>
+                                                  <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Draft Goa ECBC Rules 2020.pdf')">Draft Goa ECBC Rules 2020</a></li>
+                                             </ul>
+                                            </li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/EnergyEfficiency.pdf')">Energy Efficiency</a></li>
+                                            
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/JERC_Net-Metering (1st Amendment).pdf')">Net & Gross Metering 2024 </a></li>
+                                            
+                                            
+                                        </ul>
+                                    </li>
+
+
+                                    <li><a href="#">Open Access & Streetlight matters</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Final_JERC_Open_Access_Procedure_for_Goa.pdf')">OPEN Access Procedure</a></li>
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Goa Public Lighting Duty Act.pdf')">Goa Public Lighting Duty Act</a></li>
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/GoaPubliclightingduty2021 Bill&Act.pdf')">Goa Public lighting duty2021 Bill&Act</a></li>
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Rate for Goa Public Lighting Duty Act.pdf')">Rate for Goa Public Lighting Duty Act</a></li>
+                                            </ul>
+                                    </li>
+
+                                    <li><a href="#">Circulars of Department</a>
+                                        <ul class="sub_menu">
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Hoardings.PDF')">Circular 11-Oct-2021-remove Hoardings</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Circular=Instruction for Festival.PDF')">Circular 7-9-2021 Festival Instruc</a></li>
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Circular 5-6-18.pdf')"> Use of Single Core Arm LT Power Cable</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Circular2301201720170518_15440050.pdf')"> Circular for using Official mail ID</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/CircularAttend2015.pdf')">Circular Attend 2015</a></li>
+                                            
+                                            
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Circular19-8-16.PDF')">Circular19-8-16</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/RTIcircular.PDF')">RTIcircular</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/CIRCULAR_dt06062017.PDF')">Updating Planned Power Outages</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/CIRCULAR_dt05062017.PDF')">Use of Official Mobile Phones</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/circular 20170616_17445693.PDF')">Payment of electricity bills to be accepted by Cashiers</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Circular20170628_11061168.PDF')">Additional Instructions to collect payment at department offices</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Committee20170628_16131887.PDF')">Market rate Approval Committee</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/circular20170627_11395382.PDF')">repair of failed Dist Transformer for standby</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Circular20170622_15443285.PDF')">Payment of Elect Bills anywhere in department accepted in Goa</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Circular20170622_15425117.PDF')">Communication through proper channel only</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Circular --13062017.PDF')">Instructions for payment modes</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Scan20002.PDF')">Estimate of Government for Sanction</a></li>
+               
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/CircularSafetytoolkitsUse.pdf')">Use of safety tool kits</a></li>
+                                             
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Approved charges & instructions for underground cable connections.pdf')">Approved charges & instructions for underground cable connections</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">List of Deemed assessed cases</a></li>
+                                    <li><a href="#">Tour Programmes of Officers of the Department</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Tourprogrms.zip')">Tour Progarms</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Archives</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="Goa_archive.aspx">Archived form Web Page</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/10_Apr2007Gazette.doc')">Extraordinary No 2 - Official Gazette dt 10-Apr-2007 </a></li>
+                                            <li><a href="#">Old Tariff Downloads</a>
+                                                <ul class="sub_menu_sub">
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Tariff Notification2.pdf')">Tariff Order for FY 2022-23</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Tariff Notification 2017-18.pdf')">Tariff Order for FY 2017-18</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/TariffOrder_20May2016.pdf')">Tariff Order for FY 2016-17</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Tariff_24Apr15.pdf')">Tariff Order for FY 2015-16</a></li>
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/TARIFF DATED 05 May 2014.pdf')">Tariff Order for FY 2014-15</a></li>
+                                            
+                                                     <li><a href="#">FPPCA charges 4th Qtr 2016-17</a>
+                                               <ul class="sub_menu_sub">
+                                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Notification 4th Qtr 16-17.pdf')">Gazzette Notification Copy</a> </li>
+                                                   <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Justification Note for High FPPCA charges for the current Quarter.pdf')">Justification for FPPCA charges</a> </li>
+                                                   <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/computation  of FPPCA for 4th Qtr. of FY 2016-17.xlsx')">Computation of FPPCA</a> </li>
+                                               </ul>
+                                            </li>
+                                                 </ul>
+                                             </li>
+                                            <!-- SOC by Uma on 13.06.2024 -->
+                                            <li><a href="#">Central Sector allocation of power</a>
+                                                <ul class="sub_menu_sub">
+                                                   <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Central Sector Allocation of Power as on FY2022.pdf')">Central Sector Allocation of Power as on FY2022</a></li>
+                                                   <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/ALLOCATION  22 sept 18.xls')">Central Sector allocation of power w.e.f. 22-09-2018</a></li>
+                                                </ul>
+                                            </li>
+                                            <!-- EOC by Uma on 13.06.2024 -->
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Associated Sites</a>
+                                        <ul class="sub_menu">
+                                            
+                                             <li><a href="https://rti.goa.gov.in/ ">RTI</a></li>
+                                            <li><a href="#">Department</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Safety & Advisories</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/CEA_Safety_Regulations_2010.pdf')">Safety Guidelines for Staff</a></li>
+                                             
+                                             
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Dosdonts-18112021.pdf')">Dos & Donts for your safety</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/AdvisoryGarbage.png')">Do not throw garbage near DTCs</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/dumping garbage advisory.PDF')">Notice to Govt Bodies for awareness to Public on Garbage dumped near DTCs</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/MonsoonAdvisories2020.PDF')">Monsoon Advisory</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/CEA safety guidelines 2023.PDF')">CEA Safety Guidelines 2023</a></li> 
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Maps</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="Goa_maps.aspx">All maps</a></li>
+
+                                                                                           <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/POWER MAP OF GOA UPDATED  01 Nov 2022.pdf')">Goa Power line network updated 01/11/2022 33KV and above</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Careers</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/advertisement of CGRF member.pdf')">Appointment for one CGRF MEMBER Goa</a></li>
+                                            
+                                                                                          
+                                        </ul>
+                                    </li>
+
+                                    <li><a href="Goa_Download_page.aspx">Downloads</a>
+                                    <ul class="sub_menu">
+
+                                         <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Annexure I.pdf')">Annexure I -  Application form - New Connection (Low Tension Service)</a></li>  
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Annexure II.pdf')">Annexure II - Application form - New Connection (High Tension / Extra High-Tension Service)</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Annexure IV.pdf')">Annexure IV - Application form - Change in Name of Registered Consumer</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Annexure V.pdf')"> Annexure V - Application form - Transfer of Ownership to Legal Heir</a></li>
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Annexure VI.pdf')">Annexure VI - Application form - Conversion of Services / Change of Consumer Category/ Shifting of Connection to new Premises</a></li>                               
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Annexure VII.pdf')">Annexure VII - Application form -Load Enhancement/Reduction Form</a></li>
+
+
+                                         
+                                        </ul>
+                                        </li>
+                                    <li><a href="https://www.bijlibachao.com/electricity-bill/online-electricity-bill-calculator-for-all-states-in-india.html">Online Electricity Bill Calculator</a></li>
+                                <!-- SOC by Uma on 14.06.2024 -->
+                                    <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/konkani bill.pdf')">Power Bill in Regional Language</a></li>
+                                <!-- EOC by Uma on 14.06.2024 -->
+                                    
+                                    <li><a href="#">Licensing Board</a>
+                                        <ul class="sub_menu">
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Attachment no. 180.pdf')">Order-19/09/2024</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Power Interruptions</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Outage Report_February 2025.pdf')">Outage Report for Feb 2025</a></li>
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Outage_Report_January_2025.pdf')">Outage Report for Jan 2025</a></li> 
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Outages Report_Dec_2024.pdf')">Outage Report for Dec 2024</a></li>
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Outage Report_Nov-24.pdf')">Outage Report for Nov 2024</a></li>
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Outage report_Oct_24.pdf')">Outage Report for Oct 2024</a></li> 
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Outage Report_Sep_2024.pdf')">Outage Report for Sep 2024</a></li> 
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Outge Report.pdf')">Outage Report for Aug 2024</a></li>   
+                                             <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Attachment no. 176-NOTE.pdf')">Note</a></li> 
+                                        </ul>
+                                    </li> 
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- SOC by Uma on 14.06.2024-->
+                        
+                        <!-- EOC by Uma on 14.06.2024 -->
+                        <div class="rt_block_box" style="font-size: 12px; line-height: 27px">
+                        </div>
+                        <div class="clear">
+                        </div>
+                    </div>
+                    <!--END left column-->                    <!--middle Column starts here-->
+                    <div class="f_lenth">
+                        <div class="f_pow_content">
+                            <div class="content_rt">
+                                <h2>Planned Power Outage</h2>
+                                <!--Content area-->
+                                <div class="content_area" style="overflow:scroll; height:500px;">
+                                    
+                                    <div>
+	<table class="mytable" cellspacing="0" rules="all" border="1" id="GV_power_outage" height="16" width="737">
+		<tr>
+			<th scope="col" nowrap="nowrap">S. NO.</th><th scope="col" nowrap="nowrap">Date of Outage</th><th scope="col" nowrap="nowrap">Name of Feeder</th><th scope="col" nowrap="nowrap">Affected Areas</th><th scope="col" nowrap="nowrap">From</th><th scope="col" nowrap="nowrap">To</th>
+		</tr><tr>
+			<td>
+                                                    <span id="GV_power_outage_ctl02_lbl_sno">1</span>
+                                                </td><td>
+                                                    <span id="GV_power_outage_ctl02_lbl_zone">04-04-2025</span>
+                                                </td><td>
+                                                    <span id="GV_power_outage_ctl02_lbl_zone">Shutdownof 33/11 KV Raia Substation</span>
+                                                </td><td>
+                                                    <span id="GV_power_outage_ctl02_lbl_zone"> VISHWA SARASWATI SOCIETY(950KVA), SHANTI ASRO(100KVA), M/S GOVIND POY OXYGEN LTD(200KVA), CHOWGULE ABP COATINGS (INDIA) PVT LTD(95, M/S CHOWGULE &amp; Co LTD(200KVA), M/S SHIRODKAR SHIPYARD(150KVA), M/S GOA ORE CARRIERS(315KVA), M/S Chowgule &amp; Co-Unit II(250KVA), VIJAY 1(100KVA), CROSS ROAD(200KVA), M/S VARUN BEVERAGES LTD(950KVA), DEEPARAJ RESIDENTIAL(200KVA), SBI(100KVA), MONTIR-2(100KVA), PALMEIRA(100KVA), M/S SAI POINT CARS PVT LTD(400KVA), ST XAVIER(200KVA), VETERNARY(200KVA), BAGBHAT NEW(100KVA), UDDO(200KVA), BELLA VISTA (200KVA), SEMINARY DE RACHOL(150KVA), PRACE DE RACHOL(100KVA), TALCONDA(63KVA), ILHA DE RACHOL OLD(100KVA), ILHA DE RACHOL NEW(100KVA), GANEPOGA OLD(200KVA), GANEPOGA NEW(200KVA), SANTEMOL(200KVA), SNOW DROPS(200KVA), COLLEA DONGOR(150KVA), RAIA FOOT BALL GROUND(200KVA), RAIA BAZAR(200KVA), WEST DAMON(200KVA), DAGWAL(160KVA), NATURAL REAL ESTATE(200KVA), MANORA FOOT BALL(100KVA), MORLIZ(200KVA), RAIACHOAMBO(200KVA), DOMNIC GAONKAR NEW(100KVA), DOMNIC GAONKAR OLD(100KVA), BAREBHAT NEW(100KVA), BAREBHAT OLD(200KVA), IBM(100KVA), SONFATOR(100KVA), BORIM(100KVA), GALLI(100KVA), VANXEM(200KVA), FARWADO(100KVA), ANGADI(100KVA), PALONDA(63KVA), CARVOTA (200KVA), SHIRODKAR(200KVA), MOHIDDIN(100KVA), M/S VIJAI MARINE SERVICES(200KVA), TOLLEABAND(100KVA), NACORDA(200KVA), OLD DEVOTEE(160KVA), ORCHID SOCIETY(200KVA), BAGBHAT OLD(200KVA), ABHAY/ASHWINI(150KVA), TAMBETIM(200KVA), COMBHATT(200KVA), MAINA WADDO(100KVA), MAINA BAZAR(160KVA), DAGUAL(200KVA), GONSOI(63KVA), FIRGUEMBHAT(200KVA), BOMSAL(63KVA), BANDOL NEW(100KVA), BANDOL OLD(150KVA), FONDEGALL(100KVA), CURTORIM BAZAR NEW (BANK)(100KVA), CURTORIM BAZAR OLD (MLA OFFICE)(200KVA), BATORA(200KVA), RUMBODEM(100KVA), VETNEM(200KVA), UNJIRIM(100KVA), LITTLE HEART(63KVA), MUXI WADDO(100KVA), PANDICOL(100KVA), AGXEM(200KVA), ROULLEM(200KVA), CONGEM OLD(100KVA), CONGEM NEW(100KVA), TEMBI(200KVA), GOTNI BHATT(100KVA), ST ANTHONY(100KVA), LEPROSY HOSPITAL(63KVA), SONXEM(63KVA), VALQUISAR(63KVA), KANTE(100KVA), MODSAI(63KVA), ZODDI(100KVA), BORLA(100KVA), MACAZANA CHURCH(100KVA), CUPATOR(100KVA), CUPATOR DONGOR(63KVA), CUPATOR MUXER(63KVA), NOVO BAZAR(150KVA), UZRO(200KVA), DONGRIM(100KVA), WILLIAM(200KVA), AMBORA(200KVA), GAUNCHO MARG(100KVA), NIRBOGA(200KVA), NEW DEVOTEE(100KVA), CARCOLA(100KVA), DON BOSCO(100KVA), OLD ORGAO(100KVA), NEW ORGAO(100KVA), OTE(100KVA), LOUTOLIM CHURCH(100KVA), VAXEM CHAPEL(100KVA), HEALTH CENTER(100KVA), BIG FOOT(200KVA), QUENNY CENTRE(200KVA), SOLVA(63KVA), COSTA 1(200KVA), NEW GAVON(100KVA), OLD GAVON(100KVA), NAQUELIM(200KVA), CURRA(63KVA), EAST DAMAN(100KVA), NAIK(100KVA), Adesh Karwarkar(200KVA), RAJESH SHIRODKAR(100KVA), ROSARIO(200KVA), SNOW DRIFT(100KVA), SAPNA DEVELOPERS I(200KVA), SAPNA DEVELOPERS II(200KVA), VIJAY 2(200KVA), RAIA Section office(200KVA), RUMBODEM(200KVA), GOGALI(200KVA), ARGICOL NEW DTR(100KVA), ROY MONTERIO 1(200KVA), ROY MONTERIO 2(200KVA), DAGUAL(200KVA), Panchbhat(200KVA), NEW AGXEM(200KVA), VISHWA SARASWATI SOCIETY(950KVA), SHANTI ASRO(100KVA), M/S GOVIND POY OXYGEN LTD(200KVA), CHOWGULE ABP COATINGS (INDIA) PVT LTD(95, M/S CHOWGULE &amp; Co LTD(200KVA), M/S SHIRODKAR SHIPYARD(150KVA), M/S GOA ORE CARRIERS(315KVA), M/S Chowgule &amp; Co-Unit II(250KVA), VIJAY 1(100KVA), CROSS ROAD(200KVA), M/S VARUN BEVERAGES LTD(950KVA), DEEPARAJ RESIDENTIAL(200KVA), SBI(100KVA), MONTIR-2(100KVA), PALMEIRA(100KVA), M/S SAI POINT CARS PVT LTD(400KVA), ST XAVIER(200KVA), VETERNARY(200KVA), BAGBHAT NEW(100KVA), UDDO(200KVA), BELLA VISTA (200KVA), SEMINARY DE RACHOL(150KVA), PRACE DE RACHOL(100KVA), TALCONDA(63KVA), ILHA DE RACHOL OLD(100KVA), ILHA DE RACHOL NEW(100KVA), GANEPOGA OLD(200KVA), GANEPOGA NEW(200KVA), SANTEMOL(200KVA), SNOW DROPS(200KVA), COLLEA DONGOR(150KVA), RAIA FOOT BALL GROUND(200KVA), RAIA BAZAR(200KVA), WEST DAMON(200KVA), DAGWAL(160KVA), NATURAL REAL ESTATE(200KVA), MANORA FOOT BALL(100KVA), MORLIZ(200KVA), RAIACHOAMBO(200KVA), DOMNIC GAONKAR NEW(100KVA), DOMNIC GAONKAR OLD(100KVA), BAREBHAT NEW(100KVA), BAREBHAT OLD(200KVA), IBM(100KVA), SONFATOR(100KVA), BORIM(100KVA), GALLI(100KVA), VANXEM(200KVA), FARWADO(100KVA), ANGADI(100KVA), PALONDA(63KVA), CARVOTA (200KVA), SHIRODKAR(200KVA), MOHIDDIN(100KVA), M/S VIJAI MARINE SERVICES(200KVA), TOLLEABAND(100KVA), NACORDA(200KVA), OLD DEVOTEE(160KVA), ORCHID SOCIETY(200KVA), BAGBHAT OLD(200KVA), ABHAY/ASHWINI(150KVA), TAMBETIM(200KVA), COMBHATT(200KVA), MAINA WADDO(100KVA), MAINA BAZAR(160KVA), DAGUAL(200KVA), GONSOI(63KVA), FIRGUEMBHAT(200KVA), BOMSAL(63KVA), BANDOL NEW(100KVA), BANDOL OLD(150KVA), FONDEGALL(100KVA), CURTORIM BAZAR NEW (BANK)(100KVA), CURTORIM BAZAR OLD (MLA OFFICE)(200KVA), BATORA(200KVA), RUMBODEM(100KVA), VETNEM(200KVA), UNJIRIM(100KVA), LITTLE HEART(63KVA), MUXI WADDO(100KVA), PANDICOL(100KVA), AGXEM(200KVA), ROULLEM(200KVA), CONGEM OLD(100KVA), CONGEM NEW(100KVA), TEMBI(200KVA), GOTNI BHATT(100KVA), ST ANTHONY(100KVA), LEPROSY HOSPITAL(63KVA), SONXEM(63KVA), VALQUISAR(63KVA), KANTE(100KVA), MODSAI(63KVA), ZODDI(100KVA), BORLA(100KVA), MACAZANA CHURCH(100KVA), CUPATOR(100KVA), CUPATOR DONGOR(63KVA), CUPATOR MUXER(63KVA), NOVO BAZAR(150KVA), UZRO(200KVA), DONGRIM(100KVA), WILLIAM(200KVA), AMBORA(200KVA), GAUNCHO MARG(100KVA), NIRBOGA(200KVA), NEW DEVOTEE(100KVA), CARCOLA(100KVA), DON BOSCO(100KVA), OLD ORGAO(100KVA), NEW ORGAO(100KVA), OTE(100KVA), LOUTOLIM CHURCH(100KVA), VAXEM CHAPEL(100KVA), HEALTH CENTER(100KVA), BIG FOOT(200KVA), QUENNY CENTRE(200KVA), SOLVA(63KVA), COSTA 1(200KVA), NEW GAVON(100KVA), OLD GAVON(100KVA), NAQUELIM(200KVA), CURRA(63KVA), EAST DAMAN(100KVA), NAIK(100KVA), Adesh Karwarkar(200KVA), RAJESH SHIRODKAR(100KVA), ROSARIO(200KVA), SNOW DRIFT(100KVA), SAPNA DEVELOPERS I(200KVA), SAPNA DEVELOPERS II(200KVA), VIJAY 2(200KVA), RAIA Section office(200KVA), RUMBODEM(200KVA), GOGALI(200KVA), ARGICOL NEW DTR(100KVA), ROY MONTERIO 1(200KVA), ROY MONTERIO 2(200KVA), DAGUAL(200KVA), Panchbhat(200KVA), NEW AGXEM(200KVA)</span>
+                                                </td><td>
+                                                    <span id="GV_power_outage_ctl02_lbl_From">08:00:00</span>
+                                                </td><td>
+                                                    <span id="GV_power_outage_ctl02_lbl_To">15:00:00</span>
+                                                </td>
+		</tr><tr>
+			<td>
+                                                    <span id="GV_power_outage_ctl03_lbl_sno">2</span>
+                                                </td><td>
+                                                    <span id="GV_power_outage_ctl03_lbl_zone">21-04-2025</span>
+                                                </td><td>
+                                                    <span id="GV_power_outage_ctl03_lbl_zone">Planned shutdown for maintainance work</span>
+                                                </td><td>
+                                                    <span id="GV_power_outage_ctl03_lbl_zone"> KHADAPWADA(200KVA), GAWANT(200KVA), GOLWADO(200KVA), RAMBHAWAN(200KVA), ZORCANTOR(100KVA), Ram temple(200KVA), BANDAR(100KVA), KHADAPWADA(200KVA), GAWANT(200KVA), GOLWADO(200KVA), RAMBHAWAN(200KVA), ZORCANTOR(100KVA), Ram temple(200KVA), BANDAR(100KVA)</span>
+                                                </td><td>
+                                                    <span id="GV_power_outage_ctl03_lbl_From">09:00:00</span>
+                                                </td><td>
+                                                    <span id="GV_power_outage_ctl03_lbl_To">15:00:00</span>
+                                                </td>
+		</tr>
+	</table>
+</div>
+                                    
+                                </div>
+                                <!--END Content area-->
+                            </div>
+                        </div>
+                        <!--END Full Right column-->
+                    </div>
+                    <!--END Middle column-->
+                    <!--Right Column-->
+
+                </div>
+                <!--End Right Column-->
+                <div class="footer_quote">
+                    <p>
+                        
+                        Source: Electricity Department, Government of Goa, Last Updated on 28 Mar 2025
+                    </p>
+                </div>
+            </div>
+            <!--END columns-->
+            <div class="clear">
+            </div>
+            <!--Footer starts here-->
+            <div class="wrapper">
+                <div class="footer">
+                    <div class="footer_links">
+                        <ul>
+                            <li><a href="Home_page.aspx">Home</a><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/CEEOfficeorg_chart.pdf')">Organisation
+                            Chart</a><a href="contactus.aspx">Contact Us</a><a href="SitemapPath.aspx" class="footer_bd_none">Sitemap</a></li>
+                            <li><a href="javascript:void(0);" onclick="javascipt:window.open('Regulations/Summary_of_ARR_FY_2015_16.docx')">Tariff Downloads</a><a href="ADRM_PrivacyPolicy.aspx">Privacy Policy</a><a href="Adrm_copyright_policy.aspx">Copy
+                                Right Policy</a><a href="Adrm_TermsandConditions.aspx">Terms &amp; Conditions</a>
+                                <a href="Adrm_disclaimer.aspx"><span class="footer_bd_none">Disclaimer</span></a></li>
+                        </ul>
+                    </div>
+                    <div class="footer_quote_btm2">
+                        
+                        <div class="footer-txt">
+                            <p>
+                                Site designed and developed
+                            </p>
+                            <p>
+                                under R-APDRP Part-A Scheme, By ( <a href="http://www.recpdcl.in" target="_blank"
+                                    class="footer_nhcl" title="REC Power"><span style="font-size: 12px; color: #fff">REC
+                                    Power Distribution Co Ltd</span></a> & it’s Technology partner <a href="http://www.tatapower-ddl.com"
+                                        target="_blank" class="footer_nhcl" title="Tata Power"><span style="font-size: 12px; color: #fff">TATA Power Delhi Distribution Ltd )</span></a>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer_end ">
+                    <p>
+                        Contents on this website is published and managed by Electricity Department, Government
+                    of Goa.<br>
+                        For any query regarding this website Please<br>
+                         <ul>
+                        <li><a href="contactus.aspx">Contact Us</a> </li>
+                        </ul>
+                        © Electricity Department, Government of Goa All rights reserved.
+                    </p>
+                </div>
+            </div>
+            <!--END footer-->
+        </div>
+        <!--END wrapper-->
+        </div>
+    <!--END Container-->
+    </form>
+</body>
+</html>

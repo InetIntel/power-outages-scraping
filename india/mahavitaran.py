@@ -17,12 +17,16 @@ class Mahavitaran:
         self.current_month = datetime.today().strftime("%Y-%m")
         self.month = self.get_months(self.url)
         self.folder_path = None
-        self.check_folder()
         self.page = 1
+        self.year = str(datetime.now().year)
+        self.m = self.month.split("-")[0]
+        self.m = datetime.strptime(self.m, "%b").strftime("%m")
+        self.date = self.year + "-" + str(self.m.zfill(2))
+        self.check_folder()
 
 
     def check_folder(self):
-        self.folder_path = "./monthy_data/" + self.current_month
+        self.folder_path = "./india/mahavitaran/raw/" + self.year + "/" + str(self.m.zfill(2))
         os.makedirs(self.folder_path, exist_ok=True)
 
 
@@ -49,10 +53,11 @@ class Mahavitaran:
     def save_table_data(self, driver):
         wait = WebDriverWait(driver, 20)
         wait.until(EC.presence_of_element_located((By.ID, "wo_shd_table")))
-        table = driver.find_element(By.ID, "wo_shd_table")
-        table_html = table.get_attribute('outerHTML')
-        full_html = f"<html><body>{table_html}</body></html>"
-        file_path = os.path.join(self.folder_path, self.month + "_" + str(self.page) + "_outage_data.html")
+        # table = driver.find_element(By.ID, "wo_shd_table")
+        # table_html = table.get_attribute('outerHTML')
+        # full_html = f"<html><body>{table_html}</body></html>"
+        full_html = driver.page_source
+        file_path = os.path.join(self.folder_path, "power_outages.IND.mahavitaran.raw." + self.date + "_" + str(self.page) + ".html")
         with open(file_path, "w", encoding="utf-8") as file:
             file.write(full_html)
         print("Table data saved to table_data.html")

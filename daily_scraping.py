@@ -1,55 +1,60 @@
-from nigeria.scrape_webpage import ScrapeWebpage
+from nigeria.Ikeja import Ikeja
 from pakistan.fesco import Fesco
 from pakistan.hyderabad import Hyderabad
-from pakistan.islamabad_xls import IslamabadXls
+from pakistan.iesco import Iesco
 from pakistan.quetta import Quetta
 from india.goa import Goa
 from india.scrape_Rajdhani_weekly import ScrapeRajdhaniWeekly
 from india.tangedco import Tangedco
 from india.tnpdcl import Tnpdcl
-from india.scrape_xls import ScrapeXls
+from india.npp import Npp
 from india.scrape_Rajdhani import ScrapeRajdhani
 from india.tata import Tata
 
 
 def scrape():
 
-    tnebltd = Tnpdcl()
-    tnebltd.scrape()
+    # India
+    # tnebltd = Tnpdcl()
+    # tnebltd.scrape()
+    #
+    # bsesdelhi_weekly = ScrapeRajdhaniWeekly()
+    # bsesdelhi_weekly.scrape()
+    #
+    # tatapower = Tata()
+    # tatapower.scrape()
+    #
+    # goaelectricity = Goa()
+    # goaelectricity.scrape()
+    #
+    # npp = Npp()
+    # npp.scrape()
+    #
+    # bsesdelhi = ScrapeRajdhani()
+    # bsesdelhi.scrape()
+    #
+    # # Nigeria
+    # ikeja = Ikeja()
+    # ikeja.scrape()
 
-
-    tnebnet = Tangedco()
-    tnebnet.scrape()
-
-    bsesdelhi_weekly = ScrapeRajdhaniWeekly()
-    bsesdelhi_weekly.scrape()
-
-    goaelectricity = Goa()
-    goaelectricity.scrape()
-
-    npp = ScrapeXls()
-    npp.scrape()
-
-    bsesdelhi = ScrapeRajdhani()
-    bsesdelhi.scrape()
-
-    ikejaelectric = ScrapeWebpage()
-    ikejaelectric.scrape()
-
+    # Pakistan
     fesco = Fesco()
     fesco.scrape()
-
+    #
     hesco = Hyderabad()
     hesco.scrape()
 
-    iesco = IslamabadXls()
+    iesco = Iesco()
     iesco.scrape()
 
     qesco = Quetta()
     qesco.scrape()
 
-    tatapower = Tata()
-    tatapower.scrape()
+
+    # this is an inactive website
+    # tnebnet = Tangedco()
+    # tnebnet.scrape()
+
 
 
     print("ALL DONE")

@@ -9,6 +9,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from india.process_tnpdcl import Process_tnpdcl
 
 
 class Tnpdcl:
@@ -16,11 +17,13 @@ class Tnpdcl:
         self.url = 'https://www.tnebltd.gov.in/outages/viewshutdown.xhtml'
         self.base_url = "https://www.tnebltd.gov.in/outages/"
         self.today = datetime.today().strftime("%Y-%m-%d")
+        self.year = str(datetime.now().year)
+        self.month = str(datetime.now().month).zfill(2)
         self.folder_path = None
 
 
     def check_folder(self):
-        self.folder_path = os.path.abspath("./data/" + self.today)
+        self.folder_path = os.path.abspath("./india/tnpdcl/raw/" + self.year + "/" + self.month)
         os.makedirs(self.folder_path, exist_ok=True)
         options = webdriver.ChromeOptions()
         prefs = {
@@ -77,6 +80,11 @@ class Tnpdcl:
         driver = self.fetch()
         number = self.getNumber(driver)
         self.get_file(driver, number)
+        old_name = os.path.join(self.folder_path, "TNPDCL - Planned Power Shutdown List.xlsx")
+        new_name = os.path.join(self.folder_path, "power_outages.IND.tnpdcl.raw." + self.today + ".xlsx")
+        os.rename(old_name, new_name)
+        process = Process_tnpdcl(self.year, self.month, self.today, new_name)
+        process.run()
         print("scraping is done for tnebltd")
 
 
