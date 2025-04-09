@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 
 
-class Process_Rajdhani_weekly:
+class Process_bses_weekly:
 
     def __init__(self, year, month, today, file):
         self.year = year
@@ -55,5 +55,5 @@ if __name__ == "__main__":
     date_list = date.split("-")
     year = date_list[0]
     month = date_list[1]
-    process = Process_Rajdhani_weekly(year, month, date, file)
+    process = Process_bses_weekly(year, month, date, file)
     process.run()

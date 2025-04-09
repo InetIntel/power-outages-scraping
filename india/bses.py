@@ -10,7 +10,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from india.process_BSES import Process_BSES
 
 
-class ScrapeRajdhani:
+class Bses:
 
     def __init__(self):
         self.day = datetime.today().strftime("%Y-%m-%d")
@@ -113,8 +113,8 @@ class ScrapeRajdhani:
 
 
 if __name__ == "__main__":
-    bsesdelhi = ScrapeRajdhani()
-    bsesdelhi.scrape()
+    bses = Bses()
+    bses.scrape()
 
 
 

@@ -4,43 +4,43 @@ from pakistan.hyderabad import Hyderabad
 from pakistan.iesco import Iesco
 from pakistan.quetta import Quetta
 from india.goa import Goa
-from india.scrape_Rajdhani_weekly import ScrapeRajdhaniWeekly
+from india.bses_weekly import BsesWeekly
 from india.tangedco import Tangedco
 from india.tnpdcl import Tnpdcl
 from india.npp import Npp
-from india.scrape_Rajdhani import ScrapeRajdhani
+from india.bses import Bses
 from india.tata import Tata
 
 
 def scrape():
 
     # India
-    # tnebltd = Tnpdcl()
-    # tnebltd.scrape()
-    #
-    # bsesdelhi_weekly = ScrapeRajdhaniWeekly()
-    # bsesdelhi_weekly.scrape()
-    #
-    # tatapower = Tata()
-    # tatapower.scrape()
-    #
-    # goaelectricity = Goa()
-    # goaelectricity.scrape()
-    #
-    # npp = Npp()
-    # npp.scrape()
-    #
-    # bsesdelhi = ScrapeRajdhani()
-    # bsesdelhi.scrape()
-    #
-    # # Nigeria
-    # ikeja = Ikeja()
-    # ikeja.scrape()
+    tnebltd = Tnpdcl()
+    tnebltd.scrape()
 
-    # Pakistan
+    bses_weekly = BsesWeekly()
+    bses_weekly.scrape()
+
+    tatapower = Tata()
+    tatapower.scrape()
+
+    goaelectricity = Goa()
+    goaelectricity.scrape()
+
+    npp = Npp()
+    npp.scrape()
+
+    bses = Bses()
+    bses.scrape()
+
+    # Nigeria
+    ikeja = Ikeja()
+    ikeja.scrape()
+
+    #Pakistan
     fesco = Fesco()
     fesco.scrape()
-    #
+
     hesco = Hyderabad()
     hesco.scrape()
 

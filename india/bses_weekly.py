@@ -3,10 +3,10 @@ import os
 from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 import requests
-from india.process_Rajdhani_weekly import Process_Rajdhani_weekly
+from india.process_bses_weekly import Process_bses_weekly
 
 
-class ScrapeRajdhaniWeekly:
+class BsesWeekly:
 
     def __init__(self):
         self.url = "https://www.bsesdelhi.com/web/brpl/weekly-dashboard"
@@ -28,7 +28,7 @@ class ScrapeRajdhaniWeekly:
         with open(file_path, "w", encoding="utf-8") as file:
             file.write(response.text)
             print("Raw file is saved for Rajdhani_weekly")
-        process = Process_Rajdhani_weekly(self.year, self.month, self.today, self.folder_path + "/" + file_name)
+        process = Process_bses_weekly(self.year, self.month, self.today, self.folder_path + "/" + file_name)
         process.run()
         # soup = BeautifulSoup(response.text, "html.parser")
         # table = soup.find("tbody", {"id": "billDetailsData"})
@@ -70,5 +70,5 @@ class ScrapeRajdhaniWeekly:
 
 
 if __name__ == "__main__":
-    scrapeRajdhaniWeekly = ScrapeRajdhaniWeekly()
-    scrapeRajdhaniWeekly.scrape()
+    bsesWeekly = BsesWeekly()
+    bsesWeekly.scrape()

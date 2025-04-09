@@ -62,9 +62,10 @@ class Npp:
 
     def download(self, file_url, index):
         file_url = self.base_url + file_url
+        original_file_name = file_url.split("/")[-1]
         response = requests.get(file_url)
         if response.status_code == 200:
-            filename = "power_outages.IND.npp.raw." + self.today + "_" + index + ".xls"
+            filename = "power_outages.IND.npp.raw." + self.today + "_" + index + original_file_name
             file_path = os.path.join(self.folder_path, filename)
             with open(file_path, "wb") as file:
                 file.write(response.content)
