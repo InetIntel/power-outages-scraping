@@ -8,47 +8,51 @@ from india.rajdhani_weekly.rajdhani_weekly import RajdhaniWeekly
 from india.tangedco.tangedco import Tangedco
 from india.tnpdcl.tnpdcl import Tnpdcl
 from india.npp.npp import Npp
-from india.bses.bses import Bses
+from india.BSES_Rajdhani.rajdhani import Rajdhani
+from india.BSES_Yamuna.yamuna import Yamuna
 from india.tata.tata import Tata
 
 
 def scrape():
 
     # India
-    tnebltd = Tnpdcl()
-    tnebltd.scrape()
+    # tnebltd = Tnpdcl()
+    # tnebltd.scrape()
+    #
+    # rajdhani_weekly = RajdhaniWeekly()
+    # rajdhani_weekly.scrape()
+    #
+    # tatapower = Tata()
+    # tatapower.scrape()
+    #
+    # goaelectricity = Goa()
+    # goaelectricity.scrape()
+    #
+    # npp = Npp()
+    # npp.scrape()
 
-    rajdhani_weekly = RajdhaniWeekly()
-    rajdhani_weekly.scrape()
+    rajdhani = Rajdhani()
+    rajdhani.scrape()
 
-    tatapower = Tata()
-    tatapower.scrape()
-
-    goaelectricity = Goa()
-    goaelectricity.scrape()
-
-    npp = Npp()
-    npp.scrape()
-
-    bses = Bses()
-    bses.scrape()
+    yamuna = Yamuna()
+    yamuna.scrape()
 
     # Nigeria
-    ikeja = Ikeja()
-    ikeja.scrape()
-
-    #Pakistan
-    fesco = Fesco()
-    fesco.scrape()
-
-    hesco = Hyderabad()
-    hesco.scrape()
-
-    iesco = Iesco()
-    iesco.scrape()
-
-    qesco = Quetta()
-    qesco.scrape()
+    # ikeja = Ikeja()
+    # ikeja.scrape()
+    #
+    # #Pakistan
+    # fesco = Fesco()
+    # fesco.scrape()
+    #
+    # hesco = Hyderabad()
+    # hesco.scrape()
+    #
+    # iesco = Iesco()
+    # iesco.scrape()
+    #
+    # qesco = Quetta()
+    # qesco.scrape()
 
 
     # this is an inactive website

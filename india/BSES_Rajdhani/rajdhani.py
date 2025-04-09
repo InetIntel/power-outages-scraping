@@ -7,17 +7,17 @@ from datetime import datetime
 import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from india.bses.process_BSES import Process_BSES
+from india.BSES_Rajdhani.process_rajdhani import Process_Rajdhani
 
 
-class Bses:
+class Rajdhani:
 
     def __init__(self):
         self.day = datetime.today().strftime("%Y-%m-%d")
         self.today = datetime.today().strftime("%d-%m-%Y")
         self.folder_path = None
-        self.urls = [('https://www.bsesdelhi.com/web/brpl/maintenance-outage-schedule', "BSES_Rajdhani"),
-        ("https://www.bsesdelhi.com/web/bypl/maintenance-outage-schedule", "BSES_Yamuna")]
+        self.url = 'https://www.bsesdelhi.com/web/brpl/maintenance-outage-schedule'
+        self.provider = "BSES_Rajdhani"
         self.year = str(datetime.now().year)
         self.month = str(datetime.now().month).zfill(2)
 
@@ -69,7 +69,7 @@ class Bses:
             with open(file_path, "w", encoding="utf-8") as file:
                 file.write(response)
                 print(f"Raw file is download for {provider}.")
-            process = Process_BSES(self.year, self.month, self.day, self.folder_path + "/" + file_name)
+            process = Process_Rajdhani(self.year, self.month, self.day, self.folder_path + "/" + file_name)
             process.run(provider)
 
             # return table_rows
@@ -101,19 +101,17 @@ class Bses:
     #     print(f"Data is saved for {self.today}")
 
     def scrape(self):
-        for url, provider in self.urls:
-            driver = self.fetch(url, provider)
-            self.selection(driver, provider)
-            # if data:
-            #     self.process(data, provider)
-            # else:
-            #     print(f"No outage data is found for {provider}.")
-            driver.quit()
-            time.sleep(2)
+        driver = self.fetch(self.url, self.provider)
+        self.selection(driver, self.provider)
+        # if data:
+        #     self.process(data, provider)
+        # else:
+        #     print(f"No outage data is found for {provider}.")
+        driver.quit()
 
 
 if __name__ == "__main__":
-    bses = Bses()
+    bses = Rajdhani()
     bses.scrape()
 
 

@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 
 
-class Process_BSES:
+class Process_Yamuna:
 
     def __init__(self, year, month, today, file):
         self.year = year
@@ -69,5 +69,5 @@ if __name__ == "__main__":
     date_list = date.split("-")
     year = date_list[0]
     month = date_list[1]
-    process = Process_BSES(year, month, date, file)
+    process = Process_Yamuna(year, month, date, file)
     process.run(provider)
