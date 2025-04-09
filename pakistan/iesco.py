@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import os
 from datetime import datetime
-
+import pandas as pd
 
 
 class Iesco:
@@ -40,8 +40,12 @@ class Iesco:
         if response.status_code == 200:
             filename = "power_outages.PK.iesco.raw." + self.today + "." + original_file_name
             file_path = os.path.join(self.folder_path, filename)
+            new_filename = filename[:-4] + "csv"
             with open(file_path, "wb") as file:
                 file.write(response.content)
+            df = pd.read_excel(file_path, engine='openpyxl')
+            df.to_csv(os.path.join(self.folder_path, new_filename), index=False)
+
             print(f"Download successful! File saved as {filename}")
         else:
             print(f"Failed to download file. Status code: {response.status_code}")
