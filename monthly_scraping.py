@@ -1,5 +1,5 @@
-from india.posoco import Posoco
-from india.mahavitaran import Mahavitaran
+from india.posoco.posoco import Posoco
+from india.mahavitaran.mahavitaran import Mahavitaran
 
 def scrape():
 

@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 import requests
 import urllib3
-from india.process_GOA import Process_GOA
+from india.goa.process_GOA import Process_GOA
 
 
 class Goa:

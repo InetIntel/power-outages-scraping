@@ -7,7 +7,7 @@ from datetime import datetime
 import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from india.process_BSES import Process_BSES
+from india.bses.process_BSES import Process_BSES
 
 
 class Bses:

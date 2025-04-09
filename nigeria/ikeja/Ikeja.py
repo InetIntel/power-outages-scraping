@@ -1,8 +1,6 @@
 import os
-from nigeria.process_Ikeja import Process_Ikeja
+from nigeria.ikeja.process_Ikeja import Process_Ikeja
 import requests
-import json
-from bs4 import BeautifulSoup
 from datetime import datetime
 
 

@@ -1,9 +1,7 @@
 from datetime import datetime
-import json
 import requests
-from bs4 import BeautifulSoup
 import os
-from pakistan.process_quetta import Process_quetta
+from pakistan.quetta.process_quetta import Process_quetta
 
 
 class Quetta:

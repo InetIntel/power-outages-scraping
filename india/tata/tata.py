@@ -5,7 +5,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import json
-from india.process_tata import Process_tata
+from india.tata.process_tata import Process_tata
 
 class Tata:
 

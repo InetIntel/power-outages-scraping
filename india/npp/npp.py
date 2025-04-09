@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import os
 from datetime import datetime
-from india.process_npp import Process_Npp
+from india.npp.process_npp import Process_Npp
 
 
 class Npp:

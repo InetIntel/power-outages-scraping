@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 
 
 
-class Process_bses_weekly:
+class Process_rajdhani_weekly:
 
     def __init__(self, year, month, today, file):
         self.year = year
@@ -25,6 +25,8 @@ class Process_bses_weekly:
         titles = [td.get_text(strip=True) for td in all_tr[1].find_all(["td", "th"])]
         for tr in all_tr[2:]:
             row_data = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
+            if row_data == ['No data found for todays date.']:
+                continue
             data = {}
             for i in range(len(titles)):
                 data[titles[i]] = row_data[i]
@@ -55,5 +57,5 @@ if __name__ == "__main__":
     date_list = date.split("-")
     year = date_list[0]
     month = date_list[1]
-    process = Process_bses_weekly(year, month, date, file)
+    process = Process_rajdhani_weekly(year, month, date, file)
     process.run()

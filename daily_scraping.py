@@ -1,15 +1,15 @@
-from nigeria.Ikeja import Ikeja
-from pakistan.fesco import Fesco
-from pakistan.hyderabad import Hyderabad
-from pakistan.iesco import Iesco
-from pakistan.quetta import Quetta
-from india.goa import Goa
-from india.bses_weekly import BsesWeekly
-from india.tangedco import Tangedco
-from india.tnpdcl import Tnpdcl
-from india.npp import Npp
-from india.bses import Bses
-from india.tata import Tata
+from nigeria.ikeja.Ikeja import Ikeja
+from pakistan.fesco.fesco import Fesco
+from pakistan.hyderabad.hyderabad import Hyderabad
+from pakistan.iesco.iesco import Iesco
+from pakistan.quetta.quetta import Quetta
+from india.goa.goa import Goa
+from india.rajdhani_weekly.rajdhani_weekly import RajdhaniWeekly
+from india.tangedco.tangedco import Tangedco
+from india.tnpdcl.tnpdcl import Tnpdcl
+from india.npp.npp import Npp
+from india.bses.bses import Bses
+from india.tata.tata import Tata
 
 
 def scrape():
@@ -18,8 +18,8 @@ def scrape():
     tnebltd = Tnpdcl()
     tnebltd.scrape()
 
-    bses_weekly = BsesWeekly()
-    bses_weekly.scrape()
+    rajdhani_weekly = RajdhaniWeekly()
+    rajdhani_weekly.scrape()
 
     tatapower = Tata()
     tatapower.scrape()
