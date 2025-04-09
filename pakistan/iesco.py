@@ -36,8 +36,9 @@ class Iesco:
 
     def download(self, file_url):
         response = requests.get(file_url)
+        original_file_name = file_url.split("/")[-1]
         if response.status_code == 200:
-            filename = "power_outages.PK.iesco.raw." + self.today + ".xlsx"
+            filename = "power_outages.PK.iesco.raw." + self.today + "." + original_file_name
             file_path = os.path.join(self.folder_path, filename)
             with open(file_path, "wb") as file:
                 file.write(response.content)

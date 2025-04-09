@@ -43,10 +43,10 @@ class Fesco:
 
     def download(self, data):
         self.check_folder("raw")
-        for file_url, filename in data:
+        for file_url, original_file_name in data:
             response = requests.get(file_url)
             if response.status_code == 200:
-                filename = "power_outages.PK.fesco.raw." + self.today + ".pdf"
+                filename = "power_outages.PK.fesco.raw." + self.today + "." + original_file_name + ".pdf"
                 file_path = os.path.join(self.folder_path, filename)
                 with open(file_path, "wb") as file:
                     file.write(response.content)
