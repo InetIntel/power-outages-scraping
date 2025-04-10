@@ -24,7 +24,7 @@
 
 #### 2. Processor file (India, Nigeria, Pakistan)
 
-##### Referring to the processor file - process_npp.py in directory india/npp as example, first to provide a relative path to a _**file**_ for processing. Then, modify the variable, _**self.folder_path**_, in function _**check_folder**_. This folder path is where you would like to save the processed file. Finally, run the python file.
+##### Referring to the processor file - process_npp.py in directory india/npp as example, first to provide a relative path to a `file` for processing. Then, modify the variable, `self.folder_path`, in function `check_folder`. This folder path is where you would like to save the processed file. Finally, run the python file.
 
 
 
