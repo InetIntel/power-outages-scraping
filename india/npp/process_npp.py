@@ -66,7 +66,7 @@ if __name__ == "__main__":
     # relative path to a file to be processed
     file = "raw/2025/04/power_outages.IND.npp.raw.2025-04-08_2.dgr11-2025-04-08.xls"
     file_list = file.split(".")
-    date = file_list[-2]
+    date = file_list[-3]
     data_list = date.split("-")
     year = data_list[0]
     month = data_list[1]
