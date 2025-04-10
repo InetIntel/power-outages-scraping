@@ -15,6 +15,7 @@ class Process_Npp:
 
 
     def check_folder(self, type):
+        # folder to save the processed data file
         self.folder_path = "./india/npp/" + type + "/" + self.year + "/" + self.month
         os.makedirs(self.folder_path, exist_ok=True)
 
@@ -62,6 +63,7 @@ class Process_Npp:
 
 
 if __name__ == "__main__":
+    # relative path to a file to be processed
     file = "raw/2025/04/power_outages.IND.npp.raw.2025-04-08_2.dgr11-2025-04-08.xls"
     file_list = file.split(".")
     date = file_list[-2]
