@@ -6,12 +6,12 @@ from datetime import datetime
 
 class Process_Npp:
 
-    def __init__(self, year, month, today, file, index):
+    def __init__(self, year, month, today, file, report_name):
         self.year = year
         self.month = month
         self.today = today
         self.file = file
-        self.index = index
+        self.report_name = report_name
 
 
     def check_folder(self, type):
@@ -21,7 +21,7 @@ class Process_Npp:
 
     def save_json(self, data):
         self.check_folder("processed")
-        file_name = "power_outages.IND." + ".processed." + self.today + "_" + self.index + ".json"
+        file_name = "power_outages.IND." + ".processed." + self.today + "." + self.report_name + ".json"
         file_path = os.path.join(self.folder_path, file_name)
         with open(file_path, "w", encoding="utf-8") as file:
             json.dump(data, file, indent=4)
@@ -66,11 +66,12 @@ if __name__ == "__main__":
     # relative path to a file to be processed
     file = "raw/2025/04/power_outages.IND.npp.raw.2025-04-08_2.dgr11-2025-04-08.xls"
     file_list = file.split(".")
+    report_name = file_list[-2]
     date = file_list[-3]
     data_list = date.split("-")
     year = data_list[0]
     month = data_list[1]
     today = date[:-2]
     index = date[-1]
-    process = Process_Npp(year, month, today, file, index)
+    process = Process_Npp(year, month, today, file, report_name)
     process.run()
