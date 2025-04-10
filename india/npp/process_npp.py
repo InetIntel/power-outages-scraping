@@ -62,7 +62,7 @@ class Process_Npp:
 
 
 if __name__ == "__main__":
-    file = "npp/raw/2025/03/power_outages.IND.npp.raw.2025-03-27_1.xls"
+    file = "raw/2025/04/power_outages.IND.npp.raw.2025-04-08_2.dgr11-2025-04-08.xls"
     file_list = file.split(".")
     date = file_list[-2]
     data_list = date.split("-")
