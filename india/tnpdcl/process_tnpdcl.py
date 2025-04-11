@@ -45,6 +45,7 @@ class Process_tnpdcl:
     def run(self):
         data = self.read_file()
         self.save_json(data)
+        print("Outage data is processed for tnpdcl.")
 
 
 if __name__ == "__main__":
