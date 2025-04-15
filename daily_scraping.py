@@ -16,20 +16,20 @@ from india.tata.tata import Tata
 def scrape():
 
     # India
-    # tnebltd = Tnpdcl()
-    # tnebltd.scrape()
-    #
-    # rajdhani_weekly = RajdhaniWeekly()
-    # rajdhani_weekly.scrape()
-    #
-    # tatapower = Tata()
-    # tatapower.scrape()
-    #
-    # goaelectricity = Goa()
-    # goaelectricity.scrape()
-    #
-    # npp = Npp()
-    # npp.scrape()
+    tnebltd = Tnpdcl()
+    tnebltd.scrape()
+
+    rajdhani_weekly = RajdhaniWeekly()
+    rajdhani_weekly.scrape()
+
+    tatapower = Tata()
+    tatapower.scrape()
+
+    goaelectricity = Goa()
+    goaelectricity.scrape()
+
+    npp = Npp()
+    npp.scrape()
 
     rajdhani = Rajdhani()
     rajdhani.scrape()
@@ -38,21 +38,21 @@ def scrape():
     yamuna.scrape()
 
     # Nigeria
-    # ikeja = Ikeja()
-    # ikeja.scrape()
-    #
-    # #Pakistan
-    # fesco = Fesco()
-    # fesco.scrape()
-    #
-    # hesco = Hyderabad()
-    # hesco.scrape()
-    #
-    # iesco = Iesco()
-    # iesco.scrape()
-    #
-    # qesco = Quetta()
-    # qesco.scrape()
+    ikeja = Ikeja()
+    ikeja.scrape()
+
+    #Pakistan
+    fesco = Fesco()
+    fesco.scrape()
+
+    hesco = Hyderabad()
+    hesco.scrape()
+
+    iesco = Iesco()
+    iesco.scrape()
+
+    qesco = Quetta()
+    qesco.scrape()
 
 
     # this is an inactive website
