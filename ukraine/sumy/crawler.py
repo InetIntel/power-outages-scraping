@@ -13,6 +13,7 @@ class PlannedDisconnectionSpider(scrapy.Spider):
 
     download_delay = 5
 
+    # This is the partial list of cities since the website requires manual input of city name
     start_urls = [
         "https://www.soe.com.ua/includes/vidklyuchennya_srv_CURL.php?cmd=readAccidentsFutureByCity&c=5920610100",
         "https://www.soe.com.ua/includes/vidklyuchennya_srv_CURL.php?cmd=readAccidentsFutureByCity&c=5920910100",
