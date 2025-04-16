@@ -16,43 +16,79 @@ from india.tata.tata import Tata
 def scrape():
 
     # India
-    tnebltd = Tnpdcl()
-    tnebltd.scrape()
+    try:
+        tnebltd = Tnpdcl()
+        tnebltd.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from TNEBLTD.")
 
-    rajdhani_weekly = RajdhaniWeekly()
-    rajdhani_weekly.scrape()
+    try:
+        rajdhani_weekly = RajdhaniWeekly()
+        rajdhani_weekly.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data for Rajdhani Weekly.")
 
-    tatapower = Tata()
-    tatapower.scrape()
+    try:
+        tatapower = Tata()
+        tatapower.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from TATA.")
 
-    goaelectricity = Goa()
-    goaelectricity.scrape()
+    try:
+        goaelectricity = Goa()
+        goaelectricity.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from GOA.")
 
-    npp = Npp()
-    npp.scrape()
+    try:
+        npp = Npp()
+        npp.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from NPP.")
 
-    rajdhani = Rajdhani()
-    rajdhani.scrape()
+    try:
+        rajdhani = Rajdhani()
+        rajdhani.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from Rajdhani.")
 
-    yamuna = Yamuna()
-    yamuna.scrape()
+    try:
+        yamuna = Yamuna()
+        yamuna.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from Yamuna.")
 
     # Nigeria
-    ikeja = Ikeja()
-    ikeja.scrape()
+    try:
+        ikeja = Ikeja()
+        ikeja.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from IKEJA.")
 
-    #Pakistan
-    fesco = Fesco()
-    fesco.scrape()
+    # Pakistan
+    try:
+        fesco = Fesco()
+        fesco.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from FESCO.")
 
-    hesco = Hyderabad()
-    hesco.scrape()
+    try:
+        hesco = Hyderabad()
+        hesco.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from Hyderabad.")
 
-    iesco = Iesco()
-    iesco.scrape()
+    try:
+        iesco = Iesco()
+        iesco.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from IESCO.")
 
-    qesco = Quetta()
-    qesco.scrape()
+    try:
+        qesco = Quetta()
+        qesco.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from Quetta.")
 
 
     # this is an inactive website
