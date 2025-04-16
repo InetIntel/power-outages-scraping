@@ -113,6 +113,8 @@ if __name__ == "__main__":
     # save_file_name = "power_outages." + country_code + "." + provider + ".processed." + date + "."
     if provider == "npp":
         file_name += report + "-" + date + ".xls"
+    elif provider == "tnpdcl":
+        file_name += "xlsx"
     else:
         file_name += "html"
 
