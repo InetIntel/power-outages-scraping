@@ -40,7 +40,7 @@ def input_month():
 def input_day():
     day_input = False
     while not day_input:
-        day = input("Enter a date: ")
+        day = input("Enter a day: ")
         if 1 <= int(day) <= 31:
             day_input = True
             day = day.zfill(2)
