@@ -71,6 +71,5 @@ if __name__ == "__main__":
     data_list = date.split("-")
     year = data_list[0]
     month = data_list[1]
-    today = date[:-2]
-    process = Process_Npp(year, month, today, file, report_name)
+    process = Process_Npp(year, month, date, file, report_name)
     process.run()
