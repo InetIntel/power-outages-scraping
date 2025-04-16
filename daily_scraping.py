@@ -8,8 +8,8 @@ from india.rajdhani_weekly.rajdhani_weekly import RajdhaniWeekly
 from india.tangedco.tangedco import Tangedco
 from india.tnpdcl.tnpdcl import Tnpdcl
 from india.npp.npp import Npp
-from india.BSES_Rajdhani.rajdhani import Rajdhani
-from india.BSES_Yamuna.yamuna import Yamuna
+from india.bses_rajdhani.rajdhani import Rajdhani
+from india.bses_yamuna.yamuna import Yamuna
 from india.tata.tata import Tata
 
 
