@@ -79,11 +79,12 @@ def pakistan_provider():
 
 def report_name():
     report_input = False
-    report_list = ["1. dgr10", "2. dgr11"]
+    report_dic = {"1": "dgr10", "2": "dgr11"}
     while not report_input:
-        report_num = input("Please enter a number to select a report from [1. dgr10, 2. dgr11]: ").lower()
-        if report_num == 1 or report_num == 2:
-            report = report_list[report_num - 1]
+        report_num = input("Please enter a number to select a report from [1. dgr10, 2. dgr11]: ")
+        if report_num == "1" or report_num == "2":
+            report = report_dic[report_num]
+            report_input = True
     return report
 
 
