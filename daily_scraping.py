@@ -8,51 +8,87 @@ from india.rajdhani_weekly.rajdhani_weekly import RajdhaniWeekly
 from india.tangedco.tangedco import Tangedco
 from india.tnpdcl.tnpdcl import Tnpdcl
 from india.npp.npp import Npp
-from india.BSES_Rajdhani.rajdhani import Rajdhani
-from india.BSES_Yamuna.yamuna import Yamuna
+from india.bses_rajdhani.rajdhani import Rajdhani
+from india.bses_yamuna.yamuna import Yamuna
 from india.tata.tata import Tata
 
 
 def scrape():
 
     # India
-    # tnebltd = Tnpdcl()
-    # tnebltd.scrape()
-    #
-    # rajdhani_weekly = RajdhaniWeekly()
-    # rajdhani_weekly.scrape()
-    #
-    # tatapower = Tata()
-    # tatapower.scrape()
-    #
-    # goaelectricity = Goa()
-    # goaelectricity.scrape()
-    #
-    # npp = Npp()
-    # npp.scrape()
+    try:
+        tnebltd = Tnpdcl()
+        tnebltd.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from TNEBLTD.")
 
-    rajdhani = Rajdhani()
-    rajdhani.scrape()
+    try:
+        rajdhani_weekly = RajdhaniWeekly()
+        rajdhani_weekly.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data for Rajdhani Weekly.")
 
-    yamuna = Yamuna()
-    yamuna.scrape()
+    try:
+        tatapower = Tata()
+        tatapower.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from TATA.")
+
+    try:
+        goaelectricity = Goa()
+        goaelectricity.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from GOA.")
+
+    try:
+        npp = Npp()
+        npp.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from NPP.")
+
+    try:
+        rajdhani = Rajdhani()
+        rajdhani.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from Rajdhani.")
+
+    try:
+        yamuna = Yamuna()
+        yamuna.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from Yamuna.")
 
     # Nigeria
-    # ikeja = Ikeja()
-    # ikeja.scrape()
-    #
-    # #Pakistan
-    # fesco = Fesco()
-    # fesco.scrape()
-    #
-    # hesco = Hyderabad()
-    # hesco.scrape()
-    #
-    # iesco = Iesco()
-    # iesco.scrape()
-    #
-    # qesco = Quetta()
-    # qesco.scrape()
+    try:
+        ikeja = Ikeja()
+        ikeja.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from IKEJA.")
+
+    # Pakistan
+    try:
+        fesco = Fesco()
+        fesco.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from FESCO.")
+
+    try:
+        hesco = Hyderabad()
+        hesco.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from Hyderabad.")
+
+    try:
+        iesco = Iesco()
+        iesco.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from IESCO.")
+
+    try:
+        qesco = Quetta()
+        qesco.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from Quetta.")
 
 
     # this is an inactive website

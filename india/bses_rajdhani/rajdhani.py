@@ -7,7 +7,7 @@ from datetime import datetime
 import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-from india.BSES_Rajdhani.process_rajdhani import Process_Rajdhani
+from india.bses_rajdhani.process_rajdhani import Process_Rajdhani
 
 
 class Rajdhani:
@@ -17,7 +17,7 @@ class Rajdhani:
         self.today = datetime.today().strftime("%d-%m-%Y")
         self.folder_path = None
         self.url = 'https://www.bsesdelhi.com/web/brpl/maintenance-outage-schedule'
-        self.provider = "BSES_Rajdhani"
+        self.provider = "bses_rajdhani"
         self.year = str(datetime.now().year)
         self.month = str(datetime.now().month).zfill(2)
 

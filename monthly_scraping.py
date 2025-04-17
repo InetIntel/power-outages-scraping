@@ -3,11 +3,17 @@ from india.mahavitaran.mahavitaran import Mahavitaran
 
 def scrape():
 
-    mahadiscom = Mahavitaran()
-    mahadiscom.scrape()
+    try:
+        mahadiscom = Mahavitaran()
+        mahadiscom.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from Mahadiscom.")
 
-    posoco = Posoco()
-    posoco.scrape()
+    try:
+        posoco = Posoco()
+        posoco.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from POSOCO.")
 
 
 if __name__ == "__main__":

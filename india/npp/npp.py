@@ -12,8 +12,8 @@ class Npp:
         self.base_url = "https://npp.gov.in"
         self.today = datetime.today().strftime("%Y-%m-%d")
         self.folder_path = None
-        self.reports = [("Daily Outage Report (Coal,Lignite and Nuclear)", "1"),
-                        ("Daily Outage Report (Thermal/Nuclear Units) only for 500M", "2")]
+        self.reports = ["Daily Outage Report (Coal,Lignite and Nuclear)",
+                        "Daily Outage Report (Thermal/Nuclear Units) only for 500M"]
         self.year = None
         self.month = None
         self.today = None
@@ -60,30 +60,30 @@ class Npp:
         return file_url
 
 
-    def download(self, file_url, index):
+    def download(self, file_url):
         file_url = self.base_url + file_url
         original_file_name = file_url.split("/")[-1]
         response = requests.get(file_url)
         if response.status_code == 200:
-            filename = "power_outages.IND.npp.raw." + self.today + "_" + index + "." + original_file_name
+            filename = "power_outages.IND.npp.raw." + self.today + "." + original_file_name
             file_path = os.path.join(self.folder_path, filename)
             with open(file_path, "wb") as file:
                 file.write(response.content)
-                process = Process_Npp(self.year, self.month, self.today, file_path, index)
+                process = Process_Npp(self.year, self.month, self.today, file_path, original_file_name[:-4])
                 process.run()
             print(f"Download successful! File saved as {filename}")
         else:
             print(f"Failed to download file. Status code: {response.status_code}")
 
     def scrape(self):
-        for report, index in self.reports:
+        for report in self.reports:
             response = self.fetch()
             file_url = self.parse(response, report)
             if file_url is None:
                 print(f"{report} is not found")
             else:
                 self.check_folder("raw")
-                self.download(file_url, index)
+                self.download(file_url)
         print("scraping is done for npp")
 
 if __name__ == "__main__":
