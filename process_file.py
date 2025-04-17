@@ -7,6 +7,8 @@ from india.npp.process_npp import Process_Npp
 from india.bses_rajdhani.process_rajdhani import Process_Rajdhani
 from india.bses_yamuna.process_yamuna import Process_Yamuna
 from india.tata.process_tata import Process_tata
+import os
+
 
 def input_country():
     country_input = False
@@ -108,10 +110,12 @@ if __name__ == "__main__":
     day = input_day()
     date = year + "-" + month + "-" + day
 
-    file_path = country + "/" + provider + "/raw/" + year + "/" + month + "/"
+    folder = country + "/" + provider + "/raw/" + year + "/" + month + "/"
     file_name = "power_outages." + country_code + "." + provider + ".raw." + date + "."
+
     # save_path = country + "/" + provider + "/processed/" + year + "/" + month + "/"
     # save_file_name = "power_outages." + country_code + "." + provider + ".processed." + date + "."
+
     if provider == "npp":
         file_name += report + "-" + date + ".xls"
     elif provider == "tnpdcl":
@@ -119,41 +123,45 @@ if __name__ == "__main__":
     else:
         file_name += "html"
 
-    if provider == "goa":
-        process = Process_GOA(year, month, date, file_path + file_name)
-        process.run()
+    file_path = folder + file_name
+    if not os.path.exists(file_path):
+        print("File dose not exist!")
+    else:
+        if provider == "goa":
+            process = Process_GOA(year, month, date, file_path)
+            process.run()
 
-    elif provider == "npp":
-        process = Process_Npp(year, month, date, file_path + file_name, report + "-" + date)
-        process.run()
+        elif provider == "npp":
+            process = Process_Npp(year, month, date, file_path, report + "-" + date)
+            process.run()
 
-    elif provider == "rajdhani_weekly":
-        process = Process_rajdhani_weekly(year, month, date, file_path + file_name)
-        process.run()
+        elif provider == "rajdhani_weekly":
+            process = Process_rajdhani_weekly(year, month, date, file_path)
+            process.run()
 
-    elif provider == "tata":
-        process = Process_tata(year, month, date, file_path + file_name)
-        process.run()
+        elif provider == "tata":
+            process = Process_tata(year, month, date, file_path)
+            process.run()
 
-    elif provider == "tnpdcl":
-        process = Process_tnpdcl(year, month, date, file_path + file_name)
-        process.run()
+        elif provider == "tnpdcl":
+            process = Process_tnpdcl(year, month, date, file_path)
+            process.run()
 
-    elif provider == "bses_rajdhani":
-        process = Process_Rajdhani(year, month, date, file_path + file_name)
-        process.run(provider)
+        elif provider == "bses_rajdhani":
+            process = Process_Rajdhani(year, month, date, file_path)
+            process.run(provider)
 
-    elif provider == "bses_yamuna":
-        process = Process_Yamuna(year, month, date, file_path + file_name)
-        process.run(provider)
+        elif provider == "bses_yamuna":
+            process = Process_Yamuna(year, month, date, file_path)
+            process.run(provider)
 
-    elif provider == "ikeja":
-        process = Process_Ikeja(year, month, date, file_path + file_name)
-        process.run()
+        elif provider == "ikeja":
+            process = Process_Ikeja(year, month, date, file_path)
+            process.run()
 
-    elif provider == "quetta":
-        process = Process_quetta(year, month, date, file_path + file_name)
-        process.run()
+        elif provider == "quetta":
+            process = Process_quetta(year, month, date, file_path)
+            process.run()
 
 
 
