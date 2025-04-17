@@ -1,17 +1,25 @@
-Python3 ./cherkasy/crawler.py
-Python3 ./cherkasy/post_processor.py
+#cd cherkasy
+#Python3 crawler.py
+#Python3 post_processor.py
 
-Python3 ./khmelnytsky/crawler.py
-Python3 ./khmelnytsky/post_processor.py
+#cd ../khmelnytsky
+#Python3 crawler.py
+#Python3 post_processor.py
+#
+#cd ../mykolaiv
+#Python3 crawler.py
+#Python3 post_processor.py
 
-Python3 ./mykolaiv/crawler.py
-Python3 ./mykolaiv/post_processor.py
+cd sumy
+Python3 crawler.py
+Python3 post_processor.py
 
-Python3 ./sumy/crawler.py
-Python3 ./sumy/post_processor.py
-
-Python3 ./vinnytsia/crawler.py
-Python3 ./vinnytsia/post_processor.py
-
-Python3 ./zhytomyr/crawler.py
-Python3 ./lviv/crawler.py
+#cd ../vinnytsia
+#Python3 crawler.py
+#Python3 post_processor.py
+#
+#cd ../zhytomyr
+#Python3 crawler.py
+#
+#cd ../lviv
+#Python3 crawler.py

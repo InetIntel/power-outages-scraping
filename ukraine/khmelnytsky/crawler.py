@@ -30,14 +30,16 @@ class PlannedDisconnectionSpider(scrapy.Spider):
                           'RemId': region,
                           'DateRange': f'{formatted_start_date} - {formatted_end_date}',
                           'X-Requested-With': 'XMLHttpRequest'},
-                callback=self.parse
+                callback=self.parse,
+                meta={"region": region}
             )
 
     def parse(self, response):
         # Extract relevant data from the page
         # Adjust the selectors based on the structure of the webpage
-        yield {"html": response.text}
+        with open(f"{raw_file}.{response.meta.get('region')}.html", 'w') as f:
+            f.write(response.text)
 
 if __name__ == "__main__":
     mk_dir()
-    cmdline.execute(f"scrapy runspider crawler.py -O {raw_file} -s FEED_EXPORT_ENCODING=utf-8".split())
+    cmdline.execute(f"scrapy runspider crawler.py -s FEED_EXPORT_ENCODING=utf-8".split())

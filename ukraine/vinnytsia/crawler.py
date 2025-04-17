@@ -28,8 +28,10 @@ class PlannedDisconnectionSpider(scrapy.Spider):
             start_urls.append(f"https://voe.com.ua/disconnection/{type}/{year}/{month}/{region}")
 
     def parse(self, response):
-        yield {"html": response.text}
-
+        region = response.url.split("/")[-1]
+        type = response.url.split("/")[-4]
+        with open(f"{raw_file}.{region}.{type}.html", 'w') as f:
+            f.write(response.text)
 
         # If there are pagination links, follow them
         next_page = response.xpath('//a[@rel="next-page"]/@href').get()
@@ -39,4 +41,4 @@ class PlannedDisconnectionSpider(scrapy.Spider):
 
 if __name__ == "__main__":
     mk_dir()
-    cmdline.execute(f"scrapy runspider crawler.py -O {raw_file} -s FEED_EXPORT_ENCODING=utf-8".split())
+    cmdline.execute(f"scrapy runspider crawler.py -s FEED_EXPORT_ENCODING=utf-8".split())
