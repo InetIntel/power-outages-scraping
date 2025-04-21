@@ -95,7 +95,7 @@ def scrape():
 
     try:
         cmdline.execute("cd ukraine".split())
-        cmdline.execute("sh craw_ukraine.sh".split())
+        cmdline.execute("sh craw_ukraine_daily.sh".split())
     except Exception as e:
         print("Failed to scrape outage data of Ukraine")
 
