@@ -26,5 +26,14 @@
 
 ##### Referring to the processor file - process_npp.py in directory india/npp as example, first to provide a relative path to a `file` for processing. Then, modify the variable, `self.folder_path`, in function `check_folder`. This folder path is where you would like to save the processed file. Finally, run the python file.
 
+#### 3. daily_scraping.py
 
+##### This file can be run to scrape outage data from all power providers (in the folders of india, pakistan, nigeria) at once. This file will be run daily to scrape the outage data. It is recommended to run near noon time in EST to avoid intermittent internet issue.
 
+#### 4. monthly_scraping.py
+
+##### This file can be run to scrape outage data from two power providers in India which are providing monthly outage data at once. This file will be run monthly.
+
+#### 5. process_file.py
+
+##### This file can be run to process the saved raw file containing outage data. When running the file, input country name, provider name, report name if provider is NPP, year, month (in number), and day. If the raw file exists, a processed file will be generated and saved in processed folder.
