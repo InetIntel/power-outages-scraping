@@ -1,3 +1,5 @@
+from scrapy import cmdline
+
 from nigeria.ikeja.Ikeja import Ikeja
 from pakistan.fesco.fesco import Fesco
 from pakistan.hyderabad.hyderabad import Hyderabad
@@ -89,6 +91,13 @@ def scrape():
         qesco.scrape()
     except Exception as e:
         print("Failed to scrape outage data from Quetta.")
+
+
+    try:
+        cmdline.execute("cd ukraine".split())
+        cmdline.execute("sh craw_ukraine.sh".split())
+    except Exception as e:
+        print("Failed to scrape outage data of Ukraine")
 
 
     # this is an inactive website
