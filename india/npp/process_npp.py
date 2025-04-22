@@ -32,28 +32,30 @@ class Process_Npp:
         outage = []
         for i in range(len(df)):
             row = df.iloc[i]
-            if pd.isnull(row[9]) or row[9] == "10" or row[9] == "Reasons/Present Status":
+
+            if pd.isnull(row[11]) or row[11] == "10" or row[11] == "Reasons/Present Status":
                 continue
-            start_date_time = row[7].split(" ")
+            start_date_time = row[9].split(" ")
             start_date = start_date_time[0]
+
             start_date = datetime.strptime(start_date, "%d/%m/%Y").strftime("%Y-%m-%d")
             start_time = datetime.strptime(start_date_time[1], "%H:%M")
             data = {
                 "country": "India",
                 "start": start_date + "_" + start_time.strftime("%H-%M-%S"),
             }
-            if not pd.isnull(row[8]):
-                end_date_time = row[8].split(" ")
+            if not pd.isnull(row[10]):
+                end_date_time = row[10].split(" ")
                 end_date = end_date_time[0]
                 end_date = datetime.strptime(end_date, "%d/%m/%Y").strftime("%Y-%m-%d")
                 end_time = datetime.strptime(end_date_time[1], "%H:%M")
                 data["end"] = end_date + "_" + end_time.strftime("%H-%M-%S")
                 fmt = "%d/%m/%Y %H:%M"
-                start = datetime.strptime(row[7], fmt)
-                end = datetime.strptime(row[8], fmt)
+                start = datetime.strptime(row[9], fmt)
+                end = datetime.strptime(row[10], fmt)
                 data["duration_(hours)"] = round((end - start).total_seconds() / 3600, 2)
-            data["event_category"] = row[9]
-            data["area_affected"] = {row[0]: row[1]}
+            data["event_category"] = row[11]
+            data["area_affected"] = {row[0]: row[3]}
             outage.append(data)
         return outage
 
