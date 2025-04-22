@@ -16,7 +16,7 @@
 
 ##### Each directory named with the power provider contains one Python file to scrape outage data from website and save the raw data, another Python file to process the saved raw data and save the processed data in desired format. The file name of a processor file contains "process" or "processor".
 
-### How to run Python file
+### How to run Python file (for India, Nigeria, Pakistan)
 
 #### 1. Scraper file
 
@@ -37,3 +37,15 @@
 #### 5. process_file.py
 
 ##### This file can be run to process the saved raw file containing outage data. When running the file, input country name, provider name, report name if provider is NPP, year, month (in number), and day. If the raw file exists, a processed file will be generated and saved in processed folder.
+
+### How to run Python file (for Ukraine)
+
+##### The year, month, date and the root directory to save crawled data is in the constants.py in the ukraine directory. You can change the constants in this file.
+
+#### 1. Scraper file
+
+##### Scraper files for each oblast(which is province in Ukraine) can be directly executed.
+
+#### 2. Post processor file
+
+##### post_processor.py in every oblast directory. When raw file is crawled, the 
