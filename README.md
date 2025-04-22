@@ -48,4 +48,6 @@
 
 #### 2. Post processor file
 
-##### post_processor.py in every oblast directory. When raw file is crawled, the 
+##### post_processor.py in every oblast directory. When raw file is crawled, the post_processed could be executed to generate clean data
+
+##### crawl_ukraine_daily.sh is to run daily crawlers daily and craw_ukraine_monthly is to run monthly crawlers.
