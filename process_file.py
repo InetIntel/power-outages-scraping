@@ -8,95 +8,127 @@ from india.bses_rajdhani.process_rajdhani import Process_Rajdhani
 from india.bses_yamuna.process_yamuna import Process_Yamuna
 from india.tata.process_tata import Process_tata
 import os
+import argparse
+from datetime import datetime, timedelta
 
 
-def input_country():
-    country_input = False
-    country_dict = {"india": "IND", "nigeria": "NG", "pakistan": "PK"}
-    while not country_input:
-        country = input("Please enter country name from [india, nigeria, pakistan]: ").lower()
-        if country in country_dict:
-            country_input = True
-            country_code = country_dict[country]
-    return country, country_code
-
-def input_year():
-    year_input = False
-    while not year_input:
-        year = input("Enter a year: ")
-        if 2000 <= int(year) <= 2100:
-            year_input = True
-    return year
+countries = {"india": "IND", "nigeria": "NG", "pakistan": "PK"}
+india_providers = ["goa", "npp", "rajdhani_weekly", "tata", "tnpdcl", "bses_rajdhani", "bses_yamuna"]
+nigeria_providers = ["ikeja"]
+pakistan_providers = ["quetta"]
 
 
-def input_month():
-    month_input = False
-    while not month_input:
-        month = input("Enter a month: ")
-        if 1 <= int(month) <= 12:
-            month_input = True
-            month = month.zfill(2)
-    return month
+def date_validate(date):
+    validate = True
+    date_list = date.split("-")
+    if len(date_list) != 3:
+        print("Date format is invalid.")
+        return False
+    year = date_list[0]
+    if not (2000 <= int(year) <= 2100):
+        print("Year is invalid.")
+        validate = False
+    month = date_list[1]
+    if not (1 <= int(month) <= 12):
+        print("Month is invalid.")
+        validate = False
+    day = date_list[2]
+    if not (1 <= int(day) <= 31):
+        print("Day is invalid.")
+        validate = False
+    return validate
 
 
-def input_day():
-    day_input = False
-    while not day_input:
-        day = input("Enter a day: ")
-        if 1 <= int(day) <= 31:
-            day_input = True
-            day = day.zfill(2)
-    return day
+def provider_validate(provider, country):
+    validate = True
+    if country == "india" and provider not in india_providers:
+        print("Provider does not exist in the provider list for India.")
+        validate = False
+    elif country == "pakistan" and provider not in pakistan_providers:
+        print("Provider does not exist in the provider list for Pakistan.")
+        validate = False
+    elif country == "nigeria" and provider not in nigeria_providers:
+        print("Provider does not exist in the provider list for Nigeria.")
+        validate = False
+    return validate
 
 
-def india_provider():
-    provider_input = False
-    provider_list = ["goa", "npp", "rajdhani_weekly", "tata", "tnpdcl", "bses_rajdhani", "bses_yamuna"]
-    while not provider_input:
-        provider = input("Please enter a provider from [goa, npp, rajdhani_weekly, tata, tnpdcl, bses_rajdhani, bses_yamuna]: ").lower()
-        if provider in provider_list:
-            provider_input = True
-    return provider
+def validate(args):
+    validate = True
+    country = args.country.lower()
+    if country not in countries:
+        print("Please enter country name from india, nigeria, pakistan.")
+        validate = False
+    provider = args.provider.lower()
+    if not provider_validate(provider, country):
+        validate = False
+    start_date = args.start_date
+    if not date_validate(start_date):
+        validate = False
+    end_date = args.end_date
+    if not date_validate(end_date):
+        validate = False
+    if start_date > end_date:
+        print("end date cannot be earlier than start date")
+        return False
+    return validate
 
 
-def nigeria_provider():
-    provider_input = False
-    provider_list = ["ikeja"]
-    while not provider_input:
-        provider = input("Please enter a provider from [ikeja]: ").lower()
-        if provider in provider_list:
-            provider_input = True
-    return provider
+def main(args):
+    country = args.country.lower()
+    provider = args.provider.lower()
+    country_code = countries[country]
+    start_date = args.start_date
+    end_date = args.end_date
+    while end_date >= start_date:
+        date = start_date
+        date_list = date.split("-")
+        year = date_list[0]
+        month = date_list[1]
+
+        folder = country + "/" + provider + "/raw/" + year + "/" + month + "/"
+        file_name = "power_outages." + country_code + "." + provider + ".raw." + date + "."
+
+        if provider == "tnpdcl":
+            file_name += "xlsx"
+        elif provider != "npp":
+            file_name += "html"
+
+        file_path = folder + file_name
+        if provider == "npp":
+            file_path = folder + file_name + "dgr10-" + date + ".xls"
+            report_name = "dgr10-" + date
+            process_npp(year, month, date, file_path, report_name)
+            file_path = folder + file_name + "dgr11-" + date + ".xls"
+            report_name = "dgr11-" + date
+            process_npp(year, month, date, file_path, report_name)
+        else:
+            file_processor(provider, year, month, date, file_path)
+        start_date = increase_one_day(start_date)
 
 
-def pakistan_provider():
-    provider_input = False
-    provider_list = ["quetta"]
-    while not provider_input:
-        provider = input("Please enter a provider from [quetta]: ").lower()
-        if provider in provider_list:
-            provider_input = True
-    return provider
+def increase_one_day(date):
+    next_day = (datetime.strptime(date, "%Y-%m-%d") + timedelta(days=1)).strftime("%Y-%m-%d")
+    return next_day
 
 
-def report_name():
-    report_input = False
-    report_dict = {"1": "dgr10", "2": "dgr11"}
-    while not report_input:
-        report_num = input("Please enter a number to select a report from [1. dgr10, 2. dgr11]: ")
-        if report_num == "1" or report_num == "2":
-            report = report_dict[report_num]
-            report_input = True
-    return report
+
+def process_npp(year, month, date, file_path, report_name):
+    if not os.path.exists(file_path):
+        print(f"File {file_path} dose not exist!")
+        return None
+    process = Process_Npp(year, month, date, file_path, report_name)
+    process.run()
 
 
-def file_processor(provider, year, month, date, file_path, report):
+def file_processor(provider, year, month, date, file_path):
+
+    if not os.path.exists(file_path):
+        print(f"File {file_path} dose not exist!")
+        return None
+
     if provider == "goa":
         process = Process_GOA(year, month, date, file_path)
-        process.run()
-
-    elif provider == "npp":
-        process = Process_Npp(year, month, date, file_path, report + "-" + date)
         process.run()
 
     elif provider == "rajdhani_weekly":
@@ -130,42 +162,20 @@ def file_processor(provider, year, month, date, file_path, report):
 
 if __name__ == "__main__":
 
-    country, country_code = input_country()
+    parser = argparse.ArgumentParser(
+        description='Process raw outage data files with a date range.')
 
-    if country == "india":
-        provider = india_provider()
-    elif country == "nigeria":
-        provider = nigeria_provider()
-    elif country == "pakistan":
-        provider = pakistan_provider()
+    parser.add_argument("--country", type=str, required=True, help="enter a country from india, nigeria, pakistan")
+    parser.add_argument("--provider", type=str, required=True, help="enter a power provider")
+    parser.add_argument("--start_date", type=str, required=True, help="enter a start date in format xxxx-xx-xx")
+    parser.add_argument("--end_date", type=str, required=True, help="enter a end date in format xxxx-xx-xx")
+    args = parser.parse_args()
 
-    report = None
-    if provider == "npp":
-        report = report_name()
+    if validate(args):
+        main(args)
 
-    year = input_year()
-    month = input_month()
-    day = input_day()
-    date = year + "-" + month + "-" + day
 
-    folder = country + "/" + provider + "/raw/" + year + "/" + month + "/"
-    file_name = "power_outages." + country_code + "." + provider + ".raw." + date + "."
 
-    # save_path = country + "/" + provider + "/processed/" + year + "/" + month + "/"
-    # save_file_name = "power_outages." + country_code + "." + provider + ".processed." + date + "."
-
-    if provider == "npp":
-        file_name += report + "-" + date + ".xls"
-    elif provider == "tnpdcl":
-        file_name += "xlsx"
-    else:
-        file_name += "html"
-
-    file_path = folder + file_name
-    if not os.path.exists(file_path):
-        print("File dose not exist!")
-    else:
-        file_processor(provider, year, month, date, file_path, report)
 
 
 
