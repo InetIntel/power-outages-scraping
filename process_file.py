@@ -19,24 +19,11 @@ pakistan_providers = ["quetta"]
 
 
 def date_validate(date):
-    validate = True
-    date_list = date.split("-")
-    if len(date_list) != 3:
-        print("Date format is invalid.")
+    try:
+        datetime.strptime(date, "%Y-%m-%d")
+        return True
+    except ValueError:
         return False
-    year = date_list[0]
-    if not (2000 <= int(year) <= 2100):
-        print("Year is invalid.")
-        validate = False
-    month = date_list[1]
-    if not (1 <= int(month) <= 12):
-        print("Month is invalid.")
-        validate = False
-    day = date_list[2]
-    if not (1 <= int(day) <= 31):
-        print("Day is invalid.")
-        validate = False
-    return validate
 
 
 def provider_validate(provider, country):
