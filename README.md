@@ -36,7 +36,13 @@
 
 #### 5. process_file.py
 
-##### This file can be run to process the saved raw file containing outage data. When running the file, input country name, provider name, report name if provider is NPP, year, month (in number), and day. If the raw file exists, a processed file will be generated and saved in processed folder.
+##### This file can be run to process the saved raw files containing outage data in a given date range.
+##### Example script to run:
+        python process_file.py \
+            --country india \
+            --provider npp \
+            --start_date 2025-04-18 \
+            --end_date 2025-04-22
 
 ### How to run Python file (for Ukraine)
 
