@@ -3,11 +3,11 @@ import datetime
 
 import scrapy
 from scrapy import cmdline
-from utils import mk_dir, raw_file
+from .utils import mk_dir, raw_dir
 from ukraine.constants import current_date
 
 
-class PlannedDisconnectionSpider(scrapy.Spider):
+class VinnytsiaSpider(scrapy.Spider):
     # Name of the spider
     name = "planned_disconnection_vinnystia"
 
@@ -30,7 +30,7 @@ class PlannedDisconnectionSpider(scrapy.Spider):
     def parse(self, response):
         region = response.url.split("/")[-1]
         type = response.url.split("/")[-4]
-        with open(f"{raw_file}/power_outages.UA.khmelnytsky.raw.{current_date}.{response.meta.get('region')}.html", 'w') as f:
+        with open(f"{raw_dir}/power_outages.UA.vinnytsia.raw.{current_date}.{region}.{type}.html", 'w') as f:
             f.write(response.text)
 
         # If there are pagination links, follow them

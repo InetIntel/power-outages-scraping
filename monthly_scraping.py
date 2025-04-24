@@ -1,26 +1,25 @@
-from scrapy import cmdline
+# from india.posoco.posoco import Posoco
+# from india.mahavitaran.mahavitaran import Mahavitaran
+from ukraine.vinnytsia.run_spider import run_vinnytsia_spider
 
-from india.posoco.posoco import Posoco
-from india.mahavitaran.mahavitaran import Mahavitaran
 
 def scrape():
 
-    try:
-        mahadiscom = Mahavitaran()
-        mahadiscom.scrape()
-    except Exception as e:
-        print("Failed to scrape outage data from Mahadiscom.")
+    # try:
+    #     mahadiscom = Mahavitaran()
+    #     mahadiscom.scrape()
+    # except Exception as e:
+    #     print("Failed to scrape outage data from Mahadiscom.")
+    #
+    # try:
+    #     posoco = Posoco()
+    #     posoco.scrape()
+    # except Exception as e:
+    #     print("Failed to scrape outage data from POSOCO.")
+
 
     try:
-        posoco = Posoco()
-        posoco.scrape()
-    except Exception as e:
-        print("Failed to scrape outage data from POSOCO.")
-
-
-    try:
-        cmdline.execute("cd ukraine".split())
-        cmdline.execute("sh craw_ukraine_monthly.sh".split())
+        run_vinnytsia_spider()
     except Exception as e:
         print("Failed to scrape outage data of Ukraine")
 

@@ -3,14 +3,14 @@ import json
 import os
 
 import lxml.html
-from utils import processed_file, raw_file, mk_dir
+from .utils import processed_file, raw_dir, mk_dir
 
 def post_process_vinnytsia():
-    files = os.listdir(raw_file)
+    files = os.listdir(raw_dir)
     res = []
     with open(processed_file, 'w', encoding='utf-8') as f1:
         for file in files:
-            with open(os.path.join(raw_file,file), 'r') as f2:
+            with open(os.path.join(raw_dir, file), 'r') as f2:
                 content = f2.read()
                 planned_disconnections = lxml.html.fromstring(content).xpath('//tr[@class="row"]')
                 date_format = "%Y-%m-%d %H:%M:%S"
