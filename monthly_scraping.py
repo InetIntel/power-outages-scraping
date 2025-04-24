@@ -1,21 +1,21 @@
-# from india.posoco.posoco import Posoco
-# from india.mahavitaran.mahavitaran import Mahavitaran
+from india.posoco.posoco import Posoco
+from india.mahavitaran.mahavitaran import Mahavitaran
 from ukraine.vinnytsia.run_spider import run_vinnytsia_spider
 
 
 def scrape():
 
-    # try:
-    #     mahadiscom = Mahavitaran()
-    #     mahadiscom.scrape()
-    # except Exception as e:
-    #     print("Failed to scrape outage data from Mahadiscom.")
-    #
-    # try:
-    #     posoco = Posoco()
-    #     posoco.scrape()
-    # except Exception as e:
-    #     print("Failed to scrape outage data from POSOCO.")
+    try:
+        mahadiscom = Mahavitaran()
+        mahadiscom.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from Mahadiscom.")
+
+    try:
+        posoco = Posoco()
+        posoco.scrape()
+    except Exception as e:
+        print("Failed to scrape outage data from POSOCO.")
 
 
     try:
