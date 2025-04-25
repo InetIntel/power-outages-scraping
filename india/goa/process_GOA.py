@@ -18,6 +18,8 @@ class Process_GOA:
         soup = BeautifulSoup(html_content, "html.parser")
 
         table = soup.find_all('table')
+        if not table:
+            return None
         rows = table[0].find_all("tr")
         data = []
         for row in rows:
