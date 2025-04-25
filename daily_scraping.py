@@ -1,5 +1,3 @@
-from scrapy import cmdline
-
 from nigeria.ikeja.Ikeja import Ikeja
 from pakistan.fesco.fesco import Fesco
 from pakistan.hyderabad.hyderabad import Hyderabad
@@ -13,6 +11,7 @@ from india.npp.npp import Npp
 from india.bses_rajdhani.rajdhani import Rajdhani
 from india.bses_yamuna.yamuna import Yamuna
 from india.tata.tata import Tata
+from ukraine.khmelnytsky.run_spider import run_khmelnytsky_spider
 
 
 def scrape():
@@ -94,8 +93,7 @@ def scrape():
 
 
     try:
-        cmdline.execute("cd ukraine".split())
-        cmdline.execute("sh craw_ukraine_daily.sh".split())
+        run_khmelnytsky_spider()
     except Exception as e:
         print("Failed to scrape outage data of Ukraine")
 
