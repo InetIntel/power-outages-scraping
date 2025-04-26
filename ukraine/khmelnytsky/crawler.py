@@ -41,7 +41,3 @@ class KhmelnytskySpider(scrapy.Spider):
         # Adjust the selectors based on the structure of the webpage
         with open(f"{raw_dir}/power_outages.UA.khmelnytsky.raw.{current_date}.{response.meta.get('region')}.html", 'w') as f:
             f.write(response.text)
-
-if __name__ == "__main__":
-    mk_dir()
-    cmdline.execute(f"scrapy runspider crawler.py -s FEED_EXPORT_ENCODING=utf-8".split())

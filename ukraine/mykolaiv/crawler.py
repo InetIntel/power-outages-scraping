@@ -2,17 +2,23 @@
 import datetime
 import json
 import scrapy
-from scrapy import cmdline
-from utils import raw_file, processed_file
+from ukraine.mykolaiv.utils import raw_file
 
 
-class PlannedDisconnectionSpider(scrapy.Spider):
+class MykolaivSpider(scrapy.Spider):
     # Name of the spider
     name = "planned_disconnection_mykolaiv"
     now = datetime.datetime.now()
     one_day_later = now + datetime.timedelta(days=1)
     formatted_start_date = str(int(now.timestamp()))
     formatted_end_date = str(int(one_day_later.timestamp()))
+
+    custom_settings = {
+            "FEEDS": {
+            f"{raw_file}": {"format": "json", "overwrite": True},
+        },
+        "FEED_EXPORT_ENCODING": "utf-8"
+        }
 
     def start_requests(self):
         body = f'{{"page":1,"perPage":100,"from":{self.formatted_start_date},"to":{self.formatted_end_date} }}'
@@ -48,8 +54,3 @@ class PlannedDisconnectionSpider(scrapy.Spider):
                                       },
                               callback=self.parse
                             )
-
-
-
-if __name__ == "__main__":
-    cmdline.execute(f"scrapy runspider crawler.py -O {raw_file} -s FEED_EXPORT_ENCODING=utf-8".split())

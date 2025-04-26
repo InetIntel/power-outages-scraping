@@ -11,7 +11,17 @@ from india.npp.npp import Npp
 from india.bses_rajdhani.rajdhani import Rajdhani
 from india.bses_yamuna.yamuna import Yamuna
 from india.tata.tata import Tata
-from ukraine.khmelnytsky.run_spider import run_khmelnytsky_spider
+from scrapy.crawler import CrawlerProcess
+from ukraine.khmelnytsky.utils import mk_dir as mk_dir_for_khmelnytsky
+from ukraine.khmelnytsky.crawler import KhmelnytskySpider
+from ukraine.cherkasy.utils import mk_dir as mk_dir_for_cherkasy
+from ukraine.cherkasy.crawler import CherkasySpider
+from ukraine.mykolaiv.utils import mk_dir as mk_dir_for_mykolaiv
+from ukraine.mykolaiv.crawler import MykolaivSpider
+from ukraine.sumy.utils import mk_dir as mk_dir_for_sumy
+from ukraine.sumy.crawler import SumySpider
+from ukraine.zhytomyr.crawler import crawl_zhytomyr
+from ukraine.zhytomyr.utils import mk_dir as mk_dir_for_zhytomyr
 
 
 def scrape():
@@ -59,14 +69,14 @@ def scrape():
     except Exception as e:
         print("Failed to scrape outage data from Yamuna.")
 
-    # Nigeria
+    # # Nigeria
     try:
         ikeja = Ikeja()
         ikeja.scrape()
     except Exception as e:
         print("Failed to scrape outage data from IKEJA.")
 
-    # Pakistan
+    # # Pakistan
     try:
         fesco = Fesco()
         fesco.scrape()
@@ -92,10 +102,48 @@ def scrape():
         print("Failed to scrape outage data from Quetta.")
 
 
+    # Ukraine
+    process = CrawlerProcess()
+
     try:
-        run_khmelnytsky_spider()
+        mk_dir_for_khmelnytsky()
+        process.crawl(KhmelnytskySpider)
     except Exception as e:
-        print("Failed to scrape outage data of Ukraine")
+        print("Failed to scrape outage data of Ukraine Khmelnytsky because ")
+        print(e)
+
+    try:
+        mk_dir_for_cherkasy()
+        process.crawl(CherkasySpider)
+    except Exception as e:
+        print("Failed to scrape outage data of Ukraine Cherkasy because")
+        print(e)
+
+    try:
+        mk_dir_for_mykolaiv()
+        process.crawl(MykolaivSpider)
+    except Exception as e:
+        print("Failed to scrape outage data of Ukraine Mykolaiv because")
+        print(e)
+
+    try:
+        mk_dir_for_sumy()
+        process.crawl(SumySpider)
+    except Exception as e:
+        print("Failed to scrape outage data of Ukraine Sumy because")
+        print(e)
+
+    try:
+        process.start()
+    except Exception as e:
+        print(e)
+
+    try:
+        mk_dir_for_zhytomyr()
+        crawl_zhytomyr()
+    except Exception as e:
+        print("Failed to scrape outage data of Ukraine Zhytomyr because")
+        print(e)
 
 
     # this is an inactive website

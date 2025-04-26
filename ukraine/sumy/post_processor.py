@@ -1,6 +1,6 @@
 import datetime
 import json
-from utils import processed_file, raw_file, mk_dir
+from .utils import processed_file, raw_file, mk_dir
 
 def post_process_sumy():
     file = open(raw_file, 'r')

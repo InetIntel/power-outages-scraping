@@ -1,10 +1,8 @@
 
 import os
-import sys
-sys.path.append("../..")
 from ukraine.constants import root_dir, current_date, current_year, current_month
 
-current_dir = "/".join(os.getcwd().split("/")[-2:])
+current_dir = "ukraine/mykolaiv"
 raw_file = f'{root_dir}/power-outages-data/{current_dir}/raw/{current_year}/{current_month}/power_outages.UA.mykolaiv.raw.{current_date}.json'
 processed_file = raw_file.replace("raw", "processed")
 

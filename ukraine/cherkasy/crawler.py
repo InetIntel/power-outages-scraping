@@ -6,11 +6,11 @@ import scrapy
 from scrapy import cmdline
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-from utils import raw_file, mk_dir
+from .utils import raw_file, mk_dir
 
 
 
-class PlannedDisconnectionSpider(scrapy.Spider):
+class CherkasySpider(scrapy.Spider):
     # Name of the spider
     name = "planned_disconnection_cherkasy"
 
@@ -24,6 +24,13 @@ class PlannedDisconnectionSpider(scrapy.Spider):
 
     disconnection_types = [0, 1, 2] # 0: Planned, 1: Emergency, 2: Outage Schedules
     dept_ids = [i+1 for i in range(22)]
+
+    custom_settings = {
+            "FEEDS": {
+            f"{raw_file}": {"format": "json", "overwrite": True},
+        },
+        "FEED_EXPORT_ENCODING": "utf-8"
+        }
 
     start_urls = []
     for disconnection_type in disconnection_types:

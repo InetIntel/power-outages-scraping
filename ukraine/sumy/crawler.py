@@ -1,15 +1,18 @@
 # Import necessary libraries
 import json
-
 import scrapy
-from scrapy import cmdline
-
-from utils import mk_dir, raw_file
+from ukraine.sumy.utils import raw_file
 
 
-class PlannedDisconnectionSpider(scrapy.Spider):
+class SumySpider(scrapy.Spider):
     # Name of the spider
     name = "planned_disconnection_sumy"
+    custom_settings = {
+            "FEEDS": {
+            f"{raw_file}": {"format": "json", "overwrite": True},
+        },
+        "FEED_EXPORT_ENCODING": "utf-8"
+        }
 
     download_delay = 5
 
@@ -22,7 +25,3 @@ class PlannedDisconnectionSpider(scrapy.Spider):
 
     def parse(self, response):
         yield json.loads(response.body)
-
-if __name__ == "__main__":
-    mk_dir()
-    cmdline.execute(f"scrapy runspider crawler.py -O {raw_file} -s FEED_EXPORT_ENCODING=utf-8".split())

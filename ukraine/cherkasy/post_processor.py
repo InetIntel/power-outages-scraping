@@ -1,9 +1,8 @@
 import json
-import os
 import re
 from datetime import datetime
 
-from utils import raw_file, processed_file
+from .utils import raw_file, processed_file
 
 
 def post_process_cherkasy():
