@@ -44,7 +44,7 @@
             --start_date 2025-04-18 \
             --end_date 2025-04-22
 
-### How to run Python file (for Ukraine)
+### File Structure of Ukraine Directory
 
 ##### The year, month, date and the root directory to save crawled data is in the constants.py in the ukraine directory. You can change the constants in this file.
 
@@ -56,4 +56,4 @@
 
 ##### post_processor.py in every oblast directory. When raw file is crawled, the post_processed could be executed to generate clean data
 
-##### crawl_ukraine_daily.sh is to run daily crawlers daily and craw_ukraine_monthly is to run monthly crawlers.
+More details can be seen in Notion Page
