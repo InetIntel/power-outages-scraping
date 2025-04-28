@@ -1,6 +1,5 @@
 from india.posoco.posoco import Posoco
 from india.mahavitaran.mahavitaran import Mahavitaran
-from ukraine.vinnytsia.run_spider import run_vinnytsia_spider
 
 
 def scrape():

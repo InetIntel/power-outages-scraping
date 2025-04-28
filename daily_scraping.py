@@ -1,25 +1,28 @@
+from india.bses_rajdhani.rajdhani import Rajdhani
+from india.bses_yamuna.yamuna import Yamuna
+from scrapy.crawler import CrawlerProcess
+
+from india.goa.goa import Goa
+from india.npp.npp import Npp
+from india.rajdhani_weekly.rajdhani_weekly import RajdhaniWeekly
+from india.tata.tata import Tata
+from india.tnpdcl.tnpdcl import Tnpdcl
 from nigeria.ikeja.Ikeja import Ikeja
 from pakistan.fesco.fesco import Fesco
 from pakistan.hyderabad.hyderabad import Hyderabad
 from pakistan.iesco.iesco import Iesco
 from pakistan.quetta.quetta import Quetta
-from india.goa.goa import Goa
-from india.rajdhani_weekly.rajdhani_weekly import RajdhaniWeekly
-from india.tangedco.tangedco import Tangedco
-from india.tnpdcl.tnpdcl import Tnpdcl
-from india.npp.npp import Npp
-from india.bses_rajdhani.rajdhani import Rajdhani
-from india.bses_yamuna.yamuna import Yamuna
-from india.tata.tata import Tata
-from scrapy.crawler import CrawlerProcess
-from ukraine.khmelnytsky.utils import mk_dir as mk_dir_for_khmelnytsky
-from ukraine.khmelnytsky.crawler import KhmelnytskySpider
-from ukraine.cherkasy.utils import mk_dir as mk_dir_for_cherkasy
 from ukraine.cherkasy.crawler import CherkasySpider
-from ukraine.mykolaiv.utils import mk_dir as mk_dir_for_mykolaiv
+from ukraine.cherkasy.post_processor import post_process_cherkasy
+from ukraine.cherkasy.utils import mk_dir as mk_dir_for_cherkasy
+from ukraine.khmelnytsky.crawler import KhmelnytskySpider
+from ukraine.khmelnytsky.utils import mk_dir as mk_dir_for_khmelnytsky
+from ukraine.khmelnytsky.post_processor import post_process_khmelnytsky
 from ukraine.mykolaiv.crawler import MykolaivSpider
-from ukraine.sumy.utils import mk_dir as mk_dir_for_sumy
+from ukraine.mykolaiv.post_processor import post_process_mykolaiv
+from ukraine.mykolaiv.utils import mk_dir as mk_dir_for_mykolaiv
 from ukraine.sumy.crawler import SumySpider
+from ukraine.sumy.utils import mk_dir as mk_dir_for_sumy
 from ukraine.zhytomyr.crawler import crawl_zhytomyr
 from ukraine.zhytomyr.utils import mk_dir as mk_dir_for_zhytomyr
 
@@ -136,6 +139,24 @@ def scrape():
     try:
         process.start()
     except Exception as e:
+        print(e)
+
+    try:
+        post_process_cherkasy()
+    except Exception as e:
+        print('error while processing raw cherkasy files')
+        print(e)
+
+    try:
+        post_process_mykolaiv()
+    except Exception as e:
+        print('error while processing raw mykolaiv files')
+        print(e)
+
+    try:
+        post_process_khmelnytsky()
+    except Exception as e:
+        print("error while processing raw khmelnytsky files")
         print(e)
 
     try:
