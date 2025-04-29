@@ -1,9 +1,9 @@
 
 import os
-from ukraine.constants import root_dir, current_date, current_year, current_month
+from cameroon.constants import root_dir, current_date, current_year, current_month
 
-current_dir = "urkaine/lviv"
-raw_file = f'{root_dir}/power-outages-data/{current_dir}/raw/{current_year}/{current_month}/power_outages.UA.lviv.raw.{current_date}.json'
+current_dir = "cameroon/littoral"
+raw_file = f'{root_dir}/power-outages-data/{current_dir}/raw/{current_year}/{current_month}/power_outages.cm.littoral.raw.{current_date}.json'
 processed_file = raw_file.replace("raw", "processed")
 
 def mk_dir():

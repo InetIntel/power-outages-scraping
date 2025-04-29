@@ -2,6 +2,17 @@ from india.bses_rajdhani.rajdhani import Rajdhani
 from india.bses_yamuna.yamuna import Yamuna
 from scrapy.crawler import CrawlerProcess
 
+from cameroon.Adamaoua.crawler import crawl_adamaoua
+from cameroon.Centre.crawler import crawl_centre
+from cameroon.Douala.crawler import crawl_douala
+from cameroon.Est.crawler import crawl_est
+from cameroon.Littoral.crawler import crawl_littoral
+from cameroon.Nord.crawler import crawl_nord
+from cameroon.Ouest.crawler import crawl_ouest
+from cameroon.Sud.crawler import crawl_sud
+from cameroon.Sud_Ouest.crawler import crawl_sud_ouest
+from cameroon.Nord_Ouest.crawler import crawl_nord_ouest
+from cameroon.Yaoundé.crawler import crawl_yaounde
 from india.goa.goa import Goa
 from india.npp.npp import Npp
 from india.rajdhani_weekly.rajdhani_weekly import RajdhaniWeekly
@@ -16,8 +27,8 @@ from ukraine.cherkasy.crawler import CherkasySpider
 from ukraine.cherkasy.post_processor import post_process_cherkasy
 from ukraine.cherkasy.utils import mk_dir as mk_dir_for_cherkasy
 from ukraine.khmelnytsky.crawler import KhmelnytskySpider
-from ukraine.khmelnytsky.utils import mk_dir as mk_dir_for_khmelnytsky
 from ukraine.khmelnytsky.post_processor import post_process_khmelnytsky
+from ukraine.khmelnytsky.utils import mk_dir as mk_dir_for_khmelnytsky
 from ukraine.mykolaiv.crawler import MykolaivSpider
 from ukraine.mykolaiv.post_processor import post_process_mykolaiv
 from ukraine.mykolaiv.utils import mk_dir as mk_dir_for_mykolaiv
@@ -25,8 +36,8 @@ from ukraine.sumy.crawler import SumySpider
 from ukraine.sumy.utils import mk_dir as mk_dir_for_sumy
 from ukraine.zhytomyr.crawler import crawl_zhytomyr
 from ukraine.zhytomyr.utils import mk_dir as mk_dir_for_zhytomyr
-
-
+#
+#
 def scrape():
 
     # India
@@ -164,6 +175,22 @@ def scrape():
         crawl_zhytomyr()
     except Exception as e:
         print("Failed to scrape outage data of Ukraine Zhytomyr because")
+        print(e)
+
+    try:
+        crawl_adamaoua()
+        crawl_centre()
+        crawl_littoral()
+        crawl_douala()
+        crawl_ouest()
+        crawl_nord()
+        crawl_nord_ouest()
+        crawl_sud()
+        crawl_est()
+        crawl_yaounde()
+        crawl_sud_ouest()
+    except Exception as e:
+        print("Failed to scrape outage data of Cameroon because")
         print(e)
 
 
