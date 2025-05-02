@@ -1,7 +1,7 @@
 from scrapy.crawler import CrawlerProcess
 
-# from india.posoco.posoco import Posoco
-# from india.mahavitaran.mahavitaran import Mahavitaran
+from india.posoco.posoco import Posoco
+from india.mahavitaran.mahavitaran import Mahavitaran
 from ukraine.vinnytsia.crawler import VinnytsiaSpider
 from ukraine.vinnytsia.utils import mk_dir as mk_dir_for_vinnytsia
 from ukraine.vinnytsia.post_processor import post_process_vinnytsia
