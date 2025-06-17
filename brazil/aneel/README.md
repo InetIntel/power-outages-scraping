@@ -1,3 +1,6 @@
 # Aneel
 
-python version: 3.13.2
+```
+mkdir data
+docker-compose up
+```
