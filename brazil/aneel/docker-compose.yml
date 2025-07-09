@@ -1,5 +1,33 @@
 services:
-  brazil-aneel:
-    build: .
+  registry:
+    image: registry:3
+    ports:
+      - 5000:5000
     volumes:
-      - ./data:/app/brazil/aneel
+      - ./registry_data:/var/lib/registry
+  minio:
+    image: minio/minio
+    container_name: minio
+    ports:
+      - "9000:9000" # S3 API
+      - "9090:9090" # Web UI
+    environment:
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+    command: server /data --console-address ":9090"
+    volumes:
+      - ./minio_data:/data
+  dagu:
+    depends_on:
+      - registry
+      - minio
+    image: "ghcr.io/dagu-org/dagu:1.17.3"
+    container_name: dagu
+    hostname: dagu
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./dagu_config:/var/lib/dagu
+      - /var/run/docker.sock:/var/run/docker.sock
+    user: "0:0"
+    entrypoint: []

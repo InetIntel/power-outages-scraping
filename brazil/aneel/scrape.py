@@ -1,3 +1,5 @@
+import boto3
+from botocore.client import Config
 import os
 from datetime import datetime
 import requests
@@ -11,7 +13,7 @@ class Aneel:
         if year:
             self.year = year
         self.url = "https://dadosabertos.aneel.gov.br/dataset/interrupcoes-de-energia-eletrica-nas-redes-de-distribuicao"
-        self.dir_path = f"./brazil/aneel/raw/{self.year}"
+        self.dir_path = f"./aneel/raw/{self.year}"
 
     def __create_dir(self):
         os.makedirs(self.dir_path, exist_ok=True)
@@ -81,6 +83,39 @@ class Aneel:
 
         print(f"Download for {self.year} data is complete")
 
+    def upload(self):
+        # Configure S3 client for MinIO
+        s3 = boto3.client(
+            "s3",
+            endpoint_url="http://host.docker.internal:9000",  # Your MinIO server URL
+            aws_access_key_id="minioadmin",
+            aws_secret_access_key="minioadmin",
+            config=Config(signature_version="s3v4"),
+            region_name="us-east-1",
+        )
+
+        # Create bucket (if it doesn't exist)
+        bucket_name = "brazil"
+        try:
+            s3.create_bucket(Bucket=bucket_name)
+        except s3.exceptions.BucketAlreadyOwnedByYou:
+            pass
+
+        # Walk through the folder and upload files
+        for root, dirs, files in os.walk(self.dir_path):
+            for filename in files:
+                local_path = os.path.join(root, filename)
+                # relative_path = os.path.relpath(local_path, self.dir_path)
+                s3_path = local_path.replace("\\", "/")  # S3 uses forward slashes
+                s3_path = local_path.replace("./", "")  # S3 uses forward slashes
+
+                print(f"Uploading {local_path} to s3://{s3_path}")
+                s3.upload_file(local_path, bucket_name, s3_path)
+
+        print("✅ Folder uploaded")
+
 
 if __name__ == "__main__":
-    Aneel().scrape()
+    s = Aneel()
+    s.scrape()
+    s.upload()
