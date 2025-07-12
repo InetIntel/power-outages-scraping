@@ -1,6 +1,15 @@
 # Workflow
 
+This explains the workflow for scraping data from power providers in different countries using DAGU, minio, and Docker.
+
+DAGU is the platform used to orchestrate the scraping tasks, while minio serves as the block storage for storing the scraped data. Docker is used to containerize the scraping and post-processing scripts.
+
+## Architecture
+
+![Architecture](./img/Architecture.jpg)
+
 ## Example
+
 Refer to the `brazil/aneel` scraper.
 
 ## Requirements
@@ -83,10 +92,6 @@ steps:
 
 Navigate to DAGU to run dags in `localhost:8080`
 and the block storage interface can be accessed in `localhost:9090`
-
-## Architecture
-
-![Architecture](./img/Architecture.jpg)
 
 ## Architecture TBD
 
