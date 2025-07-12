@@ -91,7 +91,7 @@ steps:
 ```
 
 Navigate to DAGU to run dags in `localhost:8080`
-and the block storage interface can be accessed in `localhost:9090`
+and the block storage interface can be accessed in `localhost:9090` with the default name/password: `minioadmin`
 
 ## Architecture TBD
 
