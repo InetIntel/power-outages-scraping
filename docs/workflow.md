@@ -1,5 +1,8 @@
 # Workflow
 
+## Example
+Refer to the `brazil/aneel` scraper.
+
 ## Requirements
 
 Working `scraper.py` and `post_process.py` files for each country and power provider.
