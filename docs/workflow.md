@@ -68,7 +68,7 @@ curl http://localhost:5000/v2/myapp/tags/list
 
 Create a DAGU configuration file in `dagu_config/dags` to define the DAG for the scraper.
 The DAG should include the tasks for scraping and post-processing.
-The name should be `{country}_{company}.yaml` Here's an example configuration
+The name should be `{country}_{company}.yaml` Here's an example configuration and reference to the YAML Specification can be found in [here](https://docs.dagu.cloud/reference/yaml).
 
 ```yaml
 steps:
