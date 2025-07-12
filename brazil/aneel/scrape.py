@@ -87,7 +87,7 @@ class Aneel:
         # Configure S3 client for MinIO
         s3 = boto3.client(
             "s3",
-            endpoint_url="http://host.docker.internal:9000",  # Your MinIO server URL
+            endpoint_url="http://host.docker.internal:9000",
             aws_access_key_id="minioadmin",
             aws_secret_access_key="minioadmin",
             config=Config(signature_version="s3v4"),
@@ -102,12 +102,11 @@ class Aneel:
             pass
 
         # Walk through the folder and upload files
-        for root, dirs, files in os.walk(self.dir_path):
+        for root, _, files in os.walk(self.dir_path):
             for filename in files:
                 local_path = os.path.join(root, filename)
-                # relative_path = os.path.relpath(local_path, self.dir_path)
-                s3_path = local_path.replace("\\", "/")  # S3 uses forward slashes
-                s3_path = local_path.replace("./", "")  # S3 uses forward slashes
+                s3_path = local_path.replace("\\", "/")
+                s3_path = local_path.replace("./", "")
 
                 print(f"Uploading {local_path} to s3://{s3_path}")
                 s3.upload_file(local_path, bucket_name, s3_path)
