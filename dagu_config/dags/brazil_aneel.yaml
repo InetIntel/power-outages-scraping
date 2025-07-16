@@ -1,3 +1,4 @@
+# https://docs.dagu.cloud/features/scheduling
 # schedule: "0 2 * * *" # Daily at 2 AM
 steps:
   - name: scrape
