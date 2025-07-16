@@ -1,3 +1,4 @@
+# schedule: "0 2 * * *" # Daily at 2 AM
 steps:
   - name: scrape
     executor:
@@ -7,7 +8,6 @@ steps:
         autoRemove: true
     command: python scrape.py
 
-
   - name: process
     executor:
       type: docker
@@ -15,4 +15,3 @@ steps:
         image: localhost:5000/brazil-aneel-scraper:latest
         autoRemove: true
     command: python post_process.py
-
