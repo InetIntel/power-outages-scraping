@@ -18,34 +18,24 @@ class RajdhaniWeekly:
         self.folder_path = "./india/rajdhani_weekly/" + type + "/" + self.year + "/" + self.month
         os.makedirs(self.folder_path, exist_ok=True)
 
-
-    def fetch(self):
+    def scrape(self):
+        # Fetch data with proper error handling
         response = requests.get(self.url)
-        self.check_folder("raw")
-        file_name = "power_outages.IND.rajdhani_weekly.raw." + self.today + ".html"
-        file_path = os.path.join(self.folder_path, file_name)
-        with open(file_path, "w", encoding="utf-8") as file:
-            file.write(response.text)
-            print("Raw file is saved for Rajdhani_weekly")
-        process = Process_rajdhani_weekly(self.year, self.month, self.today, self.folder_path + "/" + file_name)
-        process.run()
-        # soup = BeautifulSoup(response.text, "html.parser")
-        # table = soup.find("tbody", {"id": "billDetailsData"})
-        # return table
-
-
-    def process(self, table):
-        res = []
-        all_tr = table.find_all("tr")
-        titles = [td.get_text(strip=True) for td in all_tr[1].find_all(["td", "th"])]
-        for tr in all_tr[2:]:
-            row_data = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
-            data = {}
-            for i in range(len(titles)):
-                data[titles[i]] = row_data[i]
-            res.append(data)
-        self.save_json(res)
-
+        if response.status_code == 200:
+            # Save raw HTML file
+            self.check_folder("raw")
+            file_name = "power_outages.IND.rajdhani_weekly.raw." + self.today + ".html"
+            file_path = os.path.join(self.folder_path, file_name)
+            with open(file_path, "w", encoding="utf-8") as file:
+                file.write(response.text)
+                print("Raw file is saved for Rajdhani_weekly")
+            
+            # Process immediately - both steps are required
+            process = Process_rajdhani_weekly(self.year, self.month, self.today, file_path)
+            process.run()
+        else:
+            print(f"Failed to retrieve webpage. Status code: {response.status_code}")
+            return
 
     def get_week(self):
         today = datetime.today()
@@ -55,17 +45,6 @@ class RajdhaniWeekly:
         end_date_str = end_of_week.strftime("%d-%m-%Y")
         week = start_date_str + "_to_" + end_date_str
         return week
-
-    def save_json(self, data):
-        self.check_folder("processed")
-        file_path = os.path.join(self.folder_path, "power_outages.IND.rajdhani_weekly.raw." + self.today + ".json")
-        with open(file_path, "w", encoding="utf-8") as file:
-            json.dump(data, file, indent=4)
-
-    def scrape(self):
-        self.fetch()
-        # self.process(table)
-
 
 
 if __name__ == "__main__":
