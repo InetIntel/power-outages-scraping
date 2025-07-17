@@ -10,7 +10,7 @@ DAGU is the platform used to orchestrate the scraping tasks, while minio serves 
 
 ## Example
 
-Refer to the `brazil/aneel` scraper.
+Refer to the `src/scrapers/brazil/aneel` scraper.
 
 ## Requirements
 
@@ -24,36 +24,7 @@ Starting the containers. Check docker-compose.yml for the services that will be 
 make run
 ```
 
-Go into the individual project and publish the Docker image to the registry.
-Here's an example Makefile that can be placed in the individual scraper folder:
-
-```Makefile
-.PHONY: build
-build:
- docker build -t localhost:5000/brazil-aneel-scraper:latest .
-
-.PHONY: publish
-publish: build
- docker push localhost:5000/brazil-aneel-scraper:latest
-
-```
-
-Sample Dockerfile for the scraper:
-
-```Dockerfile
-FROM python:3.13-alpine
-
-WORKDIR /app
-
-COPY requirements.txt .
-COPY *.py .
-
-RUN pip install --no-cache-dir -r requirements.txt
-
-CMD ["python", "scrape.py"]
-```
-
-Publish the image by running
+Publish the image by running the command below. It will auto detect the scrapers in the `src/scrapers` and create a Dockerfile.
 
 ```shell
 make publish
@@ -71,6 +42,8 @@ The DAG should include the tasks for scraping and post-processing.
 The name should be `{country}_{company}.yaml` Here's an example configuration and reference to the YAML Specification can be found in [here](https://docs.dagu.cloud/reference/yaml).
 
 ```yaml
+# https://docs.dagu.cloud/features/scheduling
+# schedule: "0 2 * * *" # Daily at 2 AM
 steps:
   - name: scrape
     executor:

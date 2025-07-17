@@ -12,11 +12,6 @@ run: stop
 stop:
 	docker compose down
 
-.PHONY: build
-build:
-	docker build -t localhost:5000/brazil-aneel-scraper:latest -f ./brazil/aneel/Dockerfile .
-
 .PHONY: publish
-publish: build
-	docker push localhost:5000/brazil-aneel-scraper:latest
-
+publish:
+	./publish.sh

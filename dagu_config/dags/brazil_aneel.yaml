@@ -5,7 +5,7 @@ steps:
     executor:
       type: docker
       config:
-        image: localhost:5000/brazil-aneel-scraper:latest
+        image: localhost:5000/brazil_aneel:latest
         autoRemove: true
     command: python scrape.py
 
@@ -13,6 +13,6 @@ steps:
     executor:
       type: docker
       config:
-        image: localhost:5000/brazil-aneel-scraper:latest
+        image: localhost:5000/brazil_aneel:latest
         autoRemove: true
     command: python post_process.py
