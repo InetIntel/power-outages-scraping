@@ -4,6 +4,8 @@ This explains the workflow for scraping data from power providers in different c
 
 DAGU is the platform used to orchestrate the scraping tasks, while minio serves as the block storage for storing the scraped data. Docker is used to containerize the scraping and post-processing scripts.
 
+**NOTE**: the commands on this readme assumes a unix working environment.
+
 ## Architecture
 
 ![Architecture](./img/Architecture.jpg)
