@@ -5,10 +5,12 @@ from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 from tqdm import tqdm
+from utils import Uploader
 
 
 class Aneel:
-    def __init__(self, year=None):
+    def __init__(self, uploader, year=None):
+        self.uploader = uploader
         self.year = datetime.now().year
         if year:
             self.year = year
@@ -84,37 +86,17 @@ class Aneel:
         print(f"Download for {self.year} data is complete")
 
     def upload(self):
-        # Configure S3 client for MinIO
-        s3 = boto3.client(
-            "s3",
-            endpoint_url="http://host.docker.internal:9000",
-            aws_access_key_id="minioadmin",
-            aws_secret_access_key="minioadmin",
-            config=Config(signature_version="s3v4"),
-            region_name="us-east-1",
-        )
-
-        # Create bucket (if it doesn't exist)
-        bucket_name = "brazil"
-        try:
-            s3.create_bucket(Bucket=bucket_name)
-        except s3.exceptions.BucketAlreadyOwnedByYou:
-            pass
-
-        # Walk through the folder and upload files
         for root, _, files in os.walk(self.dir_path):
             for filename in files:
                 local_path = os.path.join(root, filename)
                 s3_path = local_path.replace("\\", "/")
                 s3_path = local_path.replace("./", "")
-
-                print(f"Uploading {local_path} to s3://{s3_path}")
-                s3.upload_file(local_path, bucket_name, s3_path)
+                self.uploader.upload_file(local_path, s3_path)
 
         print("✅ Folder uploaded")
 
 
 if __name__ == "__main__":
-    s = Aneel()
+    s = Aneel(Uploader("brazil"))
     s.scrape()
     s.upload()
