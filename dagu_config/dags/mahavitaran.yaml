@@ -1,0 +1,21 @@
+# Mahavitaran: Daily scraper
+# Runs at 2:10 AM IST
+
+schedule: "40 20 * * *"  # UTC == 2:10 AM IST
+
+steps:
+  - name: scrape
+    executor:
+      type: docker
+      config:
+        image: localhost:5000/india_mahavitaran:latest
+        autoRemove: true
+    command: python scrape.py
+
+  - name: process
+    executor:
+      type: docker
+      config:
+        image: localhost:5000/india_mahavitaran:latest
+        autoRemove: true
+    command: python post_process.py

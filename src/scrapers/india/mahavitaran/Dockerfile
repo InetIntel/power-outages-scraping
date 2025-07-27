@@ -13,8 +13,8 @@ ENV CHROMEDRIVER_PATH=/usr/bin/chromedriver
 
 WORKDIR /app
 
-COPY @replace/requirements.txt .
-COPY @replace/*.py .
+COPY ./src/scrapers/india/mahavitaran/requirements.txt .
+COPY ./src/scrapers/india/mahavitaran/*.py .
 
 RUN pip install --no-cache-dir -r requirements.txt
 

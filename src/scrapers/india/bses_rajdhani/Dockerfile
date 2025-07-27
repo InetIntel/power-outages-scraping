@@ -13,8 +13,8 @@ ENV CHROMEDRIVER_PATH=/usr/bin/chromedriver
 
 WORKDIR /app
 
-COPY @replace/requirements.txt .
-COPY @replace/*.py .
+COPY ./src/scrapers/india/bses_rajdhani/requirements.txt .
+COPY ./src/scrapers/india/bses_rajdhani/*.py .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
