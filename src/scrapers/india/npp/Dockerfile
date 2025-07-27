@@ -13,8 +13,8 @@ ENV CHROMEDRIVER_PATH=/usr/bin/chromedriver
 
 WORKDIR /app
 
-COPY ./src/scrapers/india/goa/requirements.txt .
-COPY ./src/scrapers/india/goa/*.py .
+COPY ./src/scrapers/india/npp/requirements.txt .
+COPY ./src/scrapers/india/npp/*.py .
 COPY ./utils/ utils/
 
 RUN pip install --no-cache-dir -r requirements.txt
