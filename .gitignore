@@ -8,3 +8,4 @@ dagu_config/logs
 dagu_config/suspend
 minio_data
 registry_data
+data/
