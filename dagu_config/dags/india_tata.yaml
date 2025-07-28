@@ -1,4 +1,4 @@
-# schedule: "30 4 * * *"  # Every day at 4:30AM IST
+# schedule: "45 4 * * *"  # Daily at 4:45 AM IST
 
 steps:
   - name: scrape

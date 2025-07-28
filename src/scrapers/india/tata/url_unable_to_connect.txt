@@ -1,0 +1,3 @@
+https://customerportal.tatapower.com/TPCD/OuterOutage.aspx#
+
+**Notes: connected to the site but was unable to get any outage information, even just manually visiting the site I was unable to get information

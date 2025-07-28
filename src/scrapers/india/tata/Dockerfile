@@ -13,8 +13,8 @@ ENV CHROMEDRIVER_PATH=/usr/bin/chromedriver
 
 WORKDIR /app
 
-COPY ./src/scrapers/india/tangedco/requirements.txt .
-COPY ./src/scrapers/india/tangedco/*.py .
+COPY ./src/scrapers/india/tata/requirements.txt .
+COPY ./src/scrapers/india/tata/*.py .
 COPY ./utils/ utils/
 
 RUN pip install --no-cache-dir -r requirements.txt
