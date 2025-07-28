@@ -1,0 +1,18 @@
+# schedule: "30 4 * * *"  # Every day at 4:30AM IST
+
+steps:
+  - name: scrape
+    executor:
+      type: docker
+      config:
+        image: localhost:5000/india_tata:latest
+        autoRemove: true
+    command: python scrape.py
+
+  - name: process
+    executor:
+      type: docker
+      config:
+        image: localhost:5000/india_tata:latest
+        autoRemove: true
+    command: python post_process.py
