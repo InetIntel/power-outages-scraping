@@ -1,4 +1,37 @@
-c
+import os
+import time
+import traceback
+from datetime import datetime
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from selenium.webdriver.support.ui import WebDriverWait, Select
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+
+class BSESYamuna:
+    def __init__(self):
+        self.provider = "bses_yamuna"
+        self.country = "india"
+        self.base_path = "/data"
+
+        # today
+        target_date = datetime.now()
+
+        # DEBUG: Manually test a known date (format: DD-MM-YYYY)
+        # target_date = datetime.strptime("25-07-2025", "%d-%m-%Y")
+
+        self.today_iso = target_date.strftime("%Y-%m-%d")
+        self.today_indian = target_date.strftime("%d-%m-%Y")
+        self.year = target_date.strftime("%Y")
+        self.month = target_date.strftime("%m")
+        self.url = "https://www.bsesdelhi.com/web/bypl/maintenance-outage-schedule"
+
+    def create_folder(self, data_type):
+        folder_path = os.path.join(self.base_path, self.country, self.provider, data_type, self.year, self.month)
+        os.makedirs(folder_path, exist_ok=True)
+        return folder_path
+
     def get_chrome_driver(self):
         options = Options()
         options.add_argument("--headless")
