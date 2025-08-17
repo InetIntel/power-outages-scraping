@@ -15,14 +15,14 @@ class BSESRajdhani:
         self.country = "india"
         self.base_path = "/data"
 
-        # Optional debug date (format: DD-MM-YYYY)
-        # target_date = datetime.strptime("05-06-2025", "%d-%m-%Y")  # DEBUG
+        # Optional debug date (format: MM-DD-YYYY)
+        # target_date = datetime.strptime("05-09-2025", "%m-%d-%Y")  # DEBUG
 
         # today if debug not set
         target_date = datetime.now()
 
         self.today_iso = target_date.strftime("%Y-%m-%d")
-        self.today_indian = target_date.strftime("%d-%m-%Y")  # DD-MM-YYYY
+        self.today_indian = target_date.strftime("%m-%d-%Y")  # MM-DD-YYYY
         self.year = target_date.strftime("%Y")
         self.month = target_date.strftime("%m")
         self.url = "https://www.bsesdelhi.com/web/brpl/maintenance-outage-schedule"
@@ -49,8 +49,12 @@ class BSESRajdhani:
             WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.TAG_NAME, "select")))
             dropdowns = driver.find_elements(By.TAG_NAME, "select")
 
-            print(f"Using date for selection: {self.today_indian}")
             try:
+                # Wait for the specific option to be present
+                date_option_xpath = f"//select/option[@value='{self.today_indian}']"
+                WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, date_option_xpath)))
+                print(f"Successfully found date option for {self.today_indian}")
+
                 Select(dropdowns[0]).select_by_value(self.today_indian)
             except Exception as e:
                 print(f"Date not available in dropdown: {self.today_indian}")
@@ -103,13 +107,12 @@ class BSESRajdhani:
                 EC.presence_of_element_located((By.XPATH, "//tbody[@id='maintainanceScheduleData']/tr"))
             )
 
-            table_div = driver.find_element(By.ID, "UserSessionTable")
-            html = table_div.get_attribute("outerHTML")
+            html = driver.page_source
 
             file_path = os.path.join(raw_folder, f"power_outages.IND.{self.provider}.raw.{self.today_iso}.html")
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(html)
-            print(f"Saved raw outage table HTML: {file_path}")
+            print(f"Saved entire page HTML: {file_path}")
 
         except Exception as e:
             print(f"Scraping failed: {type(e).__name__}: {e}")

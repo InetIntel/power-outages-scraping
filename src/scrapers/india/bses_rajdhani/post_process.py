@@ -11,10 +11,10 @@ class BSESRajdhaniProcessor:
         self.base_path = "/data"
 
         # Use a specific debug date (optional)
-        # target = datetime.strptime("05-06-2025", "%d-%m-%Y")  # DEBUG: hardcoded test date
+        target = datetime.strptime("05-06-2025", "%d-%m-%Y")  # DEBUG: hardcoded test date
 
         # today’s date if debug is not used
-        target = datetime.now()
+        # target = datetime.now()
 
         self.today_iso = target.strftime("%Y-%m-%d")
         self.year = target.strftime("%Y")

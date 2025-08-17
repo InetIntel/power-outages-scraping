@@ -103,13 +103,12 @@ class BSESRajdhani:
                 EC.presence_of_element_located((By.XPATH, "//tbody[@id='maintainanceScheduleData']/tr"))
             )
 
-            table_div = driver.find_element(By.ID, "UserSessionTable")
-            html = table_div.get_attribute("outerHTML")
+            html = driver.page_source
 
             file_path = os.path.join(raw_folder, f"power_outages.IND.{self.provider}.raw.{self.today_iso}.html")
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(html)
-            print(f"Saved raw outage table HTML: {file_path}")
+            print(f"Saved entire page HTML: {file_path}")
 
         except Exception as e:
             print(f"Scraping failed: {type(e).__name__}: {e}")
