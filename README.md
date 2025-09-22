@@ -1,67 +1,93 @@
-# Power Outage Data Scraping Code
+# Power Outage Data Scraping
 
-#### This repository contains the code to craw power outage data
+## Overview
 
-### The structure is as below
+This repo contains the workflow for scraping data from power providers in different countries using Docker, DAGU, and minio.
+- scapers: written in Python using libraries like scrapy.
+- Docker: containerizes the scraping, post-processing, and upload scripts.
+- DAGU: orchestrates each of the scrapers, running them periodically and managing the various logs and re-tries.
+- minio: block storage for the scraped data.
 
-#### 1. Data Analysis Directory
+## Architecture
 
-##### This directory contains raw csv data about Internet outages from `KeepItOn` and the analysis of the data. We order the occurrences with the most occurrences to the least, and we prioritize the countries experienced more Internet outages, like India and Ukraine
+![Architecture](./old_misc/docs/img/Architecture.jpg)
 
-#### 2. {country name} Directory
+<!-- ## Example
 
-##### The directories named with the country is the scraping code for the power information websites from this country. Every country is divided into different regions
+Refer to the `src/scrapers/brazil/aneel` scraper. -->
 
-#### 3. {power provider} Directory
+## Requirements
 
-##### Each directory named with the power provider contains one Python file to scrape outage data from website and save the raw data, another Python file to process the saved raw data and save the processed data in desired format. The file name of a processor file contains "process" or "processor"
+<!-- Working `scraper.py` and `post_process.py` files for each country and power provider. -->
+TBD. 
 
-### How to run Python file (for India, Nigeria, Pakistan)
+## Getting Started
+### Running a single scraper
+TBD.
 
-#### 1. Scraper file
+TODO: prolly specify an easier workflow for local testing, and then something else for DAGU-docker-minio integration.
 
-##### Scraper files for each provider can be directly executed. For Scrapers in India, Nigeria, and Pakistan directories, processor will be called when running the scraper files
+### Adding a scraper to DAGU
+<!-- 1. Specify a YAML inside of /dagu_config/dags
+2.  -->
+- Create a DAGU configuration file in `dagu_config/dags` to define the DAG (workflow) for the scraper.
+- The DAG should include the tasks for scraping and post-processing.
+- The name should be `{country}_{company}.yaml` Here's an example configuration and reference to the YAML Specification can be found in [here](https://docs.dagu.cloud/reference/yaml).
 
-#### 2. Processor file (India, Nigeria, Pakistan)
+```yaml
+# https://docs.dagu.cloud/features/scheduling
+# schedule: "0 2 * * *" # Daily at 2 AM
+steps:
+  - name: scrape
+    executor:
+      type: docker
+      config:
+        image: localhost:5000/brazil-aneel-scraper:latest
+        autoRemove: true
+    command: python scrape.py
 
-##### Referring to the processor file - process_npp.py in directory india/npp as example, first to provide a relative path to a `file` for processing. Then, modify the variable, `self.folder_path`, in function `check_folder`. This folder path is where you would like to save the processed file. Finally, run the python file
 
-#### 3. daily_scraping.py
+  - name: process
+    executor:
+      type: docker
+      config:
+        image: localhost:5000/brazil-aneel-scraper:latest
+        autoRemove: true
+    command: python post_process.py
+```
 
-##### This file can be run to scrape outage data from all power providers (in the folders of india, pakistan, nigeria) at once. This file will be run daily to scrape the outage data. It is recommended to run near noon time in EST to avoid intermittent internet issue
 
-#### 4. monthly_scraping.py
+### Running the entire set of scrapers 
+**NOTE**: the commands on this readme assumes a UNIX working environment.
 
-##### This file can be run to scrape outage data from two power providers in India which are providing monthly outage data at once. This file will be run monthly
+Starting the containers. Check docker-compose.yml for the services that will be started.
 
-#### 5. process_file.py
+```
+make run
+```
 
-##### This file can be run to process the saved raw files containing outage data in a given date range
+Publish the image by running the command below. It will auto detect the scrapers in the `src/scrapers` and create a Dockerfile.
 
-##### Example script to run
+```shell
+make publish
+```
 
-        python process_file.py \
-            --country india \
-            --provider npp \
-            --start_date 2025-04-18 \
-            --end_date 2025-04-22
+The published image can be verified in the registry by running the following commands:
 
-### File Structure of Ukraine Directory
+```
+curl http://localhost:5000/v2/_catalog
+curl http://localhost:5000/v2/myapp/tags/list
+```
 
-##### The year, month, date and the root directory to save crawled data is in the constants.py in the ukraine directory. You can change the constants in this file
+Navigate to DAGU to run dags in `localhost:8080`
+and the block storage interface can be accessed in `localhost:9090` with the default name/password: `minioadmin`
 
-### <u> Please make sure to change the "root_dir" in constants.py to where you plan to save data </u>
 
-#### 1. Scraper file
+## Resources
 
-##### Scraper files for each oblast(which is province in Ukraine) can be directly executed
+<https://github.com/dagu-org/dagu>
 
-#### 2. Post processor file
+<https://github.com/minio/minio>
 
-##### post_processor.py in every oblast directory. When raw file is crawled, the post_processed could be executed to generate clean data
-
-More details can be seen in Notion Page
-
-## Workflow
-
-Please refer to the [workflow](/docs/workflow.md) for more details on how to run the code.
+## Last Updated
+9/22/25
