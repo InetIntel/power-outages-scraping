@@ -1,0 +1,26 @@
+# https://docs.dagu.cloud/features/scheduling
+# schedule: "@replace_schedule" 
+steps:
+  - name: scrape
+    executor:
+      type: docker
+      config:
+        image: localhost:5000/@replace_scraper_name:latest
+        autoRemove: true
+    command: python scrape.py
+
+  - name: process
+    executor:
+      type: docker
+      config:
+        image: localhost:5000/@replace_scraper_name:latest
+        autoRemove: true
+    command: python post_process.py
+
+  - name: export
+    executor:
+      type: docker
+      config:
+        image: localhost:5000/@replace_scraper_name:latest
+        autoRemove: true
+    command: python export.py

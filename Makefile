@@ -15,3 +15,7 @@ stop:
 .PHONY: publish
 publish:
 	./publish.sh
+
+.PHONY: publish-single
+publish-single:
+	./publish-single.sh "$(FILE_PATH)"
