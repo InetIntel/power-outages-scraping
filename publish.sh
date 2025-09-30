@@ -19,7 +19,7 @@ find "$BASE_DIR" -mindepth 2 -maxdepth 2 -type d | while read -r dir_path; do
 
   echo "$image_name"
 
-  # Replace @replace in the template and write to subdirectory
+# Replace @replace in the Docker.template and write into the subdirectory
   awk -v p="$escaped_path" '{gsub(/@replace/, p); print}' "$TEMPLATE" >"$output_file"
 
   docker build -t localhost:5000/"${image_name}":latest -f "${dir_path}"/Dockerfile .

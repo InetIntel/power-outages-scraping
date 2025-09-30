@@ -16,3 +16,11 @@ steps:
         image: localhost:5000/brazil_aneel:latest
         autoRemove: true
     command: python post_process.py
+
+  # - name: process1
+  #   executor:
+  #     type: docker
+  #     config:
+  #       image: localhost:5000/brazil_aneel:latest
+  #       autoRemove: true
+  #   command: python post_process.py
