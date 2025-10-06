@@ -82,6 +82,17 @@ curl http://localhost:5000/v2/myapp/tags/list
 Navigate to DAGU to run dags in `localhost:8080`
 and the block storage interface can be accessed in `localhost:9090` with the default name/password: `minioadmin`
 
+### Testing DAGU
+- print statements will not print until the particular step is finished
+  - e.g.: if you have a long scrape step, nothing prints until scrape finishes. using print() with flush=True doesn't seem to fix this.
+- make a change in python → rebuild the docker container
+  - `./publish-single.sh ./src/scrapers/your_scraper_here`
+- rerun specific portions of DAGU
+  - e.g.: to rerun the proces part but not the scrape part
+  - click on DAG you want to edit
+  - right click → set status to success
+  - click on "retry DAG execution" (the whirly symbol -- NOT the arrow to "start execution")
+
 
 ## Resources
 
@@ -90,4 +101,4 @@ and the block storage interface can be accessed in `localhost:9090` with the def
 <https://github.com/minio/minio>
 
 ## Last Updated
-9/22/25
+10/6/25
