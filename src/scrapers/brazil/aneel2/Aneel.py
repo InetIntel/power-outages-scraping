@@ -7,11 +7,10 @@ from bs4 import BeautifulSoup
 from tqdm import tqdm
 from utils import Uploader
 
-
 class Aneel:
-    def __init__(self, uploader, year=None):
+    def __init__(self, year=None):
         print("initting")
-        self.uploader = uploader
+        self.uploader = Uploader("brazil")
         self.year = datetime.now().year
         if year:
             self.year = year
@@ -90,6 +89,14 @@ class Aneel:
 
         print(f"Download for {self.year} data is complete")
 
+
+    def process(self):
+        """
+        Code to process (validate the files, check for types, NULL values, etc.) goes here
+        """
+        pass 
+
+
     def upload(self):
         for root, _, files in os.walk(self.dir_path):
             for filename in files:
@@ -98,11 +105,4 @@ class Aneel:
                 s3_path = local_path.replace("./", "")
                 self.uploader.upload_file(local_path, s3_path)
 
-        print("✅ Folder uploaded")
-        #
-
-if __name__ == "__main__":
-    print("in main", flush=True)
-    s = Aneel(Uploader("brazil"))
-    s.scrape()
-    s.upload()
+        print("Folder uploaded")

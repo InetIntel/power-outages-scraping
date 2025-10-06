@@ -14,6 +14,9 @@ OUTPUT_NAME="Dockerfile"
 prefix_removed=${DIR_PATH//.\/src\/scrapers\//}
 image_name=${prefix_removed//\//_}
 
+
+# TODO: use a lighter docker file if we don't need selenium
+
 # using the template, replace placeholder names with the arg path and make a Dockerfile
 awk -v p="$DIR_PATH" '{gsub(/@replace/, p); print}' "$TEMPLATE" >"$DIR_PATH/$OUTPUT_NAME"
 
