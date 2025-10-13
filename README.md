@@ -22,14 +22,25 @@ Refer to the `src/scrapers/brazil/aneel` scraper. -->
 TBD. 
 
 ## Getting Started
-### Running a single scraper
-TBD.
+<!-- ### Running a single scraper -->
+### Converting a single scraper into a docker + DAGU instance
+- TLDR: copy the format of `/src/scrapers/brazil/aneel2` and run a handful of commands
+- have three python files, one for each step of the scraping process (scrape, process, upload), and a requirements.txt
+  - upload can be empty -- still working on that stuff atm
+- make sure the python files are within a folder under `/src/scrapers`
+- build and publish the Docker container: 
+  - `./publish-single.sh ./src/scrapers/your_country/your_power_company`
+- setup your local directories: `make docker-local-setup`
+  - if you don't have a UNIX environment to run the MAKE  commands, look into `publish.sh` and run the individual `mkdir` commands
+- make a DAGU config file 
+  - refer to the [DAGU config section](#adding-a-scraper-to-dagu)
+- `docker compose up -d` or `make run` 
+- inspect and run your scraper at localhost:8080
+  - you can manually run the sraper by hovering the left side and clicking on "DAG Definitions", then clicking on your scaper of choice and clicking the play button
+- NOTE: if you make a change to the DAGU config file, DAGU will update to match. if you make a change to your python files, you will need to rebuild the container (`publish-single`).
 
-TODO: prolly specify an easier workflow for local testing, and then something else for DAGU-docker-minio integration.
 
 ### Adding a scraper to DAGU
-<!-- 1. Specify a YAML inside of /dagu_config/dags
-2.  -->
 - Create a DAGU configuration file in `dagu_config/dags` to define the DAG (workflow) for the scraper.
 - The DAG should include the tasks for scraping and post-processing.
 - The name should be `{country}_{company}.yaml` Here's an example configuration and reference to the YAML Specification can be found in [here](https://docs.dagu.cloud/reference/yaml).
@@ -82,6 +93,17 @@ curl http://localhost:5000/v2/myapp/tags/list
 Navigate to DAGU to run dags in `localhost:8080`
 and the block storage interface can be accessed in `localhost:9090` with the default name/password: `minioadmin`
 
+### Testing DAGU
+- print statements will not print until the particular step is finished
+  - e.g.: if you have a long scrape step, nothing prints until scrape finishes. using print() with flush=True doesn't seem to fix this.
+- make a change in python → rebuild the docker container
+  - `./publish-single.sh ./src/scrapers/your_scraper_here`
+- rerun specific portions of DAGU
+  - e.g.: to rerun the proces part but not the scrape part
+  - click on DAG you want to edit
+  - right click → set status to success
+  - click on "retry DAG execution" (the whirly symbol -- NOT the arrow to "start execution")
+
 
 ## Resources
 
@@ -90,4 +112,4 @@ and the block storage interface can be accessed in `localhost:9090` with the def
 <https://github.com/minio/minio>
 
 ## Last Updated
-9/22/25
+10/6/25
