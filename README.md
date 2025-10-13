@@ -28,7 +28,8 @@ TBD.
 - have three python files, one for each step of the scraping process (scrape, process, upload), and a requirements.txt
   - upload can be empty -- still working on that stuff atm
 - make sure the python files are within a folder under `/src/scrapers`
-- build and publish the Docker container: `./publish-single.sh ./src/scrapers/your_country/your_power_company`
+- build and publish the Docker container: 
+  - `./publish-single.sh ./src/scrapers/your_country/your_power_company`
 - setup your local directories: `make docker-local-setup`
   - if you don't have a UNIX environment to run the MAKE  commands, look into `publish.sh` and run the individual `mkdir` commands
 - make a DAGU config file 
