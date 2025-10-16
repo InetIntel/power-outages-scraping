@@ -13,10 +13,10 @@ ENV CHROMEDRIVER_PATH=/usr/bin/chromedriver
 
 WORKDIR /app
 
-COPY requirements.txt .
-COPY ./*.py .
+COPY @replace/requirements.txt .
+COPY @replace/*.py .
 COPY ./utils/ utils/
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python", "scrape.py"]
+# CMD ["python", "scrape.py"]
