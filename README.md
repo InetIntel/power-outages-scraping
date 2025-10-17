@@ -19,7 +19,8 @@ Refer to the `src/scrapers/brazil/aneel` scraper. -->
 ## Requirements
 
 <!-- Working `scraper.py` and `post_process.py` files for each country and power provider. -->
-TBD. 
+- Docker installed and added to the CLI
+- ideally: some way to run UNIX commands in the CLI -- macos comes w/ this. windows: install git bash, WSL, etc.
 
 ## Getting Started
 <!-- ### Running a single scraper -->

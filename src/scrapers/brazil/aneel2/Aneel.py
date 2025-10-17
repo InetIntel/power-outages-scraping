@@ -16,6 +16,7 @@ class Aneel:
             self.year = year
         self.url = "https://dadosabertos.aneel.gov.br/dataset/interrupcoes-de-energia-eletrica-nas-redes-de-distribuicao"
         self.dir_path = f"./aneel/raw/{self.year}" # the dir to store all scraped files/data in
+        self.raw_data_path = None # to be replaced by upload client later
 
     def __create_dir(self):
         os.makedirs(self.dir_path, exist_ok=True)
@@ -45,7 +46,6 @@ class Aneel:
                     for chunk in res.iter_content(chunk_size=2**12):
                         if chunk:
                             f.write(chunk)
-            break
 
     def __download_csv_with_progress_bar(self, filename_and_url):
         for filename, url in filename_and_url.items():
@@ -94,15 +94,44 @@ class Aneel:
         """
         Code to process (validate the files, check for types, NULL values, etc.) goes here
         """
-        pass 
+        # Inside post_process.py context
+        # storage_client = self.uploader.read_object(self.)
+
+        # 1. Define the S3 path for the file you want to process (it must exist in 'raw')
+        YEAR = 2024
+        FILENAME = "some_data.csv"
+        RAW_S3_PATH = f"raw/{YEAR}/{FILENAME}" 
+
+        # 2. Read the content directly into memory for processing (if small enough)
+        try:
+            raw_csv_content = storage_client.read_object(s3_path=RAW_S3_PATH)
+            
+            # --- Run your processing logic here on raw_csv_content ---
+            # For example, reading it with pandas:
+            # import pandas as pd
+            # df = pd.read_csv(io.StringIO(raw_csv_content))
+            # processed_df = df[df['some_column'] > 0]
+            
+            # 3. Save the processed result back to the 'processed' location
+            PROCESSED_FILENAME = "cleaned_data.csv"
+            # In a real scenario, you'd write the processed data to a *temporary* local path 
+            # or stream it directly if your client supports streaming upload.
+            # For simplicity, let's assume you wrote it to a temp local file named 'temp_processed.csv':
+            # storage_client.upload_file_processed(
+            #     local_path='temp_processed.csv', 
+            #     s3_path=f"{YEAR}/{PROCESSED_FILENAME}" # Note: YEAR is prepended by upload_file_processed
+            # )
+            
+        except Exception as e:
+            print(f"Error during processing: {e}")
 
 
     def upload(self):
         for root, _, files in os.walk(self.dir_path):
             for filename in files:
                 local_path = os.path.join(root, filename)
-                s3_path = local_path.replace("\\", "/")
-                s3_path = local_path.replace("./", "")
-                self.uploader.upload_file(local_path, s3_path)
+                s3_path = local_path.replace("\\", "/") # convert windows slashes
+                s3_path = s3_path.replace("./", "") # remove leading `./`
+                self.uploader.upload_file_processed(local_path, s3_path)
 
         print("Folder uploaded")
