@@ -3,9 +3,9 @@ from botocore.client import Config
 
 
 class StorageClient:
-    def __init__(self, bucket_name):
+    def __init__(self):
         self.bucket_exists = False
-        self.bucket_name = bucket_name
+        # self.bucket_name = bucket_name
         self.client = boto3.client(
             "s3",
             endpoint_url="http://host.docker.internal:9000",
@@ -59,3 +59,21 @@ class StorageClient:
             response = self.client.get_object(Bucket=self.bucket_name, Key=s3_path)
             file_content = response['Body'].read().decode('utf-8') # Assuming CSV/text data
             return file_content
+        
+    def list_keys_by_prefix(self, prefix: str) -> list[str]:
+        """
+        Lists all object keys within a given simulated directory (prefix).
+        """
+        keys = []
+        paginator = self.client.get_paginator('list_objects_v2')
+        
+        # Iterate through all pages of results (S3 limits list results to 1000 per page)
+        pages = paginator.paginate(Bucket=self.bucket_name, Prefix=prefix)
+        
+        for page in pages:
+            if 'Contents' in page:
+                # 'Contents' is a list of dictionaries with metadata
+                for obj in page['Contents']:
+                    keys.append(obj['Key'])
+                    
+        return keys

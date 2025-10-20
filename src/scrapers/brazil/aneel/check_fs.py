@@ -46,7 +46,7 @@ class Aneel:
                     for chunk in res.iter_content(chunk_size=2**12):
                         if chunk:
                             f.write(chunk)
-            break # TODO: remove this -- it'll quit after just 1 file 
+            break
 
     def __download_csv_with_progress_bar(self, filename_and_url):
         for filename, url in filename_and_url.items():
@@ -90,13 +90,15 @@ class Aneel:
 
         print(f"Download for {self.year} data is complete")
 
-    def upload(self):
+    def check_fs(self):
+        print(f"walking down {self.dir_path}")
         for root, _, files in os.walk(self.dir_path):
             for filename in files:
-                local_path = os.path.join(root, filename)
-                s3_path = local_path.replace("\\", "/")
-                s3_path = local_path.replace("./", "")
-                self.uploader.upload_file(local_path, s3_path)
+                print(filename)
+                # local_path = os.path.join(root, filename)
+                # s3_path = local_path.replace("\\", "/")
+                # s3_path = local_path.replace("./", "")
+                # self.uploader.upload_file(local_path, s3_path)
 
         print("✅ Folder uploaded")
         #
@@ -104,5 +106,4 @@ class Aneel:
 if __name__ == "__main__":
     print("in main", flush=True)
     s = Aneel(Uploader("brazil"))
-    s.scrape()
-    s.upload()
+    s.check_fs()

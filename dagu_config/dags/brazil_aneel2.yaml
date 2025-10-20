@@ -7,7 +7,8 @@ steps:
       config:
         image: localhost:5000/brazil_aneel2:latest
         autoRemove: true
-    command: python scrape.py
+    command: python main-prod.py --step scrape
+    output: SCRAPE_RES
 
   - name: process
     executor:
@@ -15,7 +16,7 @@ steps:
       config:
         image: localhost:5000/brazil_aneel2:latest
         autoRemove: true
-    command: python process.py
+    command: python main-prod.py  
 
   - name: upload
     executor:
