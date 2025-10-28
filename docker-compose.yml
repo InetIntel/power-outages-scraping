@@ -21,7 +21,7 @@ services:
     depends_on:
       - registry
       - minio
-    image: "ghcr.io/dagu-org/dagu:1.17.3"
+    image: "ghcr.io/dagu-org/dagu:1.23.0"
     container_name: dagu
     hostname: dagu
     ports:

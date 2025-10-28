@@ -2,10 +2,9 @@ import sys
 import argparse
 import json
 from datetime import datetime
-
-# Note: These files must be accessible in the Docker image's PATH
+import os
 from Scraper import Scraper
-from utils import StorageClient
+# from utils import StorageClient
 
 # --- Configuration ---
 BUCKET_NAME = "" # Must match the bucket name in S3Client
@@ -27,8 +26,8 @@ def main():
         output_key, output_val = None, None
         if args.step == 'scrape':
             BUCKET_NAME = "raw"
-            year = args.year if year in args else None
-            scraper = Scraper(year=year) 
+            # year = args.year if year in args else None
+            scraper = Scraper() 
 
             # --- Dispatch to Aneel.scrape() ---
             # Assume Scraper.scrape() returns the full S3 key (e.g., 'raw/2024/data.csv')
@@ -43,7 +42,7 @@ def main():
             scraper = Scraper(year=year) 
 
             # output_key = '' # not necesssary 
-            # output_val = scraper.process(raw_s3_key=args.s3_key)
+            output_val = scraper.process(raw_s3_key=args.s3_key)
 
         # Output the file name to stdout for usage by later steps
         # -- technically only useful for `process` to access `scrape`'s files but w/e

@@ -1,37 +1,56 @@
 import boto3
 from botocore.client import Config
 
+import traceback
+import sys
 
 class StorageClient:
     def __init__(self):
         self.bucket_exists = False
-        # self.bucket_name = bucket_name
+        # self.bucket_name 
         self.client = boto3.client(
             "s3",
+            # TODO: diff endpoint url if local vs in docker
             endpoint_url="http://host.docker.internal:9000",
+            # endpoint_url="http://localhost:9000",
             aws_access_key_id="minioadmin",
             aws_secret_access_key="minioadmin",
             config=Config(signature_version="s3v4"),
             region_name="us-east-1",
         )
+        try:
+                self.client.create_bucket(Bucket="raw")
+                self.client.create_bucket(Bucket="processed")
+        except self.client.exceptions.BucketAlreadyOwnedByYou:
+            self.bucket_exists = True
+        # self.client.create_bucket(Bucket="raw")
+        # self.client.create_bucket(Bucket="processed")
 
-    def _upload_file(self, local_path, s3_path):
+    def _upload_file(self, local_path: str, s3_path:str, is_raw: bool):
         if not self.bucket_exists:
             try:
-                self.client.create_bucket(Bucket=self.bucket_name)
+                self.client.create_bucket(Bucket="raw")
+                self.client.create_bucket(Bucket="processed")
             except self.client.exceptions.BucketAlreadyOwnedByYou:
                 self.bucket_exists = True
 
-        print(f"Uploading {local_path} to s3://{s3_path}")
-        self.client.upload_file(local_path, self.bucket_name, s3_path)
+        print(f"Uploading {local_path} to s3://{s3_path}", file=sys.stderr) 
+        bucket = "raw" if is_raw else "processed"
+        self.client.upload_file(local_path, bucket, s3_path)
 
     def upload_file_raw(self, local_path, s3_path):
-        new_s3_path = f"raw/{s3_path}"
-        self._upload_file(local_path, new_s3_path)
-    
+        try:
+            new_s3_path = f"raw/{s3_path}"
+            self._upload_file(local_path, new_s3_path, True)
+        except Exception as e:
+            print(f"An error occurred: {e}", file=sys.stderr) 
+            traceback.print_exc() 
+            sys.exit(1)
+
+
     def upload_file_processed(self, local_path, s3_path):
         new_s3_path = f"processed/{s3_path}"
-        self._upload_file(local_path, new_s3_path)
+        self._upload_file(local_path, new_s3_path, False)
 
 
     def read_object(self, s3_path, download_path=None):
@@ -46,12 +65,12 @@ class StorageClient:
             str or None: The content of the file as a string if download_path is None, 
                          otherwise None.
         """
-        print(f"Reading object from s3://{self.bucket_name}/{s3_path}")
+        print(f"Reading object from s3://{self.bucket_name}/{s3_path}", file=sys.stderr) 
         
         # Scenario 1: Large file: Download the file to a specific local path
         if download_path:
             self.client.download_file(self.bucket_name, s3_path, download_path)
-            print(f"Successfully downloaded to: {download_path}")
+            print(f"Successfully downloaded to: {download_path}", file=sys.stderr) 
             return None
         
         # Scenario 2: Small txt/json file: Read content directly into memory
