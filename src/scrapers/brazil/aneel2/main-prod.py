@@ -25,31 +25,23 @@ def main():
         # Run either the scrape or process step
         output_key, output_val = None, None
         if args.step == 'scrape':
-            BUCKET_NAME = "raw"
-            # year = args.year if year in args else None
             scraper = Scraper() 
 
-            # --- Dispatch to Aneel.scrape() ---
-            # Assume Scraper.scrape() returns the full S3 key (e.g., 'raw/2024/data.csv')
-            output_key = 's3_file_key'
+            output_key = 's3_key'
             output_val = scraper.scrape()
         elif args.step == 'process':
-            if not args.s3_file_key:
-                raise ValueError("The 'process' step requires the '--s3-key' argument from the previous step.")
-            
-            BUCKET_NAME = "processed"
             year = args.year if year in args else None
             scraper = Scraper(year=year) 
 
             # output_key = '' # not necesssary 
-            output_val = scraper.process(raw_s3_key=args.s3_key)
+            output_val = scraper.process(s3_dir=args.s3_key)
 
         # Output the file name to stdout for usage by later steps
         # -- technically only useful for `process` to access `scrape`'s files but w/e
-        if output_key and output_val:
-            output_data = {output_key: output_val}
+        # if output_key and output_val:
+        #     output_data = {output_key: output_val}
             # Print the single JSON line to STDOUT for DAGU to capture
-            print(json.dumps(output_data))
+            # print(json.dumps(output_data))
             
     except Exception as e:
         # Print errors to STDERR and exit non-zero for reliable DAGU step failure

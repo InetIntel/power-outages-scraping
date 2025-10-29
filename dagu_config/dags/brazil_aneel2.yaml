@@ -7,19 +7,14 @@ steps:
         image: localhost:5000/brazil_aneel2:latest
         autoRemove: true
     command: python main-prod.py --step scrape
-    output: SCRAPE_RES
 
-  - echo "${SCRAPE_RES}"
-
-  - echo ${SCRAPE_RES.s3_path}
-    
   - name: process
     executor:
       type: docker
       config:
         image: localhost:5000/brazil_aneel2:latest
         autoRemove: true
-    command: python main-prod.py --step process --s3-key ${SCRAPE_RES.s3_path}
+    command: python main-prod.py --step process
 
   - name: upload
     executor:
