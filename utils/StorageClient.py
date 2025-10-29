@@ -34,7 +34,7 @@ class StorageClient:
             except self.client.exceptions.BucketAlreadyOwnedByYou:
                 self.bucket_exists = True
 
-        print(f"Uploading {local_path} to s3://{s3_path}", file=sys.stderr) 
+        print(f"Uploading {local_path} to s3://{s3_path}")
         bucket = "raw" if is_raw else "processed"
         self.client.upload_file(local_path, bucket, s3_path)
 
@@ -43,7 +43,7 @@ class StorageClient:
             new_s3_path = f"{s3_path}"
             self._upload_file(local_path, new_s3_path, True)
         except Exception as e:
-            print(f"An error occurred: {e}", file=sys.stderr) 
+            print(f"An error occurred: {e}")
             traceback.print_exc() 
             sys.exit(1)
 
@@ -65,12 +65,12 @@ class StorageClient:
     #         str or None: The content of the file as a string if download_path is None, 
     #                      otherwise None.
     #     """
-    #     print(f"Reading object from s3://{self.bucket_name}/{s3_path}", file=sys.stderr) 
+    #     print(f"Reading object from s3://{self.bucket_name}/{s3_path}")
         
     #     # Scenario 1: Large file: Download the file to a specific local path
     #     if download_path:
     #         self.client.download_file(self.bucket_name, s3_path, download_path)
-    #         print(f"Successfully downloaded to: {download_path}", file=sys.stderr) 
+    #         print(f"Successfully downloaded to: {download_path}")
     #         return None
         
     #     # Scenario 2: Small txt/json file: Read content directly into memory

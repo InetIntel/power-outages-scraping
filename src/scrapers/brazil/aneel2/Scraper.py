@@ -29,13 +29,30 @@ class Scraper:
         """
         Dummy method that just extracts the raw HTML of the page. 
         """
-        with requests.get(self.url, stream=True) as res:
+        with requests.get(self.url) as res:
             res.raise_for_status()
             with open(f"./raw/{self.dir_path}/random-data.html", "w") as f:
                 f.write(res.text)
 
+        # print eveyrthing
+        def print_all_files_recursive(directory_path):
+            """
+            Prints the full path of all files within a given directory
+            and its subdirectories.
+            """
+            for root, _, files in os.walk(directory_path):
+                for file in files:
+                    full_file_path = os.path.join(root, file)
+                    print(full_file_path)
+
+        # Example usage:
+        # Replace '.' with the desired directory path if you want to scan a different location
+        print("printing dirs: ")
+        target_directory = '.'
+        print_all_files_recursive(target_directory)
+
     def scrape(self):
-        print(f"Downloading {self.year} data", file=sys.stderr) 
+        print(f"Downloading {self.year} data")
 
         try:
             res = requests.get(self.url)
@@ -44,49 +61,68 @@ class Scraper:
             self.__create_dir()
             self.__get_page_data()
 
-            print(f"Download for {self.year} data is complete", file=sys.stderr) 
-            print(f"Starting raw upload", file=sys.stderr) 
+            print(f"Download for {self.year} data is complete")
             # self.upload_raw()
 
         except Exception as e:
-            print(f"An error occurred: {e}", file=sys.stderr) 
+            print(f"An error occurred: {e}")
             traceback.print_exc() 
             sys.exit(1)
             
 
     def upload_raw(self):
+        print(f"[upload_raw] init")
+
+        something_uploaded = False
         s3_path = ""
-        for root, _, files in os.walk(f"./raw/{self.dir_path}"):
+        for root, _, files in os.walk(f"./raw/{self.dir_path[2:]}"):
             for filename in files:
                 local_path = os.path.join(root, filename)
+                print(f"[upload_raw] reading {local_path}")
                 s3_path = local_path.replace("\\", "/") # convert windows slashes
                 s3_path = s3_path.replace("./", "") # remove leading `./`
-                print(f"Trying to upload from {local_path} to {s3_path}", file=sys.stderr) 
+                s3_path = s3_path.replace("raw/", "")
+                print(f"Trying to upload from {local_path} to {s3_path}")
                 self.storage_client.upload_file_raw(local_path, s3_path)
-
+                something_uploaded = True
+    
+        if not something_uploaded:
+            print(f"[upload_raw] nothing uploaded")
+            sys.exit(1)
 
     def process(self):
-        for root, _, files in os.walk(f"./raw/{self.dir_path}"):
-            for raw_file_path in files:
-                print(f"reading for processing: {raw_file_path}")
-                processed_file_path = f"./processed/{self.dir_path}"
-
+        for root, _, files in os.walk(f"./raw/{self.dir_path[2:]}"):
+            for filename in files:
+                local_path = os.path.join(root, filename)
+                print(f"reading for processing: {local_path}")
+                processed_file_path = local_path.replace("raw", "processed")
+                
                 try:
-                    with open(raw_file_path, 'r') as source_file, \
+                    with open(local_path, 'r') as source_file, \
                         open(processed_file_path, 'w') as destination_file:
                         for line in source_file:
                             destination_file.write(line)
-                    print(f"Successfully copied {raw_file_path} to {processed_file_path}")
+                    print(f"Successfully copied {local_path} to {processed_file_path}")
                 except Exception as e:
                     print(f"An error occurred file copy: {e}")
 
 
     def upload_processed(self):
-        for root, _, files in os.walk(f"./processed/{self.dir_path}"):
+        print(f"[upload_processed] init")
+
+        something_uploaded = False
+        s3_path = ""
+        for root, _, files in os.walk(f"./processed/{self.dir_path[2:]}"):
             for filename in files:
                 local_path = os.path.join(root, filename)
+                print(f"[upload_processed] reading {local_path}")
                 s3_path = local_path.replace("\\", "/") # convert windows slashes
                 s3_path = s3_path.replace("./", "") # remove leading `./`
+                s3_path = s3_path.replace("processed/", "")
+                print(f"Trying to upload from {local_path} to {s3_path}")
                 self.storage_client.upload_file_processed(local_path, s3_path)
-
-        print("Folder uploaded", file=sys.stderr) 
+                something_uploaded = True
+    
+        if not something_uploaded:
+            print(f"[upload_processed]nothing uploaded")
+            sys.exit(1)

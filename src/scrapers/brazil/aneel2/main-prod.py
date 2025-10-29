@@ -29,12 +29,17 @@ def main():
 
             output_key = 's3_key'
             output_val = scraper.scrape()
-        elif args.step == 'process':
-            # year = args.year if year in args else None
+        elif args.step == 'upload_raw':
             scraper = Scraper() 
-
-            # output_key = '' # not necesssary 
+            scraper.upload_raw()
+        elif args.step == 'process':
+            scraper = Scraper() 
             output_val = scraper.process()
+        elif args.step == 'upload_processed':
+            scraper = Scraper() 
+            scraper.upload_processed()
+        else:
+            raise ValueError("Invalid DAG step provided")
 
         # Output the file name to stdout for usage by later steps
         # -- technically only useful for `process` to access `scrape`'s files but w/e
@@ -45,7 +50,7 @@ def main():
             
     except Exception as e:
         # Print errors to STDERR and exit non-zero for reliable DAGU step failure
-        print(f"FATAL ERROR in {args.step} step: {e}", file=sys.stderr)
+        print(f"FATAL ERROR in {args.step} step: {e}")
         sys.exit(1) # sys.exit -> can return later
 
 if __name__ == "__main__":
