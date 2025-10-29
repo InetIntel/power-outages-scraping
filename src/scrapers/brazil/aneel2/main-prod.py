@@ -12,13 +12,13 @@ BUCKET_NAME = "" # Must match the bucket name in S3Client
 def main():
     parser = argparse.ArgumentParser(description="Aneel Scraper and Processor DAG Step.")
     
-    # Common arguments for step dispatch
-    parser.add_argument('--step', required=True, choices=['scrape', 'process'],
+    # CLI arguments for step dispatch
+    parser.add_argument('--step', required=True, choices=['scrape', 'upload_raw', 'process', 'upload_processed'],
                         help="The DAG step to execute: 'scrape' or 'process'.")
     
     # Specific argument for the 'process' step (the S3 Key passed from DAGU)
-    parser.add_argument('--s3-key', type=str,
-                        help="The S3 key of the raw file to process.")
+    # parser.add_argument('--s3-key', type=str,
+    #                     help="The S3 key of the raw file to process.")
     
     args = parser.parse_args()
     try:
@@ -30,11 +30,11 @@ def main():
             output_key = 's3_key'
             output_val = scraper.scrape()
         elif args.step == 'process':
-            year = args.year if year in args else None
-            scraper = Scraper(year=year) 
+            # year = args.year if year in args else None
+            scraper = Scraper() 
 
             # output_key = '' # not necesssary 
-            output_val = scraper.process(s3_dir=args.s3_key)
+            output_val = scraper.process()
 
         # Output the file name to stdout for usage by later steps
         # -- technically only useful for `process` to access `scrape`'s files but w/e

@@ -1,28 +1,35 @@
 # schedule: "0 2 * * *" # Daily at 2 AM
+container:
+  image: localhost:5000/brazil_aneel2:latest
+
+
 steps:
   - name: scrape
-    executor:
-      type: docker
-      config:
-        image: localhost:5000/brazil_aneel2:latest
-        autoRemove: true
+    # executor:
+    #   type: docker
+    #   config:
+    #     image: localhost:5000/brazil_aneel2:latest
+    #     autoRemove: true
     command: python main-prod.py --step scrape
 
+  - name: upload_raw
+    command: python main-prod.py --step upload_raw
+
   - name: process
-    executor:
-      type: docker
-      config:
-        image: localhost:5000/brazil_aneel2:latest
-        autoRemove: true
+    # executor:
+    #   type: docker
+    #   config:
+    #     image: localhost:5000/brazil_aneel2:latest
+    #     autoRemove: true
     command: python main-prod.py --step process
 
-  - name: upload
-    executor:
-      type: docker
-      config:
-        image: localhost:5000/brazil_aneel2:latest
-        autoRemove: true
-    command: python main-prod.py --step upload
+  - name: upload_processed
+    # executor:
+    #   type: docker
+    #   config:
+    #     image: localhost:5000/brazil_aneel2:latest
+    #     autoRemove: true
+    command: python main-prod.py --step upload_processed
 
   
   - name: tingus

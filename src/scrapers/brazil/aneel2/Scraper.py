@@ -20,7 +20,10 @@ class Scraper:
         self.dir_path = f"./aneel/{self.year}" # the dir to store all scraped files/data in
 
     def __create_dir(self):
-        os.makedirs(self.dir_path, exist_ok=True)
+        # os.makedirs(self.dir_path, exist_ok=True)
+        dir_without_first_slash = self.dir_path[2:]
+        os.makedirs(f"./raw/{dir_without_first_slash}", exist_ok=True)
+        os.makedirs(f"./processed/{dir_without_first_slash}", exist_ok=True)
 
     def __get_page_data(self):
         """
@@ -28,7 +31,7 @@ class Scraper:
         """
         with requests.get(self.url, stream=True) as res:
             res.raise_for_status()
-            with open(f"{self.dir_path}/raw/random-data.html", "w") as f:
+            with open(f"./raw/{self.dir_path}/random-data.html", "w") as f:
                 f.write(res.text)
 
     def scrape(self):
@@ -43,7 +46,7 @@ class Scraper:
 
             print(f"Download for {self.year} data is complete", file=sys.stderr) 
             print(f"Starting raw upload", file=sys.stderr) 
-            self.upload_raw()
+            # self.upload_raw()
 
         except Exception as e:
             print(f"An error occurred: {e}", file=sys.stderr) 
@@ -53,7 +56,7 @@ class Scraper:
 
     def upload_raw(self):
         s3_path = ""
-        for root, _, files in os.walk(f"{self.dir_path}/raw"):
+        for root, _, files in os.walk(f"./raw/{self.dir_path}"):
             for filename in files:
                 local_path = os.path.join(root, filename)
                 s3_path = local_path.replace("\\", "/") # convert windows slashes
@@ -63,40 +66,23 @@ class Scraper:
 
 
     def process(self):
-        """
-        Code to process (validate the files, check for types, NULL values, etc.) goes here
-        """
-        for root, _, files in os.walk(f"{self.dir_path}/raw/"):
-            for source_file_path in files:
-                # with open(f"{self.dir_path}/raw/{filename}", "r") as f:
-                #     with open(f"{self.dir_path}/processed/{filename}", "w") as f1:
-                #         f.write()
-                
-                # # Save the processed result back to the 'processed' location
-                # self.storage_client.upload_file_processed(
-                #     local_path=self.dir_path, 
-                #     s3_path= file_str_new
-                # )
+        for root, _, files in os.walk(f"./raw/{self.dir_path}"):
+            for raw_file_path in files:
+                print(f"reading for processing: {raw_file_path}")
+                processed_file_path = f"./processed/{self.dir_path}"
 
-                print(f"reading for processing: {source_file_path}")
-                destination_file_path = ""
-
-                # try:
-                #     with open(source_file_path, 'r') as source_file, \
-                #         open(destination_file_path, 'w') as destination_file:
-                        
-                #         # Iterating over the file object reads lines one by one.
-                #         for line in source_file:
-                #             destination_file.write(line)
-
-                #     print(f"Successfully copied contents line by line.")
-
-                # except Exception as e:
-                #     print(f"An error occurred during line-by-line copy: {e}")
+                try:
+                    with open(raw_file_path, 'r') as source_file, \
+                        open(processed_file_path, 'w') as destination_file:
+                        for line in source_file:
+                            destination_file.write(line)
+                    print(f"Successfully copied {raw_file_path} to {processed_file_path}")
+                except Exception as e:
+                    print(f"An error occurred file copy: {e}")
 
 
     def upload_processed(self):
-        for root, _, files in os.walk(self.dir_path):
+        for root, _, files in os.walk(f"./processed/{self.dir_path}"):
             for filename in files:
                 local_path = os.path.join(root, filename)
                 s3_path = local_path.replace("\\", "/") # convert windows slashes

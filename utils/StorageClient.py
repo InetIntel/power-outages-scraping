@@ -40,7 +40,7 @@ class StorageClient:
 
     def upload_file_raw(self, local_path, s3_path):
         try:
-            new_s3_path = f"raw/{s3_path}"
+            new_s3_path = f"{s3_path}"
             self._upload_file(local_path, new_s3_path, True)
         except Exception as e:
             print(f"An error occurred: {e}", file=sys.stderr) 
@@ -49,7 +49,7 @@ class StorageClient:
 
 
     def upload_file_processed(self, local_path, s3_path):
-        new_s3_path = f"processed/{s3_path}"
+        new_s3_path = f"{s3_path}"
         self._upload_file(local_path, new_s3_path, False)
 
 
