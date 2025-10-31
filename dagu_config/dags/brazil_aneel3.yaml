@@ -1,0 +1,27 @@
+# schedule: "0 2 * * *" # Daily at 2 AM
+container:
+  image: localhost:5000/brazil_aneel3:latest
+
+steps:
+  - name: scrape
+    command: python main-prod.py --step scrape
+    retryPolicy: 
+      # time_for_retry = 1second * intervalSec ** retry_number
+      # e.g.: limit 5, intervalSec 2 -> 2, 4, 8, 16, 32s
+      limit: 3
+      intervalSec: 5 # 5, 25, 125
+      backoff: true
+
+  - name: upload_raw
+    command: python main-prod.py --step upload_raw
+    retryPolicy: 
+      limit: 3
+      intervalSec: 5 # 5, 25, 125
+      backoff: true
+
+  - name: process
+    command: python main-prod.py --step process
+
+  - name: upload_processed
+    command: python main-prod.py --step upload_processed
+

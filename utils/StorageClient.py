@@ -23,8 +23,7 @@ class StorageClient:
                 self.client.create_bucket(Bucket="processed")
         except self.client.exceptions.BucketAlreadyOwnedByYou:
             self.bucket_exists = True
-        # self.client.create_bucket(Bucket="raw")
-        # self.client.create_bucket(Bucket="processed")
+
 
     def _upload_file(self, local_path: str, s3_path:str, is_raw: bool):
         if not self.bucket_exists:
@@ -38,10 +37,11 @@ class StorageClient:
         bucket = "raw" if is_raw else "processed"
         self.client.upload_file(local_path, bucket, s3_path)
 
+
     def upload_file_raw(self, local_path, s3_path):
         try:
             new_s3_path = f"{s3_path}"
-            self._upload_file(local_path, new_s3_path, True)
+            self._upload_file(local_path, new_s3_path, is_raw=True)
         except Exception as e:
             print(f"An error occurred: {e}")
             traceback.print_exc() 
@@ -50,7 +50,7 @@ class StorageClient:
 
     def upload_file_processed(self, local_path, s3_path):
         new_s3_path = f"{s3_path}"
-        self._upload_file(local_path, new_s3_path, False)
+        self._upload_file(local_path, new_s3_path, is_raw=False)
 
 
     # def read_object(self, s3_path, download_path=None):
