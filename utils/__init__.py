@@ -1,4 +1,6 @@
 from .StorageClient import StorageClient
+from .BaseScraper import BaseScraper
+
 # import boto3
 # from botocore.client import Config
 
