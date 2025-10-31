@@ -23,9 +23,22 @@ Refer to the `src/scrapers/brazil/aneel` scraper. -->
 - ideally: some way to run UNIX commands in the CLI -- macos comes w/ this. windows: install git bash, WSL, etc.
 
 ## Getting Started
-<!-- ### Running a single scraper -->
+
+### Converting a single scraper into a docker + DAGU instance (NEW but kinda rushed)
+- TLDR: copy `src/scrapers/brazil/aneel3`, make a DAGU YAML (copy brazil_aneel3.yaml and edit)
+- make a directory structued as such: `src/scrapers/country/power_company` 
+- implement the Scraper interface in Scraper.py (just the scrape and process functions)
+  - it assumes that you scrape raw files into a `/raw` sub directory, and process it into a `/processed` subdir
+  - currently, the buckets are to be structued as such:
+    - `raw/country/power-company/date-that-data-represents_date-data-was-scraped`
+    - `processed/country/power-company/date-that-data-represents_date-data-was-scraped`
+    - e.g.: if we have data for 7/27/24 scraped on 10/31/25 5PM, it'd be `2024-7-27_2025-10-31-05-00-00.csv`
+    - each raw file should eventually have a matching processed file. the paths are the same, with only the bucket name differentiating them.
+- make a `main-prod.py` folder. format similarly to aneel3 -- it just calls Scraper a bunch of times. 
+- see below for building + publishing
+
 ### Converting a single scraper into a docker + DAGU instance
-- TLDR: copy the format of `/src/scrapers/brazil/aneel2` and run a handful of commands
+- TLDR: copy the format of `/src/scrapers/brazil/aneel3` and run a handful of commands
 - have three python files, one for each step of the scraping process (scrape, process, upload), and a requirements.txt
   - upload can be empty -- still working on that stuff atm
 - make sure the python files are within a folder under `/src/scrapers`
