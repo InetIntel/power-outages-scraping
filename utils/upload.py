@@ -1,5 +1,6 @@
 import boto3
 from botocore.client import Config
+from botocore.exceptions import ClientError
 
 
 class Uploader:
@@ -22,5 +23,18 @@ class Uploader:
             except self.client.exceptions.BucketAlreadyOwnedByYou:
                 self.bucket_exists = True
 
-        print(f"Uploading {local_path} to s3://{s3_path}")
+        print(f"Uploading {local_path} to s3://{self.bucket_name}/{s3_path}")
         self.client.upload_file(local_path, self.bucket_name, s3_path)
+
+    def download_file(self, s3_path, local_path):
+        try:
+            print(f"Downloading s3://{self.bucket_name}/{s3_path} to {local_path}")
+            self.client.download_file(self.bucket_name, s3_path, local_path)
+            print(f"Downloaded to {local_path}")
+        except ClientError as e:
+            if e.response["Error"]["Code"] == "404":
+                raise FileNotFoundError(
+                    f"File not found in S3: s3://{self.bucket_name}/{s3_path}"
+                )
+            else:
+                raise
