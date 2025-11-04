@@ -22,6 +22,8 @@ class Ikeja:
         os.makedirs(self.folder_path, exist_ok=True)
 
     async def fetch(self):
+        from utils.upload import Uploader
+
         self.check_folder("raw")
         async with self.semaphore:
             try:
@@ -44,11 +46,18 @@ class Ikeja:
                 with open(file_path, "w", encoding="utf-8") as file:
                     file.write(response.text)
 
+                try:
+                    uploader = Uploader("nigeria")
+                    s3_path = f"nigeria/ikeja/raw/{self.year}/{self.month}/{file_name}"
+                    uploader.upload_file(file_path, s3_path)
+                    print(f"Uploaded raw file to S3: {s3_path}")
+                except Exception as e:
+                    print(f"Error uploading raw file to S3: {e}")
+
                 process = Process_Ikeja(
                     self.year,
                     self.month,
                     self.today,
-                    file_path,
                 )
                 process.run()
             else:
