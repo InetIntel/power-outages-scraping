@@ -7,6 +7,10 @@ class Scraper(BaseScraper):
     year = 2025
     url = "https://www.youtube.com/"
     dir_path = f"./brazil/aneel"
+    """
+    raw/country_name/power_company/date-scraping-for__date-scraping-on__raw-country-power_company
+    processed
+    """
 
     def scrape(self):
         print(f"Downloading {self.year} data")
@@ -22,25 +26,6 @@ class Scraper(BaseScraper):
 
         print(f"Download for {self.year} data is complete")
 
-
-    def upload_raw(self):
-        print(f"[upload_raw] init")
-
-        something_uploaded = False
-        s3_path = ""
-        for root, _, files in os.walk(f"./raw/{self.dir_path[2:]}"):
-            for filename in files:
-                local_path = os.path.join(root, filename)
-                print(f"[upload_raw] reading {local_path}")
-                s3_path = local_path.replace("\\", "/") # convert windows slashes
-                s3_path = s3_path.replace("./", "") # remove leading `./`
-                s3_path = s3_path.replace("raw/", "")
-                print(f"Trying to upload from {local_path} to {s3_path}")
-                self.storage_client.upload_file_raw(local_path, s3_path)
-                something_uploaded = True
-    
-        if not something_uploaded:
-            raise RuntimeError(f"[upload_raw] nothing uploaded")
 
 
     def process(self):

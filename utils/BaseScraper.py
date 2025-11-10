@@ -52,7 +52,7 @@ class BaseScraper(ABC):
                 if is_raw:
                     self.storage_client.upload_file_raw(local_path, s3_path)
                 else:
-                    self.storage_client.upload_file_processed(local_path, s3_path)
+                    self.storage_client.upload_file_(local_path, s3_path)
                 something_uploaded = True
     
         if not something_uploaded:
