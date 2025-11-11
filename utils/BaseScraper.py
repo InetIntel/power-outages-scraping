@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 import os
 import sys
 from datetime import datetime
-from typing import Optional, Dict, List
+from typing import List, Dict, Optional, Tuple, Any
 from utils import StorageClient
 
 class BaseScraper(ABC):
@@ -52,7 +52,7 @@ class BaseScraper(ABC):
                 if is_raw:
                     self.storage_client.upload_file_raw(local_path, s3_path)
                 else:
-                    self.storage_client.upload_file_(local_path, s3_path)
+                    self.storage_client.upload_file_processed(local_path, s3_path)
                 something_uploaded = True
     
         if not something_uploaded:
@@ -70,7 +70,22 @@ class BaseScraper(ABC):
         Uploads a single processed file to S3 'processed/'.
         """
         self.__upload(is_raw=False)
-        
+
+
+    def download_file(self, s3_path: str, local_path: str, is_raw):
+        """Downloads an object from S3 to a specific local path."""
+        bucket = "raw" if is_raw else "processed"
+        self.storage_client.download_file(s3_path, local_path, is_raw=True)
+
+    def download_raw(self, s3_path, local_path):
+        """
+        Downloads the data from the previous step from s3.
+        """
+        self.download_file(s3_path, local_path, is_raw=True)
+
+    def get_raw_since_time(self, start_time, prefix):
+        return self.storage_client.get_keys_since_time(prefix, start_time)
+    
 
     # ======================================================================
     # ABSTRACT METHODS (MUST be implemented by the user)
