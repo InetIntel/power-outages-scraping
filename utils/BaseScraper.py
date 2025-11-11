@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 import os
 import sys
-from datetime import datetime
-from typing import Optional, Dict, List
+from datetime import datetime, timedelta
+from typing import List, Dict, Optional, Tuple, Any
 from utils import StorageClient
 
 class BaseScraper(ABC):
@@ -18,16 +18,9 @@ class BaseScraper(ABC):
         if not hasattr(self, 'dir_path') or not self.dir_path:
             raise NotImplementedError("Subclasses must define the 'dir_path' attribute (e.g., './brazil/aneel').")
             
+        # create the local raw/ and processed/ directories for temporary storage.
         self.raw_local_dir = f"./raw/{self.dir_path.lstrip('./')}"
         self.processed_local_dir = f"./processed/{self.dir_path.lstrip('./')}"
-        
-        self.__create_dirs()
-
-
-    def __create_dirs(self):
-        """
-        Creates the local raw/ and processed/ directories for temporary storage.
-        """
         os.makedirs(self.raw_local_dir, exist_ok=True)
         os.makedirs(self.processed_local_dir, exist_ok=True)
 
@@ -52,11 +45,12 @@ class BaseScraper(ABC):
                 if is_raw:
                     self.storage_client.upload_file_raw(local_path, s3_path)
                 else:
-                    self.storage_client.upload_file_(local_path, s3_path)
+                    self.storage_client.upload_file_processed(local_path, s3_path)
                 something_uploaded = True
     
         if not something_uploaded:
             raise RuntimeError(f"[upload_{parent_dir}] nothing uploaded")
+        
         
     def upload_raw(self) -> str:
         """
@@ -70,7 +64,34 @@ class BaseScraper(ABC):
         Uploads a single processed file to S3 'processed/'.
         """
         self.__upload(is_raw=False)
-        
+
+
+    def download_raw(self, s3_path, local_path):
+        """
+        Downloads from s3 the data from the previous step.
+        """
+        # self.download_file(s3_path, local_path, is_raw=True)
+
+
+    def download_raw_files(self, time_delta: Optional[timedelta] = None):
+        """
+        Downloads all files from s3 that were made since `time_delta`.
+        """
+        # check for files made within the last N min by default
+        if time_delta is None:
+            time_delta = timedelta(minutes=10)
+
+        time_start = datetime.now() - time_delta
+        raw_files = self.get_raw_since_time(time_start, self.dir_path[2:])
+
+        for file_name in raw_files:
+            print(f"[download_raw_files] downloading {file_name}")
+            self.storage_client.download_file(s3_path=file_name, local_path=f"./raw/{file_name}", is_raw=True)
+
+
+    def get_raw_since_time(self, start_time, prefix):
+        return self.storage_client.get_keys_since_time(prefix, start_time)
+    
 
     # ======================================================================
     # ABSTRACT METHODS (MUST be implemented by the user)
@@ -89,3 +110,14 @@ class BaseScraper(ABC):
         Process the local data and savei into self.processed_local_dir
         """
         pass
+
+
+    def scrape_upload(self):
+        self.scrape()
+        self.upload_raw()
+
+
+    def download_process_upload(self, time_delta=None):
+        self.download_raw_files(time_delta)
+        self.process()
+        self.upload_processed()

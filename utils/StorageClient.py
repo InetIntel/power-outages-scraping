@@ -1,8 +1,10 @@
 import boto3
 from botocore.client import Config
-
 import traceback
 import sys
+from datetime import datetime, timezone
+from typing import List, Dict, Optional, Tuple, Any
+from .parseTimeDelta import print_all_files_recursive
 
 class StorageClient:
     def __init__(self):
@@ -49,50 +51,64 @@ class StorageClient:
 
 
     def upload_file_processed(self, local_path, s3_path):
-        new_s3_path = f"{s3_path}"
-        self._upload_file(local_path, new_s3_path, is_raw=False)
+        try:
+            new_s3_path = f"{s3_path}"
+            self._upload_file(local_path, new_s3_path, is_raw=False)
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            traceback.print_exc() 
+            sys.exit(1)
 
+    def get_keys_since_time(self, 
+                        prefix: str, 
+                        start_time: datetime) -> List[str]:
+        """
+        Lists all object keys under a prefix that were modified after the start_time.
 
-    # def read_object(self, s3_path, download_path=None):
-    #     """
-    #     Downloads an object from S3.
+        Args:
+            prefix: The virtual directory to search within (e.g., 'brazil/aneel/2024/').
+            start_time: Only files with LastModified > this time will be returned.
 
-    #     Args:
-    #         s3_path (str): The full key of the object in S3 (e.g., 'raw/2024/data.csv').
-    #         download_path (str, optional): If provided, downloads the file locally to this path.
-    #                                        If None, returns the content as bytes/string.
-    #     Returns:
-    #         str or None: The content of the file as a string if download_path is None, 
-    #                      otherwise None.
-    #     """
-    #     print(f"Reading object from s3://{self.bucket_name}/{s3_path}")
+        Returns:
+            A sorted list of full S3 keys (e.g., ['raw/2024/f1.csv', 'raw/2024/f2.csv'])
+
+        (AI)
+        """
+        # full_prefix_path = f"{zone_prefix}{prefix}"
+        full_prefix_path = f"{prefix}"
+        print(f"Listing files in '{full_prefix_path}' modified since {start_time}", file=sys.stderr)
         
-    #     # Scenario 1: Large file: Download the file to a specific local path
-    #     if download_path:
-    #         self.client.download_file(self.bucket_name, s3_path, download_path)
-    #         print(f"Successfully downloaded to: {download_path}")
-    #         return None
+        target_keys_with_time: List[Tuple[datetime, str]] = []
+        paginator = self.client.get_paginator('list_objects_v2')
         
-    #     # Scenario 2: Small txt/json file: Read content directly into memory
-    #     else:
-    #         response = self.client.get_object(Bucket=self.bucket_name, Key=s3_path)
-    #         file_content = response['Body'].read().decode('utf-8') # Assuming CSV/text data
-    #         return file_content
+        # Set the prefix to search within
+        pages = paginator.paginate(Bucket="raw", Prefix=full_prefix_path)
         
-    # def list_keys_by_prefix(self, prefix: str) -> list[str]:
-    #     """
-    #     Lists all object keys within a given simulated directory (prefix).
-    #     """
-    #     keys = []
-    #     paginator = self.client.get_paginator('list_objects_v2')
-        
-    #     # Iterate through all pages of results (S3 limits list results to 1000 per page)
-    #     pages = paginator.paginate(Bucket=self.bucket_name, Prefix=prefix)
-        
-    #     for page in pages:
-    #         if 'Contents' in page:
-    #             # 'Contents' is a list of dictionaries with metadata
-    #             for obj in page['Contents']:
-    #                 keys.append(obj['Key'])
+        # fix datetime to be timezone agnostic/UTC
+        if start_time.tzinfo is None or start_time.tzinfo.utcoffset(start_time) is None:
+            # Assumes the user provided a naive time that should be treated as UTC
+            start_time = start_time.replace(tzinfo=timezone.utc)
+
+        for page in pages:
+            if 'Contents' in page:
+                for obj in page['Contents']:
+                    last_modified: datetime = obj['LastModified']
+                    key: str = obj['Key']
                     
-    #     return keys
+                    if last_modified > start_time:
+                        target_keys_with_time.append((last_modified, key))
+
+        if not target_keys_with_time:
+            return []
+
+        target_keys_with_time.sort(key=lambda x: x[0])
+        
+        return [key for _, key in target_keys_with_time]
+
+    def download_file(self, s3_path: str, local_path: str, is_raw: bool):
+        """
+        Downloads an object from S3 to a specific local path.
+        """
+        bucket = "raw" if is_raw else "processed"
+        print(f"Downloading s3://{bucket}/{s3_path} to {local_path}")
+        self.client.download_file(bucket, s3_path, local_path)
