@@ -19,7 +19,7 @@ class UK_SP_Energy():
         limit = 100
         offset = 0
         url = "https://spenergynetworks.opendatasoft.com/api/explore/v2.1/catalog/datasets/distribution-network-live-outages/records"
-        apikey = "c48740fe9cb1f27c8c75a25d6ccc93a2e86d04a8e6a355b58a66129a"
+        apikey = "" # Need this from the administrators
 
 
         while True:
