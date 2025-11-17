@@ -63,7 +63,7 @@ def print_all_files_recursive(directory_path: str):
     
     Args:
         directory_path: The root directory to start the recursive search from.
-        
+
     (AI)
     """
     
@@ -83,3 +83,4 @@ def print_all_files_recursive(directory_path: str):
             # os.path.join correctly combines the root directory with the filename 
             # using the OS-appropriate separator (e.g., / or \)
             full_file_path = os.path.join(root, filename)
+            print(full_file_path)

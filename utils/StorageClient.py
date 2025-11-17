@@ -4,6 +4,8 @@ import traceback
 import sys
 from datetime import datetime, timezone
 from typing import List, Dict, Optional, Tuple, Any
+from .parseTimeDelta import print_all_files_recursive
+
 class StorageClient:
     def __init__(self):
         self.bucket_exists = False
@@ -103,7 +105,7 @@ class StorageClient:
         
         return [key for _, key in target_keys_with_time]
 
-    def download_file(self, s3_path: str, local_path: str, is_raw):
+    def download_file(self, s3_path: str, local_path: str, is_raw: bool):
         """
         Downloads an object from S3 to a specific local path.
         """

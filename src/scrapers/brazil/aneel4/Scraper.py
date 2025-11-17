@@ -13,6 +13,7 @@ class Scraper(BaseScraper):
     processed
     """
 
+
     def scrape(self):
         print(f"Downloading {self.year} data")
 
@@ -29,16 +30,12 @@ class Scraper(BaseScraper):
 
 
     def process(self):
-        print("inside process")
         files_processed = 0
-        print_all_files_recursive(f"./raw/{self.dir_path.lstrip('./')}")
 
-        for root, _, files in os.walk("./raw/{self.dir_path.lstrip('./')}"):
+        for root, _, files in os.walk(f"./raw/{self.dir_path.lstrip('./')}"):
             for filename in files:
                 local_path = os.path.join(root, filename)
-                print(f"reading for processing: {local_path}")
                 processed_file_path = local_path.replace("raw", "processed")
-                print(processed_file_path)
                 
                 # NOTE: this example func doesn't do anything. it just writes the same thing back
                 # TODO: make this do something
@@ -47,6 +44,7 @@ class Scraper(BaseScraper):
                     for line in source_file:
                         destination_file.write(line)
                 print(f"Successfully copied {local_path} to {processed_file_path}")
+
                 files_processed += 1
         
         if files_processed == 0:

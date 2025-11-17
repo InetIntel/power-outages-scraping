@@ -18,16 +18,9 @@ class BaseScraper(ABC):
         if not hasattr(self, 'dir_path') or not self.dir_path:
             raise NotImplementedError("Subclasses must define the 'dir_path' attribute (e.g., './brazil/aneel').")
             
+        # create the local raw/ and processed/ directories for temporary storage.
         self.raw_local_dir = f"./raw/{self.dir_path.lstrip('./')}"
         self.processed_local_dir = f"./processed/{self.dir_path.lstrip('./')}"
-        
-        self.__create_dirs()
-
-
-    def __create_dirs(self):
-        """
-        Creates the local raw/ and processed/ directories for temporary storage.
-        """
         os.makedirs(self.raw_local_dir, exist_ok=True)
         os.makedirs(self.processed_local_dir, exist_ok=True)
 
@@ -78,7 +71,6 @@ class BaseScraper(ABC):
         Downloads from s3 the data from the previous step.
         """
         # self.download_file(s3_path, local_path, is_raw=True)
-        self.storage_client.download_file(s3_path, local_path, is_raw=True)
 
 
     def download_raw_files(self, time_delta: Optional[timedelta] = None):
@@ -94,8 +86,7 @@ class BaseScraper(ABC):
 
         for file_name in raw_files:
             print(f"[download_raw_files] downloading {file_name}")
-            self.download_raw(s3_path=file_name, local_path=f"./processed/{file_name}")
-
+            self.storage_client.download_file(s3_path=file_name, local_path=f"./raw/{file_name}", is_raw=True)
 
 
     def get_raw_since_time(self, start_time, prefix):
@@ -121,12 +112,12 @@ class BaseScraper(ABC):
         pass
 
 
+    def scrape_upload(self):
+        self.scrape()
+        self.upload_raw()
+
+
     def download_process_upload(self, time_delta=None):
         self.download_raw_files(time_delta)
         self.process()
         self.upload_processed()
-
-    
-    def scrape_upload(self):
-        self.scrape()
-        self.upload_raw()
