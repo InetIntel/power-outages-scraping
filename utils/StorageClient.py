@@ -49,9 +49,13 @@ class StorageClient:
 
 
     def upload_file_processed(self, local_path, s3_path):
-        new_s3_path = f"{s3_path}"
-        self._upload_file(local_path, new_s3_path, is_raw=False)
-
+        try:
+            new_s3_path = f"{s3_path}"
+            self._upload_file(local_path, new_s3_path, is_raw=False)
+        except Exception as e:
+            print(f"An error occurred: {e}")
+            traceback.print_exc() 
+            sys.exit(1)
 
     def get_keys_since_time(self, 
                         prefix: str, 

@@ -2,6 +2,7 @@ from utils import BaseScraper
 import os
 import requests 
 from datetime import datetime, timedelta
+from utils import print_all_files_recursive
 
 class Scraper(BaseScraper):
     year = 2025
@@ -21,42 +22,32 @@ class Scraper(BaseScraper):
         date = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
         with requests.get(self.url) as res:
             res.raise_for_status()
-            with open(f"./raw/{self.dir_path}/{self.year}_{date}.html", "w") as f:
+            with open(f"./raw/{self.dir_path}/{self.year}_{date}-brazil-aneel-raw.html", "w") as f:
                 f.write(res.text)
 
         print(f"Download for {self.year} data is complete")
 
-        self.upload_raw()
-
 
     def process(self):
-        for root, _, files in os.walk(f"./raw/{self.dir_path[2:]}"):
+        print("inside process")
+        files_processed = 0
+        print_all_files_recursive(f"./raw/{self.dir_path.lstrip('./')}")
+
+        for root, _, files in os.walk("./raw/{self.dir_path.lstrip('./')}"):
             for filename in files:
                 local_path = os.path.join(root, filename)
                 print(f"reading for processing: {local_path}")
                 processed_file_path = local_path.replace("raw", "processed")
+                print(processed_file_path)
                 
+                # NOTE: this example func doesn't do anything. it just writes the same thing back
+                # TODO: make this do something
                 with open(local_path, 'r') as source_file, \
                     open(processed_file_path, 'w') as destination_file:
                     for line in source_file:
                         destination_file.write(line)
                 print(f"Successfully copied {local_path} to {processed_file_path}")
-
-    
-    def download_raw_files(self, time_delta=None):
-        # check for files made within the last 10 min by default
-        if time_delta is None:
-            time_delta = timedelta(minutes=10)
-
-        time_start = datetime.now() - time_delta
-        raw_files = self.get_raw_since_time(time_start, self.dir_path[2:])
-
-        for file_name in raw_files:
-            print(f"[download_raw_files] downloading {file_name}")
-            self.download_raw(s3_path=file_name, local_path=f"./processed/{file_name}")
-
-
-    def download_process_upload(self, time_delta=None):
-        self.download_raw_files(time_delta)
-        self.process()
-        self.upload_processed()
+                files_processed += 1
+        
+        if files_processed == 0:
+            raise RuntimeError(f"[process] nothing processed")

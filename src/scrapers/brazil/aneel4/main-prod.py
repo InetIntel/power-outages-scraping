@@ -21,7 +21,7 @@ def main():
     try:
         if args.step == 'scrape':
             scraper = Scraper() 
-            scraper.scrape()
+            scraper.scrape_upload()
         elif args.step == 'process':
             scraper = Scraper() 
             time_delta = parse_time_delta_string(args.time_delta)

@@ -1,6 +1,7 @@
 from datetime import timedelta
 from typing import Optional
 import re
+import os
 import sys
 
 def parse_time_delta_string(time_str: str) -> timedelta:
@@ -53,3 +54,32 @@ def parse_time_delta_string(time_str: str) -> timedelta:
     else:
         # Should be caught by regex, but for safety
         raise ValueError(f"Invalid time unit: '{unit}'.")
+    
+
+def print_all_files_recursive(directory_path: str):
+    """
+    Prints the full path of all regular files within a given directory
+    and its subdirectories.
+    
+    Args:
+        directory_path: The root directory to start the recursive search from.
+        
+    (AI)
+    """
+    
+    # Check if the provided path is a valid directory
+    if not os.path.isdir(directory_path):
+        print(f"Error: '{directory_path}' is not a valid directory.", file=sys.stderr)
+        return
+
+    print(f"--- Files in: {directory_path} ---")
+    
+    # os.walk() is a generator that yields a 3-tuple for each directory:
+    # (root, dirs, files)
+    for root, _, files in os.walk(directory_path):
+        # 'files' is a list of filenames (not full paths) in the current 'root' directory
+        
+        for filename in files:
+            # os.path.join correctly combines the root directory with the filename 
+            # using the OS-appropriate separator (e.g., / or \)
+            full_file_path = os.path.join(root, filename)

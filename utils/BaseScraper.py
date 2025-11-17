@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 import os
 import sys
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import List, Dict, Optional, Tuple, Any
 from utils import StorageClient
 
@@ -73,19 +73,30 @@ class BaseScraper(ABC):
         self.__upload(is_raw=False)
 
 
-    # def download_file(self, s3_path: str, local_path: str, is_raw):
-    #     """
-    #     Downloads an object from S3 to a specific local path.
-    #     """
-    #     bucket = "raw" if is_raw else "processed"
-    #     self.storage_client.download_file(s3_path, local_path, is_raw=True)
-
     def download_raw(self, s3_path, local_path):
         """
         Downloads from s3 the data from the previous step.
         """
         # self.download_file(s3_path, local_path, is_raw=True)
         self.storage_client.download_file(s3_path, local_path, is_raw=True)
+
+
+    def download_raw_files(self, time_delta: Optional[timedelta] = None):
+        """
+        Downloads all files from s3 that were made since `time_delta`.
+        """
+        # check for files made within the last N min by default
+        if time_delta is None:
+            time_delta = timedelta(minutes=10)
+
+        time_start = datetime.now() - time_delta
+        raw_files = self.get_raw_since_time(time_start, self.dir_path[2:])
+
+        for file_name in raw_files:
+            print(f"[download_raw_files] downloading {file_name}")
+            self.download_raw(s3_path=file_name, local_path=f"./processed/{file_name}")
+
+
 
     def get_raw_since_time(self, start_time, prefix):
         return self.storage_client.get_keys_since_time(prefix, start_time)
@@ -108,3 +119,14 @@ class BaseScraper(ABC):
         Process the local data and savei into self.processed_local_dir
         """
         pass
+
+
+    def download_process_upload(self, time_delta=None):
+        self.download_raw_files(time_delta)
+        self.process()
+        self.upload_processed()
+
+    
+    def scrape_upload(self):
+        self.scrape()
+        self.upload_raw()
