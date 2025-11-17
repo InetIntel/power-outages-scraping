@@ -43,16 +43,20 @@ class Scraper(BaseScraper):
                 print(f"Successfully copied {local_path} to {processed_file_path}")
 
     
-    def download_raw_files(self):
-        time_start = datetime.now() - timedelta(days=1) # last 24 hours
+    def download_raw_files(self, time_delta=None):
+        # check for files made within the last 10 min by default
+        if time_delta is None:
+            time_delta = timedelta(minutes=10)
+
+        time_start = datetime.now() - time_delta
         raw_files = self.get_raw_since_time(time_start, self.dir_path[2:])
 
         for file_name in raw_files:
             print(f"[download_raw_files] downloading {file_name}")
-            file = self.download_raw(s3_path=file_name, local_path=f"./processed/{file_name}")
+            self.download_raw(s3_path=file_name, local_path=f"./processed/{file_name}")
 
 
-    def download_process_upload(self):
-        self.download_raw_files()
+    def download_process_upload(self, time_delta=None):
+        self.download_raw_files(time_delta)
         self.process()
         self.upload_processed()

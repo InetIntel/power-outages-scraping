@@ -14,4 +14,4 @@ steps:
       config:
         image: localhost:5000/brazil_aneel4:latest
         autoRemove: true
-    command: python main-prod.py --step process
+    command: python main-prod.py --step process --time_delta 30s

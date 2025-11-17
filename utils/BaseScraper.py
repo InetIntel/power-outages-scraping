@@ -58,6 +58,7 @@ class BaseScraper(ABC):
         if not something_uploaded:
             raise RuntimeError(f"[upload_{parent_dir}] nothing uploaded")
         
+        
     def upload_raw(self) -> str:
         """
         Walks the local raw directory and uploads all files to S3 'raw/'.
@@ -72,16 +73,19 @@ class BaseScraper(ABC):
         self.__upload(is_raw=False)
 
 
-    def download_file(self, s3_path: str, local_path: str, is_raw):
-        """Downloads an object from S3 to a specific local path."""
-        bucket = "raw" if is_raw else "processed"
-        self.storage_client.download_file(s3_path, local_path, is_raw=True)
+    # def download_file(self, s3_path: str, local_path: str, is_raw):
+    #     """
+    #     Downloads an object from S3 to a specific local path.
+    #     """
+    #     bucket = "raw" if is_raw else "processed"
+    #     self.storage_client.download_file(s3_path, local_path, is_raw=True)
 
     def download_raw(self, s3_path, local_path):
         """
-        Downloads the data from the previous step from s3.
+        Downloads from s3 the data from the previous step.
         """
-        self.download_file(s3_path, local_path, is_raw=True)
+        # self.download_file(s3_path, local_path, is_raw=True)
+        self.storage_client.download_file(s3_path, local_path, is_raw=True)
 
     def get_raw_since_time(self, start_time, prefix):
         return self.storage_client.get_keys_since_time(prefix, start_time)
