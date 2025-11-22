@@ -21,6 +21,8 @@ class Scraper(BaseScraper):
         res.raise_for_status()
 
         date = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+        # NOTE: can just dynamically create a URL. doesn't need to call self.url.
+        # realistically, self.url is just there for documentation purposes.
         with requests.get(self.url) as res:
             res.raise_for_status()
             with open(f"./raw/{self.dir_path}/{self.year}_{date}-brazil-aneel-raw.html", "w") as f:
@@ -43,6 +45,7 @@ class Scraper(BaseScraper):
                     open(processed_file_path, 'w') as destination_file:
                     for line in source_file:
                         destination_file.write(line)
+                
                 print(f"Successfully copied {local_path} to {processed_file_path}")
 
                 files_processed += 1

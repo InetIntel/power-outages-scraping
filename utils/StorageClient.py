@@ -5,16 +5,18 @@ import sys
 from datetime import datetime, timezone
 from typing import List, Dict, Optional, Tuple, Any
 from .parseTimeDelta import print_all_files_recursive
-
+import os
 class StorageClient:
     def __init__(self):
         self.bucket_exists = False
         # self.bucket_name 
+
+        is_docker = os.environ.get("IS_DOCKER_CONTAINER") == "true"
+        s3_url = "http://host.docker.internal:9000" if is_docker else "http://localhost:9000"
+
         self.client = boto3.client(
             "s3",
-            # TODO: diff endpoint url if local vs in docker
-            endpoint_url="http://host.docker.internal:9000",
-            # endpoint_url="http://localhost:9000",
+            endpoint_url=s3_url,
             aws_access_key_id="minioadmin",
             aws_secret_access_key="minioadmin",
             config=Config(signature_version="s3v4"),

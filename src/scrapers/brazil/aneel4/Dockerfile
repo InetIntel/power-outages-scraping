@@ -7,3 +7,5 @@ COPY ./src/scrapers/brazil/aneel4/*.py .
 COPY ./utils/ utils/
 
 RUN pip install --no-cache-dir -r requirements.txt
+
+ENV IS_DOCKER_CONTAINER=true

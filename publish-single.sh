@@ -14,8 +14,8 @@ image_name=${prefix_removed//\//_}
 
 
 # use a lighter docker file if we don't need selenium
-TEMPLATE_REGULAR="Dockerfile.template"
-TEMPLATE_SELENIUM="Dockerfile.selenium.template"
+TEMPLATE_REGULAR="./templates/Dockerfile.template"
+TEMPLATE_SELENIUM="./templates/Dockerfile.selenium.template"
 OUTPUT_NAME="Dockerfile"
 CURRENT_TEMPLATE="" # will be set soon
 # check the python requirements.txt to see if we need selenium
@@ -38,7 +38,8 @@ else
 fi
 
 # using the template, replace placeholder names with the arg path and make a Dockerfile
-awk -v p="$DIR_PATH" '{gsub(/@replace/, p); print}' "$CURRENT_TEMPLATE" >"$DIR_PATH/$OUTPUT_NAME"
+# awk -v p="$DIR_PATH" '{gsub(/@replace/, p); print}' "$CURRENT_TEMPLATE" >"$DIR_PATH/$OUTPUT_NAME"
+sed -e "s|@replace|$DIR_PATH|g" "$CURRENT_TEMPLATE" > "$DIR_PATH/$OUTPUT_NAME"
 
 # build + push the image: use the edited path as its name
 # docker build -t "$image_name":pr_$(git rev-parse --short HEAD) -f "${DIR_PATH}"/Dockerfile .
