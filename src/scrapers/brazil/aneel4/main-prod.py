@@ -11,7 +11,7 @@ def main():
     parser = argparse.ArgumentParser(description="Aneel Scraper and Processor DAG Step.")
     
     # CLI arguments for step dispatch
-    parser.add_argument('--step', required=True, choices=['scrape', 'process'],
+    parser.add_argument('--step', required=True, choices=['scrape', 'process', 'scrape_upload', 'download_process_upload'],
                         help="The DAG step to execute: 'scrape' or 'process'.")
     
     parser.add_argument('--time_delta', type=str, default='24h',
@@ -19,13 +19,22 @@ def main():
 
     args = parser.parse_args()
     try:
-        if args.step == 'scrape':
+        # local testing w/o docker: below two doesn't really do much. likely errs outs
+        if args.step == 'scrape_upload':
             scraper = Scraper() 
             scraper.scrape_upload()
-        elif args.step == 'process':
+        elif args.step == 'download_process_upload':
             scraper = Scraper() 
             time_delta = parse_time_delta_string(args.time_delta)
             scraper.download_process_upload(time_delta=time_delta)
+
+        # use below two to test scrape and process in isolation.
+        elif args.step == 'scrape':
+            scraper = Scraper() 
+            scraper.scrape()
+        elif args.step == 'process':
+            scraper = Scraper() 
+            scraper.process()
         else:
             raise ValueError("Invalid DAG step provided")
 

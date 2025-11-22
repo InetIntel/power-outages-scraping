@@ -10,7 +10,11 @@ class BaseScraper(ABC):
         """
         Initializes the storage client, local directories, and place to scrape from.
         """
-        self.storage_client = StorageClient()
+        is_docker = os.environ.get("IS_DOCKER_CONTAINER") == "true"
+        if is_docker:
+            self.storage_client = StorageClient()
+        else:
+            self.storage_client = None
 
         # make sure that child classes have a url and dir_path
         if not hasattr(self, 'url') or not self.url:
@@ -29,6 +33,9 @@ class BaseScraper(ABC):
     # CONCRETE METHODS (Reusable Boilerplate Logic)
     # ======================================================================
     def __upload(self, is_raw: bool):
+        """
+        
+        """
         something_uploaded = False
         parent_dir = "raw" if is_raw else "processed"
         local_dir = self.raw_local_dir if is_raw else self.processed_local_dir
@@ -53,24 +60,11 @@ class BaseScraper(ABC):
         
         
     def upload_raw(self) -> str:
-        """
-        Walks the local raw directory and uploads all files to S3 'raw/'.
-        """
         self.__upload(is_raw=True)
         
 
     def upload_processed(self):
-        """
-        Uploads a single processed file to S3 'processed/'.
-        """
         self.__upload(is_raw=False)
-
-
-    def download_raw(self, s3_path, local_path):
-        """
-        Downloads from s3 the data from the previous step.
-        """
-        # self.download_file(s3_path, local_path, is_raw=True)
 
 
     def download_raw_files(self, time_delta: Optional[timedelta] = None):

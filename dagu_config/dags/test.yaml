@@ -1,9 +1,0 @@
-env:
-  - SHARED_VAR: penis
-steps: 
-  - name: asdadas
-    command: date +%Y%m%d
-    output: TODAY
-  - name: asdasd
-    command: echo ${TODAY}
-  - echo $SHARED_VAR

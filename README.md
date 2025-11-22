@@ -19,70 +19,96 @@ Refer to the `src/scrapers/brazil/aneel` scraper. -->
 ## Requirements
 
 <!-- Working `scraper.py` and `post_process.py` files for each country and power provider. -->
-- Docker installed and added to the CLI
-- ideally: some way to run UNIX commands in the CLI -- macos comes w/ this. windows: install git bash, WSL, etc.
+- Python, Docker installed and added to the CLI
+- Ideally: some way to run UNIX commands in the CLI -- macos comes w/ this. windows: install git bash, WSL, etc. This will come in handy when running the build script (`publish-single.sh`)
 
 ## Getting Started
-
-### Converting a single scraper into a docker + DAGU instance (NEW but kinda rushed)
-- TLDR: copy `src/scrapers/brazil/aneel3`, make a DAGU YAML (copy brazil_aneel3.yaml and edit)
-- make a directory structued as such: `src/scrapers/country/power_company` 
-- implement the Scraper interface in Scraper.py (just the scrape and process functions)
-  - it assumes that you scrape raw files into a `/raw` sub directory, and process it into a `/processed` subdir
-  - currently, the buckets are to be structued as such:
-    - `raw/country/power-company/date-that-data-represents_date-data-was-scraped`
-    - `processed/country/power-company/date-that-data-represents_date-data-was-scraped`
-    - e.g.: if we have data for 7/27/24 scraped on 10/31/25 5PM, it'd be `2024-7-27_2025-10-31-05-00-00.csv`
-    - each raw file should eventually have a matching processed file. the paths are the same, with only the bucket name differentiating them.
-- make a `main-prod.py` folder. format similarly to aneel3 -- it just calls Scraper a bunch of times. 
-- see below for building + publishing
-
-### Converting a single scraper into a docker + DAGU instance
-- TLDR: copy the format of `/src/scrapers/brazil/aneel3` and run a handful of commands
-- have three python files, one for each step of the scraping process (scrape, process, upload), and a requirements.txt
-  - upload can be empty -- still working on that stuff atm
-- make sure the python files are within a folder under `/src/scrapers`
-- build and publish the Docker container: 
-  - `./publish-single.sh ./src/scrapers/your_country/your_power_company`
-- setup your local directories: `make docker-local-setup`
-  - if you don't have a UNIX environment to run the MAKE  commands, look into `publish.sh` and run the individual `mkdir` commands
-- make a DAGU config file 
-  - refer to the [DAGU config section](#adding-a-scraper-to-dagu)
-- `docker compose up -d` or `make run` 
-- inspect and run your scraper at localhost:8080
-  - you can manually run the sraper by hovering the left side and clicking on "DAG Definitions", then clicking on your scaper of choice and clicking the play button
-- NOTE: if you make a change to the DAGU config file, DAGU will update to match. if you make a change to your python files, you will need to rebuild the container (`publish-single`).
+### TLDR
+- Init with `python create-scraper.py` and implement the scrape and process methods in `Scraper.py`
+  - Refer to `./src/brazil/aneel4` for an example implementation. 
+  - Ideally, you never worry about the complications of file uploading. Just scrape and process.
+- Test locally with `PYTHONPATH=. python src/scrapers/[your_country]/[your_secondary]/main-prod.py --step [your_step]`
+- Build with `publish-single.sh [path_to_your_scraper]`
+- `docker compose up -d` and DAGU is on localhost 9090, minio on 8080
 
 
-### Adding a scraper to DAGU
-- Create a DAGU configuration file in `dagu_config/dags` to define the DAG (workflow) for the scraper.
-- The DAG should include the tasks for scraping and post-processing.
-- The name should be `{country}_{company}.yaml` Here's an example configuration and reference to the YAML Specification can be found in [here](https://docs.dagu.cloud/reference/yaml).
+### Notes on Scraping + Processing
+- The scrapers generally have two phases: scraping, and processing.
+  - Scraping involves firstly making the API request/page load/data retrieval to get the data for that particular site. This data will eventually be uploaded to a minio instance, but local dev will just upload to local directories.
+  - Processing involves the transformations to make the data usable. In the full production environment, we will first download a copy of the previously scraped data into a local dir, process it, and upload it back to minio. 
 
-```yaml
-# https://docs.dagu.cloud/features/scheduling
-# schedule: "0 2 * * *" # Daily at 2 AM
-steps:
-  - name: scrape
-    executor:
-      type: docker
-      config:
-        image: localhost:5000/brazil-aneel-scraper:latest
-        autoRemove: true
-    command: python scrape.py
+- Files should be put into two different directories: raw for raw data that hasn't been edited (e.g.: the entire raw HTML of a page or a giant JSON of sorts), and processed for data that has been transformed into a more usable format.
+
+![Workflow](./workflow.png)
+- The eventual workflow will be an initial scrape that is followed by an upload to MinIO of the raw data. The next step will involve downloading that data back (as a new container won't have the data locally), followed by processing of that raw data, and finally an upload of the processed data.
+- Why split the scrape and upload steps? 
+  - For the sake of scalability, it's best to decouple the tasks so that they can be run independently. For example, we can now run the process step without rerunning the scrape step.
+- How does the Process step know which files were created in the Scrape step? 
+  - By default, the base scraper class will look for files created recently. See `get_raw_since_time` in `./utils/BaseScraper.py` for the function that finds these files, as well as `./utils/parseTimeDelta.py` + `main-prod.py` + any of the DAGU YAMLs such as `./dagu_config/dags/aneel4.yaml` to see how the CLI args are parsed to dynamically set a time to look back into.
+---
 
 
-  - name: process
-    executor:
-      type: docker
-      config:
-        image: localhost:5000/brazil-aneel-scraper:latest
-        autoRemove: true
-    command: python post_process.py
-```
+- [TBD] By default, the Base Scraper class assumes that data is stored in the raw and processed folders. Within these folders, there is first the country and secondly some other distinction (such as city or power company name). For the Aneel power provider in Brazil, for example, we might have the dirs `./raw/brazil/aneel` and `./processed/brazil/aneel`. 
+
+- [TBD] Files should be placed in the proper dirs and be named firstly by the date they represent, followed by the date scraped, the country and secondary distinction again for redudancy, and the state of the data (raw/processed).
+  - e.g.: data for Nov. 2025 for Brazil's Aneel scraped in Dec. 2025 should be named `11-2025_12-2025_brazil_aneel-raw.json` when under `./raw/brazil/aneel/` and then renamed to `11-2025_12-2025_brazil_aneel-processed.json` when under `./processed/brazil/aneel`. 
+
+### Initializing a Scraper
+- Initialize a starter set of files. You will be asked to provide a country and a secondary distinction (e.g.: a city name). Run:
+	- `python create-scraper.py`
+- This will create several files under `./src/scrapers/your_country/your_secondary_location`
+  - `Scraper.py`: the main file you will edit. Implement the `scrape` and `process` functions.
+    - Take a look at `./utils/BaseScraper` to see functions and class parameters you may find useful, such as `self.raw_local_dir`. 
+  - `main-prod.py`: parses the args for Dockerization. Generally don't edit.
+  - `requirements.txt`: requirement files for your Python libraries. Routinely update this with a `pip freeze`, e.g., or update it manually.
+
+### Running Locally (no Docker/minio)
+- From the base project directory, run:
+	- `PYTHONPATH=. python src/scrapers/[your_country]/[your_secondary]/main-prod.py --step [your_step]`
+		- `[your_step]` should be either `upload` or `process`. Verify that generated files are placed into `./raw/...` and `./processed/...`
+    - e.g.: `PYTHONPATH=. python src/scrapers/brazil/aneel/main-prod.py --step process`
+
+### Running with Docker/DAGU/Minio
+- From the base project directory, run:
+	- `publish-single.sh [path_to_your_scraper]`
+	- e.g.: `./publish-single.sh ./src/scrapers/brazil/aneel`
+- The previous build step should generate several files:
+	- a DAGU config file under `./dagu_config/dags/your-country_your-secondary.yaml`
+	- a Docker container under the local repo. Verify with `docker images`.
+- Initialize the DAGU/Docker registry/Minio instances. Run:
+	- `docker compose up -d`
+	- Verify in the Docker application (or whatever way you prefer) that the three services are running.
+		- DAGU's GUI should be up on `http://localhost:8080/dags`
+		- Minio's GUI should be up on `http://localhost:9090`. The user and pass are both "minioadmin".
+- Run your scraper by selecting it in the DAGU GUI and clicking the triangle play button. Verify that it works with the various output messages and that there are properly formatted files in the Minio GUI. 
+
+### Testing DAGU
+- print statements will not print until the particular step is finished
+  - e.g.: if you have a long scrape step, nothing prints until scrape finishes. using print() with flush=True doesn't seem to fix this.
+- make a change in python → rebuild the docker container
+  - `./publish-single.sh ./src/scrapers/your_scraper_here`
+- rerun specific portions of DAGU
+  - e.g.: to rerun the proces part but not the scrape part
+  - click on DAG you want to edit
+  - right click → set status to success
+  - click on "retry DAG execution" (the whirly symbol -- NOT the arrow to "start execution")
+
+### Files With Indirect Dependencies
+- scraper URL: scraper.py, utils/StorageClient.py
+- scraper name: file directories, publish-single.sh (builds based on dir), DAGU yaml template (scraper name is based on dir)
+- autogenerated DAGU config files and main-prod.py 
+	- DAGU CLI commands are handled inside main-prod
+
+
+---
+---
+---
+---
 
 
 ### Running the entire set of scrapers 
+**NOTE**: as of 11/24/25 I have no idea if this works
+
 **NOTE**: the commands on this readme assumes a UNIX working environment.
 
 Starting the containers. Check docker-compose.yml for the services that will be started.
@@ -107,23 +133,15 @@ curl http://localhost:5000/v2/myapp/tags/list
 Navigate to DAGU to run dags in `localhost:8080`
 and the block storage interface can be accessed in `localhost:9090` with the default name/password: `minioadmin`
 
-### Testing DAGU
-- print statements will not print until the particular step is finished
-  - e.g.: if you have a long scrape step, nothing prints until scrape finishes. using print() with flush=True doesn't seem to fix this.
-- make a change in python → rebuild the docker container
-  - `./publish-single.sh ./src/scrapers/your_scraper_here`
-- rerun specific portions of DAGU
-  - e.g.: to rerun the proces part but not the scrape part
-  - click on DAG you want to edit
-  - right click → set status to success
-  - click on "retry DAG execution" (the whirly symbol -- NOT the arrow to "start execution")
-
 
 ## Resources
+
+https://docs.dagu.cloud/reference/yaml
 
 <https://github.com/dagu-org/dagu>
 
 <https://github.com/minio/minio>
 
+
 ## Last Updated
-10/6/25
+11/24/25

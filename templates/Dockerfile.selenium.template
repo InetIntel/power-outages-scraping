@@ -20,3 +20,5 @@ COPY ./utils/ utils/
 RUN pip install --no-cache-dir -r requirements.txt
 
 # CMD ["python", "scrape.py"]
+
+ENV IS_DOCKER_CONTAINER=true
