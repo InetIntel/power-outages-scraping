@@ -4,39 +4,106 @@ import os
 import time
 import random
 
-class Germany_Fault_Info():
+class Romania_ReteleElectric():
     def __init__(self):
-        # This one works
-        # So, it is hard to find data in the same style as the UK or Ireland for Germany
-        # They do have a live map for the whole country that takes individual outages (reported by customers)
-        # and maps them on this website https://xn--strungsauskunft-9sb.de/poweroutage
-        # The api url for this was found by inspecting the site. It did not have the best security
+        # Retele Electric data for Romania can be found here: https://www.reteleelectrice.ro/en/outages/
 
 
 
-        self.name_csv = "storungsauskunft.csv"
+        self.name_csv = "romania_retele_electric.csv"
     def retrieve_data(self):
         # This API is not the best so there is no pagination. I think it just gives you all the data at once
 
-        url = "https://api-public.stoerungsauskunft.de/api/v1/public/outages"
+        url = "https://services-eu1.arcgis.com/ZugzWQbNk6XT3BMo/arcgis/rest/services/OutagesMapViewLayer/FeatureServer/0/query"
 
-        
-        
-        
-        params = {"SectorType": "1"}
-
-        headers = {
-            "Accept": "application/json, text/plain, */*",
-            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36",
-            "Origin": "https://xn--strungsauskunft-9sb.de",
-            "Referer": "https://xn--strungsauskunft-9sb.de/",
+        params = {
+            "f": "json",
+            "where": "causa_disa_en = 'Accidental'",
+            "returnGeometry": "false",
+            "spatialRel": "esriSpatialRelIntersects",
+            "outFields": "*",
+            "maxRecordCountFactor": 4,
+            "orderByFields": "num_cli_di DESC",
+            "outSR": 102100,
+            "resultOffset": 0,
+            "resultRecordCount": 1000,
+            "cacheHint": "true",
+            # "quantizationParameters": '{"mode":"view","originPosition":"upperLeft","tolerance":1.0583354500042337,"extent":{"xmin":-1e-8,"ymin":-7.081154692251009e-10,"xmax":3312722.8398656575,"ymax":5886664.48646256,"spatialReference":{"wkid":102100,"latestWkid":3857}}}'
         }
 
-        auth = ("frontend", "frontend")
+        headers = {
+        }
+        data = []
+        results = 1000
+        offset = 0
+        while True:
+            # Retrieve the outage for Unplanned outages
+            params["resultRecordCount"] = results
+            params["where"] = "causa_disa_en = 'Accidental'"
+            params["resultOffset"] = offset
 
-        resp = requests.get(url, params=params, headers=headers, auth=auth)
+            resp = None
 
-        data = resp.json()
+            try: 
+                resp = requests.get(url, headers=headers, params=params)
+                resp.raise_for_status()
+            except Exception as e:
+                print("Error:", e)
+                break
+
+            features = resp.json().get("features", [])
+            # You come to the last page if there is no data
+            if len(features) == 0:
+                break
+            
+            # Add the relevant data to the list
+            
+            data.extend(f.get("attributes", {}) for f in features)
+            
+            if len(features) < results:
+                break
+            
+            # Set the offset so that you can loop through all the data
+            offset += results
+
+            time.sleep(random.uniform(0.5, 1.5))
+            # You know you are on the last page of data if it gives you less than the requested results
+            
+        # Do it again for planned outages
+        offset = 0
+        while True:
+            # Retrieve the outage for Unplanned outages
+            params["resultRecordCount"] = results
+            params["where"] = "causa_disa_en = 'Planned'"
+            params["resultOffset"] = offset
+            
+            resp = None
+
+            try: 
+                resp = requests.get(url, headers=headers, params=params)
+                resp.raise_for_status()
+            except Exception as e:
+                print("Error:", e)
+                break
+
+            features = resp.json().get("features", [])
+            # You come to the last page if there is no data
+            if len(features) == 0:
+                break
+            
+            # Add the relevant data to the list
+            
+            data.extend(f.get("attributes", {}) for f in features)
+            
+            if len(features) < results:
+                break
+            
+            # Set the offset so that you can loop through all the data
+            offset += results
+
+            time.sleep(random.uniform(0.5, 1.5))
+            # You know you are on the last page of data if it gives you less than the requested results
+
         
         # Temporarily add the data to a pandas dataframe
         page_df = pd.DataFrame(data)
@@ -45,7 +112,7 @@ class Germany_Fault_Info():
             existing = pd.read_csv(self.name_csv)
             combined = pd.concat([existing, page_df], ignore_index=True)
             # Drop duplicate rows based on a unique column
-            combined = combined.drop_duplicates(subset=['incidentreference'], keep='last')
+            combined = combined.drop_duplicates(subset=['fid0'], keep='last')
         else:
             combined = page_df
 
@@ -55,5 +122,5 @@ class Germany_Fault_Info():
 
 
 if __name__ == "__main__":
-    germ_fi = Germany_Fault_Info()
-    germ_fi.retrieve_data()
+    outage_class = Romania_ReteleElectric()
+    outage_class.retrieve_data()
