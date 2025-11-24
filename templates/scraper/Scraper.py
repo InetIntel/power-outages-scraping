@@ -30,7 +30,7 @@ class Scraper(BaseScraper):
     def process(self):
         files_processed = 0
 
-        for root, _, files in os.walk(f"./raw/{self.dir_path.lstrip('./')}"):
+        for root, _, files in os.walk(self.raw_local_dir):
             for filename in files:
                 local_path = os.path.join(root, filename)
                 processed_file_path = local_path.replace("raw", "processed")

@@ -1,0 +1,17 @@
+# schedule: "0 2 * * *" # Daily at 2 AM
+steps:
+  - name: scrape
+    executor:
+      type: docker
+      config:
+        image: localhost:5000/ukraine_cherkasy:latest
+        autoRemove: true
+    command: python main-prod.py --step scrape_upload
+
+  - name: process
+    executor:
+      type: docker
+      config:
+        image: localhost:5000/ukraine_cherkasy:latest
+        autoRemove: true
+    command: python main-prod.py --step download_process_upload
