@@ -1,0 +1,17 @@
+# schedule: "0 2 * * *" # Daily at 2 AM
+steps:
+  - name: scrape
+    executor:
+      type: docker
+      config:
+        image: localhost:5000/brazil_aneel4:latest
+        autoRemove: true
+    command: python main-prod.py --step scrape
+
+  - name: process
+    executor:
+      type: docker
+      config:
+        image: localhost:5000/brazil_aneel4:latest
+        autoRemove: true
+    command: python main-prod.py --step process --time_delta 30s

@@ -1,0 +1,11 @@
+FROM python:3.13-alpine
+
+WORKDIR /app
+
+COPY @replace/requirements.txt .
+COPY @replace/*.py .
+COPY ./utils/ utils/
+
+RUN pip install --no-cache-dir -r requirements.txt
+
+ENV IS_DOCKER_CONTAINER=true
