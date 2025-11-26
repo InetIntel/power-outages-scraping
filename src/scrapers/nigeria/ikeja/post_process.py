@@ -6,7 +6,7 @@ from utils.upload import Uploader
 
 
 class Process_Ikeja:
-    def __init__(self, year, month, today, file):
+    def __init__(self, year, month, today, file=None):
         self.year = year
         self.month = month
         self.today = today
@@ -18,6 +18,36 @@ class Process_Ikeja:
         except Exception as e:
             print(f"Error initializing uploader: {e}")
             self.uploader = None
+
+    def download_raw_file(self, date=None):
+        if date is None:
+            date = self.today
+        else:
+            date_obj = datetime.strptime(date, "%Y-%m-%d")
+            self.year = str(date_obj.year)
+            self.month = str(date_obj.month).zfill(2)
+            self.today = date
+
+        file_name = f"power_outages.NG.ikeja.raw.{date}.html"
+        s3_path = f"nigeria/ikeja/raw/{self.year}/{self.month}/{file_name}"
+
+        # Create local folder structure
+        local_folder = f"./nigeria/ikeja/raw/{self.year}/{self.month}"
+        os.makedirs(local_folder, exist_ok=True)
+        local_file_path = os.path.join(local_folder, file_name)
+
+        if not self.uploader:
+            raise Exception("Uploader not initialized")
+
+        try:
+            print(f"Downloading raw file from S3: {s3_path}")
+            self.uploader.download_file(s3_path, local_file_path)
+            print(f"Downloaded raw file to: {local_file_path}")
+            self.file = local_file_path
+            return local_file_path
+        except Exception as e:
+            print(f"Error downloading raw file from S3: {e}")
+            raise
 
     def get_data(self):
         with open(self.file, "r", encoding="utf-8") as file:
@@ -79,17 +109,37 @@ class Process_Ikeja:
             s3_path = f"nigeria/ikeja/processed/{self.year}/{self.month}/{file_name}"
             try:
                 self.uploader.upload_file(file_path, s3_path)
+                print(f"Uploaded processed file to S3: {s3_path}")
             except Exception as e:
                 print(f"Error uploading processed file: {e}")
 
-    def run(self):
-        if self.uploader:
-            raw_file_name = os.path.basename(self.file)
-            s3_path = f"nigeria/ikeja/raw/{self.year}/{self.month}/{raw_file_name}"
-            try:
-                self.uploader.upload_file(self.file, s3_path)
-            except Exception as e:
-                print(f"Error uploading raw file: {e}")
+    def run(self, date=None):
+        try:
+            self.download_raw_file(date)
+        except Exception as e:
+            print(f"Failed to download raw file: {e}")
+            return
 
         data = self.get_data()
+
         self.save_json(data)
+
+
+if __name__ == "__main__":
+    import sys
+
+    # python post_process.py [YYYY-MM-DD]
+    date = sys.argv[1] if len(sys.argv) > 1 else None
+
+    if date:
+        date_obj = datetime.strptime(date, "%Y-%m-%d")
+        year = str(date_obj.year)
+        month = str(date_obj.month).zfill(2)
+    else:
+        today = datetime.today()
+        year = str(today.year)
+        month = str(today.month).zfill(2)
+        date = today.strftime("%Y-%m-%d")
+
+    processor = Process_Ikeja(year, month, date)
+    processor.run(date)
