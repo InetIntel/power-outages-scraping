@@ -1,5 +1,5 @@
 # https://docs.dagu.cloud/features/scheduling
-# schedule: "0 2 * * *" # Daily at 2 AM
+# schedule: "*/4 * * * *" # Every 4 minutes
 steps:
   - name: scrape
     executor:
