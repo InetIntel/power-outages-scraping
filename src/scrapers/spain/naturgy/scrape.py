@@ -42,7 +42,7 @@ def get_data():
 
     return all_features
 
-def upload_raw(raw_data: List[Dict[str, Any]], current_datetime):
+def upload_raw(raw_data: List[Dict[str, Any]], current_datetime, bucket_name, provider_name):
     """
     Upload raw data json from local docker container to minio storage.
     """
@@ -52,20 +52,20 @@ def upload_raw(raw_data: List[Dict[str, Any]], current_datetime):
     current_day = current_datetime['current_day']
 
     # save raw data locally to container as json
-    filename = f'power_outages.ES.naturgy.raw.{current_year}-{current_month}-{current_day}.json'
+    filename = f'power_outages.ES.{provider_name}.raw.{current_year}-{current_month}-{current_day}.json'
     with open(filename, 'w') as f:
         json.dump(raw_data, f, ensure_ascii=False, indent=4)
 
     # now upload json to minio
-    uploader = Uploader('spain')
+    uploader = Uploader(bucket_name)
     local_path = os.path.join(
         os.path.dirname(os.path.abspath(__file__)),
         filename
     )
-    s3_path = f"naturgy/raw/{current_year}/{current_month}/{filename}"
+    s3_path = f"{provider_name}/raw/{current_year}/{current_month}/{filename}"
     uploader.upload_file(local_path, s3_path)
 
-def upload_current_outages(current_outages: List[Dict[str, Any]]):
+def upload_current_outages(current_outages: List[Dict[str, Any]], bucket_name, provider_name):
     """
     Save 'current_outages' as a json file then upload it to minio.
     """
@@ -76,12 +76,12 @@ def upload_current_outages(current_outages: List[Dict[str, Any]]):
         json.dump(current_outages, f, ensure_ascii=False, indent=4)
 
     # upload json to minio
-    uploader = Uploader('spain')
+    uploader = Uploader(bucket_name)
     local_path = os.path.join(
         os.path.dirname(os.path.abspath(__file__)),
         'current_outages.json'
     )
-    s3_path = f"naturgy/current_outages/{filename}"
+    s3_path = f"{provider_name}/current_outages/{filename}"
     uploader.upload_file(local_path, s3_path)
 
 def update_current_outages(pre_existing_outages, new_data):
@@ -148,12 +148,11 @@ def update_current_outages(pre_existing_outages, new_data):
 
     return updated_current_outages
 
-def get_pre_existing_current_outages():
+def get_pre_existing_current_outages(bucket_name, provider_name):
     """
     Get json of ongoing outages data in "current_outages" folder in minio bucket.
     """
     # create uploader object
-    bucket_name = 'spain'
     uploader = Uploader(bucket_name)
 
     # specify local path to download file
@@ -163,22 +162,21 @@ def get_pre_existing_current_outages():
 
     # Download file if it exists, else create list to store new data to upload
     try:
-        s3_path = 'naturgy/current_outages/current_outages.json'
+        s3_path = f'{provider_name}/current_outages/current_outages.json'
         uploader.download_file(s3_path, local_path)
     except FileNotFoundError as e:
         new_current_outages_list = []
         with open('current_outages.json', 'w') as f:
             json.dump(new_current_outages_list, f, ensure_ascii=False, indent=4)
 
-def get_pre_existing_raw_outages(current_datetime):
+def get_pre_existing_raw_outages(current_datetime, bucket_name, provider_name):
     """
     Get json of pre-existing raw outages data for today from minio.
     If no pre-existing data, return [].
     """
     # create uploader object
-    bucket_name = 'spain'
     uploader = Uploader(bucket_name)
-    file_name = f"power_outages.ES.naturgy.raw.{current_datetime['current_year']}-{current_datetime['current_month']}-{current_datetime['current_day']}.json"
+    file_name = f"power_outages.ES.{provider_name}.raw.{current_datetime['current_year']}-{current_datetime['current_month']}-{current_datetime['current_day']}.json"
 
     # specify local path to download file
     local_path = os.path.join(
@@ -187,7 +185,7 @@ def get_pre_existing_raw_outages(current_datetime):
 
     # Get data if file exists, else create list to store new data to upload
     try:
-        s3_path = f"naturgy/raw/{current_datetime['current_year']}/{current_datetime['current_month']}/{file_name}"
+        s3_path = f"{provider_name}/raw/{current_datetime['current_year']}/{current_datetime['current_month']}/{file_name}"
         uploader.download_file(s3_path, local_path)
         with open(file_name, 'r') as file:
             pre_existing_raw_outages = json.load(file)
@@ -266,7 +264,7 @@ if __name__ == "__main__":
     }
 
     # get current day's raw data file from minio
-    pre_existing_raw_outages = get_pre_existing_raw_outages(current_datetime)
+    pre_existing_raw_outages = get_pre_existing_raw_outages(current_datetime, bucket_name='spain', provider_name='naturgy')
 
     # get new data from api
     new_raw_data = get_data()
@@ -275,10 +273,10 @@ if __name__ == "__main__":
     updated_raw_data = update_raw_data(pre_existing_raw_outages, new_raw_data)
 
     # upload new raw data to minio
-    upload_raw(updated_raw_data, current_datetime)
+    upload_raw(updated_raw_data, current_datetime, bucket_name='spain', provider_name='naturgy')
 
     # get pre-existing outages from minio
-    get_pre_existing_current_outages()
+    get_pre_existing_current_outages(bucket_name='spain', provider_name='naturgy')
     with open('current_outages.json', 'r') as file:
         pre_existing_outages = json.load(file)
 
@@ -286,4 +284,4 @@ if __name__ == "__main__":
     updated_current_outages = update_current_outages(pre_existing_outages, new_raw_data)
 
     # upload updated current outages to mino
-    upload_current_outages(updated_current_outages)
+    upload_current_outages(updated_current_outages, bucket_name='spain', provider_name='naturgy')
