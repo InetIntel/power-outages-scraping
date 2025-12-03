@@ -223,7 +223,7 @@ This process ensures you maintain a full historical record of all outages displa
 ## Other Notes
 
 Outage data is updated continuously as customers report interruptions or operators confirm localized issues.
-However, the fixed issues may live in the data for at least 4 hours. Calling the API every 3 hours or so should give high quality data.
+However, the fixed issues may live in the data for at least 4 hours. Calling the API every 3 hours or so should give high quality data. Documentation says it updates every 15 minutes.
 
 One very important note is that each datapoint refers to an outage for an individual customer. Because of this, we will not know
 which outages are related to the same failure. It also leads to a lot more data points than other scrapers.
