@@ -4,7 +4,7 @@ import re
 import pandas as pd
 import pdfplumber
 from pathlib import Path
-from datetime import datetime, date, time
+from datetime import datetime, date, time, timezone
 import json
 import os
 from utils import Uploader
@@ -218,7 +218,26 @@ def upload():
             s3_path = f"iberdrola_planned/processed/{current_year}/{current_month}/{rel_path}"
             uploader.upload_file(local_path, s3_path)
 
+def download_raw_pdfs():
+    """
+    Downloads raw pdf files from minio to local container to be parsed.
+    """
+    now = datetime.now(timezone.utc)
+    current_year = f"{now.year}"
+    current_month = f"{now.month:02d}"
+
+    bucket_name = 'spain'
+    provider_name = 'iberdrola'
+    s3_path_prefix = f"{provider_name}/raw{current_year}/{current_month}"
+
+    #########################################################################################
+    # now download all files that were downloaded here in the last few minutes
+    #########################################################################################
+
 if __name__ == "__main__":
+
+    # download raw pdfs from minio for parsing
+    download_raw_pdfs()
 
     # Point this at folder of downloaded PDFs for parsing
     folder = Path("planned_outage_pdfs")

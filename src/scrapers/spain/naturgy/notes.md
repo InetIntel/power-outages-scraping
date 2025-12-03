@@ -127,7 +127,7 @@ Code Process
 
 scrape.py:
 
-Requests records using public api. Stored as a list of dicts.
+This code first requests records using public api. Stored as a list of dicts.
 
 Then pull the "current_outages.json" file from minio. This is a file that tracks currently ongoing outages. This is 
 helpful for outages that span multiple scraper runs so that each outage can be treated as a single event even 
@@ -149,7 +149,7 @@ outage file.
 
 After "current_outages.json" has been updated, it is then uploaded to minio (replacing its previous iteration).
 
-If this is the first time today that this scraper has been run, then the newly scraped data is downloaded locally to 
+If this is the first time today that this scraper has been run, then the newly scraped raw data is downloaded locally to 
 the docker container as a json file then uploaded to minio. If the scraper has already been run today, then the raw 
 data file for current day is retrieved from minio, new raw outage data is added to file, then updated raw data file 
 is uploaded to minio. Since this scraper is run very frequently (every 4 minutes), condensing all the raw data to one 
@@ -175,7 +175,7 @@ The updated "current_outages,json" file is also uploaded to minio. The resolved 
 
 ## Other Notes
 
-The dataset updates approximately every 5 minutes.
+The dataset updates every 5 minutes, so the scraper is scheduled for every 4 minutes to make sure all data is captured.
 
 Outage categories include Planned (maintenance) and Unplanned (faults).
 
