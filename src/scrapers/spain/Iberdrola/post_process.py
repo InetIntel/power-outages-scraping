@@ -1,4 +1,3 @@
-# parse_ide_planned_outages.py
 from pathlib import Path
 import re
 import pandas as pd
@@ -230,9 +229,9 @@ def download_raw_pdfs():
     provider_name = 'iberdrola'
     s3_path_prefix = f"{provider_name}/raw{current_year}/{current_month}"
 
-    #########################################################################################
-    # now download all files that were downloaded here in the last few minutes
-    #########################################################################################
+    ###########################################################################################################
+    # now download all files that were downloaded here in the last few minutes, or with correct date suffix
+    ###########################################################################################################
 
 if __name__ == "__main__":
 

@@ -106,9 +106,6 @@ def upload_processed_data(new_processed_data):
     current_year = f"{now.year}"
     current_month = f"{now.month:02d}"
     current_day = f"{now.day:02d}"
-    current_hour = f"{now.hour:02d}"
-    current_minute = f"{now.minute:02d}"
-    current_second = f"{now.second:02d}"
 
     # get already processed data file to append to
     try:

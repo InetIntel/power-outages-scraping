@@ -28,7 +28,7 @@ def get_existing_outages(bucket_name, provider_name):
 
 def get_resolved_outages(current_outages):
     """
-    Takes in current outage data. Collects ourages that are
+    Takes in current outage data. Collects outages that are
     "resolved" and ready to be moved into long term storage.
     """
     resolved_outages = [] # collect resolved outages ready to post process
