@@ -6,37 +6,37 @@ note - string, customer facing message about status of the outage
 
 objectid1 - int, unique identifier for the outage event
 
-causa_interruzione - string, internal code representing cause of outage
+causa_interruzione - (English: interruption cause), string, internal code representing cause of outage
 
-num_cli_disalim - int, number of customers affected by outage
+num_cli_disalim - (English: number of customers without power), int, number of customers affected by outage
 
-dataultimoaggiornamento - string, timestamp when outage event was most recently updated
+dataultimoaggiornamento - (English: last update date), string, timestamp when outage event was most recently updated
 
-descrizione_territoriale - string, territory associated with the outage
+descrizione_territoriale - (English: territorial description), string, territory associated with the outage
 
-data_prev_ripristino - string, timestamp of estimated outage restoration time
+data_prev_ripristino - (English: estimated restoration date/time), string, timestamp of estimated outage restoration time
 
-provincia - string, province where the outage is occurring
+provincia - (English: province), string, province where the outage is occurring
 
 cod_cs - string, internal code?
 
-regione - string, region where the outage is located
+regione - (English: region), string, region where the outage is located
 
 cft - string, internal code?
 
 comune - int, ?
 
-data_interruzione - string, timestamp of when the outage began
+data_interruzione - (English: interruption start date), string, timestamp of when the outage began
 
 latitudine - float, latitude coordinate of the outage location
 
 x - always null?
 
-id_interruzione - int, another outage event id?
+id_interruzione - (English: interruption id), int, another outage event id?
 
 y - always null?
 
-causa_disalimentazione - string, human readable description of outage cause (in italian)
+causa_disalimentazione - (English: disconnection cause), string, human readable description of outage cause (in italian)
 
 fid2 - int, ?
 
