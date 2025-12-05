@@ -15,7 +15,7 @@ class HEPCO:
         self.provider = "hepco"
         self.country = "japan"
         self.country_code = "JP"
-        self.base_path = Path(__file__).resolve().parent / "data"
+        self.base_path = Path(__file__).resolve().parent / "data" / "raw"
        
         target_date = datetime.now()
 
