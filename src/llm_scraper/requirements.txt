@@ -1,3 +1,5 @@
-openai 
+openai
 notion-client
 python-dotenv
+notebook
+requests
