@@ -72,5 +72,5 @@ class ShikokuScraper:
 
 
 if __name__ == "__main__":
-    scraper = OkidenScraper()
+    scraper = ShikokuScraper()
     scraper.run()

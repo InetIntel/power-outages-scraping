@@ -71,5 +71,5 @@ class OkidenScraper:
 
 
 if __name__ == "__main__":
-    scraper = OkidenMasterScraper()
+    scraper = OkidenScraper()
     scraper.run()
