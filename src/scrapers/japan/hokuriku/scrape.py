@@ -20,7 +20,7 @@ class RikudenHTMLScraper:
     def fetch_html(self):
         resp = requests.get(self.url, timeout=20)
         resp.raise_for_status()
-        return resp.content  # keep raw bytes
+        return resp.content  
 
     def save_html(self, content):
         timestamp = self.today_jst.strftime("%Y%m%dT%H%M%S")
