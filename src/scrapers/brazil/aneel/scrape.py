@@ -46,7 +46,7 @@ class Aneel:
                     for chunk in res.iter_content(chunk_size=2**12):
                         if chunk:
                             f.write(chunk)
-            break
+            break # TODO: remove this -- it'll quit after just 1 file 
 
     def __download_csv_with_progress_bar(self, filename_and_url):
         for filename, url in filename_and_url.items():

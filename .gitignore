@@ -228,3 +228,9 @@ __marimo__/
 .streamlit/secrets.toml
 
 .DS_Store
+
+raw/
+processed/
+
+# potentially too broad -- but Dockerfiles should be templated anyway
+src/**/Dockerfile 
