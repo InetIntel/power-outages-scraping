@@ -9,8 +9,8 @@ class UK_Northern_Ireland():
         # Need an IODA API key! The current one is my personal one
         # This 
 
-        # The API on this website https://spenergynetworks.opendatasoft.com/explore/dataset/distribution-network-live-outages/information/
-        # The api call can be found here https://spenergynetworks.opendatasoft.com/api/explore/v2.1/console
+        # The API on this website https://nienetworks.opendatasoft.com/api/explore/v2.1/catalog/datasets/nie-networks-network-faults/records
+        # The api call can be found here https://nienetworks.opendatasoft.com/api/explore/v2.1/console
         # gives the data for the Power Networks Utility in the UK serving the North and west part of the country
         self.name_csv = "northern_ireland_power_outage.csv"
     def retrieve_data(self):
@@ -19,7 +19,7 @@ class UK_Northern_Ireland():
         limit = 100
         offset = 0
         url = "https://nienetworks.opendatasoft.com/api/explore/v2.1/catalog/datasets/nie-networks-network-faults/records"
-        apikey = "17323a998c137e2ddc0d58fd6554de604d2acf46bccd1a2566dead18" # Need this
+        apikey = "" # Need this from the administrators
 
 
         while True:

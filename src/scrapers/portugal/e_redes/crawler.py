@@ -4,29 +4,28 @@ import os
 import time
 import random
 
-class UK_SP_Energy():
+class Portugal_E_Redes():
     def __init__(self):
         # Need an IODA API key! The current one is my personal one
         # This 
 
-        # The API on this website https://spenergynetworks.opendatasoft.com/explore/dataset/distribution-network-live-outages/information/
-        # The api call can be found here https://spenergynetworks.opendatasoft.com/api/explore/v2.1/console
-        # gives the data for the Power Networks Utility in the UK serving the North and west part of the country
-        self.name_csv = "sp_energy_networks_power_outage.csv"
-    def retrieve_data(self):
-        # Retrieve up to 100 pieces of data per data pull then requests more if there are more to be had.
+        # The API on this website "https://e-redes.opendatasoft.com/explore/dataset/outages-per-geography/api/"
+        # gives the data for the power company serving all of portugal
 
-        limit = 100
+        self.name_csv = "portugal_e_redes.csv"
+
+    def retrieve_data(self):
+        # Retrieve data per data pull then requests more if there are more to be had.
+
+        limit = 20
         offset = 0
-        url = "https://spenergynetworks.opendatasoft.com/api/explore/v2.1/catalog/datasets/distribution-network-live-outages/records"
-        apikey = "" # Need this from the administrators
+        url = "https://e-redes.opendatasoft.com/api/explore/v2.1/catalog/datasets/outages-per-geography/records"
 
 
         while True:
             params = {
                 "limit": limit,
                 "offset": offset,
-                "apikey": apikey
             }
             
             # Retrieve the outage info
@@ -45,7 +44,7 @@ class UK_SP_Energy():
                 existing = pd.read_csv(self.name_csv)
                 combined = pd.concat([existing, page_df], ignore_index=True)
                 # Drop duplicate rows based on a unique column
-                combined = combined.drop_duplicates(subset=['incidentreference'], keep='last')
+                # combined = combined.drop_duplicates(subset=['reference'], keep='last')
             else:
                 combined = page_df
 
@@ -65,5 +64,5 @@ class UK_SP_Energy():
         # print("Finished")
 
 if __name__ == "__main__":
-    sp_energy = UK_SP_Energy()
-    sp_energy.retrieve_data()
+    data_retriever = Portugal_E_Redes()
+    data_retriever.retrieve_data()
