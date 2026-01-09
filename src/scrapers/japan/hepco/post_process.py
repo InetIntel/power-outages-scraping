@@ -8,10 +8,9 @@ from bs4 import BeautifulSoup
 
 class HEPCOProcessor:
     def __init__(self):
-        # Match the structure of your scraper
         self.provider = "hepco"
         self.country = "japan"
-        self.base_path = Path(__file__).resolve().parent / "data"  
+        self.base_path = Path(__file__).resolve().parent / "data"   
 
         # Use today's date unless overridden
         target_date = datetime.now()
@@ -26,8 +25,8 @@ class HEPCOProcessor:
         self.processed_filename = f"power_outages.JP.{self.provider}.processed.{self.today_iso}.json"
 
         # Path setup
-        self.raw_path = Path(self.base_path) / self.raw_filename
-        self.output_path = Path(self.base_path) / self.processed_filename
+        self.raw_path = Path(self.base_path) / "raw" / self.raw_filename
+        self.output_path = Path(self.base_path) / "processed" / self.processed_filename
 
 
     # === CORE PARSING ===
@@ -101,6 +100,7 @@ class HEPCOProcessor:
         html = self.raw_path.read_text(encoding="utf-8")
         raw_records = self.parse_raw_outages(html)
         processed = self.process_records(raw_records)
+        self.output_path.parent.mkdir(parents=True, exist_ok=True)
 
         self.output_path.write_text(json.dumps(processed, indent=2, ensure_ascii=False), encoding="utf-8")
         print(f"Processed {len(processed)} records → {self.output_path}")
