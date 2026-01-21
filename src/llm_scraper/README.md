@@ -1,10 +1,10 @@
 # LLM Company Scraper
 
-This Jupyter notebook (`llm_company_scraper.ipynb`) implements an automated workflow for collecting power company data from various countries and storing it in Notion databases.
+This project implements an automated workflow for collecting power company data from various countries and storing it in Notion databases using OpenAI's GPT models.
 
 ## Overview
 
-The notebook performs the following main tasks:
+The `main.py` script performs the following main tasks:
 
 1. **Fetch Country and Region Data** - Retrieves country and region information from the IODA API
 2. **Create Notion Databases** - Sets up Notion databases for each country
@@ -18,55 +18,54 @@ The notebook performs the following main tasks:
 Set these in your environment or `.env` file:
 - `NOTION_TOKEN` - Your Notion integration token
 - `MAIN_PAGE_ID` - ID of the Notion page that will contain country databases
-- `OPENAI_KEY` - Your OpenAI API key
+- `OPENAI_API_KEY` - Your OpenAI API key
+- `WEB_SEARCH_MODEL` - GPT model for web scraping (default: gpt-4o-mini)
+- `PARSING_MODEL` - GPT model for parsing JSON (default: gpt-4o-mini)
 
 ### Python Packages
 ```bash
-pip install requests notion-client openai python-dotenv
+pip install -r requirements.txt
 ```
 
-## Notebook Structure
+## Model Configuration
 
-### Cell 1: Fetch Country and Region Data
-- Connects to IODA API (`https://api.ioda.inetintel.cc.gatech.edu/v2/entities/query`)
-- Fetches all countries and their regions
-- Uses concurrent processing with ThreadPoolExecutor for efficiency
-- Stores results in `country_to_region` dictionary
+Models are configurable at the beginning of `main.py`:
 
-### Cell 2: Create Notion Databases
-- Initializes Notion client using environment variables
-- Retrieves existing databases on the main page
-- Creates new child databases for each country if they don't exist
-- Database schema includes fields for company data, scraping info, and status
-
-### Cell 3: Generate Scraping Prompts
-- Defines `build_prompt(country)` function
-- Creates detailed AI prompts for scraping power company data
-- Prompts include specific JSON format requirements
-- Instructions for handling non-English websites and comprehensive data collection
-
-### Cell 4: Execute AI Scraping
-- Uses OpenAI API with web search tools
-- Processes each country from `country_to_region`
-- Extracts JSON data from AI responses
-- Handles API responses and JSON parsing
-
-### Cell 5: Update Notion Tables
-- Connects to specific country databases
-- Checks for duplicate entries before insertion
-- Maps scraped data to Notion database fields
-- Handles multi-select fields and data type parsing
-
-## Data Flow
-
+```python
+WEB_SEARCH_MODEL = os.getenv('WEB_SEARCH_MODEL', 'gpt-4o-mini')
+PARSING_MODEL = os.getenv('PARSING_MODEL', 'gpt-4o-mini')
 ```
-IODA API → Country/Region Data
-    ↓
-Notion Database Creation
-    ↓
-AI Prompt Generation → OpenAI API → Scraped Company Data
-    ↓
-Notion Database Updates
+
+**To use different models:**
+
+```powershell
+$env:WEB_SEARCH_MODEL="gpt-4o"
+$env:PARSING_MODEL="gpt-4o-mini"
+python main.py --scrape
+```
+
+## Usage
+
+### Basic Usage
+
+```bash
+# Create databases for all countries (no scraping)
+python main.py
+
+# Create database for specific country
+python main.py --country Brazil
+
+# Create database AND scrape for specific country
+python main.py --country Austria --scrape
+
+# Scrape all countries (assumes databases exist)
+python main.py --scrape
+
+# Scrape without creating databases
+python main.py --scrape-only
+
+# Show help
+python main.py --help
 ```
 
 ## Key Features
@@ -74,6 +73,7 @@ Notion Database Updates
 ### Concurrent Processing
 - Uses ThreadPoolExecutor for API calls and database operations
 - Improves performance when processing multiple countries
+- Configurable worker pool sizes
 
 ### Duplicate Prevention
 - Checks for existing entries before creating new ones
@@ -86,6 +86,7 @@ Notion Database Updates
 ### Error Handling
 - Graceful handling of API failures
 - Continues processing even if individual countries fail
+- Detailed error logging with country context
 
 ## Output Schema
 
@@ -103,24 +104,48 @@ Each company record includes:
 - **Scraping Frequency**: Data update frequency
 - **Status**: Current scraping status
 
-## Usage
+## Workflow Examples
 
-1. Set up environment variables
-2. Install required packages
-3. Run cells in order (1→2→3→4→5)
-4. Monitor output for any errors or skipped entries
+### Example 1: Setup for a New Country
+
+```bash
+python main.py --country Brazil
+```
+
+### Example 2: Scrape and Populate Data
+
+```bash
+python main.py --country India --scrape
+```
+
+### Example 3: Batch Process All Countries
+
+```bash
+python main.py --scrape
+```
 
 ## Notes
 
-- The notebook is designed to run in Google Colab but can be adapted for local execution
-- API rate limits may apply - consider adding delays between requests
+- API rate limits may apply - consider adding delays between requests if processing many countries
 - Some countries may have limited or no public power company data
-- The scraping prompts are optimized for comprehensive data collection
+- The scraping process depends on web availability and OpenAI API status
 
 ## Troubleshooting
 
 ### Common Issues:
-- **Notion API errors**: Check token permissions and page access
-- **OpenAI API errors**: Verify API key and usage limits
-- **IODA API errors**: Check network connectivity
-- **JSON parsing errors**: AI responses may need manual review
+
+**Notion API errors**
+- Check that NOTION_TOKEN has proper permissions
+- Verify MAIN_PAGE_ID exists and is accessible
+
+**OpenAI API errors**
+- Verify API key is valid in `.env` file
+- Check account has sufficient credits/quota
+
+**IODA API errors**
+- Check network connectivity
+- Try again if API is temporarily unavailable
+
+**JSON parsing errors**
+- Try using a more capable model (gpt-4o instead of gpt-4o-mini)
+- Check that country name is spelled correctly
