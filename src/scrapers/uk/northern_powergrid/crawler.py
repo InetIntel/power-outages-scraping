@@ -18,7 +18,7 @@ class UK_Northern_Powergrid():
         limit = 100
         offset = 0
         url = "https://northernpowergrid.opendatasoft.com/api/explore/v2.1/catalog/datasets/live-power-cuts-data/records"
-        apikey = "e6c775b7a149008dd2af66fc3b02d9dbd6c0c93f7e46de65a525b53f"
+        apikey = "" # Need this from the administrators
 
 
         while True:
