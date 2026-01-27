@@ -1,0 +1,17 @@
+# schedule: "0 2 * * *" # Daily at 2 AM
+steps:
+  - name: scrape_upload
+    executor:
+      type: docker
+      config:
+        image: localhost:5000/@replace_scraper_name:latest
+        autoRemove: true
+    command: python main-prod.py --step scrape_upload
+
+  - name: download_process_upload
+    executor:
+      type: docker
+      config:
+        image: localhost:5000/@replace_scraper_name:latest
+        autoRemove: true
+    command: python main-prod.py --step download_process_upload
