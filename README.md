@@ -2,114 +2,86 @@
 
 ## Overview
 
-This repo contains the workflow for scraping data from power providers in different countries using Docker, DAGU, and minio.
-- scapers: written in Python using libraries like scrapy.
-- Docker: containerizes the scraping, post-processing, and upload scripts.
-- DAGU: orchestrates each of the scrapers, running them periodically and managing the various logs and re-tries.
-- minio: block storage for the scraped data.
+This repo scrapes power outage data from utility providers around the world. Each scraper runs as a Docker container, orchestrated by Airflow.
 
-## Architecture
-
-![Architecture](./old_misc/docs/img/Architecture.jpg)
-
-<!-- ## Example
-
-Refer to the `src/scrapers/brazil/aneel` scraper. -->
+- **Scrapers** - Python (`scrape.py` + `post_process.py`) under `src/scrapers/<country>/<provider>/`.
+- **Docker** - each scraper is built into its own image and pushed to a local registry.
+- **Airflow** - DAGs are generated dynamically from `airflow/config/scraper_registry.yaml`.
+- **Postgres** - Airflow metadata DB.
+- **Shared volume** - scraped data is written to the external `santandrea-power-outages` Docker volume.
 
 ## Requirements
 
-<!-- Working `scraper.py` and `post_process.py` files for each country and power provider. -->
-TBD. 
+- Docker + Docker Compose
+- Bash (for `publish.sh` / `publish-single.sh`)
+- A `.env` at the repo root with:
+  ```
+  AIRFLOW_UID=0
+  AIRFLOW_JWT_SECRET=<random-string>
+  AIRFLOW_FERNET_KEY=<fernet-key>
+  ```
+- The shared data volume must exist once: `docker volume create santandrea-power-outages`
 
-## Getting Started
-<!-- ### Running a single scraper -->
-### Converting a single scraper into a docker + DAGU instance
-- TLDR: copy the format of `/src/scrapers/brazil/aneel2` and run a handful of commands
-- have three python files, one for each step of the scraping process (scrape, process, upload), and a requirements.txt
-  - upload can be empty -- still working on that stuff atm
-- make sure the python files are within a folder under `/src/scrapers`
-- build and publish the Docker container: 
-  - `./publish-single.sh ./src/scrapers/your_country/your_power_company`
-- setup your local directories: `make docker-local-setup`
-  - if you don't have a UNIX environment to run the MAKE  commands, look into `publish.sh` and run the individual `mkdir` commands
-- make a DAGU config file 
-  - refer to the [DAGU config section](#adding-a-scraper-to-dagu)
-- `docker compose up -d` or `make run` 
-- inspect and run your scraper at localhost:8080
-  - you can manually run the sraper by hovering the left side and clicking on "DAG Definitions", then clicking on your scaper of choice and clicking the play button
-- NOTE: if you make a change to the DAGU config file, DAGU will update to match. if you make a change to your python files, you will need to rebuild the container (`publish-single`).
+## Deploying
 
+Bring up the full stack (registry, Postgres, Airflow webserver/scheduler/dag-processor) and build + push every scraper image:
 
-### Adding a scraper to DAGU
-- Create a DAGU configuration file in `dagu_config/dags` to define the DAG (workflow) for the scraper.
-- The DAG should include the tasks for scraping and post-processing.
-- The name should be `{country}_{company}.yaml` Here's an example configuration and reference to the YAML Specification can be found in [here](https://docs.dagu.cloud/reference/yaml).
-
-```yaml
-# https://docs.dagu.cloud/features/scheduling
-# schedule: "0 2 * * *" # Daily at 2 AM
-steps:
-  - name: scrape
-    executor:
-      type: docker
-      config:
-        image: localhost:5000/brazil-aneel-scraper:latest
-        autoRemove: true
-    command: python scrape.py
-
-
-  - name: process
-    executor:
-      type: docker
-      config:
-        image: localhost:5000/brazil-aneel-scraper:latest
-        autoRemove: true
-    command: python post_process.py
+```bash
+make deploy
 ```
 
+This runs `docker compose up -d` followed by `./publish.sh`, which auto-detects every `scrape.py` under `src/scrapers/` and builds an image named `localhost:5000/<country>_<provider>:latest`.
 
-### Running the entire set of scrapers 
-**NOTE**: the commands on this readme assumes a UNIX working environment.
+To stop everything:
 
-Starting the containers. Check docker-compose.yml for the services that will be started.
-
-```
-make run
+```bash
+make stop
 ```
 
-Publish the image by running the command below. It will auto detect the scrapers in the `src/scrapers` and create a Dockerfile.
+Useful URLs once running:
 
-```shell
-make publish
-```
+- Airflow UI: <http://localhost:8080> (default login `admin` / `admin`)
+- Registry catalog: <http://localhost:5000/v2/_catalog>
 
-The published image can be verified in the registry by running the following commands:
+## Adding a scraper
 
-```
-curl http://localhost:5000/v2/_catalog
-curl http://localhost:5000/v2/myapp/tags/list
-```
+1. Create the scraper directory under `src/scrapers/<country>/<provider>/` containing:
+   - `scrape.py` - fetches raw data, writes to `$DATA_DIR` (mounted at `/data`).
+   - `post_process.py` - transforms/validates the raw data.
+   - `requirements.txt` - Python deps. If `selenium` is listed, `Dockerfile.selenium` is used automatically; otherwise `Dockerfile.template`.
+2. Build and push just this scraper:
+   ```bash
+   ./publish-single.sh ./src/scrapers/<country>/<provider>
+   ```
+   The image will be tagged `localhost:5000/<country>_<provider>:latest`.
+3. Register the scraper by adding an entry to `airflow/config/scraper_registry.yaml`:
+   ```yaml
+   - scraper_id: <country>_<provider>     # must match the image name
+     module: <country>.<provider>
+     schedule: "0 6 * * *"                # cron, OR omit and use depends_on
+     tags: [<country>, <region>]
+   ```
+   Optional fields: `description`, `retries`, `retry_delay_minutes`, `timeout_minutes`, `params`, `depends_on: [<other_scraper_id>]`, `enabled: false`, `image: <custom>`.
+4. Airflow's dag-processor picks up registry changes automatically - the new DAG appears in the UI within ~30s. No restart needed.
 
-Navigate to DAGU to run dags in `localhost:8080`
-and the block storage interface can be accessed in `localhost:9090` with the default name/password: `minioadmin`
+After any change to the Python files, rerun `./publish-single.sh <path>` to rebuild the image. DAG metadata changes only require editing the registry.
 
-### Testing DAGU
-- print statements will not print until the particular step is finished
-  - e.g.: if you have a long scrape step, nothing prints until scrape finishes. using print() with flush=True doesn't seem to fix this.
-- make a change in python → rebuild the docker container
-  - `./publish-single.sh ./src/scrapers/your_scraper_here`
-- rerun specific portions of DAGU
-  - e.g.: to rerun the proces part but not the scrape part
-  - click on DAG you want to edit
-  - right click → set status to success
-  - click on "retry DAG execution" (the whirly symbol -- NOT the arrow to "start execution")
+## Removing or disabling a scraper
 
+- **Disable temporarily** - set `enabled: false` on its registry entry. The DAG disappears from Airflow on the next scan.
+- **Remove permanently** - delete the entry from `airflow/config/scraper_registry.yaml` and (optionally) the `src/scrapers/<country>/<provider>/` directory. To clean up the image:
+  ```bash
+  curl -X DELETE http://localhost:5000/v2/<country>_<provider>/manifests/<digest>
+  ```
+
+## Running and debugging in Airflow
+
+- Find the DAG by `scraper_id` in the Airflow UI and click the play button to trigger a manual run.
+- Each DAG has two tasks: `scrape` → `post_process`. Logs are per-task in the UI.
+- To rerun only `post_process` after a successful `scrape`, clear just that task in the Grid view.
+- After editing Python in a scraper, you must rebuild the image (`publish-single.sh`) before rerunning - Airflow pulls the image with `force_pull=True` on each run.
 
 ## Resources
 
-<https://github.com/dagu-org/dagu>
-
-<https://github.com/minio/minio>
-
-## Last Updated
-10/6/25
+- Airflow: <https://airflow.apache.org/docs/>
+- Docker registry: <https://docs.docker.com/registry/>

@@ -1,8 +1,10 @@
 import requests
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from utils.upload import Uploader
 
 JST = timezone(timedelta(hours=9))  # Japan Standard Time
+
 
 class RikudenHTMLScraper:
     def __init__(self):
@@ -17,10 +19,12 @@ class RikudenHTMLScraper:
         self.data_dir = Path(__file__).resolve().parent / "data" / "raw"
         self.data_dir.mkdir(parents=True, exist_ok=True)
 
+        self.uploader = Uploader("japan")
+
     def fetch_html(self):
         resp = requests.get(self.url, timeout=20)
         resp.raise_for_status()
-        return resp.content  
+        return resp.content
 
     def save_html(self, content):
         timestamp = self.today_jst.strftime("%Y%m%dT%H%M%S")
@@ -28,11 +32,18 @@ class RikudenHTMLScraper:
         path = self.data_dir / filename
 
         path.write_bytes(content)
-        print(f"Saved HTML → {path}")
+        print(f"Saved HTML -> {path}")
+
+        # Upload to shared volume
+        year = self.today_jst.strftime("%Y")
+        month = self.today_jst.strftime("%m")
+        s3_path = f"japan/hokuriku/raw/{year}/{month}/{filename}"
+        self.uploader.upload_file(str(path), s3_path)
 
     def run(self):
         html_bytes = self.fetch_html()
         self.save_html(html_bytes)
+
 
 if __name__ == "__main__":
     scraper = RikudenHTMLScraper()

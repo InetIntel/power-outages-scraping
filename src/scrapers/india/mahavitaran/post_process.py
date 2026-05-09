@@ -5,24 +5,32 @@ import calendar
 from bs4 import BeautifulSoup
 from datetime import datetime
 
+
 class MahavitaranProcessor:
     def __init__(self):
         self.provider = "mahavitaran"
         self.country = "india"
         self.base_path = "/data"
-        
+
         # Use a specific debug date (optional)
         # target = datetime.strptime("05-06-2025", "%d-%m-%Y")  # DEBUG: hardcoded test date
-        
+
         # today's date if debug is not used
         target = datetime.now()
-        
+
         self.today_iso = target.strftime("%Y-%m-%d")
         self.year = target.strftime("%Y")
         self.month = target.strftime("%m")
 
     def create_folder(self, data_type):
-        folder_path = os.path.join(self.base_path, self.country, self.provider, data_type, self.year, self.month)
+        folder_path = os.path.join(
+            self.base_path,
+            self.country,
+            self.provider,
+            data_type,
+            self.year,
+            self.month,
+        )
         os.makedirs(folder_path, exist_ok=True)
         return folder_path
 
@@ -31,7 +39,11 @@ class MahavitaranProcessor:
         today_file = glob.glob(os.path.join(raw_folder, f"*{self.today_iso}.html"))
         if today_file:
             return today_file[0]
-        all_files = sorted(glob.glob(os.path.join(raw_folder, "*.html")), key=os.path.getmtime, reverse=True)
+        all_files = sorted(
+            glob.glob(os.path.join(raw_folder, "*.html")),
+            key=os.path.getmtime,
+            reverse=True,
+        )
         return all_files[0] if all_files else None
 
     def parse_html(self, html_path):
@@ -52,7 +64,7 @@ class MahavitaranProcessor:
             "Week 2": (8, 14),
             "Week 3": (15, 21),
             "Week 4": (22, 28),
-            "Week 5": (29, last_day)
+            "Week 5": (29, last_day),
         }
 
         for row in rows:
@@ -77,9 +89,9 @@ class MahavitaranProcessor:
                     except (ValueError, IndexError):
                         continue
 
-                    week_label = f"Week {i+1}"
+                    week_label = f"Week {i + 1}"
                     day_start, day_end = week_ranges[week_label]
-                    
+
                     try:
                         start_dt = datetime(int(self.year), int(self.month), day_start)
                         end_dt = datetime(int(self.year), int(self.month), day_end)
@@ -87,23 +99,25 @@ class MahavitaranProcessor:
                         print(f"Failed to parse date for {week_label}: {e}")
                         continue
 
-                    results.append({
-                        "country": "India",
-                        "start": start_dt.strftime("%Y-%m-%d_00-00-00"),
-                        "end": end_dt.strftime("%Y-%m-%d_23-59-59"),
-                        "duration_(mins)": duration_mins,
-                        "total_outages": total_outages,
-                        "per_feeder_outage_hours": outage_hrs,
-                        "per_feeder_supply_hours": supply_hrs,
-                        "event_category": "weekly outage summary",
-                        "week": week_label,
-                        "area_affected": {
-                            "region": region,
-                            "zone": zone,
-                            "circle": circle,
-                            "division": division
+                    results.append(
+                        {
+                            "country": "India",
+                            "start": start_dt.strftime("%Y-%m-%d_00-00-00"),
+                            "end": end_dt.strftime("%Y-%m-%d_23-59-59"),
+                            "duration_(mins)": duration_mins,
+                            "total_outages": total_outages,
+                            "per_feeder_outage_hours": outage_hrs,
+                            "per_feeder_supply_hours": supply_hrs,
+                            "event_category": "weekly outage summary",
+                            "week": week_label,
+                            "area_affected": {
+                                "region": region,
+                                "zone": zone,
+                                "circle": circle,
+                                "division": division,
+                            },
                         }
-                    })
+                    )
 
             except Exception as e:
                 print(f"Failed to parse row: {e}")
@@ -122,12 +136,18 @@ class MahavitaranProcessor:
 
     def process(self):
         raw_folder = self.create_folder("raw")
-        not_found_files = glob.glob(os.path.join(raw_folder, f"404_{self.today_iso}.txt"))
-        
+        not_found_files = glob.glob(
+            os.path.join(raw_folder, f"404_{self.today_iso}.txt")
+        )
+
         if not_found_files:
-            log_path = os.path.join(self.create_folder("processed"), f"no_data_found.{self.today_iso}.log")
+            log_path = os.path.join(
+                self.create_folder("processed"), f"no_data_found.{self.today_iso}.log"
+            )
             with open(log_path, "w") as f:
-                f.write(f"No outage schedule found for {self.today_iso}. See {os.path.basename(not_found_files[0])} in raw folder.")
+                f.write(
+                    f"No outage schedule found for {self.today_iso}. See {os.path.basename(not_found_files[0])} in raw folder."
+                )
             print(f"No data to process. Log saved at: {log_path}")
             return
 
@@ -139,6 +159,7 @@ class MahavitaranProcessor:
         print(f"Processing file: {raw_file}")
         parsed_data = self.parse_html(raw_file)
         self.save_json(parsed_data)
+
 
 if __name__ == "__main__":
     MahavitaranProcessor().process()

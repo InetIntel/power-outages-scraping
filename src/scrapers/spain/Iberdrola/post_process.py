@@ -23,6 +23,7 @@ ADDR_PREFIX = re.compile(
     re.IGNORECASE,
 )
 
+
 def extract_lines(pdf_path: Path):
     """
     Convert PDF to text for parsing.
@@ -41,6 +42,7 @@ def extract_lines(pdf_path: Path):
                 lines.append(line)
     return lines
 
+
 def province_from(lines, fallback_province: str) -> str:
     """
     Pulls province name from top of pdf
@@ -55,6 +57,7 @@ def province_from(lines, fallback_province: str) -> str:
             return province.group(1).strip()
     # if not found, default to pdf file name
     return fallback_province
+
 
 def parse_pdf(pdf_path: Path) -> pd.DataFrame:
 
@@ -71,7 +74,6 @@ def parse_pdf(pdf_path: Path) -> pd.DataFrame:
 
     # iterate through each line of text
     for ln in lines:
-
         # if current line is part of table, collect the data
         table = ROW_START.match(ln)
 
@@ -102,8 +104,11 @@ def parse_pdf(pdf_path: Path) -> pd.DataFrame:
             continue
 
         # If wrapped address lines, append them
-        #if curr_row and (ADDR_PREFIX.match(ln) or (curr_row["direccion"] and ("," in ln or ":" in ln))):##########################
-        if curr_row and (ADDR_PREFIX.match(ln) or (curr_row["direccion"] and (ln[0] == ',' or ln[0] == ':'))):
+        # if curr_row and (ADDR_PREFIX.match(ln) or (curr_row["direccion"] and ("," in ln or ":" in ln))):##########################
+        if curr_row and (
+            ADDR_PREFIX.match(ln)
+            or (curr_row["direccion"] and (ln[0] == "," or ln[0] == ":"))
+        ):
             curr_row["direccion"].append(ln)
             continue
 
@@ -113,18 +118,33 @@ def parse_pdf(pdf_path: Path) -> pd.DataFrame:
         rows.append(curr_row)
 
     # convert parsed records into a dataframe
-    df = pd.DataFrame(rows, columns=[
-        "province", "municipio", "fecha", "hora_inicio", "hora_fin", "direccion", "dso", "source_file"
-    ])
+    df = pd.DataFrame(
+        rows,
+        columns=[
+            "province",
+            "municipio",
+            "fecha",
+            "hora_inicio",
+            "hora_fin",
+            "direccion",
+            "dso",
+            "source_file",
+        ],
+    )
 
     # Convert start and end times to Python time objects
     if not df.empty:
         df["fecha"] = pd.to_datetime(df["fecha"], format="%d/%m/%Y", errors="coerce")
-        df["hora_inicio"] = pd.to_datetime(df["hora_inicio"], format="%H:%M", errors="coerce").dt.time
-        df["hora_fin"] = pd.to_datetime(df["hora_fin"], format="%H:%M", errors="coerce").dt.time
+        df["hora_inicio"] = pd.to_datetime(
+            df["hora_inicio"], format="%H:%M", errors="coerce"
+        ).dt.time
+        df["hora_fin"] = pd.to_datetime(
+            df["hora_fin"], format="%H:%M", errors="coerce"
+        ).dt.time
 
     # return dataframe of outage data
     return df
+
 
 def parse_folder(folder: Path) -> pd.DataFrame:
     """
@@ -133,6 +153,7 @@ def parse_folder(folder: Path) -> pd.DataFrame:
     pdfs = sorted(Path(folder).glob("*.pdf"))
     frames = [parse_pdf(p) for p in pdfs]
     return pd.concat(frames, ignore_index=True) if frames else pd.DataFrame()
+
 
 def df_to_json(df, filename="processed_output.json"):
     """
@@ -155,13 +176,17 @@ def df_to_json(df, filename="processed_output.json"):
         if isinstance(row["hora_inicio"], time):
             t_start = row["hora_inicio"]
         else:
-            t_start = pd.to_datetime(str(row["hora_inicio"]), format="%H:%M", errors="coerce").time()
+            t_start = pd.to_datetime(
+                str(row["hora_inicio"]), format="%H:%M", errors="coerce"
+            ).time()
 
         # hora_fin(end time) -> time
         if isinstance(row["hora_fin"], time):
             t_end = row["hora_fin"]
         else:
-            t_end = pd.to_datetime(str(row["hora_fin"]), format="%H:%M", errors="coerce").time()
+            t_end = pd.to_datetime(
+                str(row["hora_fin"]), format="%H:%M", errors="coerce"
+            ).time()
 
         # combine to datetimes
         start_dt = datetime.combine(d, t_start)
@@ -170,6 +195,7 @@ def df_to_json(df, filename="processed_output.json"):
         # handle overnight windows (rare)
         if end_dt < start_dt:
             from datetime import timedelta
+
             end_dt = end_dt + timedelta(days=1)
 
         duration = (end_dt - start_dt).total_seconds() / 3600.0
@@ -190,7 +216,7 @@ def df_to_json(df, filename="processed_output.json"):
             "duration_(hours)": f"{duration:.2f}",
             "event_category": "Planned",
             "country": "spain",
-            "areas_affected": areas
+            "areas_affected": areas,
         }
         records.append(line)
 
@@ -202,11 +228,12 @@ def df_to_json(df, filename="processed_output.json"):
 
     return records, str(out_path)
 
+
 def upload():
     """
     Upload json to minio storage.
     """
-    uploader = Uploader("spain") # create uploader to upload data to minio
+    uploader = Uploader("spain")  # create uploader to upload data to minio
     base = os.path.dirname(os.path.abspath(__file__))
     for root, _, files in os.walk(base):
         for file in files:
@@ -214,8 +241,9 @@ def upload():
                 continue
             local_path = os.path.join(root, file)
             rel_path = os.path.relpath(local_path, base).replace("\\", "/")
-            s3_path = f"iberdrola_planned/processed/{current_year}/{current_month}/{rel_path}"
+            s3_path = f"iberdrola/processed/{current_year}/{current_month}/{rel_path}"
             uploader.upload_file(local_path, s3_path)
+
 
 def download_raw_pdfs():
     """
@@ -225,16 +253,16 @@ def download_raw_pdfs():
     current_year = f"{now.year}"
     current_month = f"{now.month:02d}"
 
-    bucket_name = 'spain'
-    provider_name = 'iberdrola'
+    bucket_name = "spain"
+    provider_name = "iberdrola"
     s3_path_prefix = f"{provider_name}/raw{current_year}/{current_month}"
 
     ###########################################################################################################
     # now download all files that were downloaded here in the last few minutes, or with correct date suffix
     ###########################################################################################################
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     # download raw pdfs from minio for parsing
     download_raw_pdfs()
 
@@ -252,7 +280,6 @@ if __name__ == "__main__":
     if df.empty:
         print("No data parsed.")
     else:
-
         # date for file name
         now = datetime.now()
         current_year = f"{now.year}"
@@ -266,5 +293,3 @@ if __name__ == "__main__":
 
         # upload json to minio
         upload()
-
-

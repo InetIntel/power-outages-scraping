@@ -42,11 +42,14 @@ def get_data():
 
     return all_features
 
+
 def update_current_outages(pre_existing_outages, new_data):
 
     # Map current_outages by "OBJECTID" attribute for faster searching
     current_by_id: Dict[Any, Dict[str, Any]] = {
-        o["attributes"]["objectid1"]: o for o in pre_existing_outages if "objectid1" in o["attributes"]
+        o["attributes"]["objectid1"]: o
+        for o in pre_existing_outages
+        if "objectid1" in o["attributes"]
     }
 
     # collect updated "current_outage" data
@@ -57,11 +60,10 @@ def update_current_outages(pre_existing_outages, new_data):
 
     # now iterate through "new_data" to update "current_outages"
     for outage in new_data:
-
         # get id of outage
         outage_id = outage["attributes"]["objectid1"]
         if outage_id == None:
-            continue # ignore outages with no id
+            continue  # ignore outages with no id
         ongoing_outage_ids.add(outage_id)
 
         # if outage is not present in current_outages, add to "updated_current_outages" and
@@ -70,20 +72,26 @@ def update_current_outages(pre_existing_outages, new_data):
         if existing is None:
             outage["ioda_status"] = "in_progress"
             time_stamp_ms = int(time.time() * 1000)
-            outage['ioda_detection_date'] = time_stamp_ms
-            outage['ioda_update_date'] = time_stamp_ms
+            outage["ioda_detection_date"] = time_stamp_ms
+            outage["ioda_update_date"] = time_stamp_ms
             updated_current_outages.append(outage)
-            continue # move on to next outage
+            continue  # move on to next outage
 
         # else if outage is present already, update "dataultimoaggiornamento" (last edited) attribute, take max of
         # "num_cli_disalim" (number of clients affected), add to "updated_current_outages" and move on to next outage
         updated_outage = dict(existing)
         updated_outage["attributes"] = dict(existing["attributes"])
-        updated_outage["attributes"]["num_cli_disalim"] = max(0, existing["attributes"]["num_cli_disalim"], outage["attributes"]["num_cli_disalim"])
+        updated_outage["attributes"]["num_cli_disalim"] = max(
+            0,
+            existing["attributes"]["num_cli_disalim"],
+            outage["attributes"]["num_cli_disalim"],
+        )
         if "dataultimoaggiornamento" in outage["attributes"]:
-            updated_outage["attributes"]["dataultimoaggiornamento"] = outage["attributes"]["dataultimoaggiornamento"]
+            updated_outage["attributes"]["dataultimoaggiornamento"] = outage[
+                "attributes"
+            ]["dataultimoaggiornamento"]
         time_stamp_ms = int(time.time() * 1000)
-        updated_outage['ioda_update_date'] = time_stamp_ms
+        updated_outage["ioda_update_date"] = time_stamp_ms
         updated_current_outages.append(updated_outage)
 
     # all "current_outages" that did not appear in new data, change "ioda_status" to "resolved"
@@ -92,12 +100,15 @@ def update_current_outages(pre_existing_outages, new_data):
             completed_outage = dict(outage)
             completed_outage["ioda_status"] = "resolved"
             time_stamp_ms = int(time.time() * 1000)
-            completed_outage['ioda_update_date'] = time_stamp_ms
+            completed_outage["ioda_update_date"] = time_stamp_ms
             updated_current_outages.append(completed_outage)
 
     return updated_current_outages
 
-def get_pre_existing_raw_outages(current_datetime, bucket_name, provider_name, country_code):
+
+def get_pre_existing_raw_outages(
+    current_datetime, bucket_name, provider_name, country_code
+):
     """
     Get json of pre-existing raw outages data for today from minio.
     If no pre-existing data, return [].
@@ -107,15 +118,13 @@ def get_pre_existing_raw_outages(current_datetime, bucket_name, provider_name, c
     file_name = f"power_outages.{country_code}.{provider_name}.raw.{current_datetime['current_year']}-{current_datetime['current_month']}-{current_datetime['current_day']}.json"
 
     # specify local path to download file
-    local_path = os.path.join(
-        os.path.dirname(os.path.abspath(__file__)), file_name
-    )
+    local_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), file_name)
 
     # Get data if file exists, else create list to store new data to upload
     try:
         s3_path = f"{provider_name}/raw/{current_datetime['current_year']}/{current_datetime['current_month']}/{file_name}"
         uploader.download_file(s3_path, local_path)
-        with open(file_name, 'r') as file:
+        with open(file_name, "r") as file:
             pre_existing_raw_outages = json.load(file)
         if not pre_existing_raw_outages:
             pre_existing_raw_outages = []
@@ -124,6 +133,7 @@ def get_pre_existing_raw_outages(current_datetime, bucket_name, provider_name, c
 
     # return current raw data to append to
     return pre_existing_raw_outages
+
 
 def update_raw_data(pre_existing_raw_outage_data, new_raw_outage_data):
     """
@@ -153,53 +163,67 @@ def update_raw_data(pre_existing_raw_outage_data, new_raw_outage_data):
 
     # iterate through each outage by id
     for id in all_ids:
-
         # if outage just started
-        if id in indexed_new_raw_outages.keys() and id not in indexed_old_raw_outages.keys():
+        if (
+            id in indexed_new_raw_outages.keys()
+            and id not in indexed_old_raw_outages.keys()
+        ):
             outage = indexed_new_raw_outages[id]
-            outage['outage_ended_today'] = False
+            outage["outage_ended_today"] = False
             updated_raw_outage_data.append(outage)
 
         # if outage just ended
-        elif id in indexed_old_raw_outages.keys() and id not in indexed_new_raw_outages.keys():
+        elif (
+            id in indexed_old_raw_outages.keys()
+            and id not in indexed_new_raw_outages.keys()
+        ):
             outage = indexed_old_raw_outages[id]
-            outage['outage_ended_today'] = True
+            outage["outage_ended_today"] = True
             updated_raw_outage_data.append(outage)
 
         # if outage is ongoing
         else:
             previous_outage_data = indexed_old_raw_outages[id]
             new_outage_data = indexed_new_raw_outages[id]
-            num_people_affected = max(0, previous_outage_data['attributes']['num_cli_disalim'], new_outage_data['attributes']['num_cli_disalim'])
+            num_people_affected = max(
+                0,
+                previous_outage_data["attributes"]["num_cli_disalim"],
+                new_outage_data["attributes"]["num_cli_disalim"],
+            )
             outage = new_outage_data
-            outage['attributes']['num_cli_disalim'] = num_people_affected
-            outage['outage_ended_today'] = False
+            outage["attributes"]["num_cli_disalim"] = num_people_affected
+            outage["outage_ended_today"] = False
             updated_raw_outage_data.append(outage)
 
     return updated_raw_outage_data
 
-def upload_raw(raw_data: List[Dict[str, Any]], current_datetime, bucket_name, provider_name, country_code):
+
+def upload_raw(
+    raw_data: List[Dict[str, Any]],
+    current_datetime,
+    bucket_name,
+    provider_name,
+    country_code,
+):
     """
     Upload raw data json from local docker container to minio storage.
     """
     # get date for file naming
-    current_year = current_datetime['current_year']
-    current_month = current_datetime['current_month']
-    current_day = current_datetime['current_day']
+    current_year = current_datetime["current_year"]
+    current_month = current_datetime["current_month"]
+    current_day = current_datetime["current_day"]
 
     # save raw data locally to container as json
-    filename = f'power_outages.{country_code}.{provider_name}.raw.{current_year}-{current_month}-{current_day}.json'
-    with open(filename, 'w') as f:
+    filename = f"power_outages.{country_code}.{provider_name}.raw.{current_year}-{current_month}-{current_day}.json"
+    with open(filename, "w") as f:
         json.dump(raw_data, f, ensure_ascii=False, indent=4)
 
     # now upload json to minio
-    uploader = Uploader(f'{bucket_name}')
-    local_path = os.path.join(
-        os.path.dirname(os.path.abspath(__file__)),
-        filename
-    )
+    uploader = Uploader(f"{bucket_name}")
+    local_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), filename)
     s3_path = f"{provider_name}/raw/{current_year}/{current_month}/{filename}"
     uploader.upload_file(local_path, s3_path)
+
 
 def get_pre_existing_current_outages(bucket_name, provider_name):
     """
@@ -210,52 +234,59 @@ def get_pre_existing_current_outages(bucket_name, provider_name):
 
     # specify local path to download file
     local_path = os.path.join(
-        os.path.dirname(os.path.abspath(__file__)), 'current_outages.json'
+        os.path.dirname(os.path.abspath(__file__)), "current_outages.json"
     )
 
     # Download file if it exists, else create list to store new data to upload
     try:
-        s3_path = f'{provider_name}/current_outages/current_outages.json'
+        s3_path = f"{provider_name}/current_outages/current_outages.json"
         uploader.download_file(s3_path, local_path)
     except FileNotFoundError as e:
         new_current_outages_list = []
-        with open('current_outages.json', 'w') as f:
+        with open("current_outages.json", "w") as f:
             json.dump(new_current_outages_list, f, ensure_ascii=False, indent=4)
 
-def upload_current_outages(current_outages: List[Dict[str, Any]], bucket_name, provider_name):
+
+def upload_current_outages(
+    current_outages: List[Dict[str, Any]], bucket_name, provider_name
+):
     """
     Save 'current_outages' as a json file then upload it to minio.
     """
 
     # save current outages
-    filename = 'current_outages.json'
-    with open(filename, 'w') as f:
+    filename = "current_outages.json"
+    with open(filename, "w") as f:
         json.dump(current_outages, f, ensure_ascii=False, indent=4)
 
     # upload json to minio
     uploader = Uploader(bucket_name)
     local_path = os.path.join(
-        os.path.dirname(os.path.abspath(__file__)),
-        'current_outages.json'
+        os.path.dirname(os.path.abspath(__file__)), "current_outages.json"
     )
     s3_path = f"{provider_name}/current_outages/{filename}"
     uploader.upload_file(local_path, s3_path)
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     # get datetime data once and pass it into functions as needed so it's consistent
     now = datetime.now(timezone.utc)
     current_datetime = {
-        'current_year': f"{now.year}",
-        'current_month': f"{now.month:02d}",
-        'current_day': f"{now.day:02d}",
-        'current_hour': f"{now.hour:02d}",
-        'current_minute': f"{now.minute:02d}",
-        'current_second': f"{now.second:02d}",
+        "current_year": f"{now.year}",
+        "current_month": f"{now.month:02d}",
+        "current_day": f"{now.day:02d}",
+        "current_hour": f"{now.hour:02d}",
+        "current_minute": f"{now.minute:02d}",
+        "current_second": f"{now.second:02d}",
     }
 
     # get current day's raw data file from minio
-    pre_existing_raw_outages = get_pre_existing_raw_outages(current_datetime, bucket_name='italy', provider_name='edistribuzione', country_code='IT')
+    pre_existing_raw_outages = get_pre_existing_raw_outages(
+        current_datetime,
+        bucket_name="italy",
+        provider_name="edistribuzione",
+        country_code="IT",
+    )
 
     # get data from api
     new_raw_data = get_data()
@@ -264,15 +295,25 @@ if __name__ == "__main__":
     updated_raw_data = update_raw_data(pre_existing_raw_outages, new_raw_data)
 
     # upload new raw data to minio
-    upload_raw(updated_raw_data, current_datetime, bucket_name='italy', provider_name='edistribuzione', country_code='IT')
+    upload_raw(
+        updated_raw_data,
+        current_datetime,
+        bucket_name="italy",
+        provider_name="edistribuzione",
+        country_code="IT",
+    )
 
     # get pre-existing outages from minio
-    get_pre_existing_current_outages(bucket_name='italy', provider_name='edistribuzione')
-    with open('current_outages.json', 'r') as file:
+    get_pre_existing_current_outages(
+        bucket_name="italy", provider_name="edistribuzione"
+    )
+    with open("current_outages.json", "r") as file:
         pre_existing_outages = json.load(file)
 
     # use new outage data to update pre_existing outages
     updated_current_outages = update_current_outages(pre_existing_outages, new_raw_data)
 
     # upload updated current outages to mino
-    upload_current_outages(updated_current_outages, bucket_name='italy', provider_name='edistribuzione')
+    upload_current_outages(
+        updated_current_outages, bucket_name="italy", provider_name="edistribuzione"
+    )

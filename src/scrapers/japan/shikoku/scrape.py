@@ -2,6 +2,8 @@ import requests
 from pathlib import Path
 from datetime import datetime
 from xml.etree import ElementTree as ET
+from utils.upload import Uploader
+
 
 class ShikokuScraper:
     """Scraper for Shikoku power outage XML data (四国電力)."""
@@ -13,6 +15,8 @@ class ShikokuScraper:
 
         # Master XML URL
         self.master_url = "https://www.okidenmail.jp/bosai/xml/history_normal.xml"
+
+        self.uploader = Uploader("japan")
 
     def fetch_master_xml(self):
         ts = int(datetime.now().timestamp() * 1000)
@@ -29,7 +33,15 @@ class ShikokuScraper:
         master_text = resp.text
         master_path = self.base_path / f"okiden_master_{ts}.xml"
         master_path.write_text(master_text, encoding="utf-8")
-        print(f"[OKIDEN] Saved master XML → {master_path.name}")
+        print(f"[OKIDEN] Saved master XML -> {master_path.name}")
+
+        # Upload to shared volume
+        now = datetime.now()
+        year = now.strftime("%Y")
+        month = now.strftime("%m")
+        s3_path = f"japan/shikoku/raw/{year}/{month}/{master_path.name}"
+        self.uploader.upload_file(str(master_path), s3_path)
+
         return master_path, master_text
 
     def parse_date_keys(self, master_text):
@@ -41,7 +53,9 @@ class ShikokuScraper:
             return []
 
         # All <data><date_key> nodes
-        date_keys = [elem.text for elem in root.findall(".//data/date_key") if elem.text]
+        date_keys = [
+            elem.text for elem in root.findall(".//data/date_key") if elem.text
+        ]
         print(f"[OKIDEN] Found {len(date_keys)} date keys")
         return date_keys
 
@@ -58,7 +72,15 @@ class ShikokuScraper:
         detail_text = resp.text
         detail_path = self.base_path / f"okiden_{date_key}.xml"
         detail_path.write_text(detail_text, encoding="utf-8")
-        print(f"[OKIDEN] Saved detail XML → {detail_path.name}")
+        print(f"[OKIDEN] Saved detail XML -> {detail_path.name}")
+
+        # Upload to shared volume
+        now = datetime.now()
+        year = now.strftime("%Y")
+        month = now.strftime("%m")
+        s3_path = f"japan/shikoku/raw/{year}/{month}/{detail_path.name}"
+        self.uploader.upload_file(str(detail_path), s3_path)
+
         return detail_path
 
     def run(self):

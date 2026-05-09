@@ -1,8 +1,7 @@
 import json
 from datetime import datetime
 from pathlib import Path
-import boto3
-from botocore.client import Config
+from utils.upload import Uploader
 
 
 class TohokuProcessor:
@@ -58,13 +57,17 @@ class TohokuProcessor:
 
                 try:
                     year = self.today.year
-                    start_dt = datetime.strptime(f"{year}年{start_time}", "%Y年%m月%d日 %H:%M")
+                    start_dt = datetime.strptime(
+                        f"{year}年{start_time}", "%Y年%m月%d日 %H:%M"
+                    )
                 except Exception:
                     pass
 
                 try:
                     year = self.today.year
-                    end_dt = datetime.strptime(f"{year}年{end_time}", "%Y年%m月%d日 %H:%M")
+                    end_dt = datetime.strptime(
+                        f"{year}年{end_time}", "%Y年%m月%d日 %H:%M"
+                    )
                 except Exception:
                     pass
 
@@ -96,32 +99,23 @@ class TohokuProcessor:
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(outages, f, ensure_ascii=False, indent=2)
 
-        print(f"\nProcessed {len(outages)} outages → {output_path.name}")
+        print(f"\nProcessed {len(outages)} outages -> {output_path.name}")
         return output_path
 
 
-def get_s3_client():
-    """Return boto3 client for MinIO."""
-    return boto3.client(
-        "s3",
-        endpoint_url="http://host.docker.internal:9000",
-        aws_access_key_id="minioadmin",
-        aws_secret_access_key="minioadmin",
-        config=Config(signature_version="s3v4"),
-        region_name="us-east-1",
-    )
+def find_latest_raw_file(uploader, bucket, prefix):
+    """Return the key of the most recent raw JSON file in the bucket.
 
-
-def find_latest_raw_file(s3, bucket, prefix):
-    """Return the key of the most recent raw JSON file in the bucket."""
-    response = s3.list_objects_v2(Bucket=bucket, Prefix=prefix)
-    if "Contents" not in response:
+    The shared-volume client doesn't expose mtime, but the filenames embed
+    an ISO date (YYYY-MM-DD), so a lexicographic sort is also chronological.
+    """
+    response = uploader.client.list_objects_v2(Bucket=bucket, Prefix=prefix)
+    contents = response.get("Contents", [])
+    if not contents:
         print("No files found in the raw folder.")
         return None
 
-    # Sort by LastModified descending
-    sorted_objs = sorted(response["Contents"], key=lambda x: x["LastModified"], reverse=True)
-    latest = sorted_objs[0]["Key"]
+    latest = sorted(contents, key=lambda x: x["Key"], reverse=True)[0]["Key"]
     print(f"Latest raw file found: {latest}")
     return latest
 
@@ -129,40 +123,38 @@ def find_latest_raw_file(s3, bucket, prefix):
 def main():
     bucket = "japan"
     prefix = "japan/tohoku/raw/"
-    local_dir = "/app/data"
+    local_dir = Path("/app/data")
+    local_dir.mkdir(parents=True, exist_ok=True)
 
-    s3 = get_s3_client()
+    uploader = Uploader(bucket)
     today = datetime.now().strftime("%Y-%m-%d")
     expected_filename = f"power_outages.JP.tohoku.raw.{today}.json"
     expected_key = prefix + expected_filename
 
-    Path(local_dir).mkdir(parents=True, exist_ok=True)
-
-    # Step 1: Try today's file first
-    print(f"Checking for today's file: {expected_key}")
+    # Step 1: Try today's file first, fall back to latest available
+    local_raw_path = local_dir / expected_filename
     try:
-        s3.head_object(Bucket=bucket, Key=expected_key)
-        raw_key = expected_key
-    except Exception:
+        print(f"Checking for today's file: {expected_key}")
+        uploader.download_file(expected_key, str(local_raw_path))
+    except FileNotFoundError:
         print("Today's file not found — looking for latest available file...")
-        raw_key = find_latest_raw_file(s3, bucket, prefix)
+        raw_key = find_latest_raw_file(uploader, bucket, prefix)
         if not raw_key:
             print("No raw files available to process.")
             return
+        local_raw_path = local_dir / Path(raw_key).name
+        uploader.download_file(raw_key, str(local_raw_path))
 
-    # Step 2: Download the chosen raw file
-    local_raw_path = Path(local_dir) / Path(raw_key).name
-    s3.download_file(bucket, raw_key, str(local_raw_path))
-    print(f"Downloaded raw file → {local_raw_path}")
+    print(f"Downloaded raw file -> {local_raw_path}")
 
-    # Step 3: Process using your same logic
+    # Step 2: Process using your same logic
     processor = TohokuProcessor(local_dir)
     processed_path = processor.run(local_raw_path)
 
-    # Step 4: Upload processed file
+    # Step 3: Upload processed file to the shared volume
     processed_key = f"japan/tohoku/processed/{processed_path.name}"
-    s3.upload_file(str(processed_path), bucket, processed_key)
-    print(f"Uploaded processed file → {processed_key}")
+    uploader.upload_file(str(processed_path), processed_key)
+    print(f"Uploaded processed file -> {processed_key}")
 
     print("Tohoku post-processing complete.")
 

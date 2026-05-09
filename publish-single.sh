@@ -1,29 +1,37 @@
 #!/bin/bash
 # Usage: ./publish-single.sh ./src/scrapers/brazil/aneel
+set -e
 
 if [ -z "$1" ]; then
-  echo "Insufficent args. Usage: $0 <path_to_scraper_dir>"
+  echo "Usage: $0 <path_to_scraper_dir>"
   exit 1
 fi
 
 DIR_PATH="$1"
+BASE_DIR="./src/scrapers"
 TEMPLATE="Dockerfile.template"
+TEMPLATE_SELENIUM="Dockerfile.selenium"
 OUTPUT_NAME="Dockerfile"
 
-# clean up the path: remove `./src/scrapers` and attach and replace `/` with `_`
-prefix_removed=${DIR_PATH//.\/src\/scrapers\//}
+# Build image name: strip base dir prefix, replace / with _
+prefix_removed=${DIR_PATH#"$BASE_DIR"/}
 image_name=${prefix_removed//\//_}
 
+echo "=== Building: $image_name ==="
 
-# TODO: use a lighter docker file if we don't need selenium
+# Pick template: use selenium template if requirements.txt contains selenium
+if [ -f "$DIR_PATH/requirements.txt" ] && grep -qi "selenium" "$DIR_PATH/requirements.txt"; then
+  TMPL="$TEMPLATE_SELENIUM"
+  echo "  (using selenium template)"
+else
+  TMPL="$TEMPLATE"
+fi
 
-# using the template, replace placeholder names with the arg path and make a Dockerfile
-awk -v p="$DIR_PATH" '{gsub(/@replace/, p); print}' "$TEMPLATE" >"$DIR_PATH/$OUTPUT_NAME"
+# Generate Dockerfile from template
+awk -v p="$DIR_PATH" '{gsub(/@replace/, p); print}' "$TMPL" >"$DIR_PATH/$OUTPUT_NAME"
 
-# build + push the image: use the edited path as its name
-# docker build -t "$image_name":pr_$(git rev-parse --short HEAD) -f "${DIR_PATH}"/Dockerfile .
+# Build and push
 docker build -t localhost:5000/"${image_name}":latest -f "${DIR_PATH}"/Dockerfile .
 docker push localhost:5000/"${image_name}":latest
 
-
-# Make the DAGU YAML file
+echo "  Done: $image_name"

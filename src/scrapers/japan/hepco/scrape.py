@@ -2,6 +2,7 @@
 import requests
 from datetime import datetime
 from pathlib import Path
+from utils.upload import Uploader
 
 
 class HEPCO:
@@ -16,12 +17,12 @@ class HEPCO:
         self.country = "japan"
         self.country_code = "JP"
         self.base_path = Path(__file__).resolve().parent / "data" / "raw"
-       
+
         target_date = datetime.now()
 
         # Common formatted date strings
-        self.today_iso = target_date.strftime("%Y-%m-%d")  
-        self.today_jp = target_date.strftime("%m-%d-%Y")   
+        self.today_iso = target_date.strftime("%Y-%m-%d")
+        self.today_jp = target_date.strftime("%m-%d-%Y")
         self.year = target_date.strftime("%Y")
         self.month = target_date.strftime("%m")
 
@@ -30,6 +31,8 @@ class HEPCO:
 
         # HTTP headers
         self.headers = {"User-Agent": "Mozilla/5.0 (compatible; outage-scraper/1.0)"}
+
+        self.uploader = Uploader("japan")
 
     def _get_output_path(self):
         """Generate the daily output path and filename."""
@@ -49,7 +52,15 @@ class HEPCO:
         output_path = self._get_output_path()
         output_path.parent.mkdir(parents=True, exist_ok=True)
         output_path.write_text(html, encoding="utf-8")
-        print(f"[{self.provider.upper()}] Saved HTML → {output_path.relative_to(Path.cwd())}")
+        print(
+            f"[{self.provider.upper()}] Saved HTML -> {output_path.relative_to(Path.cwd())}"
+        )
+
+        # Upload to shared volume
+        filename = output_path.name
+        s3_path = f"japan/hepco/raw/{self.year}/{self.month}/{filename}"
+        self.uploader.upload_file(str(output_path), s3_path)
+
         return output_path
 
     def run(self):

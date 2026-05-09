@@ -16,11 +16,10 @@ class TohokuProcessor:
         self.country_code = "JP"
 
         # Base and data paths
-        self.data_dir = Path(__file__).resolve().parent / "data" 
+        self.data_dir = Path(__file__).resolve().parent / "data"
         # self.data_dir = Path("/dagu/data")
         self.data_dir.mkdir(parents=True, exist_ok=True)
         (self.data_dir / "processed").mkdir(parents=True, exist_ok=True)
-
 
         # Date references
         self.today = datetime.now()
@@ -66,13 +65,17 @@ class TohokuProcessor:
                 try:
                     # Add current year if missing
                     year = self.today.year
-                    start_dt = datetime.strptime(f"{year}年{start_time}", "%Y年%m月%d日 %H:%M")
+                    start_dt = datetime.strptime(
+                        f"{year}年{start_time}", "%Y年%m月%d日 %H:%M"
+                    )
                 except Exception:
                     pass
 
                 try:
                     year = self.today.year
-                    end_dt = datetime.strptime(f"{year}年{end_time}", "%Y年%m月%d日 %H:%M")
+                    end_dt = datetime.strptime(
+                        f"{year}年{end_time}", "%Y年%m月%d日 %H:%M"
+                    )
                 except Exception:
                     pass
 
@@ -109,7 +112,7 @@ class TohokuProcessor:
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(outages, f, ensure_ascii=False, indent=2)
 
-        print(f"\nProcessed {len(outages)} outages → {output_path.name}")
+        print(f"\nProcessed {len(outages)} outages -> {output_path.name}")
         return output_path
 
 

@@ -16,11 +16,29 @@ class Zhytomyr:
         self.semaphore = asyncio.Semaphore(concurrent_connections)
 
         # department/region IDs to query
-        self.rem_ids = ['1', '2', '3', '4', '5', '7', '9', '11', '13', '14', '17', '18', '19', '20', '21', '23', '25']
+        self.rem_ids = [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "7",
+            "9",
+            "11",
+            "13",
+            "14",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "23",
+            "25",
+        ]
 
     def check_folder(self, type):
         self.folder_path = (
-                "./ukraine/zhytomyr/" + type + "/" + self.year + "/" + self.month
+            "./ukraine/zhytomyr/" + type + "/" + self.year + "/" + self.month
         )
         os.makedirs(self.folder_path, exist_ok=True)
 
@@ -29,7 +47,7 @@ class Zhytomyr:
             "rem_id": rem_id,
             "naspunkt_id": "0",
             "vulica_id": "0",
-            "all": "%EF%EE%EA%E0%E7%E0%F2%E8 %F9%E5 1264 %E7%E0%EF%E8%F1%B3%E2"
+            "all": "%EF%EE%EA%E0%E7%E0%F2%E8 %F9%E5 1264 %E7%E0%EF%E8%F1%B3%E2",
         }
 
         async with self.semaphore:
@@ -39,7 +57,7 @@ class Zhytomyr:
                     return {
                         "rem_id": rem_id,
                         "html_content": response.text,
-                        "status": "success"
+                        "status": "success",
                     }
                 else:
                     print(
@@ -49,7 +67,7 @@ class Zhytomyr:
                         "rem_id": rem_id,
                         "html_content": None,
                         "status": "error",
-                        "error": f"HTTP {response.status_code}"
+                        "error": f"HTTP {response.status_code}",
                     }
             except Exception as e:
                 print(f"exception fetching rem_id:{rem_id}: {e}")
@@ -57,7 +75,7 @@ class Zhytomyr:
                     "rem_id": rem_id,
                     "html_content": None,
                     "status": "error",
-                    "error": str(e)
+                    "error": str(e),
                 }
 
     async def fetch_all(self):
@@ -76,7 +94,9 @@ class Zhytomyr:
             results = await asyncio.gather(*tasks)
 
             # filter out failed results
-            all_data = [result for result in results if result.get("status") == "success"]
+            all_data = [
+                result for result in results if result.get("status") == "success"
+            ]
 
         if all_data:
             # save individual HTML files (like original crawler)
@@ -85,7 +105,9 @@ class Zhytomyr:
                 html_content = item.get("html_content")
 
                 if html_content:
-                    html_file_name = f"power_outages.UA.zhytomyr.raw.{self.today}.{rem_id}.html"
+                    html_file_name = (
+                        f"power_outages.UA.zhytomyr.raw.{self.today}.{rem_id}.html"
+                    )
                     html_file_path = os.path.join(self.folder_path, html_file_name)
 
                     with open(html_file_path, "w", encoding="utf-8") as file:
@@ -101,7 +123,9 @@ class Zhytomyr:
                 for item in all_data:
                     rem_id = item.get("rem_id")
                     if item.get("html_content"):
-                        html_file_name = f"power_outages.UA.zhytomyr.raw.{self.today}.{rem_id}.html"
+                        html_file_name = (
+                            f"power_outages.UA.zhytomyr.raw.{self.today}.{rem_id}.html"
+                        )
                         html_file_path = os.path.join(self.folder_path, html_file_name)
                         html_s3_path = f"ukraine/zhytomyr/raw/{self.year}/{self.month}/{html_file_name}"
                         uploader.upload_file(html_file_path, html_s3_path)

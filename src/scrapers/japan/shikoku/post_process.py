@@ -4,6 +4,8 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
 import re
+from utils.upload import Uploader
+
 
 class ShikokuProcessor:
     def __init__(self):
@@ -18,7 +20,7 @@ class ShikokuProcessor:
         self.processed_dir.mkdir(parents=True, exist_ok=True)
 
     def _to_iso(self, jp_datetime: str) -> str:
-        """Convert '2025年12月8日 6時22分' → '2025-12-08 06:22'"""
+        """Convert '2025年12月8日 6時22分' -> '2025-12-08 06:22'"""
         jp_datetime = jp_datetime.strip()
         if not jp_datetime:
             return ""
@@ -48,38 +50,48 @@ class ShikokuProcessor:
                 recovery = self._to_iso(recovery_raw)
 
                 households_tag = h3.find("span", class_="kosuu")
-                households = households_tag.i.get_text(strip=True) if households_tag else ""
+                households = (
+                    households_tag.i.get_text(strip=True) if households_tag else ""
+                )
 
                 reason_tag = div.find("dl", class_="flex")
-                reason = reason_tag.find("dd").get_text(strip=True) if reason_tag else ""
+                reason = (
+                    reason_tag.find("dd").get_text(strip=True) if reason_tag else ""
+                )
 
                 areas = []
                 table = div.find("table")
                 if table:
                     for tr in table.find_all("tr"):
-                        prefecture = tr.find("th").get_text(strip=True) if tr.find("th") else ""
+                        prefecture = (
+                            tr.find("th").get_text(strip=True) if tr.find("th") else ""
+                        )
                         city_td = tr.find("td", class_="city")
                         city = city_td.get_text(strip=True) if city_td else ""
                         town_td = tr.find("td", class_="town")
-                        area_text = self._clean_text(town_td.get_text(" ", strip=True)) if town_td else ""
+                        area_text = (
+                            self._clean_text(town_td.get_text(" ", strip=True))
+                            if town_td
+                            else ""
+                        )
 
                         # Skip empty or placeholder entries
                         if all([x in ["", "―"] for x in [prefecture, city, area_text]]):
                             continue
 
-                        areas.append({
-                            "prefecture": prefecture,
-                            "city": city,
-                            "area": area_text
-                        })
+                        areas.append(
+                            {"prefecture": prefecture, "city": city, "area": area_text}
+                        )
 
-                outages.append({
-                    "occurrence_datetime": occurrence,
-                    "recovery_datetime": recovery,
-                    "reason": reason,
-                    "households_affected": households,
-                    "areas": areas
-                })
+                outages.append(
+                    {
+                        "occurrence_datetime": occurrence,
+                        "recovery_datetime": recovery,
+                        "reason": reason,
+                        "households_affected": households,
+                        "areas": areas,
+                    }
+                )
 
             except Exception as e:
                 print(f"[WARN] Failed to parse outage: {e}")
@@ -88,6 +100,18 @@ class ShikokuProcessor:
         return outages
 
     def run(self):
+        uploader = Uploader("japan")
+        now = datetime.now(self.JST)
+        year = now.strftime("%Y")
+        month = now.strftime("%m")
+
+        prefix = f"japan/shikoku/raw/{year}/{month}/"
+        listing = uploader.client.list_objects_v2(Bucket="japan", Prefix=prefix)
+        for obj in listing.get("Contents", []):
+            key = obj["Key"]
+            local_path = self.raw_dir / Path(key).name
+            uploader.download_file(key, str(local_path))
+
         all_outages = []
 
         for file in sorted(self.raw_dir.glob("*.html")):
@@ -101,8 +125,17 @@ class ShikokuProcessor:
         filtered_outages = []
         for o in all_outages:
             o["areas"] = [a for a in o["areas"] if any(a.values())]
-            if any([o.get("occurrence_datetime"), o.get("recovery_datetime"),
-                    o.get("reason"), o.get("households_affected")]) and o["areas"]:
+            if (
+                any(
+                    [
+                        o.get("occurrence_datetime"),
+                        o.get("recovery_datetime"),
+                        o.get("reason"),
+                        o.get("households_affected"),
+                    ]
+                )
+                and o["areas"]
+            ):
                 filtered_outages.append(o)
 
         if not filtered_outages:
@@ -113,7 +146,12 @@ class ShikokuProcessor:
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(filtered_outages, f, ensure_ascii=False, indent=2)
 
-        print(f"\nParsed {len(filtered_outages)} outages → {output_file}")
+        print(f"\nParsed {len(filtered_outages)} outages -> {output_file}")
+
+        # Upload processed file to shared volume
+        s3_processed = f"japan/shikoku/processed/{year}/{month}/{output_file.name}"
+        uploader.upload_file(str(output_file), s3_processed)
+
         return output_file
 
 

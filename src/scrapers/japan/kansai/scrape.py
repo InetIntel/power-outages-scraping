@@ -4,6 +4,7 @@ import requests
 from urllib.request import urlopen, Request
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from utils.upload import Uploader
 
 
 class KansaiScraper:
@@ -13,7 +14,9 @@ class KansaiScraper:
         self.provider = "kansai"
         self.country = "japan"
         self.country_code = "JP"
-        self.feed_url = "https://www.kansai-td.co.jp/interchange/teiden-info/ja/history.json"
+        self.feed_url = (
+            "https://www.kansai-td.co.jp/interchange/teiden-info/ja/history.json"
+        )
 
         self.base_path = Path(__file__).resolve().parent / "data" / "raw"
         # self.base_path = Path("/dagu/data")
@@ -30,6 +33,8 @@ class KansaiScraper:
 
         # Common headers
         self.headers = {"User-Agent": "Mozilla/5.0 (compatible; outage-scraper/1.0)"}
+
+        self.uploader = Uploader("japan")
 
     def fetch_json(self):
         """Fetch JSON data from the Kansai endpoint with timestamp parameter."""
@@ -66,11 +71,19 @@ class KansaiScraper:
         )
 
         output_path.write_text(
-            json.dumps(combined, ensure_ascii=False, indent=2),
-            encoding="utf-8"
+            json.dumps(combined, ensure_ascii=False, indent=2), encoding="utf-8"
         )
 
-        print(f"Saved Kansai outage JSON → {output_path}")
+        print(f"Saved Kansai outage JSON -> {output_path}")
+
+        # Upload to shared volume
+        JST = timezone(timedelta(hours=9))
+        now = datetime.now(JST)
+        year = now.strftime("%Y")
+        month = now.strftime("%m")
+        filename = output_path.name
+        s3_path = f"japan/kansai/raw/{year}/{month}/{filename}"
+        self.uploader.upload_file(str(output_path), s3_path)
 
 
 if __name__ == "__main__":

@@ -4,6 +4,7 @@ import requests
 import urllib3
 from bs4 import BeautifulSoup
 
+
 class Goa:
     def __init__(self):
         self.provider = "goa"
@@ -16,7 +17,14 @@ class Goa:
         self.url = "https://www.goaelectricity.gov.in/Goa_power_outage.aspx#"
 
     def create_folder(self, data_type):
-        folder = os.path.join(self.base_path, self.country, self.provider, data_type, self.year, self.month)
+        folder = os.path.join(
+            self.base_path,
+            self.country,
+            self.provider,
+            data_type,
+            self.year,
+            self.month,
+        )
         os.makedirs(folder, exist_ok=True)
         return folder
 
@@ -27,7 +35,9 @@ class Goa:
         try:
             response = requests.get(self.url, verify=False)
             soup = BeautifulSoup(response.text, "html.parser")
-            planned_outage_h2 = soup.find("h2", string=lambda s: s and "Planned Power Outage" in s)
+            planned_outage_h2 = soup.find(
+                "h2", string=lambda s: s and "Planned Power Outage" in s
+            )
             content_area = None
             if planned_outage_h2:
                 content_rt = planned_outage_h2.find_parent("div", class_="content_rt")
@@ -50,8 +60,11 @@ class Goa:
         except Exception as e:
             error_path = os.path.join(folder, f"404_{self.today}.txt")
             with open(error_path, "w", encoding="utf-8") as f:
-                f.write(f"Scrape failed for {self.today}: {type(e).__name__} - {str(e)}\n")
+                f.write(
+                    f"Scrape failed for {self.today}: {type(e).__name__} - {str(e)}\n"
+                )
             print(f"Scrape failed: {type(e).__name__}: {e}")
+
 
 if __name__ == "__main__":
     Goa().scrape()

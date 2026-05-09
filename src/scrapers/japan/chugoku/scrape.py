@@ -2,6 +2,7 @@ import os
 import requests
 from datetime import datetime, timedelta, timezone
 from pathlib import Path
+from utils.upload import Uploader
 
 
 class ChugokuHistoryScraper:
@@ -15,6 +16,7 @@ class ChugokuHistoryScraper:
         self.base_path.mkdir(parents=True, exist_ok=True)
 
         self.JST = timezone(timedelta(hours=9))
+        self.uploader = Uploader("japan")
 
     def fetch_html(self, date_str):
         params = {"date": date_str, "type": ""}
@@ -24,19 +26,24 @@ class ChugokuHistoryScraper:
 
         return resp.text
 
-  
     def save_html(self, date_str, html):
         filepath = self.base_path / f"{date_str}.html"
         filepath.write_text(html, encoding="utf-8")
 
         print(f"[SAVED HTML] {filepath}")
-        return filepath
 
+        # Upload to shared volume
+        now = datetime.now(self.JST)
+        year = now.strftime("%Y")
+        month = now.strftime("%m")
+        s3_path = f"japan/chugoku/raw/{year}/{month}/{date_str}.html"
+        self.uploader.upload_file(str(filepath), s3_path)
+
+        return filepath
 
     def run_single_day(self, date_str):
         html = self.fetch_html(date_str)
         return self.save_html(date_str, html)
-
 
     def run_last_n_days(self, n=8):
         today = datetime.now(self.JST)
@@ -49,7 +56,6 @@ class ChugokuHistoryScraper:
                 self.run_single_day(date_str)
             except Exception as e:
                 print(f"[ERROR] Failed for {date_str}: {e}")
-
 
 
 if __name__ == "__main__":

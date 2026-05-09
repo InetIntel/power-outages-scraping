@@ -2,11 +2,14 @@ import csv
 import json
 from pathlib import Path
 from datetime import datetime
+from utils.upload import Uploader
+
 
 class KyushuProcessor:
     """
     Processes Kyushu Electric Power outage CSVs (YYYYMMDDHHMM format) into structured JSON.
     """
+
     def __init__(self):
         self.base_dir = Path(__file__).resolve().parent
         self.csv_dir = self.base_dir / "data" / "raw"
@@ -22,7 +25,15 @@ class KyushuProcessor:
                 if len(row) < 7:
                     continue  # skip invalid rows
 
-                start_raw, end_raw, city, area, households_total, households_affected, reason = row
+                (
+                    start_raw,
+                    end_raw,
+                    city,
+                    area,
+                    households_total,
+                    households_affected,
+                    reason,
+                ) = row
 
                 try:
                     start_dt = datetime.strptime(start_raw.strip(), "%Y%m%d%H%M")
@@ -49,9 +60,7 @@ class KyushuProcessor:
                     "duration_minutes": duration_minutes,
                     "reason": reason,
                     "households_affected": households_affected,
-                    "areas": [
-                        {"prefecture": "Kyushu", "city": city, "area": area}
-                    ]
+                    "areas": [{"prefecture": "Kyushu", "city": city, "area": area}],
                 }
 
                 outages.append(outage_entry)
@@ -59,6 +68,18 @@ class KyushuProcessor:
         return outages
 
     def run(self):
+        uploader = Uploader("japan")
+        now = datetime.now()
+        year = now.strftime("%Y")
+        month = now.strftime("%m")
+
+        prefix = f"japan/kyushu/raw/{year}/{month}/"
+        listing = uploader.client.list_objects_v2(Bucket="japan", Prefix=prefix)
+        for obj in listing.get("Contents", []):
+            key = obj["Key"]
+            local_path = self.csv_dir / Path(key).name
+            uploader.download_file(key, str(local_path))
+
         all_outages = []
 
         for csv_file in sorted(self.csv_dir.glob("*.csv")):
@@ -70,7 +91,12 @@ class KyushuProcessor:
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(all_outages, f, ensure_ascii=False, indent=2)
 
-        print(f"\nParsed {len(all_outages)} outages → {output_file}")
+        print(f"\nParsed {len(all_outages)} outages -> {output_file}")
+
+        # Upload processed file to shared volume
+        s3_processed = f"japan/kyushu/processed/{year}/{month}/{output_file.name}"
+        uploader.upload_file(str(output_file), s3_processed)
+
         return output_file
 
 

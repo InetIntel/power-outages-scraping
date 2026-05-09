@@ -1,11 +1,10 @@
 import requests
 from datetime import datetime, timedelta
 from pathlib import Path
+from utils.upload import Uploader
 
 
 class TEPCOScraper:
-
-
     def __init__(self):
         self.provider = "tepco"
         self.country = "japan"
@@ -19,7 +18,6 @@ class TEPCOScraper:
         self.base_path.mkdir(parents=True, exist_ok=True)
         (self.base_path / "raw").mkdir(parents=True, exist_ok=True)
 
-
         # HTTP headers
         self.headers = {"User-Agent": "Mozilla/5.0 (compatible; outage-scraper/1.0)"}
 
@@ -29,10 +27,14 @@ class TEPCOScraper:
         self.year = self.today.strftime("%Y")
         self.month = self.today.strftime("%m")
 
+        self.uploader = Uploader("japan")
+
     def _get_output_path(self, date: datetime):
         """Return file path for a given date (power_outages.JP.tepco.raw.YYYY-MM-DD.xml)."""
         date_str = date.strftime("%Y-%m-%d")
-        filename = f"power_outages.{self.country_code}.{self.provider}.raw.{date_str}.xml"
+        filename = (
+            f"power_outages.{self.country_code}.{self.provider}.raw.{date_str}.xml"
+        )
         return self.base_path / "raw" / filename
 
     def _get_remote_filename(self, date: datetime):
@@ -55,7 +57,17 @@ class TEPCOScraper:
         output_path = self._get_output_path(date)
         output_path.write_bytes(response.content)
 
-        print(f"[{self.provider.upper()}] Saved XML → {output_path.relative_to(Path.cwd())}")
+        print(
+            f"[{self.provider.upper()}] Saved XML -> {output_path.relative_to(Path.cwd())}"
+        )
+
+        # Upload to shared volume
+        date_year = date.strftime("%Y")
+        date_month = date.strftime("%m")
+        filename = output_path.name
+        s3_path = f"japan/tepco/raw/{date_year}/{date_month}/{filename}"
+        self.uploader.upload_file(str(output_path), s3_path)
+
         return output_path
 
     def run(self, days_back: int = 7):

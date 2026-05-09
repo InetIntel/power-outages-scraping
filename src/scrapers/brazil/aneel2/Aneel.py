@@ -1,11 +1,10 @@
-import boto3
-from botocore.client import Config
 import os
 from datetime import datetime
 import requests
 from bs4 import BeautifulSoup
 from tqdm import tqdm
 from utils import Uploader
+
 
 class Aneel:
     def __init__(self, year=None):
@@ -15,7 +14,9 @@ class Aneel:
         if year:
             self.year = year
         self.url = "https://dadosabertos.aneel.gov.br/dataset/interrupcoes-de-energia-eletrica-nas-redes-de-distribuicao"
-        self.dir_path = f"./aneel/raw/{self.year}" # the dir to store all scraped files/data in
+        self.dir_path = (
+            f"./aneel/raw/{self.year}"  # the dir to store all scraped files/data in
+        )
 
     def __create_dir(self):
         os.makedirs(self.dir_path, exist_ok=True)
@@ -89,13 +90,11 @@ class Aneel:
 
         print(f"Download for {self.year} data is complete")
 
-
     def process(self):
         """
         Code to process (validate the files, check for types, NULL values, etc.) goes here
         """
-        pass 
-
+        pass
 
     def upload(self):
         for root, _, files in os.walk(self.dir_path):

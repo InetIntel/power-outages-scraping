@@ -15,7 +15,7 @@ class TohokuScraper:
         self.country_code = "JP"
         self.feed_base = "https://nw.tohoku-epco.co.jp/teideninfo/blackout/"
         self.base_path = Path(__file__).resolve().parent / "data" / "raw"
-        # self.base_path = Path("/dagu/data") 
+        # self.base_path = Path("/dagu/data")
         self.base_path.mkdir(parents=True, exist_ok=True)
 
         self.today_iso = datetime.now().strftime("%Y-%m-%d")
@@ -67,12 +67,10 @@ class TohokuScraper:
         )
 
         output_path.write_text(
-            json.dumps(combined, ensure_ascii=False, indent=2),
-            encoding="utf-8"
+            json.dumps(combined, ensure_ascii=False, indent=2), encoding="utf-8"
         )
 
-        print(f"Saved combined weekly JSON → {output_path}")
-
+        print(f"Saved combined weekly JSON -> {output_path}")
 
 
 if __name__ == "__main__":

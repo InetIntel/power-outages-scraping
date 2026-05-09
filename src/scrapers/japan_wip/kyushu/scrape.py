@@ -2,6 +2,7 @@ import requests
 from pathlib import Path
 from datetime import datetime, timedelta
 
+
 class KyushuScraper:
     def __init__(self):
         self.base_path = Path(__file__).resolve().parent / "data" / "raw"
@@ -38,7 +39,7 @@ class KyushuScraper:
         current = start_date
         while current <= end_date:
             date_str = current.strftime("%Y%m%d")
-            date_format = datetime.strptime(date_str, "%Y%m%d").strftime("%m/%d/%Y") 
+            date_format = datetime.strptime(date_str, "%Y%m%d").strftime("%m/%d/%Y")
             print(f"\n=== Fetching {date_format} ===")
 
             self.fetch_for_date(date_str)

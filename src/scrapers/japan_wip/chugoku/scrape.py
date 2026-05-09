@@ -2,6 +2,7 @@ import os
 import requests
 from datetime import datetime, timedelta, timezone
 
+
 class ChugokuScraper:
     """Scraper for Chugoku Electric Power (中国電力) outage page (raw HTML)."""
 
@@ -29,13 +30,15 @@ class ChugokuScraper:
         response.raise_for_status()
 
         timestamp = datetime.now(self.JST).strftime("%Y-%m-%d-%H-%M-%S")
-        filename = f"power_outages.{self.country_code}.{self.provider}.raw.{timestamp}.html"
+        filename = (
+            f"power_outages.{self.country_code}.{self.provider}.raw.{timestamp}.html"
+        )
         file_path = os.path.join(self.data_dir, filename)
 
         with open(file_path, "w", encoding="utf-8") as f:
             f.write(response.text)
 
-        print(f"[SCRAPER] Saved raw HTML → {file_path}")
+        print(f"[SCRAPER] Saved raw HTML -> {file_path}")
         return file_path
 
     def run(self):

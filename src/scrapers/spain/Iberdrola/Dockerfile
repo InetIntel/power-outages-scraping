@@ -1,22 +1,20 @@
 FROM python:3.13-alpine
 
-# Install Chromium + ChromeDriver
-# RUN apk add --no-cache \
-#   chromium \
-#   chromium-chromedriver \
-#   bash \
-#   && rm -rf /var/cache/apk/*
+RUN apk add --no-cache \
+  chromium \
+  chromium-chromedriver \
+  bash \
+  && rm -rf /var/cache/apk/*
 
-# Set environment for Selenium
-# ENV CHROME_BIN=/usr/bin/chromium-browser
-# ENV CHROMEDRIVER_PATH=/usr/bin/chromedriver
+ENV CHROME_BIN=/usr/bin/chromium-browser
+ENV CHROMEDRIVER_PATH=/usr/bin/chromedriver
 
 WORKDIR /app
 
-COPY ./src/scrapers/spain/Iberdrola/requirements.txt .
-COPY ./src/scrapers/spain/Iberdrola/*.py .
-COPY ./utils/ utils/
-
+COPY ./src/scrapers/spain/iberdrola/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# CMD ["python", "scrape.py"]
+COPY ./src/scrapers/spain/iberdrola/*.py .
+COPY ./utils/ utils/
+
+CMD ["python", "scrape.py"]

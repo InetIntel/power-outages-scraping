@@ -2,6 +2,7 @@ import os
 import requests
 from datetime import datetime, timezone, timedelta
 
+
 class ShikokuScraper:
     """Scraper for Shikoku Electric Power Network (四国電力送配電株式会社) outage history pages."""
 
@@ -46,7 +47,7 @@ class ShikokuScraper:
         with open(filepath, "w", encoding="utf-8") as f:
             f.write(response.text)
 
-        print(f"[SHIKOKU] Saved raw HTML → {filepath}")
+        print(f"[SHIKOKU] Saved raw HTML -> {filepath}")
         return filepath
 
 

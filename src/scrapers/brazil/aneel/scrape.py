@@ -1,5 +1,3 @@
-import boto3
-from botocore.client import Config
 import os
 from datetime import datetime
 import requests
@@ -16,7 +14,9 @@ class Aneel:
         if year:
             self.year = year
         self.url = "https://dadosabertos.aneel.gov.br/dataset/interrupcoes-de-energia-eletrica-nas-redes-de-distribuicao"
-        self.dir_path = f"./aneel/raw/{self.year}" # the dir to store all scraped files/data in
+        self.dir_path = (
+            f"./aneel/raw/{self.year}"  # the dir to store all scraped files/data in
+        )
 
     def __create_dir(self):
         os.makedirs(self.dir_path, exist_ok=True)
@@ -100,6 +100,7 @@ class Aneel:
 
         print("✅ Folder uploaded")
         #
+
 
 if __name__ == "__main__":
     print("in main", flush=True)

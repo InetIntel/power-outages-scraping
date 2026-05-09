@@ -9,6 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
+
 class TataScraper:
     def __init__(self):
         self.provider = "tata"
@@ -21,7 +22,14 @@ class TataScraper:
         self.url = "https://customerportal.tatapower.com/TPCD/OuterOutage.aspx#"
 
     def create_folder(self, data_type):
-        folder_path = os.path.join(self.base_path, self.country, self.provider, data_type, self.year, self.month)
+        folder_path = os.path.join(
+            self.base_path,
+            self.country,
+            self.provider,
+            data_type,
+            self.year,
+            self.month,
+        )
         os.makedirs(folder_path, exist_ok=True)
         return folder_path
 
@@ -41,25 +49,36 @@ class TataScraper:
             driver.get(self.url)
 
             WebDriverWait(driver, 20).until(
-                lambda d: d.execute_script("return document.readyState") == "complete")
+                lambda d: d.execute_script("return document.readyState") == "complete"
+            )
             WebDriverWait(driver, 20).until(
-                EC.invisibility_of_element_located((By.ID, "page_loader")))
+                EC.invisibility_of_element_located((By.ID, "page_loader"))
+            )
 
             element = WebDriverWait(driver, 20).until(
-                EC.element_to_be_clickable((By.XPATH, "//a[@tabindex='1' and @aria-label='Click to List']")))
+                EC.element_to_be_clickable(
+                    (By.XPATH, "//a[@tabindex='1' and @aria-label='Click to List']")
+                )
+            )
             driver.execute_script("arguments[0].scrollIntoView(true);", element)
             element.click()
 
             WebDriverWait(driver, 20).until(
-                lambda d: d.execute_script("return document.readyState") == "complete")
+                lambda d: d.execute_script("return document.readyState") == "complete"
+            )
             WebDriverWait(driver, 20).until(
-                EC.invisibility_of_element_located((By.ID, "page_loader")))
+                EC.invisibility_of_element_located((By.ID, "page_loader"))
+            )
 
             WebDriverWait(driver, 20).until(
-                EC.presence_of_element_located((By.ID, "table1")))
+                EC.presence_of_element_located((By.ID, "table1"))
+            )
             html = driver.page_source
 
-            file_path = os.path.join(raw_folder, f"power_outages.IND.{self.provider}.raw.{self.today_iso}.html")
+            file_path = os.path.join(
+                raw_folder,
+                f"power_outages.IND.{self.provider}.raw.{self.today_iso}.html",
+            )
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(html)
             print(f"Saved raw outage HTML: {file_path}")
@@ -85,6 +104,7 @@ class TataScraper:
                 driver.quit()
             except:
                 pass
+
 
 if __name__ == "__main__":
     TataScraper().scrape()

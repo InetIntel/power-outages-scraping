@@ -1,0 +1,225 @@
+defaults:
+  retries: 2
+  retry_delay_minutes: 5
+  timeout_minutes: 60
+  owner: "power-outages"
+
+scrapers:
+  # # BANGLADESH
+
+  # - scraper_id: bangladesh_nesco
+  #   module: bangladesh.nesco
+  #   schedule: "0 6 * * *"
+  #   description: "Bangladesh NESCO power outage data"
+  #   tags: [bangladesh, asia]
+
+  # BRAZIL
+
+  - scraper_id: brazil_aneel
+    module: brazil.aneel
+    schedule: "0 */4 * * *"
+    tags: [brazil, south_america]
+
+  - scraper_id: brazil_aneel2
+    module: brazil.aneel2
+    tags: [brazil, south_america]
+    depends_on: [brazil_aneel]
+
+  # CAMEROON
+
+  - scraper_id: cameroon
+    module: cameroon
+    schedule: "0 8 * * *"
+    tags: [cameroon, africa]
+
+  # GERMANY
+
+  - scraper_id: germany_stoerungsauskunft
+    module: germany.stoerungsauskunft
+    schedule: "0 */2 * * *"
+    tags: [germany, europe]
+
+  # INDIA
+
+  - scraper_id: india_bses_rajdhani
+    module: india.bses_rajdhani
+    schedule: "0 5 * * *"
+    tags: [india, asia]
+
+  - scraper_id: india_bses_rajdhani_weekly
+    module: india.bses_rajdhani_weekly
+    schedule: "0 5 * * 1"
+    tags: [india, asia, weekly]
+
+  - scraper_id: india_bses_yamuna
+    module: india.bses_yamuna
+    schedule: "0 5 * * *"
+    tags: [india, asia]
+
+  - scraper_id: india_goa
+    module: india.goa
+    schedule: "0 6 * * *"
+    tags: [india, asia]
+
+  - scraper_id: india_mahavitaran
+    module: india.mahavitaran
+    schedule: "0 5 * * *"
+    tags: [india, asia]
+
+  - scraper_id: india_tangedco
+    module: india.tangedco
+    schedule: "0 5 * * *"
+    tags: [india, asia]
+
+  - scraper_id: india_tata
+    module: india.tata
+    schedule: "0 5 * * *"
+    tags: [india, asia]
+
+  - scraper_id: india_tataddl
+    module: india.tataddl
+    schedule: "0 5 * * *"
+    tags: [india, asia]
+
+  # IRELAND
+
+  - scraper_id: ireland
+    module: ireland
+    schedule: "0 */3 * * *"
+    tags: [ireland, europe]
+
+  # ITALY
+
+  - scraper_id: italy_edistribuzione
+    module: italy.edistribuzione
+    schedule: "0 */4 * * *"
+    tags: [italy, europe]
+
+  # JAPAN
+
+  - scraper_id: japan_chugoku
+    module: japan.chugoku
+    schedule: "0 1 * * *"
+    tags: [japan, asia]
+
+  - scraper_id: japan_hepco
+    module: japan.hepco
+    schedule: "0 1 * * *"
+    tags: [japan, asia]
+
+  - scraper_id: japan_hokuriku
+    module: japan.hokuriku
+    schedule: "0 1 * * *"
+    tags: [japan, asia]
+
+  - scraper_id: japan_kansai
+    module: japan.kansai
+    schedule: "0 1 * * *"
+    tags: [japan, asia]
+
+  - scraper_id: japan_kyushu
+    module: japan.kyushu
+    schedule: "0 1 * * *"
+    tags: [japan, asia]
+
+  - scraper_id: japan_okinawa
+    module: japan.okinawa
+    schedule: "0 1 * * *"
+    tags: [japan, asia]
+
+  - scraper_id: japan_shikoku
+    module: japan.shikoku
+    schedule: "0 1 * * *"
+    tags: [japan, asia]
+
+  - scraper_id: japan_tepco
+    module: japan.tepco
+    schedule: "0 1 * * *"
+    tags: [japan, asia]
+
+  - scraper_id: japan_tohoku
+    module: japan.tohoku
+    schedule: "0 1 * * *"
+    tags: [japan, asia]
+
+  # NIGERIA
+
+  - scraper_id: nigeria_ikeja
+    module: nigeria.ikeja
+    schedule: "0 7 * * *"
+    tags: [nigeria, africa]
+
+  # ROMANIA
+
+  - scraper_id: romania_retele_electric
+    module: romania.retele_electric
+    schedule: "0 */4 * * *"
+    tags: [romania, europe]
+
+  # SPAIN
+
+  - scraper_id: spain_edistribucion
+    module: spain.edistribucion
+    schedule: "0 */3 * * *"
+    tags: [spain, europe]
+
+  - scraper_id: spain_iberdrola
+    module: spain.iberdrola
+    schedule: "0 */3 * * *"
+    tags: [spain, europe]
+
+  - scraper_id: spain_naturgy
+    module: spain.naturgy
+    schedule: "0 */3 * * *"
+    tags: [spain, europe]
+
+  # THAILAND
+
+  - scraper_id: thailand_mea
+    module: thailand.mea
+    schedule: "0 2 * * *"
+    tags: [thailand, asia]
+
+  # UK
+
+  - scraper_id: uk_national_grid
+    module: uk.national_grid
+    schedule: "0 */2 * * *"
+    tags: [uk, europe]
+
+  - scraper_id: uk_northern_powergrid
+    module: uk.northern_powergrid
+    schedule: "0 */2 * * *"
+    tags: [uk, europe]
+
+  - scraper_id: uk_power_networks
+    module: uk.power_networks
+    schedule: "0 */2 * * *"
+    tags: [uk, europe]
+
+  # - scraper_id: uk_scottish_southern
+  #   module: uk.scottish_southern
+  #   schedule: "0 */2 * * *"
+  #   tags: [uk, europe]
+
+  - scraper_id: uk_sp_electricity_northwest
+    module: uk.sp_electricity_northwest
+    schedule: "0 */2 * * *"
+    tags: [uk, europe]
+
+  # UKRAINE
+
+  - scraper_id: ukraine_cherkasy
+    module: ukraine.cherkasy
+    schedule: "0 */6 * * *"
+    tags: [ukraine, europe]
+
+  - scraper_id: ukraine_khmelnytsky
+    module: ukraine.khmelnytsky
+    schedule: "0 */6 * * *"
+    tags: [ukraine, europe]
+
+  - scraper_id: ukraine_zhytomyr
+    module: ukraine.zhytomyr
+    schedule: "0 */6 * * *"
+    tags: [ukraine, europe]

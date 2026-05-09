@@ -3,6 +3,7 @@ from pathlib import Path
 from datetime import datetime
 import json
 import sys
+from utils.upload import Uploader
 
 
 class RikudenHTMLProcessor:
@@ -52,24 +53,43 @@ class RikudenHTMLProcessor:
             reason_raw = clean(cols[6])
 
             # Normalize
-            households = None if households_raw in ("（自動復旧等）", "(自動復旧等)", "(Automatic recovery)") else households_raw
+            households = (
+                None
+                if households_raw
+                in ("（自動復旧等）", "(自動復旧等)", "(Automatic recovery)")
+                else households_raw
+            )
             reason = None if reason_raw in ("―", "-", "") else reason_raw
 
-            entries.append({
-                "start_time": start,
-                "end_time": end,
-                "prefecture": prefecture,
-                "city": city,
-                "towns": towns,
-                "households": households,
-                "reason": reason,
-            })
+            entries.append(
+                {
+                    "start_time": start,
+                    "end_time": end,
+                    "prefecture": prefecture,
+                    "city": city,
+                    "towns": towns,
+                    "households": households,
+                    "reason": reason,
+                }
+            )
 
         return entries
 
     def run(self):
+        uploader = Uploader("japan")
+        now = datetime.now()
+        year = now.strftime("%Y")
+        month = now.strftime("%m")
+
+        prefix = f"japan/hokuriku/raw/{year}/{month}/"
+        listing = uploader.client.list_objects_v2(Bucket="japan", Prefix=prefix)
+        for obj in listing.get("Contents", []):
+            key = obj["Key"]
+            local_path = self.raw_dir / Path(key).name
+            uploader.download_file(key, str(local_path))
+
         html_path = self._latest_html()
-        print(f"Parsing → {html_path}")
+        print(f"Parsing -> {html_path}")
 
         html_bytes = html_path.read_bytes()
         entries = self._parse_table(html_bytes)
@@ -81,10 +101,19 @@ class RikudenHTMLProcessor:
             "entries": entries,
         }
 
-        out_file = self.out_dir / f"rikuden_processed_{datetime.now().strftime('%Y%m%dT%H%M%S')}.json"
-        out_file.write_text(json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8")
+        out_file = (
+            self.out_dir
+            / f"rikuden_processed_{datetime.now().strftime('%Y%m%dT%H%M%S')}.json"
+        )
+        out_file.write_text(
+            json.dumps(result, ensure_ascii=False, indent=2), encoding="utf-8"
+        )
 
-        print(f"Saved → {out_file}")
+        print(f"Saved -> {out_file}")
+
+        # Upload processed file to shared volume
+        s3_processed = f"japan/hokuriku/processed/{year}/{month}/{out_file.name}"
+        uploader.upload_file(str(out_file), s3_processed)
 
 
 if __name__ == "__main__":
