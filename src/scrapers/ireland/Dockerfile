@@ -1,18 +1,11 @@
-# Use an official Python runtime as a parent image
-FROM python:3.11-slim
+FROM python:3.13-alpine
 
-# Set the working directory inside the container
 WORKDIR /app
 
-# Copy requirements.txt and install dependencies
-COPY requirements.txt .
+COPY ./src/scrapers/ireland/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy your Python script into the container
-COPY crawler.py .
+COPY ./src/scrapers/ireland/*.py .
+COPY ./utils/ utils/
 
-# Create an output directory inside the container
-RUN mkdir -p /output
-
-# Set the command to run your script when the container starts
-CMD ["python", "crawler.py"]
+CMD ["python", "scrape.py"]

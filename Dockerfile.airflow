@@ -1,0 +1,7 @@
+FROM apache/airflow:latest
+
+USER airflow
+RUN pip install --no-cache-dir \
+      apache-airflow-providers-docker \
+      apache-airflow-providers-fab \
+      pyyaml

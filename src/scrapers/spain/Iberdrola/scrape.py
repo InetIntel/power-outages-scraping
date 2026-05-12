@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from datetime import datetime
 
+
 class IberdrolaSpider:
     def __init__(self):
 
@@ -16,12 +17,13 @@ class IberdrolaSpider:
 
         # Set path to download planned outage pdfs locally to docker container before uploading to minio
         self.script_dir = os.path.dirname(os.path.abspath(__file__))
-        self.download_dir = os.path.join(self.script_dir, 'planned_outage_pdfs')
+        self.download_dir = os.path.join(self.script_dir, "planned_outage_pdfs")
         if not os.path.exists(self.download_dir):
             os.makedirs(self.download_dir, exist_ok=True)
 
         # Set options for Chrome Webdriver
         from selenium.webdriver.chrome.options import Options
+
         options = Options()
         options.add_argument("--headless=new")
         options.add_argument("--no-sandbox")
@@ -55,7 +57,9 @@ class IberdrolaSpider:
         self.driver = webdriver.Chrome(options=options)
 
         # Start at main power provider page that has links to different regions
-        self.base_url = "https://www.i-de.es/outages-scheduled-power-cuts/scheduled-power-cuts"
+        self.base_url = (
+            "https://www.i-de.es/outages-scheduled-power-cuts/scheduled-power-cuts"
+        )
 
     def get_region_links(self):
         """
@@ -76,7 +80,9 @@ class IberdrolaSpider:
         try:
             # Wait until all province <td> elements are loaded on the page
             td_elements = WebDriverWait(self.driver, 15).until(
-                EC.presence_of_all_elements_located((By.CSS_SELECTOR, "td.td20.card-center"))
+                EC.presence_of_all_elements_located(
+                    (By.CSS_SELECTOR, "td.td20.card-center")
+                )
             )
 
             # for each region
@@ -89,17 +95,23 @@ class IberdrolaSpider:
                     start = td_onclick.find("event_label") + len("event_label")
                     start = td_onclick.find(":", start) + 1
                     end = td_onclick.find("})", start)
-                    region_name = td_onclick[start:end].strip(" ':")  # clean up extra chars
+                    region_name = td_onclick[start:end].strip(
+                        " ':"
+                    )  # clean up extra chars
 
                 # Extract the planned outages URL from the nested <div>'s onclick attribute
                 try:
-                    div = td.find_element(By.CSS_SELECTOR, "div.contenedor-medium.custom-card")
+                    div = td.find_element(
+                        By.CSS_SELECTOR, "div.contenedor-medium.custom-card"
+                    )
                     onclick_attr = div.get_attribute("onclick")
                     if onclick_attr and "abrirUrl" in onclick_attr:
                         # Parse the relative URL out of abrirUrl('/path')
                         start = onclick_attr.find("('") + 2
                         end = onclick_attr.find("')", start)
-                        relative_url = onclick_attr[start:end].split(",")[0].strip().strip("'")
+                        relative_url = (
+                            onclick_attr[start:end].split(",")[0].strip().strip("'")
+                        )
                         full_url = "https://www.i-de.es" + relative_url
                         region_links.append([region_name, full_url])
                 except:
@@ -126,7 +138,6 @@ class IberdrolaSpider:
 
         # iterate through each region
         for region_name, region_url in region_links:
-
             # reset connection between sites, else can only reach to first site
             self.driver.get("about:blank")
             self.driver.delete_all_cookies()
@@ -143,13 +154,14 @@ class IberdrolaSpider:
             # Wait for the download button to be available
             try:
                 link = WebDriverWait(self.driver, 3).until(
-                    EC.presence_of_element_located((
-                        By.CSS_SELECTOR,
-                        "a[href*='/documents/d/guest/']"
-                    ))
+                    EC.presence_of_element_located(
+                        (By.CSS_SELECTOR, "a[href*='/documents/d/guest/']")
+                    )
                 )
             except Exception:
-                print(f"[INFO] No 'Descargar' PDF link found for {region_name}: {region_url}")
+                print(
+                    f"[INFO] No 'Descargar' PDF link found for {region_name}: {region_url}"
+                )
                 continue
 
             # get link to pdf if available
@@ -171,7 +183,6 @@ class IberdrolaSpider:
 
         # iterate through pdf links
         for url in pdf_urls:
-
             # snapshot of current files in download directory
             before = set(os.listdir(dl_dir))
 
@@ -220,12 +231,16 @@ class IberdrolaSpider:
         base = os.path.abspath(self.download_dir)
         for root, _, files in os.walk(base):
             for file in files:
-                if file.startswith("SGS "): #skip "SGS..." file, not sure why this gets downloaded sometimes
+                if file.startswith(
+                    "SGS "
+                ):  # skip "SGS..." file, not sure why this gets downloaded sometimes
                     continue
                 # append date to filename
                 local_path = os.path.join(root, file)
                 rel_path = os.path.relpath(local_path, base).replace("\\", "/")
-                s3_path = f"iberdrola_planned/raw/{current_year}/{current_month}/{rel_path}"
+                s3_path = (
+                    f"iberdrola_planned/raw/{current_year}/{current_month}/{rel_path}"
+                )
                 self.uploader.upload_file(local_path, s3_path)
 
     def close(self):
@@ -234,8 +249,8 @@ class IberdrolaSpider:
         """
         self.driver.quit()
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     # Initialize spider
     spider = IberdrolaSpider()
 

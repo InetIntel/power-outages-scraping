@@ -4,6 +4,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime
 import glob
 
+
 class ProcessTangedco:
     def __init__(self, year, month, date, file_path):
         self.year = year
@@ -34,7 +35,7 @@ class ProcessTangedco:
                     "country": "India",
                     "date": self.date,
                     "area_affected": {"unknown": text},
-                    "event_category": "Scheduled Maintenance"
+                    "event_category": "Scheduled Maintenance",
                 }
                 outage.append(data)
             except Exception as e:
@@ -54,8 +55,11 @@ class ProcessTangedco:
         data = self.read_file()
         self.save(data)
 
+
 def detect_and_run():
-    search_pattern = "/data/india/tangedco/raw/*/*/power_outages.IND.tangedco.raw.*.html"
+    search_pattern = (
+        "/data/india/tangedco/raw/*/*/power_outages.IND.tangedco.raw.*.html"
+    )
     files = sorted(glob.glob(search_pattern), key=os.path.getmtime, reverse=True)
 
     if not files:
@@ -78,6 +82,7 @@ def detect_and_run():
 
         processor = ProcessTangedco(year, month, date_str, file_path)
         processor.run()
+
 
 if __name__ == "__main__":
     detect_and_run()

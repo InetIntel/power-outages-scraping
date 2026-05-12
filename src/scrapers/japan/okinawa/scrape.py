@@ -1,7 +1,10 @@
 import requests
 from pathlib import Path
+from datetime import datetime
 import xml.etree.ElementTree as ET
 import time
+from utils.upload import Uploader
+
 
 class OkidenScraper:
     MASTER_URL = "https://www.okidenmail.jp/bosai/xml/history_normal.xml"
@@ -10,13 +13,14 @@ class OkidenScraper:
     def __init__(self):
         self.base_path = Path(__file__).resolve().parent / "data" / "raw"
         self.base_path.mkdir(parents=True, exist_ok=True)
+        self.uploader = Uploader("japan")
 
     def fetch_master(self):
         ts = int(time.time() * 1000)
         url = f"{self.MASTER_URL}?_={ts}"
         headers = {
             "User-Agent": "Mozilla/5.0 (compatible; outage-scraper/1.0)",
-            "Referer": "https://www.okidenmail.jp/bosai/info2/"
+            "Referer": "https://www.okidenmail.jp/bosai/info2/",
         }
         resp = requests.get(url, headers=headers, timeout=15)
         resp.raise_for_status()
@@ -24,7 +28,15 @@ class OkidenScraper:
 
         master_path = self.base_path / f"okiden_master_{ts}.xml"
         master_path.write_text(xml_text, encoding="utf-8")
-        print("Saved master XML →", master_path)
+        print("Saved master XML ->", master_path)
+
+        # Upload to shared volume
+        now = datetime.now()
+        year = now.strftime("%Y")
+        month = now.strftime("%m")
+        s3_path = f"japan/okinawa/raw/{year}/{month}/{master_path.name}"
+        self.uploader.upload_file(str(master_path), s3_path)
+
         return master_path, xml_text
 
     def parse_master_for_keys(self, xml_text):
@@ -42,7 +54,7 @@ class OkidenScraper:
         url = f"{self.DETAIL_URL}?date_key={date_key}&_={ts}"
         headers = {
             "User-Agent": "Mozilla/5.0 (compatible; outage-scraper/1.0)",
-            "Referer": "https://www.okidenmail.jp/bosai/info2/"
+            "Referer": "https://www.okidenmail.jp/bosai/info2/",
         }
         resp = requests.get(url, headers=headers, timeout=15)
         resp.raise_for_status()
@@ -54,7 +66,15 @@ class OkidenScraper:
 
         detail_path = self.base_path / f"okiden_{date_key}.xml"
         detail_path.write_text(xml_text, encoding="utf-8")
-        print("Saved detail XML →", detail_path)
+        print("Saved detail XML ->", detail_path)
+
+        # Upload to shared volume
+        now = datetime.now()
+        year = now.strftime("%Y")
+        month = now.strftime("%m")
+        s3_path = f"japan/okinawa/raw/{year}/{month}/{detail_path.name}"
+        self.uploader.upload_file(str(detail_path), s3_path)
+
         return detail_path
 
     def run(self):

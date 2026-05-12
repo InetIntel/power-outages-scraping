@@ -1,7 +1,9 @@
 import os
 import json
 from pathlib import Path
+from datetime import datetime
 from bs4 import BeautifulSoup
+from utils.upload import Uploader
 
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -16,14 +18,14 @@ def parse_event_block(ul):
     Parse one <ul class="js-knm"> block.
     It contains:
         - Event metadata table (発生日時 / 復旧日時 / 停電理由 / 停電戸数)
-        - Area list grouped by prefecture → city → areas
+        - Area list grouped by prefecture -> city -> areas
     """
     event = {
         "occurrence": None,
         "recovery": None,
         "reason": None,
         "households": None,
-        "areas": []
+        "areas": [],
     }
 
     lis = ul.find_all("li", recursive=False)
@@ -53,13 +55,15 @@ def parse_event_block(ul):
                 continue
             for scg in inner_ul.find_all("li", class_="js-scg"):
                 city = scg.get("data-scg", "").strip()
-                areas = [span.get("data-jsy", "").strip() for span in scg.find_all("span", class_="js-jsy") if span.get("data-jsy", "").strip()]
+                areas = [
+                    span.get("data-jsy", "").strip()
+                    for span in scg.find_all("span", class_="js-jsy")
+                    if span.get("data-jsy", "").strip()
+                ]
                 for area in areas:
-                    event["areas"].append({
-                        "prefecture": prefecture,
-                        "city": city,
-                        "area": area
-                    })
+                    event["areas"].append(
+                        {"prefecture": prefecture, "city": city, "area": area}
+                    )
 
     return event
 
@@ -81,6 +85,18 @@ def parse_html_file(filepath):
 
 
 def run():
+    uploader = Uploader("japan")
+    now = datetime.now()
+    year = now.strftime("%Y")
+    month = now.strftime("%m")
+
+    prefix = f"japan/chugoku/raw/{year}/{month}/"
+    listing = uploader.client.list_objects_v2(Bucket="japan", Prefix=prefix)
+    for obj in listing.get("Contents", []):
+        key = obj["Key"]
+        local_path = RAW_DIR / Path(key).name
+        uploader.download_file(key, str(local_path))
+
     all_events = []
 
     for file in sorted(RAW_DIR.glob("*.html")):
@@ -94,6 +110,10 @@ def run():
 
     print(f"\n[SAVED] {OUTPUT_FILE}")
     print(f"Total events: {len(all_events)}")
+
+    # Upload processed file to shared volume
+    s3_processed = f"japan/chugoku/processed/{year}/{month}/{OUTPUT_FILE.name}"
+    uploader.upload_file(str(OUTPUT_FILE), s3_processed)
 
 
 if __name__ == "__main__":

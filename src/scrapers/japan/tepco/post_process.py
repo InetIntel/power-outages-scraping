@@ -2,6 +2,7 @@ from pathlib import Path
 from datetime import datetime, timedelta
 from bs4 import BeautifulSoup
 import json
+from utils.upload import Uploader
 
 
 class TEPCOProcessor:
@@ -15,7 +16,6 @@ class TEPCOProcessor:
         self.provider = "tepco"
         self.country_code = "JP"
 
-    
         self.base_dir = Path(__file__).resolve().parent
         self.data_dir = self.base_dir / "data"
         self.data_dir.mkdir(parents=True, exist_ok=True)
@@ -27,7 +27,9 @@ class TEPCOProcessor:
     def _get_raw_file_path(self, date: datetime):
         """Return path to the raw XML file for the given date."""
         date_str = date.strftime("%Y-%m-%d")
-        filename = f"power_outages.{self.country_code}.{self.provider}.raw.{date_str}.xml"
+        filename = (
+            f"power_outages.{self.country_code}.{self.provider}.raw.{date_str}.xml"
+        )
         return self.data_dir / "raw" / filename
 
     def _get_output_path(self):
@@ -68,7 +70,7 @@ class TEPCOProcessor:
                 "city": city,
                 "districts": districts,
                 "houses_affected": houses,
-                "reason": reason_tag.text if reason_tag else ""
+                "reason": reason_tag.text if reason_tag else "",
             }
 
             outages.append(outage)
@@ -77,20 +79,37 @@ class TEPCOProcessor:
 
     def run(self, days_back: int = 7):
         """Parse and combine the last `days_back` days of XML into one JSON file."""
+        uploader = Uploader("japan")
+
+        # Download raw files from shared volume
+        for i in range(days_back + 1):
+            date = self.today - timedelta(days=i)
+            raw_path = self._get_raw_file_path(date)
+            date_year = date.strftime("%Y")
+            date_month = date.strftime("%m")
+            s3_path = f"japan/tepco/raw/{date_year}/{date_month}/{raw_path.name}"
+            try:
+                raw_path.parent.mkdir(parents=True, exist_ok=True)
+                uploader.download_file(s3_path, str(raw_path))
+            except FileNotFoundError:
+                pass  # fall back to local file if available
+
         all_outages = []
 
         for i in range(days_back + 1):
             date = self.today - timedelta(days=i)
             raw_path = self._get_raw_file_path(date)
             if not raw_path.exists():
-                print(f"Missing raw XML for {date.strftime('%Y-%m-%d')} ({raw_path.name})")
+                print(
+                    f"Missing raw XML for {date.strftime('%Y-%m-%d')} ({raw_path.name})"
+                )
                 continue
 
             try:
                 xml_content = raw_path.read_text(encoding="utf-8")
                 outages = self._parse_outages(xml_content)
                 all_outages.extend(outages)
-                print(f"[TEPCO] Parsed {raw_path.name} → {len(outages)} outages")
+                print(f"[TEPCO] Parsed {raw_path.name} -> {len(outages)} outages")
             except Exception as e:
                 print(f"Error reading {raw_path.name}: {e}")
 
@@ -99,7 +118,16 @@ class TEPCOProcessor:
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(all_outages, f, ensure_ascii=False, indent=2)
 
-        print(f"\nSaved weekly TEPCO outages → {output_path.name} ({len(all_outages)} total)")
+        print(
+            f"\nSaved weekly TEPCO outages -> {output_path.name} ({len(all_outages)} total)"
+        )
+
+        # Upload processed file to shared volume
+        year = self.today.strftime("%Y")
+        month = self.today.strftime("%m")
+        s3_processed = f"japan/tepco/processed/{year}/{month}/{output_path.name}"
+        uploader.upload_file(str(output_path), s3_processed)
+
         return output_path
 
 

@@ -1,6 +1,7 @@
 from pathlib import Path
 from datetime import datetime, timedelta, timezone
 import json
+from utils.upload import Uploader
 
 
 class KansaiProcessor:
@@ -67,13 +68,17 @@ class KansaiProcessor:
                             except Exception:
                                 pass
                             try:
-                                end_dt = datetime.strptime(repair_time, "%Y-%m-%d %H:%M")
+                                end_dt = datetime.strptime(
+                                    repair_time, "%Y-%m-%d %H:%M"
+                                )
                                 end_dt = end_dt.replace(tzinfo=self.JST)
                             except Exception:
                                 pass
 
                             if start_dt and end_dt:
-                                duration = round((end_dt - start_dt).total_seconds() / 3600, 2)
+                                duration = round(
+                                    (end_dt - start_dt).total_seconds() / 3600, 2
+                                )
 
                             outage = {
                                 "date": date_str,
@@ -94,7 +99,21 @@ class KansaiProcessor:
 
     def run(self):
         """Run processor to parse and save processed JSON."""
+        uploader = Uploader("japan")
+        year = self.today.strftime("%Y")
+        month = self.today.strftime("%m")
+
         input_path = self._get_raw_file_path()
+
+        # Download raw file from shared volume
+        raw_filename = input_path.name
+        s3_path = f"japan/kansai/raw/{year}/{month}/{raw_filename}"
+        try:
+            input_path.parent.mkdir(parents=True, exist_ok=True)
+            uploader.download_file(s3_path, str(input_path))
+        except FileNotFoundError:
+            pass  # fall back to local file if available
+
         if not input_path.exists():
             print(f"Raw Kansai JSON not found: {input_path}")
             return None
@@ -108,7 +127,12 @@ class KansaiProcessor:
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(outages, f, ensure_ascii=False, indent=2)
 
-        print(f"\nProcessed {len(outages)} outages → {output_path.name}")
+        print(f"\nProcessed {len(outages)} outages -> {output_path.name}")
+
+        # Upload processed file to shared volume
+        s3_processed = f"japan/kansai/processed/{year}/{month}/{output_path.name}"
+        uploader.upload_file(str(output_path), s3_processed)
+
         return output_path
 
 

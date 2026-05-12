@@ -1,6 +1,5 @@
 def ask_chatgpt_for_outage_page(country):
-    prompt = (
-        f"""You are a data scraper assistant.
+    prompt = f"""You are a data scraper assistant.
 Return a JSON array of all **power supply companies** data operating in {country} as a list.
 
 For each company, strictly return JSON objects in this format:
@@ -27,6 +26,6 @@ For each company, strictly return JSON objects in this format:
 - Include **all companies** in {country} even if they do not provide outage data.
 - also scrape website if its in non english language.
 - Return only a valid JSON array, no explanation text outside JSON.
-    """)
-    
+    """
+
     return prompt

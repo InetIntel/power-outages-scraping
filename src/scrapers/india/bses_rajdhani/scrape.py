@@ -9,6 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 
+
 class BSESRajdhani:
     def __init__(self):
         self.provider = "bses_rajdhani"
@@ -28,7 +29,14 @@ class BSESRajdhani:
         self.url = "https://www.bsesdelhi.com/web/brpl/maintenance-outage-schedule"
 
     def create_folder(self, data_type):
-        folder_path = os.path.join(self.base_path, self.country, self.provider, data_type, self.year, self.month)
+        folder_path = os.path.join(
+            self.base_path,
+            self.country,
+            self.provider,
+            data_type,
+            self.year,
+            self.month,
+        )
         os.makedirs(folder_path, exist_ok=True)
         return folder_path
 
@@ -46,27 +54,40 @@ class BSESRajdhani:
         driver = self.get_chrome_driver()
         try:
             driver.get(self.url)
-            WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.TAG_NAME, "select")))
+            WebDriverWait(driver, 20).until(
+                EC.presence_of_element_located((By.TAG_NAME, "select"))
+            )
             dropdowns = driver.find_elements(By.TAG_NAME, "select")
 
             try:
                 # Wait for the specific option to be present
                 date_option_xpath = f"//select/option[@value='{self.today_indian}']"
-                WebDriverWait(driver, 10).until(EC.presence_of_element_located((By.XPATH, date_option_xpath)))
+                WebDriverWait(driver, 10).until(
+                    EC.presence_of_element_located((By.XPATH, date_option_xpath))
+                )
                 print(f"Successfully found date option for {self.today_indian}")
 
                 Select(dropdowns[0]).select_by_value(self.today_indian)
             except Exception as e:
                 print(f"Date not available in dropdown: {self.today_indian}")
-                with open(os.path.join(raw_folder, f"404_{self.today_iso}.txt"), "w", encoding="utf-8") as f:
-                    f.write(f"No dropdown entry for {self.today_indian}: {type(e).__name__} - {str(e)}\n")
+                with open(
+                    os.path.join(raw_folder, f"404_{self.today_iso}.txt"),
+                    "w",
+                    encoding="utf-8",
+                ) as f:
+                    f.write(
+                        f"No dropdown entry for {self.today_indian}: {type(e).__name__} - {str(e)}\n"
+                    )
                 driver.quit()
                 return
 
             time.sleep(1)
 
             WebDriverWait(driver, 10).until(
-                lambda d: len(Select(driver.find_elements(By.TAG_NAME, "select")[1]).options) > 1
+                lambda d: (
+                    len(Select(driver.find_elements(By.TAG_NAME, "select")[1]).options)
+                    > 1
+                )
             )
 
             dropdowns = driver.find_elements(By.TAG_NAME, "select")
@@ -91,25 +112,38 @@ class BSESRajdhani:
             print(f"Selected division: {selected_division}")
 
             search_btn = WebDriverWait(driver, 15).until(
-                EC.presence_of_element_located((By.XPATH, "//span[contains(text(),'Search')]"))
+                EC.presence_of_element_located(
+                    (By.XPATH, "//span[contains(text(),'Search')]")
+                )
             )
-            driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", search_btn)
+            driver.execute_script(
+                "arguments[0].scrollIntoView({block: 'center'});", search_btn
+            )
             time.sleep(0.5)
 
             try:
-                WebDriverWait(driver, 5).until(EC.element_to_be_clickable((By.XPATH, "//span[contains(text(),'Search')]")))
+                WebDriverWait(driver, 5).until(
+                    EC.element_to_be_clickable(
+                        (By.XPATH, "//span[contains(text(),'Search')]")
+                    )
+                )
                 search_btn.click()
             except Exception:
                 print("Standard click failed, using JS click...")
                 driver.execute_script("arguments[0].click();", search_btn)
 
             WebDriverWait(driver, 15).until(
-                EC.presence_of_element_located((By.XPATH, "//tbody[@id='maintainanceScheduleData']/tr"))
+                EC.presence_of_element_located(
+                    (By.XPATH, "//tbody[@id='maintainanceScheduleData']/tr")
+                )
             )
 
             html = driver.page_source
 
-            file_path = os.path.join(raw_folder, f"power_outages.IND.{self.provider}.raw.{self.today_iso}.html")
+            file_path = os.path.join(
+                raw_folder,
+                f"power_outages.IND.{self.provider}.raw.{self.today_iso}.html",
+            )
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(html)
             print(f"Saved entire page HTML: {file_path}")
@@ -117,10 +151,17 @@ class BSESRajdhani:
         except Exception as e:
             print(f"Scraping failed: {type(e).__name__}: {e}")
             traceback.print_exc()
-            with open(os.path.join(raw_folder, f"404_{self.today_iso}.txt"), "w", encoding="utf-8") as f:
-                f.write(f"Scrape failed for {self.today_indian}: {type(e).__name__}: {str(e)}\n")
+            with open(
+                os.path.join(raw_folder, f"404_{self.today_iso}.txt"),
+                "w",
+                encoding="utf-8",
+            ) as f:
+                f.write(
+                    f"Scrape failed for {self.today_indian}: {type(e).__name__}: {str(e)}\n"
+                )
         finally:
             driver.quit()
+
 
 if __name__ == "__main__":
     BSESRajdhani().scrape()

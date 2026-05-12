@@ -16,11 +16,11 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import Select
 
-#import json
-#from india.tata.process_tata import Process_tata
+# import json
+# from india.tata.process_tata import Process_tata
+
 
 class Tataddl:
-
     def __init__(self):
         self.provider = "tataddl"
         self.country = "india"
@@ -29,10 +29,19 @@ class Tataddl:
         self.today_iso = self.today.strftime("%Y-%m-%d")
         self.year = self.today.strftime("%Y")
         self.month = self.today.strftime("%m")
-        self.url = "https://tatapower-ddl.com/scheduleoutage/119/customers/scheduled-outage"
+        self.url = (
+            "https://tatapower-ddl.com/scheduleoutage/119/customers/scheduled-outage"
+        )
 
     def create_folder(self, data_type):
-        folder_path = os.path.join(self.base_path, self.country, self.provider, data_type, self.year, self.month)
+        folder_path = os.path.join(
+            self.base_path,
+            self.country,
+            self.provider,
+            data_type,
+            self.year,
+            self.month,
+        )
         os.makedirs(folder_path, exist_ok=True)
         return folder_path
 
@@ -51,7 +60,9 @@ class Tataddl:
         options.add_experimental_option("detach", True)
         driver = webdriver.Chrome(options=options)
         driver.get(self.url)
-        WebDriverWait(driver, 20).until(lambda d: d.execute_script("return document.readyState") == "complete")
+        WebDriverWait(driver, 20).until(
+            lambda d: d.execute_script("return document.readyState") == "complete"
+        )
         wait = WebDriverWait(driver, 20)
         # Wait for dropdown to be present
         wait.until(EC.presence_of_element_located((By.ID, "ddlYear")))
@@ -66,7 +77,9 @@ class Tataddl:
         try:
             driver = self.get_chrome_driver()
             driver.get(self.url)
-            WebDriverWait(driver, 20).until(lambda d: d.execute_script("return document.readyState") == "complete")
+            WebDriverWait(driver, 20).until(
+                lambda d: d.execute_script("return document.readyState") == "complete"
+            )
             wait = WebDriverWait(driver, 20)
             # Wait for dropdown to be present
             wait.until(EC.presence_of_element_located((By.ID, "ddlYear")))
@@ -75,7 +88,10 @@ class Tataddl:
             # Wait for table to appear
             wait.until(EC.presence_of_element_located((By.ID, "ddlYear")))
             html = driver.page_source
-            file_path = os.path.join(raw_folder, f"power_outages.IND.{self.provider}.raw.{self.today_iso}.html")
+            file_path = os.path.join(
+                raw_folder,
+                f"power_outages.IND.{self.provider}.raw.{self.today_iso}.html",
+            )
             with open(file_path, "w", encoding="utf-8") as f:
                 f.write(html)
             print(f"Saved raw outage HTML: {file_path}")
@@ -100,8 +116,8 @@ class Tataddl:
                 driver.quit()
             except:
                 pass
-            
+
+
 if __name__ == "__main__":
     tatapower = Tataddl()
     tatapower.scrape()
-

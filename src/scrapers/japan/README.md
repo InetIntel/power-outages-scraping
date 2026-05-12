@@ -46,6 +46,3 @@ Though the format may vary slightly depending on the table for each website scra
 - Often times it would be best to delete data in the raw folder before running post_process.py as it may try to process duplicate instances for the same outage.
 - All scrapers are designed to scrape data for the past week, but Tokyo(TEPCO) and Tohoku should have data for the past two months and one month respectively.
 - Kyushu's scrape.py is unique as it scrapes a group of CSV files 40-46 that appear to align with ISO codes for Japan. You will most likely get varied numbers of responses(resultant files) depending on which areas had outages or not.
-
-
-    

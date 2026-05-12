@@ -4,30 +4,27 @@ import os
 import time
 import random
 
-class UK_Northern_Powergrid():
+
+class UK_Northern_Powergrid:
     def __init__(self):
         # Need an IODA API key! The current one is my personal one
-        # This 
+        # This
 
         # The API on this website https://northernpowergrid.opendatasoft.com/explore/dataset/live-power-cuts-data/information/?disjunctive.postcode&disjunctive.natureofoutage&disjunctive.type&disjunctive.reference
         # gives the data for the Power Networks Utility in the UK serving the North and west part of the country
         self.name_csv = "northern_powergrid_power_outage.csv"
+
     def retrieve_data(self):
         # Retrieve up to 100 pieces of data per data pull then requests more if there are more to be had.
 
         limit = 100
         offset = 0
         url = "https://northernpowergrid.opendatasoft.com/api/explore/v2.1/catalog/datasets/live-power-cuts-data/records"
-        apikey = "" # Need this from the administrators
-
+        apikey = ""  # Need this from the administrators
 
         while True:
-            params = {
-                "limit": limit,
-                "offset": offset,
-                "apikey": apikey
-            }
-            
+            params = {"limit": limit, "offset": offset, "apikey": apikey}
+
             # Retrieve the outage info
             resp = requests.get(url, params=params)
 
@@ -36,7 +33,7 @@ class UK_Northern_Powergrid():
                 break
 
             data = resp.json()
-            
+
             # Temporarily add the data to a pandas dataframe
             page_df = pd.DataFrame(data["results"])
             # write the df to a csv file while checking for duplicate results
@@ -50,7 +47,7 @@ class UK_Northern_Powergrid():
 
             # page_df.to_csv(self.name_csv, mode='a', index=False, header=not os.path.exists(self.name_csv))
             # print(len(page_df))
-            
+
             combined.to_csv(self.name_csv, index=False)
             offset += limit
 
@@ -62,6 +59,7 @@ class UK_Northern_Powergrid():
             # Debug statements for the Docker container
             # print(f"Calling the API for {region}")
         # print("Finished")
+
 
 if __name__ == "__main__":
     northern_power = UK_Northern_Powergrid()

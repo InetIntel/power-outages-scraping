@@ -15,18 +15,18 @@ class CameroonScraper:
         self.semaphore = asyncio.Semaphore(concurrent_connections)
 
         self.regions = {
-            'adamaoua': '1',
-            'centre': '2',
-            'douala': 'X-22',
-            'est': '3',
-            'extreme_nord': '4',
-            'littoral': '5',
-            'ouest': '6',
-            'nord': '7',
-            'nord_ouest': '8',
-            'sud': '9',
-            'sud_ouest': '10',
-            'yaounde': 'X-1'
+            "adamaoua": "1",
+            "centre": "2",
+            "douala": "X-22",
+            "est": "3",
+            "extreme_nord": "4",
+            "littoral": "5",
+            "ouest": "6",
+            "nord": "7",
+            "nord_ouest": "8",
+            "sud": "9",
+            "sud_ouest": "10",
+            "yaounde": "X-1",
         }
 
     async def fetch_region(self, region_name, region_code):
@@ -34,36 +34,31 @@ class CameroonScraper:
         async with self.semaphore:
             try:
                 async with httpx.AsyncClient(
-                        http2=True,
-                        timeout=30.0,
-                        follow_redirects=True
+                    http2=True, timeout=30.0, follow_redirects=True
                 ) as client:
                     response = await client.post(
                         self.url,
-                        data={'region': region_code},
+                        data={"region": region_code},
                         headers={
-                            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3',
-                            'Content-Type': 'application/x-www-form-urlencoded',
-                            'X-Requested-With': 'XMLHttpRequest'
-                        }
+                            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3",
+                            "Content-Type": "application/x-www-form-urlencoded",
+                            "X-Requested-With": "XMLHttpRequest",
+                        },
                     )
             except (httpx.ConnectError, httpx.SSLError) as e:
                 print(f"[{region_name.upper()}] SSL error")
                 try:
                     async with httpx.AsyncClient(
-                            http2=True,
-                            timeout=30.0,
-                            verify=False,
-                            follow_redirects=True
+                        http2=True, timeout=30.0, verify=False, follow_redirects=True
                     ) as client:
                         response = await client.post(
                             self.url,
-                            data={'region': region_code},
+                            data={"region": region_code},
                             headers={
-                                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3',
-                                'Content-Type': 'application/x-www-form-urlencoded',
-                                'X-Requested-With': 'XMLHttpRequest'
-                            }
+                                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.3",
+                                "Content-Type": "application/x-www-form-urlencoded",
+                                "X-Requested-With": "XMLHttpRequest",
+                            },
                         )
                 except Exception as e:
                     print(f"[{region_name.upper()}] - error: {e}")
@@ -99,9 +94,9 @@ class CameroonScraper:
             print(f"[{region_name.upper()}] ✓ Saved raw data ({outage_count} outages)")
 
             return {
-                'region': region_name,
-                'filepath': raw_filepath,
-                'outage_count': outage_count
+                "region": region_name,
+                "filepath": raw_filepath,
+                "outage_count": outage_count,
             }
 
     async def scrape_all(self):
@@ -127,11 +122,12 @@ class CameroonScraper:
 
         if raw_files:
             from utils.upload import Uploader
+
             uploader = Uploader("cameroon")
 
             for file_info in raw_files:
-                region = file_info['region']
-                filepath = file_info['filepath']
+                region = file_info["region"]
+                filepath = file_info["filepath"]
                 filename = os.path.basename(filepath)
                 s3_path = f"cameroon/{region}/raw/{self.year}/{self.month}/{filename}"
                 try:
@@ -139,15 +135,15 @@ class CameroonScraper:
                 except Exception as e:
                     print(f"[{region.upper()}] - S3 upload failed: {e}")
 
-
         from post_process import ProcessCameroon
+
         processor = ProcessCameroon(today=self.today)
         output_file = processor.run()
 
         return output_file
 
     async def scrape_region(self, region_name):
-        region_name = region_name.lower().replace('-', '_')
+        region_name = region_name.lower().replace("-", "_")
 
         if region_name not in self.regions:
             print(f"unknown region: {region_name}")

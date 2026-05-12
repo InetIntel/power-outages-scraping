@@ -3,6 +3,7 @@ import re
 import json
 from bs4 import BeautifulSoup
 
+
 class ChugokuPostProcessor:
     """
     Parses saved raw HTML files for power outage data from Chugoku Electric.
@@ -38,21 +39,23 @@ class ChugokuPostProcessor:
                 }
                 outages.append(outage)
 
-        print(f"[PROCESS] Found {len(outages)} outages in {os.path.basename(file_path)}")
+        print(
+            f"[PROCESS] Found {len(outages)} outages in {os.path.basename(file_path)}"
+        )
         return outages
 
     def process_latest(self):
         """Automatically process the most recent raw HTML file."""
         html_files = [
-            f for f in os.listdir(self.data_dir)
+            f
+            for f in os.listdir(self.data_dir)
             if f.endswith(".html") and self.provider in f
         ]
         if not html_files:
             raise FileNotFoundError("No raw HTML files found in data/")
 
         latest_file = max(
-            html_files,
-            key=lambda f: os.path.getmtime(os.path.join(self.data_dir, f))
+            html_files, key=lambda f: os.path.getmtime(os.path.join(self.data_dir, f))
         )
         latest_path = os.path.join(self.data_dir, latest_file)
 
@@ -64,7 +67,7 @@ class ChugokuPostProcessor:
         with open(output_path, "w", encoding="utf-8") as f:
             json.dump(outages, f, ensure_ascii=False, indent=2)
 
-        print(f"[PROCESS] Saved structured JSON → {output_path}")
+        print(f"[PROCESS] Saved structured JSON -> {output_path}")
         return output_path
 
 

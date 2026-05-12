@@ -22,8 +22,18 @@ class ProcessCameroon:
 
         # all regions
         self.regions = [
-            'adamaoua', 'centre', 'douala', 'est', 'extreme_nord',
-            'littoral', 'ouest', 'nord', 'nord_ouest', 'sud', 'sud_ouest', 'yaounde'
+            "adamaoua",
+            "centre",
+            "douala",
+            "est",
+            "extreme_nord",
+            "littoral",
+            "ouest",
+            "nord",
+            "nord_ouest",
+            "sud",
+            "sud_ouest",
+            "yaounde",
         ]
 
     def download_raw_file(self, region):
@@ -49,10 +59,7 @@ class ProcessCameroon:
         if not outage or not isinstance(outage, dict):
             return None
 
-        details = {
-            "country": "Cameroon",
-            "event_category": "planned outage"
-        }
+        details = {"country": "Cameroon", "event_category": "planned outage"}
 
         # extract district/neighborhood
         if outage.get("quartier"):
@@ -162,9 +169,9 @@ class ProcessCameroon:
                 "scrape_date": self.today,
                 "total_outages": len(all_outages),
                 "regions_processed": successful,
-                "regions_failed": failed
+                "regions_failed": failed,
             },
-            "outages": all_outages
+            "outages": all_outages,
         }
 
         # save locally
@@ -176,7 +183,9 @@ class ProcessCameroon:
             json.dump(output_data, f, indent=2, ensure_ascii=False)
 
         # upload to S3
-        s3_path = f"cameroon/processed/{self.year}/{self.month}/cameroon.{self.today}.json"
+        s3_path = (
+            f"cameroon/processed/{self.year}/{self.month}/cameroon.{self.today}.json"
+        )
         self.uploader.upload_file(output_file, s3_path)
         print(f"uploaded to S3: s3://cameroon/{s3_path}")
 

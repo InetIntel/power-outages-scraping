@@ -38,7 +38,11 @@ class ShikokuProcessor:
         tables = soup.find_all("table")
         for table in tables:
             rows = table.find_all("tr")
-            headers = [th.get_text(strip=True) for th in rows[0].find_all(["th", "td"])] if rows else []
+            headers = (
+                [th.get_text(strip=True) for th in rows[0].find_all(["th", "td"])]
+                if rows
+                else []
+            )
 
             for row in rows[1:]:
                 cols = [td.get_text(strip=True) for td in row.find_all("td")]
@@ -83,7 +87,7 @@ class ShikokuProcessor:
         with open(output_file, "w", encoding="utf-8") as f:
             json.dump(all_outages, f, ensure_ascii=False, indent=2)
 
-        print(f"\n✅ Parsed {len(all_outages)} outages → {output_file.name}")
+        print(f"\n✅ Parsed {len(all_outages)} outages -> {output_file.name}")
         return output_file
 
 

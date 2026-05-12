@@ -4,24 +4,28 @@ import glob
 from datetime import datetime
 from bs4 import BeautifulSoup
 
+
 class BSESRajdhaniProcessor:
     def __init__(self):
         self.provider = "bses_rajdhani"
         self.country = "india"
         self.base_path = "/data"
 
-        # Use a specific debug date (optional)
-        target = datetime.strptime("05-06-2025", "%d-%m-%Y")  # DEBUG: hardcoded test date
-
-        # today’s date if debug is not used
-        # target = datetime.now()
+        target = datetime.now()
 
         self.today_iso = target.strftime("%Y-%m-%d")
         self.year = target.strftime("%Y")
         self.month = target.strftime("%m")
 
     def create_folder(self, data_type):
-        folder_path = os.path.join(self.base_path, self.country, self.provider, data_type, self.year, self.month)
+        folder_path = os.path.join(
+            self.base_path,
+            self.country,
+            self.provider,
+            data_type,
+            self.year,
+            self.month,
+        )
         os.makedirs(folder_path, exist_ok=True)
         return folder_path
 
@@ -30,7 +34,11 @@ class BSESRajdhaniProcessor:
         today_file = glob.glob(os.path.join(raw_folder, f"*{self.today_iso}.html"))
         if today_file:
             return today_file[0]
-        all_files = sorted(glob.glob(os.path.join(raw_folder, "*.html")), key=os.path.getmtime, reverse=True)
+        all_files = sorted(
+            glob.glob(os.path.join(raw_folder, "*.html")),
+            key=os.path.getmtime,
+            reverse=True,
+        )
         return all_files[0] if all_files else None
 
     def parse_html(self, html_path):
@@ -69,17 +77,21 @@ class BSESRajdhaniProcessor:
             if duration < 0:
                 duration += 24 * 60
 
-            results.append({
-                "country": "India",
-                "start": f"{self.today_iso}_{start_time.strftime('%H-%M-%S')}",
-                "end": f"{self.today_iso}_{end_time.strftime('%H-%M-%S')}",
-                "duration_(mins)": round(duration),
-                "event_category": "maintenance schedule",
-                "reason": reason,
-                "area_affected": {
-                    division: [a.strip() for a in area.rstrip(",").split(",") if a.strip()]
+            results.append(
+                {
+                    "country": "India",
+                    "start": f"{self.today_iso}_{start_time.strftime('%H-%M-%S')}",
+                    "end": f"{self.today_iso}_{end_time.strftime('%H-%M-%S')}",
+                    "duration_(mins)": round(duration),
+                    "event_category": "maintenance schedule",
+                    "reason": reason,
+                    "area_affected": {
+                        division: [
+                            a.strip() for a in area.rstrip(",").split(",") if a.strip()
+                        ]
+                    },
                 }
-            })
+            )
 
         return results
 
@@ -94,7 +106,9 @@ class BSESRajdhaniProcessor:
 
     def process(self):
         raw_folder = self.create_folder("raw")
-        not_found_files = glob.glob(os.path.join(raw_folder, f"404_{self.today_iso}.txt"))
+        not_found_files = glob.glob(
+            os.path.join(raw_folder, f"404_{self.today_iso}.txt")
+        )
         if not not_found_files:
             raw_file = self.find_latest_raw_file()
             if raw_file:
@@ -104,10 +118,15 @@ class BSESRajdhaniProcessor:
             else:
                 print("No raw file found.")
         else:
-            log_path = os.path.join(self.create_folder("processed"), f"no_data_found.{self.today_iso}.log")
+            log_path = os.path.join(
+                self.create_folder("processed"), f"no_data_found.{self.today_iso}.log"
+            )
             with open(log_path, "w") as f:
-                f.write(f"No outage schedule found for {self.today_iso}. See {os.path.basename(not_found_files[0])} in raw folder.")
+                f.write(
+                    f"No outage schedule found for {self.today_iso}. See {os.path.basename(not_found_files[0])} in raw folder."
+                )
             print(f"No data to process. Log saved at: {log_path}")
+
 
 if __name__ == "__main__":
     BSESRajdhaniProcessor().process()

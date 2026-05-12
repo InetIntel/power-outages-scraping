@@ -1,40 +1,46 @@
-import boto3
-from botocore.client import Config
-from botocore.exceptions import ClientError
+import os
+import shutil
+
+DATA_DIR = os.environ.get("DATA_DIR", "/data")
 
 
 class Uploader:
+    """File-based storage using a shared volume mount.
+    Files are stored at DATA_DIR/<bucket_name>/<key>.
+    """
+
     def __init__(self, bucket_name):
-        self.bucket_exists = False
         self.bucket_name = bucket_name
-        self.client = boto3.client(
-            "s3",
-            endpoint_url="http://host.docker.internal:9000",
-            aws_access_key_id="minioadmin",
-            aws_secret_access_key="minioadmin",
-            config=Config(signature_version="s3v4"),
-            region_name="us-east-1",
-        )
+        self.base_path = os.path.join(DATA_DIR, bucket_name)
+        os.makedirs(self.base_path, exist_ok=True)
+        self.client = _VolumeClient()
 
     def upload_file(self, local_path, s3_path):
-        if not self.bucket_exists:
-            try:
-                self.client.create_bucket(Bucket=self.bucket_name)
-            except self.client.exceptions.BucketAlreadyOwnedByYou:
-                self.bucket_exists = True
-
-        print(f"Uploading {local_path} to s3://{self.bucket_name}/{s3_path}")
-        self.client.upload_file(local_path, self.bucket_name, s3_path)
+        dest = os.path.join(self.base_path, s3_path)
+        os.makedirs(os.path.dirname(dest), exist_ok=True)
+        shutil.copy2(local_path, dest)
+        print(f"Uploaded {local_path} -> {dest}")
 
     def download_file(self, s3_path, local_path):
-        try:
-            print(f"Downloading s3://{self.bucket_name}/{s3_path} to {local_path}")
-            self.client.download_file(self.bucket_name, s3_path, local_path)
-            print(f"Downloaded to {local_path}")
-        except ClientError as e:
-            if e.response["Error"]["Code"] == "404":
-                raise FileNotFoundError(
-                    f"File not found in S3: s3://{self.bucket_name}/{s3_path}"
-                )
-            else:
-                raise
+        src = os.path.join(self.base_path, s3_path)
+        if not os.path.exists(src):
+            raise FileNotFoundError(f"File not found: {src}")
+        os.makedirs(os.path.dirname(os.path.abspath(local_path)), exist_ok=True)
+        shutil.copy2(src, local_path)
+        print(f"Downloaded {src} -> {local_path}")
+
+
+class _VolumeClient:
+    """Provides list_objects_v2 for code that accesses uploader.client directly."""
+
+    def list_objects_v2(self, Bucket, Prefix=""):
+        bucket_path = os.path.join(DATA_DIR, Bucket)
+        search_root = os.path.join(bucket_path, Prefix) if Prefix else bucket_path
+        contents = []
+        if os.path.isdir(search_root):
+            for root, _, files in os.walk(search_root):
+                for fname in files:
+                    full = os.path.join(root, fname)
+                    key = os.path.relpath(full, bucket_path).replace("\\", "/")
+                    contents.append({"Key": key})
+        return {"Contents": contents} if contents else {}

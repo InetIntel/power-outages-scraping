@@ -3,6 +3,7 @@ from datetime import datetime
 import requests
 import urllib3
 
+
 class TangedcoScraper:
     def __init__(self):
         self.url = "https://tneb.tnebnet.org/cpro/today.html"
@@ -29,6 +30,7 @@ class TangedcoScraper:
 
         except requests.exceptions.RequestException as e:
             print(f"Request error: {e}")
+
 
 if __name__ == "__main__":
     TangedcoScraper().scrape()

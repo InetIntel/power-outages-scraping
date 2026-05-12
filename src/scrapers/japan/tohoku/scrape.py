@@ -1,10 +1,11 @@
 import json
 import ssl
+
 # import requests
 from urllib.request import urlopen, Request
 from datetime import datetime
 from pathlib import Path
-from utils import Uploader  
+from utils import Uploader
 
 
 class TohokuScraper:
@@ -71,12 +72,11 @@ class TohokuScraper:
         )
 
         output_path.write_text(
-            json.dumps(combined, ensure_ascii=False, indent=2),
-            encoding="utf-8"
+            json.dumps(combined, ensure_ascii=False, indent=2), encoding="utf-8"
         )
 
-        print(f"Saved combined weekly JSON → {output_path}")
-        return output_path  
+        print(f"Saved combined weekly JSON -> {output_path}")
+        return output_path
 
     def upload(self, file_path: Path):
         """Upload scraped file to MinIO/S3 via Uploader."""

@@ -38,7 +38,25 @@ class Process_Zhytomyr:
             return
 
         # List of rem_ids to download
-        rem_ids = ['1', '2', '3', '4', '5', '7', '9', '11', '13', '14', '17', '18', '19', '20', '21', '23', '25']
+        rem_ids = [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "7",
+            "9",
+            "11",
+            "13",
+            "14",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "23",
+            "25",
+        ]
 
         downloaded_count = 0
         for rem_id in rem_ids:
@@ -63,17 +81,17 @@ class Process_Zhytomyr:
 
     def parse_html_content(self, html_content):
         """Parse HTML content to extract power outage information"""
-        soup = BeautifulSoup(html_content, 'html.parser')
+        soup = BeautifulSoup(html_content, "html.parser")
         outages = []
 
         # Find all table rows (common pattern for outage data)
-        tables = soup.find_all('table')
+        tables = soup.find_all("table")
 
         for table in tables:
-            rows = table.find_all('tr')
+            rows = table.find_all("tr")
 
             for row in rows:
-                cells = row.find_all(['td', 'th'])
+                cells = row.find_all(["td", "th"])
 
                 if len(cells) < 2:  # Skip header rows or incomplete rows
                     continue
@@ -92,15 +110,15 @@ class Process_Zhytomyr:
         """Extract outage information from table cells"""
         try:
             # Look for date/time patterns
-            date_pattern = r'(\d{1,2})[./](\d{1,2})[./](\d{4})'
-            time_pattern = r'(\d{1,2}):(\d{2})'
+            date_pattern = r"(\d{1,2})[./](\d{1,2})[./](\d{4})"
+            time_pattern = r"(\d{1,2}):(\d{2})"
 
             dates_found = []
             times_found = []
             address = ""
             category = "Planned"  # Default category
 
-            full_text = ' '.join(cell_texts)
+            full_text = " ".join(cell_texts)
 
             # Extract dates
             date_matches = re.findall(date_pattern, full_text)
@@ -117,14 +135,20 @@ class Process_Zhytomyr:
             # Look for address/location information
             for cell_text in cell_texts:
                 # Ukrainian street/address indicators
-                if any(keyword in cell_text.lower() for keyword in ['вул', 'провул', 'площ', 'бульв', 'просп']):
+                if any(
+                    keyword in cell_text.lower()
+                    for keyword in ["вул", "провул", "площ", "бульв", "просп"]
+                ):
                     address = cell_text
                     break
 
             # Determine category based on keywords
-            if any(keyword in full_text.lower() for keyword in ['аварій', 'аварий', 'emergency']):
+            if any(
+                keyword in full_text.lower()
+                for keyword in ["аварій", "аварий", "emergency"]
+            ):
                 category = "Emergency"
-            elif any(keyword in full_text.lower() for keyword in ['план', 'planned']):
+            elif any(keyword in full_text.lower() for keyword in ["план", "planned"]):
                 category = "Planned"
 
             # If we found at least one date and time, create an outage entry
@@ -143,8 +167,12 @@ class Process_Zhytomyr:
                 else:
                     end_time = times_found[0] if times_found else "00:00"
 
-                start_datetime = datetime.strptime(f"{start_date} {start_time}", "%Y-%m-%d %H:%M")
-                end_datetime = datetime.strptime(f"{end_date} {end_time}", "%Y-%m-%d %H:%M")
+                start_datetime = datetime.strptime(
+                    f"{start_date} {start_time}", "%Y-%m-%d %H:%M"
+                )
+                end_datetime = datetime.strptime(
+                    f"{end_date} {end_time}", "%Y-%m-%d %H:%M"
+                )
 
                 # Calculate duration
                 duration = (end_datetime - start_datetime).total_seconds() / 3600
@@ -176,7 +204,25 @@ class Process_Zhytomyr:
             return []
 
         # List of rem_ids to process
-        rem_ids = ['1', '2', '3', '4', '5', '7', '9', '11', '13', '14', '17', '18', '19', '20', '21', '23', '25']
+        rem_ids = [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "7",
+            "9",
+            "11",
+            "13",
+            "14",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "23",
+            "25",
+        ]
 
         res = []
 
@@ -189,7 +235,7 @@ class Process_Zhytomyr:
                 continue
 
             try:
-                with open(html_path, 'r', encoding='utf-8') as f:
+                with open(html_path, "r", encoding="utf-8") as f:
                     html_content = f.read()
 
                 outages = self.parse_html_content(html_content)
@@ -203,7 +249,7 @@ class Process_Zhytomyr:
 
     def check_folder(self, type):
         self.folder_path = (
-                "./ukraine/zhytomyr/" + type + "/" + self.year + "/" + self.month
+            "./ukraine/zhytomyr/" + type + "/" + self.year + "/" + self.month
         )
         os.makedirs(self.folder_path, exist_ok=True)
 
