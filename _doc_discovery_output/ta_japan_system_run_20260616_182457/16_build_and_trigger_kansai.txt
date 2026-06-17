@@ -1,0 +1,151 @@
+## Build and trigger Kansai
+Tue Jun 16 18:56:51 PDT 2026
+=== Building: japan_kansai ===
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 272B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-alpine
+#2 ...
+
+#3 [auth] library/python:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-alpine
+#2 DONE 0.8s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/python:3.13-alpine@sha256:585f88f854292ed2e4c84b96f7f5a21a20a13cb84efdde7a67639aae93f46206
+#5 resolve docker.io/library/python:3.13-alpine@sha256:585f88f854292ed2e4c84b96f7f5a21a20a13cb84efdde7a67639aae93f46206 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 8.97kB 0.0s done
+#6 DONE 0.0s
+
+#7 [2/6] WORKDIR /app
+#7 CACHED
+
+#8 [3/6] COPY ./src/scrapers/japan/kansai/requirements.txt .
+#8 CACHED
+
+#9 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#9 CACHED
+
+#10 [5/6] COPY ./src/scrapers/japan/kansai/*.py .
+#10 DONE 0.0s
+
+#11 [6/6] COPY ./utils/ utils/
+#11 DONE 0.0s
+
+#12 exporting to image
+#12 exporting layers 0.0s done
+#12 exporting manifest sha256:60e8525c9ffdffb73209100386d44824a03bdadee8fc0e97c50e552d934b3f8b done
+#12 exporting config sha256:0dbf301f784eccaa2c1fdbf3a14f401a5a4e605671e7ff196d1cc814e8497f9e done
+#12 exporting attestation manifest sha256:0b8fed3d10d9606d28814653cfec863efc27b9ae6cd88e8588bac476f2ec1c4a done
+#12 exporting manifest list sha256:2a6e89f829a08db8e06eedd598374d082661e1072b8ec98508775e26a57aafc0 done
+#12 naming to localhost:5000/japan_kansai:latest done
+#12 unpacking to localhost:5000/japan_kansai:latest 0.0s done
+#12 DONE 0.1s
+The push refers to repository [localhost:5000/japan_kansai]
+14f03cfa83d5: Waiting
+1fe3af354a90: Waiting
+efbec88780d1: Waiting
+5de55e5ef9c0: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+60e56c8a2d50: Waiting
+c4786242540a: Waiting
+eaacd48516bc: Waiting
+5de55e5ef9c0: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+60e56c8a2d50: Waiting
+c4786242540a: Waiting
+eaacd48516bc: Waiting
+14f03cfa83d5: Waiting
+1fe3af354a90: Waiting
+efbec88780d1: Waiting
+5de55e5ef9c0: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+60e56c8a2d50: Waiting
+c4786242540a: Waiting
+eaacd48516bc: Waiting
+14f03cfa83d5: Waiting
+1fe3af354a90: Waiting
+efbec88780d1: Waiting
+efbec88780d1: Waiting
+5de55e5ef9c0: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+60e56c8a2d50: Waiting
+c4786242540a: Waiting
+eaacd48516bc: Waiting
+14f03cfa83d5: Waiting
+1fe3af354a90: Waiting
+1fe3af354a90: Waiting
+efbec88780d1: Waiting
+5de55e5ef9c0: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+60e56c8a2d50: Waiting
+c4786242540a: Waiting
+eaacd48516bc: Waiting
+14f03cfa83d5: Waiting
+5de55e5ef9c0: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+60e56c8a2d50: Waiting
+c4786242540a: Waiting
+eaacd48516bc: Waiting
+14f03cfa83d5: Waiting
+1fe3af354a90: Waiting
+efbec88780d1: Waiting
+1fe3af354a90: Pushed
+efbec88780d1: Mounted from japan_hokuriku
+5de55e5ef9c0: Mounted from japan_hokuriku
+af3403a13d65: Mounted from japan_hokuriku
+c037cb9c46ca: Mounted from japan_hokuriku
+652bad6c4ced: Mounted from japan_hokuriku
+60e56c8a2d50: Pushed
+c4786242540a: Mounted from japan_hokuriku
+eaacd48516bc: Mounted from japan_hokuriku
+14f03cfa83d5: Pushed
+latest: digest: sha256:2a6e89f829a08db8e06eedd598374d082661e1072b8ec98508775e26a57aafc0 size: 856
+  Done: japan_kansai
+The container is run as root user. For security, consider using a regular user account.
+2026-06-17T01:56:55.766342Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:56:55.766643Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:56:55.766985Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:56:55.767174Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:56:55.767363Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:56:55.767633Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+dag_id       | is_paused
+=============+==========
+japan_kansai | True     
+                        
+The container is run as root user. For security, consider using a regular user account.
+2026-06-17T01:56:58.603313Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:56:58.603484Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:56:58.603577Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:56:58.603640Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:56:58.603702Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:56:58.603743Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:56:58.856543Z [info     ] creating dag run               [airflow.serialization.definitions.dag] loc=dag.py:526 logical_date=None partition_key=None run_after=datetime.datetime(2026, 6, 17, 1, 56, 58, 851547, tzinfo=Timezone('UTC')) run_id=manual__2026-06-17T01:56:58.851547+00:00
+conf | dag_id       | dag_run_id                  | data_interval_start | data_interval_end | end_date | last_scheduling_decision | logical_date | run_type | start_date | state  | triggering_user_name
+=====+==============+=============================+=====================+===================+==========+==========================+==============+==========+============+========+=====================
+{}   | japan_kansai | manual__2026-06-17T01:56:58 | None                | None              | None     | None                     | None         | manual   | None       | queued | root                
+     |              | .851547+00:00               |                     |                   |          |                          |              |          |            |        |                     
+                                                                                                                                                                                                        

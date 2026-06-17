@@ -1,0 +1,123 @@
+## japan_shikoku_03_build
+Tue Jun 16 19:59:57 PDT 2026
+
+=== Building: japan_shikoku ===
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 274B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-alpine
+#2 DONE 0.6s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/python:3.13-alpine@sha256:585f88f854292ed2e4c84b96f7f5a21a20a13cb84efdde7a67639aae93f46206
+#4 resolve docker.io/library/python:3.13-alpine@sha256:585f88f854292ed2e4c84b96f7f5a21a20a13cb84efdde7a67639aae93f46206 done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 9.72kB 0.1s done
+#5 DONE 0.1s
+
+#6 [2/6] WORKDIR /app
+#6 CACHED
+
+#7 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#7 CACHED
+
+#8 [5/6] COPY ./src/scrapers/japan/shikoku/*.py .
+#8 CACHED
+
+#9 [3/6] COPY ./src/scrapers/japan/shikoku/requirements.txt .
+#9 CACHED
+
+#10 [6/6] COPY ./utils/ utils/
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:4b61b04c83001acca9295d6181fcbb891ef4efb0b4cbeb9c737daa25cfdb92d1 done
+#11 exporting config sha256:ada86e3d9d75887f6fe997f2b8b2c0574beb2d91460d90d9355eb916e1feda40 done
+#11 exporting attestation manifest sha256:38c69cc7f1317aa35dfcb6e76092031e605fae6afe95d75b07732ac5da67c256 done
+#11 exporting manifest list sha256:82b578826ba0debfcd0b9b9c032602c022bacf870c3bdf607501c100464da694 done
+#11 naming to localhost:5000/japan_shikoku:latest done
+#11 unpacking to localhost:5000/japan_shikoku:latest
+#11 unpacking to localhost:5000/japan_shikoku:latest done
+#11 DONE 0.0s
+The push refers to repository [localhost:5000/japan_shikoku]
+4b08121abe67: Waiting
+eaacd48516bc: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+8acddbbc4dfa: Waiting
+652bad6c4ced: Waiting
+c183b47bc42c: Waiting
+efbec88780d1: Waiting
+5de55e5ef9c0: Waiting
+c4786242540a: Waiting
+8acddbbc4dfa: Waiting
+652bad6c4ced: Waiting
+c183b47bc42c: Waiting
+efbec88780d1: Waiting
+5de55e5ef9c0: Waiting
+c4786242540a: Waiting
+4b08121abe67: Waiting
+eaacd48516bc: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+8acddbbc4dfa: Waiting
+652bad6c4ced: Waiting
+c183b47bc42c: Waiting
+efbec88780d1: Waiting
+5de55e5ef9c0: Waiting
+c4786242540a: Waiting
+4b08121abe67: Waiting
+eaacd48516bc: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+5de55e5ef9c0: Waiting
+c4786242540a: Waiting
+4b08121abe67: Waiting
+eaacd48516bc: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+8acddbbc4dfa: Waiting
+652bad6c4ced: Waiting
+c183b47bc42c: Waiting
+efbec88780d1: Waiting
+8acddbbc4dfa: Waiting
+652bad6c4ced: Waiting
+c183b47bc42c: Waiting
+efbec88780d1: Waiting
+5de55e5ef9c0: Waiting
+c4786242540a: Waiting
+4b08121abe67: Waiting
+eaacd48516bc: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+5de55e5ef9c0: Waiting
+c4786242540a: Waiting
+4b08121abe67: Waiting
+eaacd48516bc: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+8acddbbc4dfa: Waiting
+652bad6c4ced: Waiting
+c183b47bc42c: Waiting
+efbec88780d1: Waiting
+c037cb9c46ca: Layer already exists
+8acddbbc4dfa: Layer already exists
+652bad6c4ced: Layer already exists
+c183b47bc42c: Layer already exists
+efbec88780d1: Layer already exists
+5de55e5ef9c0: Layer already exists
+c4786242540a: Layer already exists
+4b08121abe67: Pushed
+eaacd48516bc: Layer already exists
+af3403a13d65: Layer already exists
+latest: digest: sha256:82b578826ba0debfcd0b9b9c032602c022bacf870c3bdf607501c100464da694 size: 856
+  Done: japan_shikoku

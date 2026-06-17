@@ -1,0 +1,14 @@
+name: tohoku
+schedule: "0 6 * * *"
+tasks:
+  - name: scrape
+    type: docker
+    image: japan-tohoku-scraper
+    command: ["python", "scrape.py"]
+
+  - name: process
+    type: docker
+    image: japan-tohoku-scraper
+    command: ["python", "process.py"]
+    depends_on:
+      - scrape

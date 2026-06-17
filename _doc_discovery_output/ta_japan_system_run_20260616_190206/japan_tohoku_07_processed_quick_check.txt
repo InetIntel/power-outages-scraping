@@ -1,0 +1,46 @@
+## Processed quick check for japan_tohoku
+Tue Jun 16 19:07:03 PDT 2026
+===== /data/japan/japan/tohoku/processed/power_outages.JP.tohoku.processed.2026-06-17.json =====
+10302 /data/japan/japan/tohoku/processed/power_outages.JP.tohoku.processed.2026-06-17.json
+[
+  {
+    "start": "6月16日 04:58",
+    "end": "6月16日 07:38",
+    "duration_(hours)": 2.67,
+    "prefecture": "秋田県",
+    "location": "潟上市　飯田川飯塚",
+    "houses_affected": 20,
+    "reason": "お客さま設備故\n障の影響"
+  },
+  {
+    "start": "6月16日 16:21",
+    "end": "6月16日 19:31",
+    "duration_(hours)": 3.17,
+    "prefecture": "岩手県",
+    "location": "岩手郡雫石町　長山，西根高倉山，西根",
+    "houses_affected": 20,
+    "reason": "調査中"
+  },
+  {
+    "start": "6月16日 17:39",
+    "end": "6月16日 19:21",
+    "duration_(hours)": 1.7,
+    "prefecture": "新潟県",
+    "location": "長岡市　川口田麦山，川口和南津，西川口\n小千谷市の一部",
+    "houses_affected": 200,
+    "reason": "鳥獣・営巣等の\n影響"
+  },
+  {
+    "start": "6月16日 18:40",
+    "end": "6月16日 22:09",
+    "duration_(hours)": 3.48,
+    "prefecture": "福島県",
+    "location": "福島市　飯坂町，飯坂町中野，黒岩",
+    "houses_affected": 10,
+    "reason": "雷の影響"
+  },
+  {
+    "start": "6月15日 15:30",
+    "end": "6月15日 17:00",
+    "duration_(hours)": 1.5,
+    "prefecture": "岩手

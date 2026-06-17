@@ -1,0 +1,4 @@
+## japan_tepco_09_volume_files
+Tue Jun 16 19:59:54 PDT 2026
+
+-rw-r--r--    1 root     root           2 Jun 17 02:59 /data/japan/japan/tepco/processed/2026/06/power_outages.JP.tepco.processed.2026-06-17.json

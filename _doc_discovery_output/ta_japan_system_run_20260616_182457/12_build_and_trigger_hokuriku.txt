@@ -1,0 +1,142 @@
+## Build and trigger Hokuriku
+Tue Jun 16 18:49:16 PDT 2026
+=== Building: japan_hokuriku ===
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 276B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-alpine
+#2 DONE 0.5s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/python:3.13-alpine@sha256:585f88f854292ed2e4c84b96f7f5a21a20a13cb84efdde7a67639aae93f46206
+#4 resolve docker.io/library/python:3.13-alpine@sha256:585f88f854292ed2e4c84b96f7f5a21a20a13cb84efdde7a67639aae93f46206 done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 421B 0.0s done
+#5 DONE 0.0s
+
+#6 [2/6] WORKDIR /app
+#6 CACHED
+
+#7 [3/6] COPY ./src/scrapers/japan/hokuriku/requirements.txt .
+#7 CACHED
+
+#8 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#8 CACHED
+
+#9 [5/6] COPY ./src/scrapers/japan/hokuriku/*.py .
+#9 CACHED
+
+#10 [6/6] COPY ./utils/ utils/
+#10 CACHED
+
+#11 exporting to image
+#11 exporting layers done
+#11 exporting manifest sha256:07abc7a9699f9c564cd4ecaaf5b2b3e97d8fb60b5ebce47b97ba912a272041ab done
+#11 exporting config sha256:22031ebb256c2025c2cff8dbc45be46e009e2a3786d5fbe90ce7c395f02d4cae done
+#11 exporting attestation manifest sha256:88f38cce33cae5d6fc7ccfa74e8fe1c5ae756d18fb8d429cd1368a32f7b2f10b done
+#11 exporting manifest list sha256:1849eefa387b154e0cf2dfaa11910836884fc3db2ec226588ddb3500409cb220 done
+#11 naming to localhost:5000/japan_hokuriku:latest done
+#11 unpacking to localhost:5000/japan_hokuriku:latest done
+#11 DONE 0.0s
+The push refers to repository [localhost:5000/japan_hokuriku]
+eaacd48516bc: Waiting
+c037cb9c46ca: Waiting
+efbec88780d1: Waiting
+652bad6c4ced: Waiting
+07e8e3340c36: Waiting
+5de55e5ef9c0: Waiting
+c4786242540a: Waiting
+f75b727f9f97: Waiting
+af3403a13d65: Waiting
+08fa51e52f6a: Waiting
+eaacd48516bc: Waiting
+c037cb9c46ca: Waiting
+efbec88780d1: Waiting
+652bad6c4ced: Waiting
+07e8e3340c36: Waiting
+5de55e5ef9c0: Waiting
+c4786242540a: Waiting
+f75b727f9f97: Waiting
+af3403a13d65: Waiting
+08fa51e52f6a: Waiting
+efbec88780d1: Waiting
+652bad6c4ced: Waiting
+07e8e3340c36: Waiting
+5de55e5ef9c0: Waiting
+c4786242540a: Waiting
+f75b727f9f97: Waiting
+af3403a13d65: Waiting
+08fa51e52f6a: Waiting
+eaacd48516bc: Waiting
+c037cb9c46ca: Waiting
+08fa51e52f6a: Waiting
+eaacd48516bc: Waiting
+c037cb9c46ca: Waiting
+efbec88780d1: Waiting
+652bad6c4ced: Waiting
+07e8e3340c36: Waiting
+5de55e5ef9c0: Waiting
+c4786242540a: Waiting
+f75b727f9f97: Waiting
+af3403a13d65: Waiting
+652bad6c4ced: Waiting
+07e8e3340c36: Waiting
+5de55e5ef9c0: Waiting
+c4786242540a: Waiting
+f75b727f9f97: Waiting
+af3403a13d65: Waiting
+08fa51e52f6a: Waiting
+eaacd48516bc: Waiting
+c037cb9c46ca: Waiting
+efbec88780d1: Waiting
+08fa51e52f6a: Waiting
+eaacd48516bc: Waiting
+c037cb9c46ca: Waiting
+efbec88780d1: Waiting
+652bad6c4ced: Waiting
+07e8e3340c36: Waiting
+5de55e5ef9c0: Waiting
+c4786242540a: Waiting
+f75b727f9f97: Waiting
+af3403a13d65: Waiting
+08fa51e52f6a: Layer already exists
+eaacd48516bc: Layer already exists
+c037cb9c46ca: Layer already exists
+efbec88780d1: Layer already exists
+652bad6c4ced: Layer already exists
+07e8e3340c36: Layer already exists
+5de55e5ef9c0: Layer already exists
+c4786242540a: Layer already exists
+f75b727f9f97: Pushed
+af3403a13d65: Layer already exists
+latest: digest: sha256:1849eefa387b154e0cf2dfaa11910836884fc3db2ec226588ddb3500409cb220 size: 856
+  Done: japan_hokuriku
+The container is run as root user. For security, consider using a regular user account.
+2026-06-17T01:49:19.919214Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:49:19.919359Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:49:19.919440Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:49:19.919500Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:49:19.919552Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:49:19.919606Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+No paused DAGs were found
+The container is run as root user. For security, consider using a regular user account.
+2026-06-17T01:49:21.315778Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:49:21.315892Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:49:21.315948Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:49:21.316009Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:49:21.316052Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:49:21.316086Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T01:49:21.512383Z [info     ] creating dag run               [airflow.serialization.definitions.dag] loc=dag.py:526 logical_date=None partition_key=None run_after=datetime.datetime(2026, 6, 17, 1, 49, 21, 507507, tzinfo=Timezone('UTC')) run_id=manual__2026-06-17T01:49:21.507507+00:00
+conf | dag_id         | dag_run_id                | data_interval_start | data_interval_end | end_date | last_scheduling_decision | logical_date | run_type | start_date | state  | triggering_user_name
+=====+================+===========================+=====================+===================+==========+==========================+==============+==========+============+========+=====================
+{}   | japan_hokuriku | manual__2026-06-17T01:49: | None                | None              | None     | None                     | None         | manual   | None       | queued | root                
+     |                | 21.507507+00:00           |                     |                   |          |                          |              |          |            |        |                     
+                                                                                                                                                                                                        

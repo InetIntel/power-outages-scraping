@@ -1,0 +1,21 @@
+## Data files for japan_kyushu
+Tue Jun 16 19:03:32 PDT 2026
+-rw-r--r--    1 root     root          79 Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES40_20260613.csv
+-rw-r--r--    1 root     root          86 Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES44_20260614.csv
+-rw-r--r--    1 root     root          86 Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES45_20260611.csv
+-rw-r--r--    1 root     root          89 Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES45_20260615.csv
+-rw-r--r--    1 root     root         101 Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES44_20260612.csv
+-rw-r--r--    1 root     root         178 Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES40_20260616.csv
+-rw-r--r--    1 root     root         192 Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES44_20260616.csv
+-rw-r--r--    1 root     root         192 Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES46_20260612.csv
+-rw-r--r--    1 root     root         194 Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES45_20260616.csv
+-rw-r--r--    1 root     root         354 Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES43_20260616.csv
+-rw-r--r--    1 root     root         539 Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES46_20260610.csv
+-rw-r--r--    1 root     root         581 Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES43_20260613.csv
+-rw-r--r--    1 root     root         803 Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES46_20260614.csv
+-rw-r--r--    1 root     root         859 Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES46_20260617.csv
+-rw-r--r--    1 root     root         894 Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES46_20260613.csv
+-rw-r--r--    1 root     root        1.2K Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES46_20260616.csv
+-rw-r--r--    1 root     root        1.5K Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES43_20260611.csv
+-rw-r--r--    1 root     root        1.6K Jun 17 02:02 /data/japan/japan/kyushu/raw/2026/06/RES46_20260615.csv
+-rw-r--r--    1 root     root       35.6K Jun 17 02:02 /data/japan/japan/kyushu/processed/2026/06/kyushu_power_outages.json

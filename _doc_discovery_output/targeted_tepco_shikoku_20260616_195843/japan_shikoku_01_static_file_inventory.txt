@@ -1,0 +1,21 @@
+## japan_shikoku_01_static_file_inventory
+Tue Jun 16 19:58:43 PDT 2026
+
+--- scraper path ---
+total 40
+drwxr-xr-x   6 yukio  staff   192B Jun 16 19:07 .
+drwxr-xr-x  12 yukio  staff   384B Jun 16 18:11 ..
+-rw-r--r--   1 yukio  staff   235B Jun 16 19:07 Dockerfile
+-rw-r--r--   1 yukio  staff   5.8K Jun 16 18:11 post_process.py
+-rw-r--r--   1 yukio  staff    24B Jun 16 18:11 requirements.txt
+-rw-r--r--   1 yukio  staff   3.2K Jun 16 18:11 scrape.py
+
+--- files ---
+src/scrapers/japan/shikoku/Dockerfile
+src/scrapers/japan/shikoku/post_process.py
+src/scrapers/japan/shikoku/requirements.txt
+src/scrapers/japan/shikoku/scrape.py
+
+--- requirements ---
+requests
+beautifulsoup4

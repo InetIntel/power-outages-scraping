@@ -1,0 +1,124 @@
+## Build japan_kyushu
+Tue Jun 16 19:02:20 PDT 2026
+=== Building: japan_kyushu ===
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 272B done
+#1 DONE 0.0s
+
+#2 [auth] library/python:pull token for registry-1.docker.io
+#2 DONE 0.0s
+
+#3 [internal] load metadata for docker.io/library/python:3.13-alpine
+#3 DONE 3.9s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/python:3.13-alpine@sha256:585f88f854292ed2e4c84b96f7f5a21a20a13cb84efdde7a67639aae93f46206
+#5 resolve docker.io/library/python:3.13-alpine@sha256:585f88f854292ed2e4c84b96f7f5a21a20a13cb84efdde7a67639aae93f46206 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 6.10kB 0.0s done
+#6 DONE 0.0s
+
+#7 [2/6] WORKDIR /app
+#7 CACHED
+
+#8 [3/6] COPY ./src/scrapers/japan/kyushu/requirements.txt .
+#8 CACHED
+
+#9 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#9 CACHED
+
+#10 [5/6] COPY ./src/scrapers/japan/kyushu/*.py .
+#10 DONE 0.0s
+
+#11 [6/6] COPY ./utils/ utils/
+#11 DONE 0.0s
+
+#12 exporting to image
+#12 exporting layers 0.0s done
+#12 exporting manifest sha256:0c9d5dce059a8a80a5baacc5309649f0973f283948955a1dd95355ee37f8a45e done
+#12 exporting config sha256:653e3dadb861d4a0e38ba57025dc600882f68cb27be98cec22ab4688c98a7e45 done
+#12 exporting attestation manifest sha256:a0bb969905db157601ecbdf65d2fe7f5586ee7bc57b5dcef6984509b8e16b6a5 done
+#12 exporting manifest list sha256:4ea86e576025e7a2f04c8abb4adef560773d1a60fe67fd5384e082d02acd0f44 done
+#12 naming to localhost:5000/japan_kyushu:latest done
+#12 unpacking to localhost:5000/japan_kyushu:latest done
+#12 DONE 0.1s
+The push refers to repository [localhost:5000/japan_kyushu]
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+fb9afa27ad57: Waiting
+be451fa815ae: Waiting
+5de55e5ef9c0: Waiting
+eaacd48516bc: Waiting
+893d6aa62c01: Waiting
+efbec88780d1: Waiting
+c4786242540a: Waiting
+fb9afa27ad57: Waiting
+be451fa815ae: Waiting
+5de55e5ef9c0: Waiting
+eaacd48516bc: Waiting
+893d6aa62c01: Waiting
+efbec88780d1: Waiting
+c4786242540a: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+fb9afa27ad57: Waiting
+be451fa815ae: Waiting
+5de55e5ef9c0: Waiting
+eaacd48516bc: Waiting
+893d6aa62c01: Waiting
+efbec88780d1: Waiting
+c4786242540a: Waiting
+af3403a13d65: Waiting
+efbec88780d1: Waiting
+c4786242540a: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+fb9afa27ad57: Waiting
+be451fa815ae: Waiting
+5de55e5ef9c0: Waiting
+eaacd48516bc: Waiting
+893d6aa62c01: Waiting
+fb9afa27ad57: Waiting
+be451fa815ae: Waiting
+5de55e5ef9c0: Waiting
+eaacd48516bc: Waiting
+893d6aa62c01: Waiting
+efbec88780d1: Waiting
+c4786242540a: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+efbec88780d1: Waiting
+c4786242540a: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+fb9afa27ad57: Waiting
+be451fa815ae: Waiting
+5de55e5ef9c0: Waiting
+eaacd48516bc: Waiting
+893d6aa62c01: Waiting
+fb9afa27ad57: Pushed
+be451fa815ae: Pushed
+5de55e5ef9c0: Mounted from japan_kansai
+eaacd48516bc: Mounted from japan_kansai
+893d6aa62c01: Pushed
+efbec88780d1: Mounted from japan_kansai
+c4786242540a: Mounted from japan_kansai
+af3403a13d65: Mounted from japan_kansai
+c037cb9c46ca: Mounted from japan_kansai
+652bad6c4ced: Mounted from japan_kansai
+latest: digest: sha256:4ea86e576025e7a2f04c8abb4adef560773d1a60fe67fd5384e082d02acd0f44 size: 856
+  Done: japan_kyushu

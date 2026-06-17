@@ -1,0 +1,5 @@
+## Processed quick check for japan_tepco
+Tue Jun 16 19:05:54 PDT 2026
+===== /data/japan/japan/tepco/processed/2026/06/power_outages.JP.tepco.processed.2026-06-17.json =====
+2 /data/japan/japan/tepco/processed/2026/06/power_outages.JP.tepco.processed.2026-06-17.json
+[]

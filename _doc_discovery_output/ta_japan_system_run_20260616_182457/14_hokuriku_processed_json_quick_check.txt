@@ -1,0 +1,92 @@
+## Hokuriku processed JSON quick check
+Tue Jun 16 18:54:23 PDT 2026
+===== /data/japan/japan/hokuriku/processed/2026/06/rikuden_processed_20260617T014844.json =====
+1854 /data/japan/japan/hokuriku/processed/2026/06/rikuden_processed_20260617T014844.json
+{
+  "provider": "rikuden",
+  "country": "japan",
+  "fetched_at": "2026-06-17T01:48:44.618205",
+  "entries": [
+    {
+      "start_time": "2026/06/17 07:38",
+      "end_time": "2026/06/17 07:38",
+      "prefecture": "富山県",
+      "city": "高岡市",
+      "towns": "永楽町、扇町、上北島、 北島、木津、千石町、 羽広、横田町、和田",
+      "households": null,
+      "reason": null
+    },
+    {
+      "start_time": "2026/06/15 23:36",
+      "end_time": "2026/06/16 01:29",
+      "prefecture": "富山県",
+      "city": "高岡市",
+      "towns": "北島、福田六家",
+      "households": "約 120 戸",
+      "reason": "鳥獣等の接触"
+    },
+    {
+      "start_time": "2026/06/15 22:07",
+      "end_time": "2026/06/16 02:33",
+      "prefecture": "石川県",
+ 
+===== /data/japan/japan/hokuriku/processed/2026/06/rikuden_processed_20260617T014845.json =====
+1854 /data/japan/japan/hokuriku/processed/2026/06/rikuden_processed_20260617T014845.json
+{
+  "provider": "rikuden",
+  "country": "japan",
+  "fetched_at": "2026-06-17T01:48:45.359505",
+  "entries": [
+    {
+      "start_time": "2026/06/17 07:38",
+      "end_time": "2026/06/17 07:38",
+      "prefecture": "富山県",
+      "city": "高岡市",
+      "towns": "永楽町、扇町、上北島、 北島、木津、千石町、 羽広、横田町、和田",
+      "households": null,
+      "reason": null
+    },
+    {
+      "start_time": "2026/06/15 23:36",
+      "end_time": "2026/06/16 01:29",
+      "prefecture": "富山県",
+      "city": "高岡市",
+      "towns": "北島、福田六家",
+      "households": "約 120 戸",
+      "reason": "鳥獣等の接触"
+    },
+    {
+      "start_time": "2026/06/15 22:07",
+      "end_time": "2026/06/16 02:33",
+      "prefecture": "石川県",
+ 
+===== /data/japan/japan/hokuriku/processed/2026/06/rikuden_processed_20260617T014927.json =====
+1854 /data/japan/japan/hokuriku/processed/2026/06/rikuden_processed_20260617T014927.json
+{
+  "provider": "rikuden",
+  "country": "japan",
+  "fetched_at": "2026-06-17T01:49:27.756094",
+  "entries": [
+    {
+      "start_time": "2026/06/17 07:38",
+      "end_time": "2026/06/17 07:38",
+      "prefecture": "富山県",
+      "city": "高岡市",
+      "towns": "永楽町、扇町、上北島、 北島、木津、千石町、 羽広、横田町、和田",
+      "households": null,
+      "reason": null
+    },
+    {
+      "start_time": "2026/06/15 23:36",
+      "end_time": "2026/06/16 01:29",
+      "prefecture": "富山県",
+      "city": "高岡市",
+      "towns": "北島、福田六家",
+      "households": "約 120 戸",
+      "reason": "鳥獣等の接触"
+    },
+    {
+      "start_time": "2026/06/15 22:07",
+      "end_time": "2026/06/16 02:33",
+      "prefecture": "石川県",
+ 

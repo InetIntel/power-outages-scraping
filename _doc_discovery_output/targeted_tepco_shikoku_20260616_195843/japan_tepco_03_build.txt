@@ -1,0 +1,129 @@
+## japan_tepco_03_build
+Tue Jun 16 19:58:43 PDT 2026
+
+=== Building: japan_tepco ===
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 270B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-alpine
+#2 ...
+
+#3 [auth] library/python:pull token for registry-1.docker.io
+#3 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-alpine
+#2 DONE 4.1s
+
+#4 [internal] load .dockerignore
+#4 transferring context: 2B done
+#4 DONE 0.0s
+
+#5 [1/6] FROM docker.io/library/python:3.13-alpine@sha256:585f88f854292ed2e4c84b96f7f5a21a20a13cb84efdde7a67639aae93f46206
+#5 resolve docker.io/library/python:3.13-alpine@sha256:585f88f854292ed2e4c84b96f7f5a21a20a13cb84efdde7a67639aae93f46206 0.0s done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 8.53kB 0.1s done
+#6 DONE 0.1s
+
+#7 [3/6] COPY ./src/scrapers/japan/tepco/requirements.txt .
+#7 CACHED
+
+#8 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#8 CACHED
+
+#9 [5/6] COPY ./src/scrapers/japan/tepco/*.py .
+#9 CACHED
+
+#10 [2/6] WORKDIR /app
+#10 CACHED
+
+#11 [6/6] COPY ./utils/ utils/
+#11 CACHED
+
+#12 exporting to image
+#12 exporting layers done
+#12 exporting manifest sha256:5a475736a469fb6b9e6aec7b58adb72d529af1ed97bea6d4bdf0ebea3b778abc done
+#12 exporting config sha256:91294f492344fe54a9d604fa451fc86ab3221c7ab81c1c2277705f946daf9d1e done
+#12 exporting attestation manifest sha256:f59ec78eebd089eb4819496fc2cada96371a40fbfe46d839917888a16481abff 0.0s done
+#12 exporting manifest list sha256:f0ab9f782bd84a89b6fa37cf1202c88b50d27bfc6208e197079af29ecf6ab248 done
+#12 naming to localhost:5000/japan_tepco:latest done
+#12 unpacking to localhost:5000/japan_tepco:latest done
+#12 DONE 0.1s
+The push refers to repository [localhost:5000/japan_tepco]
+af3403a13d65: Waiting
+38141a9ae7dd: Waiting
+c037cb9c46ca: Waiting
+5de55e5ef9c0: Waiting
+b7045cd887ad: Waiting
+eaacd48516bc: Waiting
+652bad6c4ced: Waiting
+efbec88780d1: Waiting
+c4786242540a: Waiting
+309f107beea2: Waiting
+309f107beea2: Waiting
+af3403a13d65: Waiting
+38141a9ae7dd: Waiting
+c037cb9c46ca: Waiting
+5de55e5ef9c0: Waiting
+b7045cd887ad: Waiting
+eaacd48516bc: Waiting
+652bad6c4ced: Waiting
+efbec88780d1: Waiting
+c4786242540a: Waiting
+309f107beea2: Waiting
+af3403a13d65: Waiting
+38141a9ae7dd: Waiting
+c037cb9c46ca: Waiting
+5de55e5ef9c0: Waiting
+b7045cd887ad: Waiting
+eaacd48516bc: Waiting
+652bad6c4ced: Waiting
+efbec88780d1: Waiting
+c4786242540a: Waiting
+c4786242540a: Waiting
+309f107beea2: Waiting
+af3403a13d65: Waiting
+38141a9ae7dd: Waiting
+c037cb9c46ca: Waiting
+5de55e5ef9c0: Waiting
+b7045cd887ad: Waiting
+eaacd48516bc: Waiting
+652bad6c4ced: Waiting
+efbec88780d1: Waiting
+b7045cd887ad: Waiting
+eaacd48516bc: Waiting
+652bad6c4ced: Waiting
+efbec88780d1: Waiting
+c4786242540a: Waiting
+309f107beea2: Waiting
+af3403a13d65: Waiting
+38141a9ae7dd: Waiting
+c037cb9c46ca: Waiting
+5de55e5ef9c0: Waiting
+309f107beea2: Waiting
+af3403a13d65: Waiting
+38141a9ae7dd: Waiting
+c037cb9c46ca: Waiting
+5de55e5ef9c0: Waiting
+b7045cd887ad: Waiting
+eaacd48516bc: Waiting
+652bad6c4ced: Waiting
+efbec88780d1: Waiting
+c4786242540a: Waiting
+b7045cd887ad: Layer already exists
+eaacd48516bc: Layer already exists
+652bad6c4ced: Layer already exists
+efbec88780d1: Layer already exists
+c4786242540a: Layer already exists
+309f107beea2: Waiting
+af3403a13d65: Layer already exists
+38141a9ae7dd: Layer already exists
+c037cb9c46ca: Layer already exists
+5de55e5ef9c0: Layer already exists
+309f107beea2: Pushed
+latest: digest: sha256:f0ab9f782bd84a89b6fa37cf1202c88b50d27bfc6208e197079af29ecf6ab248 size: 856
+  Done: japan_tepco

@@ -1,0 +1,309 @@
+## japan_shikoku_02_static_url_and_path_grep
+Tue Jun 16 19:58:43 PDT 2026
+
+--- URL / provider / path keywords ---
+src/scrapers/japan/shikoku/requirements.txt:1:requests
+src/scrapers/japan/shikoku/Dockerfile:5:COPY ./src/scrapers/japan/shikoku/requirements.txt .
+src/scrapers/japan/shikoku/Dockerfile:8:COPY ./src/scrapers/japan/shikoku/*.py .
+src/scrapers/japan/shikoku/post_process.py:7:from utils.upload import Uploader
+src/scrapers/japan/shikoku/post_process.py:12:        self.provider = "shikoku"
+src/scrapers/japan/shikoku/post_process.py:18:        self.raw_dir = self.base_dir / "data" / "raw"
+src/scrapers/japan/shikoku/post_process.py:19:        self.processed_dir = self.base_dir / "data" / "processed"
+src/scrapers/japan/shikoku/post_process.py:20:        self.processed_dir.mkdir(parents=True, exist_ok=True)
+src/scrapers/japan/shikoku/post_process.py:47:                occurrence_raw = h3.find("em", string="発生日時").next_sibling.strip()
+src/scrapers/japan/shikoku/post_process.py:48:                recovery_raw = h3.find("em", string="復旧日時").next_sibling.strip()
+src/scrapers/japan/shikoku/post_process.py:49:                occurrence = self._to_iso(occurrence_raw)
+src/scrapers/japan/shikoku/post_process.py:50:                recovery = self._to_iso(recovery_raw)
+src/scrapers/japan/shikoku/post_process.py:103:        uploader = Uploader("japan")
+src/scrapers/japan/shikoku/post_process.py:108:        prefix = f"japan/shikoku/raw/{year}/{month}/"
+src/scrapers/japan/shikoku/post_process.py:109:        listing = uploader.client.list_objects_v2(Bucket="japan", Prefix=prefix)
+src/scrapers/japan/shikoku/post_process.py:110:        for obj in listing.get("Contents", []):
+src/scrapers/japan/shikoku/post_process.py:112:            local_path = self.raw_dir / Path(key).name
+src/scrapers/japan/shikoku/post_process.py:113:            uploader.download_file(key, str(local_path))
+src/scrapers/japan/shikoku/post_process.py:117:        for file in sorted(self.raw_dir.glob("*.html")):
+src/scrapers/japan/shikoku/post_process.py:131:                        o.get("occurrence_datetime"),
+src/scrapers/japan/shikoku/post_process.py:132:                        o.get("recovery_datetime"),
+src/scrapers/japan/shikoku/post_process.py:133:                        o.get("reason"),
+src/scrapers/japan/shikoku/post_process.py:134:                        o.get("households_affected"),
+src/scrapers/japan/shikoku/post_process.py:145:        output_file = self.processed_dir / f"shikoku_outages_{self.today_iso}.json"
+src/scrapers/japan/shikoku/post_process.py:151:        # Upload processed file to shared volume
+src/scrapers/japan/shikoku/post_process.py:152:        s3_processed = f"japan/shikoku/processed/{year}/{month}/{output_file.name}"
+src/scrapers/japan/shikoku/post_process.py:153:        uploader.upload_file(str(output_file), s3_processed)
+src/scrapers/japan/shikoku/scrape.py:1:import requests
+src/scrapers/japan/shikoku/scrape.py:5:from utils.upload import Uploader
+src/scrapers/japan/shikoku/scrape.py:12:        # Consistent data/raw folder
+src/scrapers/japan/shikoku/scrape.py:13:        self.base_path = Path(__file__).resolve().parent / "data" / "raw"
+src/scrapers/japan/shikoku/scrape.py:17:        self.master_url = "https://www.okidenmail.jp/bosai/xml/history_normal.xml"
+src/scrapers/japan/shikoku/scrape.py:19:        self.uploader = Uploader("japan")
+src/scrapers/japan/shikoku/scrape.py:27:            resp = requests.get(url, timeout=10)
+src/scrapers/japan/shikoku/scrape.py:34:        master_path = self.base_path / f"okiden_master_{ts}.xml"
+src/scrapers/japan/shikoku/scrape.py:42:        s3_path = f"japan/shikoku/raw/{year}/{month}/{master_path.name}"
+src/scrapers/japan/shikoku/scrape.py:43:        self.uploader.upload_file(str(master_path), s3_path)
+src/scrapers/japan/shikoku/scrape.py:57:            elem.text for elem in root.findall(".//data/date_key") if elem.text
+src/scrapers/japan/shikoku/scrape.py:64:        url = f"https://www.okidenmail.jp/bosai/api/xml_map2.php?date_key={date_key}&_={ts}"
+src/scrapers/japan/shikoku/scrape.py:66:            resp = requests.get(url, timeout=10)
+src/scrapers/japan/shikoku/scrape.py:73:        detail_path = self.base_path / f"okiden_{date_key}.xml"
+src/scrapers/japan/shikoku/scrape.py:81:        s3_path = f"japan/shikoku/raw/{year}/{month}/{detail_path.name}"
+src/scrapers/japan/shikoku/scrape.py:82:        self.uploader.upload_file(str(detail_path), s3_path)
+
+--- first 220 lines of scrape.py ---
+import requests
+from pathlib import Path
+from datetime import datetime
+from xml.etree import ElementTree as ET
+from utils.upload import Uploader
+
+
+class ShikokuScraper:
+    """Scraper for Shikoku power outage XML data (四国電力)."""
+
+    def __init__(self):
+        # Consistent data/raw folder
+        self.base_path = Path(__file__).resolve().parent / "data" / "raw"
+        self.base_path.mkdir(parents=True, exist_ok=True)
+
+        # Master XML URL
+        self.master_url = "https://www.okidenmail.jp/bosai/xml/history_normal.xml"
+
+        self.uploader = Uploader("japan")
+
+    def fetch_master_xml(self):
+        ts = int(datetime.now().timestamp() * 1000)
+        url = f"{self.master_url}?_={ts}"
+        print(f"[OKIDEN] Fetching master XML: {url}")
+
+        try:
+            resp = requests.get(url, timeout=10)
+            resp.raise_for_status()
+        except Exception as e:
+            print(f"[ERROR] Failed to fetch master XML: {e}")
+            return None
+
+        master_text = resp.text
+        master_path = self.base_path / f"okiden_master_{ts}.xml"
+        master_path.write_text(master_text, encoding="utf-8")
+        print(f"[OKIDEN] Saved master XML -> {master_path.name}")
+
+        # Upload to shared volume
+        now = datetime.now()
+        year = now.strftime("%Y")
+        month = now.strftime("%m")
+        s3_path = f"japan/shikoku/raw/{year}/{month}/{master_path.name}"
+        self.uploader.upload_file(str(master_path), s3_path)
+
+        return master_path, master_text
+
+    def parse_date_keys(self, master_text):
+        """Extract date keys from master XML."""
+        try:
+            root = ET.fromstring(master_text)
+        except ET.ParseError as e:
+            print(f"[ERROR] Failed to parse master XML: {e}")
+            return []
+
+        # All <data><date_key> nodes
+        date_keys = [
+            elem.text for elem in root.findall(".//data/date_key") if elem.text
+        ]
+        print(f"[OKIDEN] Found {len(date_keys)} date keys")
+        return date_keys
+
+    def fetch_detail_xml(self, date_key):
+        ts = int(datetime.now().timestamp() * 1000)
+        url = f"https://www.okidenmail.jp/bosai/api/xml_map2.php?date_key={date_key}&_={ts}"
+        try:
+            resp = requests.get(url, timeout=10)
+            resp.raise_for_status()
+        except Exception as e:
+            print(f"[ERROR] Failed to fetch detail XML for {date_key}: {e}")
+            return None
+
+        detail_text = resp.text
+        detail_path = self.base_path / f"okiden_{date_key}.xml"
+        detail_path.write_text(detail_text, encoding="utf-8")
+        print(f"[OKIDEN] Saved detail XML -> {detail_path.name}")
+
+        # Upload to shared volume
+        now = datetime.now()
+        year = now.strftime("%Y")
+        month = now.strftime("%m")
+        s3_path = f"japan/shikoku/raw/{year}/{month}/{detail_path.name}"
+        self.uploader.upload_file(str(detail_path), s3_path)
+
+        return detail_path
+
+    def run(self):
+        master_path, master_text = self.fetch_master_xml()
+        if not master_text:
+            return
+
+        date_keys = self.parse_date_keys(master_text)
+        for key in date_keys:
+            self.fetch_detail_xml(key)
+
+
+if __name__ == "__main__":
+    scraper = ShikokuScraper()
+    scraper.run()
+
+--- first 260 lines of post_process.py ---
+import os
+import json
+from bs4 import BeautifulSoup
+from datetime import datetime, timezone, timedelta
+from pathlib import Path
+import re
+from utils.upload import Uploader
+
+
+class ShikokuProcessor:
+    def __init__(self):
+        self.provider = "shikoku"
+        self.country_code = "JP"
+        self.JST = timezone(timedelta(hours=9))
+        self.today_iso = datetime.now(self.JST).strftime("%Y-%m-%d")
+
+        self.base_dir = Path(__file__).resolve().parent
+        self.raw_dir = self.base_dir / "data" / "raw"
+        self.processed_dir = self.base_dir / "data" / "processed"
+        self.processed_dir.mkdir(parents=True, exist_ok=True)
+
+    def _to_iso(self, jp_datetime: str) -> str:
+        """Convert '2025年12月8日 6時22分' -> '2025-12-08 06:22'"""
+        jp_datetime = jp_datetime.strip()
+        if not jp_datetime:
+            return ""
+        match = re.match(r"(\d+)年(\d+)月(\d+)日\s+(\d+)時(\d+)分", jp_datetime)
+        if not match:
+            return jp_datetime
+        year, month, day, hour, minute = map(int, match.groups())
+        dt = datetime(year, month, day, hour, minute, tzinfo=self.JST)
+        return dt.strftime("%Y-%m-%d %H:%M")
+
+    def _clean_text(self, text: str) -> str:
+        """Remove newlines, tabs, and extra spaces"""
+        text = text.replace("\n", " ").replace("\t", " ")
+        text = re.sub(r"\s+", " ", text)
+        return text.strip()
+
+    def _parse_html(self, html_text: str) -> list:
+        soup = BeautifulSoup(html_text, "html.parser")
+        outages = []
+
+        for div in soup.select("div.teiden_cont.detail"):
+            try:
+                h3 = div.find("h3")
+                occurrence_raw = h3.find("em", string="発生日時").next_sibling.strip()
+                recovery_raw = h3.find("em", string="復旧日時").next_sibling.strip()
+                occurrence = self._to_iso(occurrence_raw)
+                recovery = self._to_iso(recovery_raw)
+
+                households_tag = h3.find("span", class_="kosuu")
+                households = (
+                    households_tag.i.get_text(strip=True) if households_tag else ""
+                )
+
+                reason_tag = div.find("dl", class_="flex")
+                reason = (
+                    reason_tag.find("dd").get_text(strip=True) if reason_tag else ""
+                )
+
+                areas = []
+                table = div.find("table")
+                if table:
+                    for tr in table.find_all("tr"):
+                        prefecture = (
+                            tr.find("th").get_text(strip=True) if tr.find("th") else ""
+                        )
+                        city_td = tr.find("td", class_="city")
+                        city = city_td.get_text(strip=True) if city_td else ""
+                        town_td = tr.find("td", class_="town")
+                        area_text = (
+                            self._clean_text(town_td.get_text(" ", strip=True))
+                            if town_td
+                            else ""
+                        )
+
+                        # Skip empty or placeholder entries
+                        if all([x in ["", "―"] for x in [prefecture, city, area_text]]):
+                            continue
+
+                        areas.append(
+                            {"prefecture": prefecture, "city": city, "area": area_text}
+                        )
+
+                outages.append(
+                    {
+                        "occurrence_datetime": occurrence,
+                        "recovery_datetime": recovery,
+                        "reason": reason,
+                        "households_affected": households,
+                        "areas": areas,
+                    }
+                )
+
+            except Exception as e:
+                print(f"[WARN] Failed to parse outage: {e}")
+                continue
+
+        return outages
+
+    def run(self):
+        uploader = Uploader("japan")
+        now = datetime.now(self.JST)
+        year = now.strftime("%Y")
+        month = now.strftime("%m")
+
+        prefix = f"japan/shikoku/raw/{year}/{month}/"
+        listing = uploader.client.list_objects_v2(Bucket="japan", Prefix=prefix)
+        for obj in listing.get("Contents", []):
+            key = obj["Key"]
+            local_path = self.raw_dir / Path(key).name
+            uploader.download_file(key, str(local_path))
+
+        all_outages = []
+
+        for file in sorted(self.raw_dir.glob("*.html")):
+            print(f"[PROCESS] Parsing {file.name}")
+            html = file.read_text(encoding="utf-8", errors="ignore")
+            entries = self._parse_html(html)
+            if entries:
+                all_outages.extend(entries)
+
+        # Filter empty outages and areas
+        filtered_outages = []
+        for o in all_outages:
+            o["areas"] = [a for a in o["areas"] if any(a.values())]
+            if (
+                any(
+                    [
+                        o.get("occurrence_datetime"),
+                        o.get("recovery_datetime"),
+                        o.get("reason"),
+                        o.get("households_affected"),
+                    ]
+                )
+                and o["areas"]
+            ):
+                filtered_outages.append(o)
+
+        if not filtered_outages:
+            print("[INFO] No valid outages found.")
+            return
+
+        output_file = self.processed_dir / f"shikoku_outages_{self.today_iso}.json"
+        with open(output_file, "w", encoding="utf-8") as f:
+            json.dump(filtered_outages, f, ensure_ascii=False, indent=2)
+
+        print(f"\nParsed {len(filtered_outages)} outages -> {output_file}")
+
+        # Upload processed file to shared volume
+        s3_processed = f"japan/shikoku/processed/{year}/{month}/{output_file.name}"
+        uploader.upload_file(str(output_file), s3_processed)
+
+        return output_file
+
+
+if __name__ == "__main__":
+    processor = ShikokuProcessor()
+    processor.run()

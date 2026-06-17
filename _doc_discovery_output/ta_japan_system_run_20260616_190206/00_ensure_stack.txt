@@ -1,0 +1,34 @@
+## Ensure stack is running
+Tue Jun 16 19:02:11 PDT 2026
+ Container power-outages-scraping-main-postgres-1 Running 
+ Container power-outages-scraping-main-registry-1 Running 
+ Container power-outages-scraping-main-airflow-dag-processor-1 Running 
+ Container power-outages-scraping-main-airflow-scheduler-1 Running 
+ Container power-outages-scraping-main-airflow-webserver-1 Running 
+ Container power-outages-scraping-main-postgres-1 Waiting 
+ Container power-outages-scraping-main-postgres-1 Healthy 
+ Container power-outages-scraping-main-airflow-init-1 Starting 
+ Container power-outages-scraping-main-airflow-init-1 Started 
+ Container power-outages-scraping-main-airflow-init-1 Waiting 
+ Container power-outages-scraping-main-postgres-1 Waiting 
+ Container power-outages-scraping-main-airflow-init-1 Waiting 
+ Container power-outages-scraping-main-postgres-1 Waiting 
+ Container power-outages-scraping-main-postgres-1 Waiting 
+ Container power-outages-scraping-main-airflow-init-1 Waiting 
+ Container power-outages-scraping-main-postgres-1 Healthy 
+ Container power-outages-scraping-main-postgres-1 Healthy 
+ Container power-outages-scraping-main-postgres-1 Healthy 
+ Container power-outages-scraping-main-airflow-init-1 Exited 
+ Container power-outages-scraping-main-airflow-init-1 Exited 
+ Container power-outages-scraping-main-airflow-init-1 Exited 
+
+NAME                                                  IMAGE                                               COMMAND                  SERVICE                 CREATED          STATUS                      PORTS
+power-outages-scraping-main-airflow-dag-processor-1   power-outages-scraping-main-airflow-dag-processor   "/usr/bin/dumb-init …"   airflow-dag-processor   17 minutes ago   Up 17 minutes               8080/tcp
+power-outages-scraping-main-airflow-scheduler-1       power-outages-scraping-main-airflow-scheduler       "/usr/bin/dumb-init …"   airflow-scheduler       17 minutes ago   Up 17 minutes               8080/tcp
+power-outages-scraping-main-airflow-webserver-1       power-outages-scraping-main-airflow-webserver       "/usr/bin/dumb-init …"   airflow-webserver       17 minutes ago   Up 17 minutes (unhealthy)   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+power-outages-scraping-main-postgres-1                postgres:latest                                     "docker-entrypoint.s…"   postgres                17 minutes ago   Up 17 minutes (healthy)     5432/tcp
+power-outages-scraping-main-registry-1                registry:latest                                     "/entrypoint.sh /etc…"   registry                17 minutes ago   Up 17 minutes               0.0.0.0:5000->5000/tcp, [::]:5000->5000/tcp
+
+--- health attempts ---
+--- attempt 1 ---
+{"metadatabase":{"status":"healthy"},"scheduler":{"status":"healthy","latest_scheduler_heartbeat":"2026-06-17T02:02:07.518100+00:00"},"triggerer":{"status":null,"latest_triggerer_heartbeat":null},"dag_processor":{"status":"healthy","latest_dag_processor_heartbeat":"2026-06-17T02:02:12.499852+00:00"}}

@@ -1,0 +1,6 @@
+## japan_shikoku_09_volume_files
+Tue Jun 16 20:01:03 PDT 2026
+
+-rw-r--r--    1 root     root        1.1K Jun 17 02:07 /data/japan/japan/shikoku/raw/2026/06/okiden_master_1781662031042.xml
+-rw-r--r--    1 root     root        1.1K Jun 17 02:07 /data/japan/japan/shikoku/raw/2026/06/okiden_master_1781662032003.xml
+-rw-r--r--    1 root     root        1.1K Jun 17 03:00 /data/japan/japan/shikoku/raw/2026/06/okiden_master_1781665205030.xml

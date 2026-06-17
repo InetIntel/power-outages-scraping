@@ -1,0 +1,43 @@
+## Processed quick check for japan_okinawa
+Tue Jun 16 19:04:45 PDT 2026
+===== /data/japan/japan/okinawa/processed/2026/06/okinawa_processed.json =====
+14496 /data/japan/japan/okinawa/processed/2026/06/okinawa_processed.json
+[
+  {
+    "time_of_occurrence": "2026-06-10 21:41",
+    "recovery_time": "2026-06-10 23:47",
+    "restoration_area": "平良字久貝，平良字松原",
+    "num_restored_homes": "500",
+    "reason": "風雨の影響",
+    "city_town": "宮古島市",
+    "equipment_cause": "配電設備"
+  },
+  {
+    "time_of_occurrence": "2026-06-10 19:33",
+    "recovery_time": "2026-06-10 23:19",
+    "restoration_area": "字汀間，字安部",
+    "num_restored_homes": "180",
+    "reason": "樹木接触",
+    "city_town": "名護市",
+    "equipment_cause": "配電設備"
+  },
+  {
+    "time_of_occurrence": "2026-06-10 19:33",
+    "recovery_time": "2026-06-10 23:25",
+    "restoration_area": "字汀間，字三原，字安部，字嘉陽，字天仁屋",
+    "num_restored_homes": "390",
+    "reason": "樹木接触",
+    "city_town": "名護市",
+    "equipment_cause": "配電設備"
+  },
+  {
+    "time_of_occurrence": "2026-06-10 19:33",
+    "recovery_time": "2026-06-10 23:23",
+    "restoration_area": "字瀬嵩，字汀間，字三原，字安部",
+    "num_restored_homes": "120",
+    "reason": "樹木接触",
+    "city_town": "名護市",
+    "equipment_cause": "配電設備"
+  },
+  {
+    "time

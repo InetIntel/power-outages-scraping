@@ -1,0 +1,449 @@
+## japan_shikoku_12_compare_with_okinawa_static
+Tue Jun 16 20:01:03 PDT 2026
+
+--- shikoku vs okinawa filenames ---
+src/scrapers/japan/okinawa/Dockerfile
+src/scrapers/japan/okinawa/post_process.py
+src/scrapers/japan/okinawa/requirements.txt
+src/scrapers/japan/okinawa/scrape.py
+src/scrapers/japan/shikoku/Dockerfile
+src/scrapers/japan/shikoku/post_process.py
+src/scrapers/japan/shikoku/requirements.txt
+src/scrapers/japan/shikoku/scrape.py
+
+--- grep okiden across shikoku and okinawa ---
+src/scrapers/japan/shikoku/Dockerfile:5:COPY ./src/scrapers/japan/shikoku/requirements.txt .
+src/scrapers/japan/shikoku/Dockerfile:8:COPY ./src/scrapers/japan/shikoku/*.py .
+src/scrapers/japan/shikoku/post_process.py:10:class ShikokuProcessor:
+src/scrapers/japan/shikoku/post_process.py:12:        self.provider = "shikoku"
+src/scrapers/japan/shikoku/post_process.py:108:        prefix = f"japan/shikoku/raw/{year}/{month}/"
+src/scrapers/japan/shikoku/post_process.py:145:        output_file = self.processed_dir / f"shikoku_outages_{self.today_iso}.json"
+src/scrapers/japan/shikoku/post_process.py:152:        s3_processed = f"japan/shikoku/processed/{year}/{month}/{output_file.name}"
+src/scrapers/japan/shikoku/post_process.py:159:    processor = ShikokuProcessor()
+src/scrapers/japan/shikoku/scrape.py:8:class ShikokuScraper:
+src/scrapers/japan/shikoku/scrape.py:9:    """Scraper for Shikoku power outage XML data (四国電力)."""
+src/scrapers/japan/shikoku/scrape.py:17:        self.master_url = "https://www.okidenmail.jp/bosai/xml/history_normal.xml"
+src/scrapers/japan/shikoku/scrape.py:24:        print(f"[OKIDEN] Fetching master XML: {url}")
+src/scrapers/japan/shikoku/scrape.py:34:        master_path = self.base_path / f"okiden_master_{ts}.xml"
+src/scrapers/japan/shikoku/scrape.py:36:        print(f"[OKIDEN] Saved master XML -> {master_path.name}")
+src/scrapers/japan/shikoku/scrape.py:42:        s3_path = f"japan/shikoku/raw/{year}/{month}/{master_path.name}"
+src/scrapers/japan/shikoku/scrape.py:59:        print(f"[OKIDEN] Found {len(date_keys)} date keys")
+src/scrapers/japan/shikoku/scrape.py:64:        url = f"https://www.okidenmail.jp/bosai/api/xml_map2.php?date_key={date_key}&_={ts}"
+src/scrapers/japan/shikoku/scrape.py:73:        detail_path = self.base_path / f"okiden_{date_key}.xml"
+src/scrapers/japan/shikoku/scrape.py:75:        print(f"[OKIDEN] Saved detail XML -> {detail_path.name}")
+src/scrapers/japan/shikoku/scrape.py:81:        s3_path = f"japan/shikoku/raw/{year}/{month}/{detail_path.name}"
+src/scrapers/japan/shikoku/scrape.py:97:    scraper = ShikokuScraper()
+src/scrapers/japan/okinawa/Dockerfile:5:COPY ./src/scrapers/japan/okinawa/requirements.txt .
+src/scrapers/japan/okinawa/Dockerfile:8:COPY ./src/scrapers/japan/okinawa/*.py .
+src/scrapers/japan/okinawa/post_process.py:8:class OkinawaProcessor:
+src/scrapers/japan/okinawa/post_process.py:9:    """Post-process Okinawa XML files into structured JSON."""
+src/scrapers/japan/okinawa/post_process.py:15:        self.output_file = self.output_path / "okinawa_processed.json"
+src/scrapers/japan/okinawa/post_process.py:18:        """Parse a single Okinawa XML file."""
+src/scrapers/japan/okinawa/post_process.py:92:        prefix = f"japan/okinawa/raw/{year}/{month}/"
+src/scrapers/japan/okinawa/post_process.py:116:        s3_processed = f"japan/okinawa/processed/{year}/{month}/{self.output_file.name}"
+src/scrapers/japan/okinawa/post_process.py:123:    processor = OkinawaProcessor()
+src/scrapers/japan/okinawa/scrape.py:10:    MASTER_URL = "https://www.okidenmail.jp/bosai/xml/history_normal.xml"
+src/scrapers/japan/okinawa/scrape.py:11:    DETAIL_URL = "https://www.okidenmail.jp/bosai/api/xml_map2.php"
+src/scrapers/japan/okinawa/scrape.py:23:            "Referer": "https://www.okidenmail.jp/bosai/info2/",
+src/scrapers/japan/okinawa/scrape.py:29:        master_path = self.base_path / f"okiden_master_{ts}.xml"
+src/scrapers/japan/okinawa/scrape.py:37:        s3_path = f"japan/okinawa/raw/{year}/{month}/{master_path.name}"
+src/scrapers/japan/okinawa/scrape.py:57:            "Referer": "https://www.okidenmail.jp/bosai/info2/",
+src/scrapers/japan/okinawa/scrape.py:67:        detail_path = self.base_path / f"okiden_{date_key}.xml"
+src/scrapers/japan/okinawa/scrape.py:75:        s3_path = f"japan/okinawa/raw/{year}/{month}/{detail_path.name}"
+
+--- rough diff of scrape.py if available ---
+--- src/scrapers/japan/okinawa/scrape.py	2026-06-16 18:11:31
++++ src/scrapers/japan/shikoku/scrape.py	2026-06-16 18:11:31
+@@ -1,95 +1,98 @@
+ import requests
+ from pathlib import Path
+ from datetime import datetime
+-import xml.etree.ElementTree as ET
+-import time
++from xml.etree import ElementTree as ET
+ from utils.upload import Uploader
+ 
+ 
+-class OkidenScraper:
+-    MASTER_URL = "https://www.okidenmail.jp/bosai/xml/history_normal.xml"
+-    DETAIL_URL = "https://www.okidenmail.jp/bosai/api/xml_map2.php"
++class ShikokuScraper:
++    """Scraper for Shikoku power outage XML data (四国電力)."""
+ 
+     def __init__(self):
++        # Consistent data/raw folder
+         self.base_path = Path(__file__).resolve().parent / "data" / "raw"
+         self.base_path.mkdir(parents=True, exist_ok=True)
++
++        # Master XML URL
++        self.master_url = "https://www.okidenmail.jp/bosai/xml/history_normal.xml"
++
+         self.uploader = Uploader("japan")
+ 
+-    def fetch_master(self):
+-        ts = int(time.time() * 1000)
+-        url = f"{self.MASTER_URL}?_={ts}"
+-        headers = {
+-            "User-Agent": "Mozilla/5.0 (compatible; outage-scraper/1.0)",
+-            "Referer": "https://www.okidenmail.jp/bosai/info2/",
+-        }
+-        resp = requests.get(url, headers=headers, timeout=15)
+-        resp.raise_for_status()
+-        xml_text = resp.text
++    def fetch_master_xml(self):
++        ts = int(datetime.now().timestamp() * 1000)
++        url = f"{self.master_url}?_={ts}"
++        print(f"[OKIDEN] Fetching master XML: {url}")
+ 
++        try:
++            resp = requests.get(url, timeout=10)
++            resp.raise_for_status()
++        except Exception as e:
++            print(f"[ERROR] Failed to fetch master XML: {e}")
++            return None
++
++        master_text = resp.text
+         master_path = self.base_path / f"okiden_master_{ts}.xml"
+-        master_path.write_text(xml_text, encoding="utf-8")
+-        print("Saved master XML ->", master_path)
++        master_path.write_text(master_text, encoding="utf-8")
++        print(f"[OKIDEN] Saved master XML -> {master_path.name}")
+ 
+         # Upload to shared volume
+         now = datetime.now()
+         year = now.strftime("%Y")
+         month = now.strftime("%m")
+-        s3_path = f"japan/okinawa/raw/{year}/{month}/{master_path.name}"
++        s3_path = f"japan/shikoku/raw/{year}/{month}/{master_path.name}"
+         self.uploader.upload_file(str(master_path), s3_path)
+ 
+-        return master_path, xml_text
++        return master_path, master_text
+ 
+-    def parse_master_for_keys(self, xml_text):
+-        """Extract date_key or similar IDs from master XML."""
+-        root = ET.fromstring(xml_text)
+-        keys = []
+-        # This depends on actual XML structure — adjust tag names as needed
+-        for elem in root.findall(".//date_key"):
+-            key = elem.text.strip()
+-            keys.append(key)
+-        return keys
++    def parse_date_keys(self, master_text):
++        """Extract date keys from master XML."""
++        try:
++            root = ET.fromstring(master_text)
++        except ET.ParseError as e:
++            print(f"[ERROR] Failed to parse master XML: {e}")
++            return []
+ 
+-    def fetch_detail(self, date_key: str):
+-        ts = int(time.time() * 1000)
+-        url = f"{self.DETAIL_URL}?date_key={date_key}&_={ts}"
+-        headers = {
+-            "User-Agent": "Mozilla/5.0 (compatible; outage-scraper/1.0)",
+-            "Referer": "https://www.okidenmail.jp/bosai/info2/",
+-        }
+-        resp = requests.get(url, headers=headers, timeout=15)
+-        resp.raise_for_status()
+-        xml_text = resp.text
++        # All <data><date_key> nodes
++        date_keys = [
++            elem.text for elem in root.findall(".//data/date_key") if elem.text
++        ]
++        print(f"[OKIDEN] Found {len(date_keys)} date keys")
++        return date_keys
+ 
+-        if not xml_text.strip().startswith("<?xml"):
+-            print(f"[WARN] detail for {date_key} did not return XML")
++    def fetch_detail_xml(self, date_key):
++        ts = int(datetime.now().timestamp() * 1000)
++        url = f"https://www.okidenmail.jp/bosai/api/xml_map2.php?date_key={date_key}&_={ts}"
++        try:
++            resp = requests.get(url, timeout=10)
++            resp.raise_for_status()
++        except Exception as e:
++            print(f"[ERROR] Failed to fetch detail XML for {date_key}: {e}")
+             return None
+ 
++        detail_text = resp.text
+         detail_path = self.base_path / f"okiden_{date_key}.xml"
+-        detail_path.write_text(xml_text, encoding="utf-8")
+-        print("Saved detail XML ->", detail_path)
++        detail_path.write_text(detail_text, encoding="utf-8")
++        print(f"[OKIDEN] Saved detail XML -> {detail_path.name}")
+ 
+         # Upload to shared volume
+         now = datetime.now()
+         year = now.strftime("%Y")
+         month = now.strftime("%m")
+-        s3_path = f"japan/okinawa/raw/{year}/{month}/{detail_path.name}"
++        s3_path = f"japan/shikoku/raw/{year}/{month}/{detail_path.name}"
+         self.uploader.upload_file(str(detail_path), s3_path)
+ 
+         return detail_path
+ 
+     def run(self):
+-        master_path, xml_text = self.fetch_master()
+-        keys = self.parse_master_for_keys(xml_text)
+-        print("Found keys:", keys)
++        master_path, master_text = self.fetch_master_xml()
++        if not master_text:
++            return
+ 
+-        for key in keys:
+-            try:
+-                self.fetch_detail(key)
+-                time.sleep(1)  # polite delay
+-            except Exception as e:
+-                print(f"[ERROR] fetching detail for {key}: {e}")
++        date_keys = self.parse_date_keys(master_text)
++        for key in date_keys:
++            self.fetch_detail_xml(key)
+ 
+ 
+ if __name__ == "__main__":
+-    scraper = OkidenScraper()
++    scraper = ShikokuScraper()
+     scraper.run()
+
+--- rough diff of post_process.py if available ---
+--- src/scrapers/japan/okinawa/post_process.py	2026-06-16 18:11:31
++++ src/scrapers/japan/shikoku/post_process.py	2026-06-16 18:11:31
+@@ -1,124 +1,160 @@
++import os
+ import json
++from bs4 import BeautifulSoup
++from datetime import datetime, timezone, timedelta
+ from pathlib import Path
+-import xml.etree.ElementTree as ET
+-from datetime import datetime
++import re
+ from utils.upload import Uploader
+ 
+ 
+-class OkinawaProcessor:
+-    """Post-process Okinawa XML files into structured JSON."""
+-
++class ShikokuProcessor:
+     def __init__(self):
+-        self.base_path = Path(__file__).resolve().parent / "data" / "raw"
+-        self.output_path = self.base_path.parent / "processed"
+-        self.output_path.mkdir(parents=True, exist_ok=True)
+-        self.output_file = self.output_path / "okinawa_processed.json"
++        self.provider = "shikoku"
++        self.country_code = "JP"
++        self.JST = timezone(timedelta(hours=9))
++        self.today_iso = datetime.now(self.JST).strftime("%Y-%m-%d")
+ 
+-    def parse_xml_file(self, xml_path):
+-        """Parse a single Okinawa XML file."""
+-        try:
+-            tree = ET.parse(xml_path)
+-            root = tree.getroot()
+-        except ET.ParseError as e:
+-            print(f"[WARN] Failed to parse {xml_path}: {e}")
+-            return []
++        self.base_dir = Path(__file__).resolve().parent
++        self.raw_dir = self.base_dir / "data" / "raw"
++        self.processed_dir = self.base_dir / "data" / "processed"
++        self.processed_dir.mkdir(parents=True, exist_ok=True)
+ 
++    def _to_iso(self, jp_datetime: str) -> str:
++        """Convert '2025年12月8日 6時22分' -> '2025-12-08 06:22'"""
++        jp_datetime = jp_datetime.strip()
++        if not jp_datetime:
++            return ""
++        match = re.match(r"(\d+)年(\d+)月(\d+)日\s+(\d+)時(\d+)分", jp_datetime)
++        if not match:
++            return jp_datetime
++        year, month, day, hour, minute = map(int, match.groups())
++        dt = datetime(year, month, day, hour, minute, tzinfo=self.JST)
++        return dt.strftime("%Y-%m-%d %H:%M")
++
++    def _clean_text(self, text: str) -> str:
++        """Remove newlines, tabs, and extra spaces"""
++        text = text.replace("\n", " ").replace("\t", " ")
++        text = re.sub(r"\s+", " ", text)
++        return text.strip()
++
++    def _parse_html(self, html_text: str) -> list:
++        soup = BeautifulSoup(html_text, "html.parser")
+         outages = []
+ 
+-        for town in root.findall(".//town"):
++        for div in soup.select("div.teiden_cont.detail"):
+             try:
+-                city_town = town.attrib.get("name", "").strip()
+-                power_cut_date = town.findtext("power_cut_date", "").strip()
+-                power_cut_time = town.findtext("power_cut_time", "").strip()
+-                send_finish_date = town.findtext("send_finish_date", "").strip()
+-                send_finish_time = town.findtext("send_finish_time", "").strip()
+-                restoration_area = town.findtext("restoration_area", "").strip()
+-                households = town.findtext("restoration_house", "").strip()
+-                equipment = town.findtext("equipment", "").strip()
+-                reason = town.findtext("reason", "").strip()
++                h3 = div.find("h3")
++                occurrence_raw = h3.find("em", string="発生日時").next_sibling.strip()
++                recovery_raw = h3.find("em", string="復旧日時").next_sibling.strip()
++                occurrence = self._to_iso(occurrence_raw)
++                recovery = self._to_iso(recovery_raw)
+ 
+-                if not (
+-                    power_cut_date
+-                    and power_cut_time
+-                    and send_finish_date
+-                    and send_finish_time
+-                ):
+-                    continue  # skip incomplete entries
++                households_tag = h3.find("span", class_="kosuu")
++                households = (
++                    households_tag.i.get_text(strip=True) if households_tag else ""
++                )
+ 
+-                # Combine date + time into ISO format
+-                try:
+-                    occurrence_dt = datetime.strptime(
+-                        power_cut_date + " " + power_cut_time, "%Y.%m.%d %H:%M"
+-                    )
+-                    occurrence_iso = occurrence_dt.strftime("%Y-%m-%d %H:%M")
+-                except Exception:
+-                    occurrence_iso = f"{power_cut_date} {power_cut_time}"
++                reason_tag = div.find("dl", class_="flex")
++                reason = (
++                    reason_tag.find("dd").get_text(strip=True) if reason_tag else ""
++                )
+ 
+-                try:
+-                    recovery_dt = datetime.strptime(
+-                        send_finish_date + " " + send_finish_time, "%Y.%m.%d %H:%M"
+-                    )
+-                    recovery_iso = recovery_dt.strftime("%Y-%m-%d %H:%M")
+-                except Exception:
+-                    recovery_iso = f"{send_finish_date} {send_finish_time}"
++                areas = []
++                table = div.find("table")
++                if table:
++                    for tr in table.find_all("tr"):
++                        prefecture = (
++                            tr.find("th").get_text(strip=True) if tr.find("th") else ""
++                        )
++                        city_td = tr.find("td", class_="city")
++                        city = city_td.get_text(strip=True) if city_td else ""
++                        town_td = tr.find("td", class_="town")
++                        area_text = (
++                            self._clean_text(town_td.get_text(" ", strip=True))
++                            if town_td
++                            else ""
++                        )
+ 
+-                # Skip entries with "-" or empty areas
+-                if restoration_area == "−" or not restoration_area:
+-                    restoration_area = ""
++                        # Skip empty or placeholder entries
++                        if all([x in ["", "―"] for x in [prefecture, city, area_text]]):
++                            continue
+ 
++                        areas.append(
++                            {"prefecture": prefecture, "city": city, "area": area_text}
++                        )
++
+                 outages.append(
+                     {
+-                        "time_of_occurrence": occurrence_iso,
+-                        "recovery_time": recovery_iso,
+-                        "restoration_area": restoration_area,
+-                        "num_restored_homes": households,
++                        "occurrence_datetime": occurrence,
++                        "recovery_datetime": recovery,
+                         "reason": reason,
+-                        "city_town": city_town,
+-                        "equipment_cause": equipment,
++                        "households_affected": households,
++                        "areas": areas,
+                     }
+                 )
+ 
+             except Exception as e:
+-                print(f"[WARN] Failed to parse town entry in {xml_path}: {e}")
++                print(f"[WARN] Failed to parse outage: {e}")
++                continue
+ 
+         return outages
+ 
+     def run(self):
+         uploader = Uploader("japan")
+-        now = datetime.now()
++        now = datetime.now(self.JST)
+         year = now.strftime("%Y")
+         month = now.strftime("%m")
+ 
+-        prefix = f"japan/okinawa/raw/{year}/{month}/"
++        prefix = f"japan/shikoku/raw/{year}/{month}/"
+         listing = uploader.client.list_objects_v2(Bucket="japan", Prefix=prefix)
+         for obj in listing.get("Contents", []):
+             key = obj["Key"]
+-            local_path = self.base_path / Path(key).name
++            local_path = self.raw_dir / Path(key).name
+             uploader.download_file(key, str(local_path))
+ 
+         all_outages = []
+-        for xml_file in sorted(self.base_path.glob("*.xml")):
+-            print(f"[PROCESS] Parsing {xml_file.name}")
+-            outages = self.parse_xml_file(xml_file)
+-            all_outages.extend(outages)
+ 
+-        if not all_outages:
+-            print("[WARN] No outages found.")
++        for file in sorted(self.raw_dir.glob("*.html")):
++            print(f"[PROCESS] Parsing {file.name}")
++            html = file.read_text(encoding="utf-8", errors="ignore")
++            entries = self._parse_html(html)
++            if entries:
++                all_outages.extend(entries)
++
++        # Filter empty outages and areas
++        filtered_outages = []
++        for o in all_outages:
++            o["areas"] = [a for a in o["areas"] if any(a.values())]
++            if (
++                any(
++                    [
++                        o.get("occurrence_datetime"),
++                        o.get("recovery_datetime"),
++                        o.get("reason"),
++                        o.get("households_affected"),
++                    ]
++                )
++                and o["areas"]
++            ):
++                filtered_outages.append(o)
++
++        if not filtered_outages:
++            print("[INFO] No valid outages found.")
+             return
+ 
+-        # Save combined JSON
+-        with open(self.output_file, "w", encoding="utf-8") as f:
+-            json.dump(all_outages, f, ensure_ascii=False, indent=2)
++        output_file = self.processed_dir / f"shikoku_outages_{self.today_iso}.json"
++        with open(output_file, "w", encoding="utf-8") as f:
++            json.dump(filtered_outages, f, ensure_ascii=False, indent=2)
+ 
+-        print(f"[OKINAWA] Saved {len(all_outages)} outages -> {self.output_file.name}")
++        print(f"\nParsed {len(filtered_outages)} outages -> {output_file}")
+ 
+         # Upload processed file to shared volume
+-        s3_processed = f"japan/okinawa/processed/{year}/{month}/{self.output_file.name}"
+-        uploader.upload_file(str(self.output_file), s3_processed)
++        s3_processed = f"japan/shikoku/processed/{year}/{month}/{output_file.name}"
++        uploader.upload_file(str(output_file), s3_processed)
+ 
+-        return self.output_file
++        return output_file
+ 
+ 
+ if __name__ == "__main__":
+-    processor = OkinawaProcessor()
++    processor = ShikokuProcessor()
+     processor.run()

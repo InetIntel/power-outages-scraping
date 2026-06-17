@@ -1,0 +1,6 @@
+provider	build	trigger	logs	data_files	processed_files	status	notes
+kyushu	PASS	PASS	PASS	19	1	PASS	
+okinawa	PASS	PASS	PASS	10	1	PASS	
+tepco	PASS	PASS	PASS	1	1	PASS	
+tohoku	PASS	PASS	PASS	2	1	PASS	
+shikoku	PASS	PASS	PASS	2	0	PARTIAL	; raw output exists but processed output not found

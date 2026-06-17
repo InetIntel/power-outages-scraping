@@ -1,0 +1,8 @@
+## Find process using port 5000
+Tue Jun 16 18:31:16 PDT 2026
+--- lsof port 5000 ---
+COMMAND   PID  USER   FD   TYPE             DEVICE SIZE/OFF NODE NAME
+ControlCe 918 yukio   11u  IPv4 0xc526ea3bee43222c      0t0  TCP *:5000 (LISTEN)
+ControlCe 918 yukio   12u  IPv6 0x79927b56b5867521      0t0  TCP *:5000 (LISTEN)
+
+--- docker containers publishing 5000 ---

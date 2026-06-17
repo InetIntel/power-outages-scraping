@@ -1,0 +1,1143 @@
+## Fresh machine startup
+Tue Jun 16 18:25:10 PDT 2026
+santandrea-power-outages
+ Image registry:latest Pulling 
+ Image postgres:latest Pulling 
+ 0f258677fb76 Pulling fs layer 0B
+ d17f077ada11 Pulling fs layer 0B
+ 67ff9f205913 Pulling fs layer 0B
+ 0eadbc03e8b2 Pulling fs layer 0B
+ c935b29c51e3 Pulling fs layer 0B
+ bacb4041056c Pulling fs layer 0B
+ 8f0f34e06df6 Pulling fs layer 0B
+ e4b20ef7f22f Pulling fs layer 0B
+ 8245948a1590 Pulling fs layer 0B
+ a25cd16f2d86 Pulling fs layer 0B
+ 37959ee093ce Pulling fs layer 0B
+ 9abe8b2c9796 Pulling fs layer 0B
+ 8aca0237d2d6 Pulling fs layer 0B
+ 074c47bbd4c6 Pulling fs layer 0B
+ f0f2a1865cac Pulling fs layer 0B
+ 69052d406445 Pulling fs layer 0B
+ 62c4a880c42b Pulling fs layer 0B
+ 2b8379579b4f Pulling fs layer 0B
+ 9abe8b2c9796 Download complete 0B
+ 0f258677fb76 Download complete 0B
+ bacb4041056c Download complete 0B
+ 67ff9f205913 Download complete 0B
+ 8245948a1590 Download complete 0B
+ d17f077ada11 Downloading 1.049MB
+ d17f077ada11 Downloading 1.049MB
+ f0f2a1865cac Download complete 0B
+ 2b8379579b4f Download complete 0B
+ 8aca0237d2d6 Download complete 0B
+ d17f077ada11 Downloading 1.049MB
+ 62c4a880c42b Download complete 0B
+ d17f077ada11 Downloading 1.049MB
+ d17f077ada11 Downloading 2.097MB
+ c935b29c51e3 Download complete 0B
+ d17f077ada11 Downloading 2.097MB
+ d17f077ada11 Downloading 2.097MB
+ d17f077ada11 Downloading 2.097MB
+ d17f077ada11 Downloading 2.097MB
+ 0eadbc03e8b2 Downloading 1.049MB
+ d17f077ada11 Downloading 2.097MB
+ 0eadbc03e8b2 Downloading 1.049MB
+ d17f077ada11 Downloading 2.097MB
+ 0eadbc03e8b2 Downloading 1.049MB
+ d17f077ada11 Downloading 3.146MB
+ 0eadbc03e8b2 Downloading 1.049MB
+ d17f077ada11 Downloading 3.146MB
+ 0eadbc03e8b2 Downloading 1.049MB
+ 0eadbc03e8b2 Downloading 2.097MB
+ d17f077ada11 Downloading 3.146MB
+ d17f077ada11 Downloading 3.146MB
+ 0eadbc03e8b2 Downloading 2.097MB
+ 37959ee093ce Downloading 1.049MB
+ d17f077ada11 Downloading 3.146MB
+ 0eadbc03e8b2 Downloading 2.097MB
+ 37959ee093ce Downloading 1.049MB
+ e94d9f54ea06 Download complete 0B
+ d17f077ada11 Downloading 3.146MB
+ 0eadbc03e8b2 Downloading 2.097MB
+ 37959ee093ce Downloading 1.049MB
+ d17f077ada11 Downloading 3.146MB
+ 0eadbc03e8b2 Downloading 2.097MB
+ acedbaa8282f Download complete 0B
+ 8f0f34e06df6 Downloading 1.049MB
+ 37959ee093ce Downloading 1.049MB
+ 0eadbc03e8b2 Downloading 2.097MB
+ d17f077ada11 Downloading 3.146MB
+ 8f0f34e06df6 Downloading 1.049MB
+ 37959ee093ce Downloading 1.049MB
+ 0eadbc03e8b2 Downloading 2.097MB
+ 0ce323f5a134 Download complete 0B
+ d17f077ada11 Downloading 3.146MB
+ 37959ee093ce Downloading 1.049MB
+ 074c47bbd4c6 Downloading 1.049MB
+ 8f0f34e06df6 Downloading 1.049MB
+ d17f077ada11 Downloading 3.146MB
+ 0eadbc03e8b2 Downloading 3.146MB
+ 074c47bbd4c6 Downloading 1.049MB
+ 8f0f34e06df6 Download complete 0B
+ 37959ee093ce Downloading 2.097MB
+ d17f077ada11 Downloading 3.146MB
+ 0eadbc03e8b2 Downloading 3.146MB
+ e4b20ef7f22f Downloading 1.049MB
+ 074c47bbd4c6 Downloading 1.049MB
+ 37959ee093ce Downloading 2.097MB
+ d17f077ada11 Downloading 3.146MB
+ 0eadbc03e8b2 Downloading 3.146MB
+ 37959ee093ce Downloading 2.097MB
+ e4b20ef7f22f Downloading 1.049MB
+ 074c47bbd4c6 Download complete 0B
+ 69052d406445 Downloading 1.049MB
+ d17f077ada11 Download complete 0B
+ 0eadbc03e8b2 Downloading 3.146MB
+ d17f077ada11 Extracting 1B
+ 37959ee093ce Downloading 2.097MB
+ e4b20ef7f22f Downloading 1.049MB
+ 69052d406445 Downloading 1.049MB
+ 0eadbc03e8b2 Downloading 4.194MB
+ c935b29c51e3 Pull complete 0B
+ d17f077ada11 Pull complete 0B
+ 69052d406445 Downloading 1.049MB
+ 37959ee093ce Downloading 2.097MB
+ e4b20ef7f22f Downloading 1.049MB
+ 0eadbc03e8b2 Downloading 4.194MB
+ 37959ee093ce Downloading 2.097MB
+ e4b20ef7f22f Downloading 1.049MB
+ 69052d406445 Downloading 1.049MB
+ 0eadbc03e8b2 Downloading 4.194MB
+ e4b20ef7f22f Downloading 1.049MB
+ 69052d406445 Downloading 1.049MB
+ 37959ee093ce Downloading 3.146MB
+ 0eadbc03e8b2 Downloading 4.194MB
+ e4b20ef7f22f Downloading 1.049MB
+ 69052d406445 Downloading 1.049MB
+ 37959ee093ce Downloading 3.146MB
+ 0eadbc03e8b2 Downloading 4.194MB
+ 37959ee093ce Downloading 3.146MB
+ e4b20ef7f22f Downloading 1.049MB
+ 69052d406445 Downloading 1.049MB
+ 0eadbc03e8b2 Downloading 4.194MB
+ e4b20ef7f22f Downloading 1.049MB
+ 69052d406445 Downloading 1.049MB
+ fcd2256f6971 Downloading 1.049MB
+ 37959ee093ce Downloading 3.146MB
+ 0eadbc03e8b2 Downloading 4.194MB
+ fcd2256f6971 Downloading 1.049MB
+ 37959ee093ce Downloading 3.146MB
+ e4b20ef7f22f Downloading 1.049MB
+ 69052d406445 Downloading 1.049MB
+ 0eadbc03e8b2 Downloading 5.243MB
+ fcd2256f6971 Downloading 1.049MB
+ 37959ee093ce Downloading 3.146MB
+ e4b20ef7f22f Downloading 1.049MB
+ 69052d406445 Downloading 1.049MB
+ 0eadbc03e8b2 Downloading 5.243MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 1.049MB
+ fcd2256f6971 Downloading 1.049MB
+ 37959ee093ce Downloading 4.194MB
+ 0eadbc03e8b2 Downloading 5.243MB
+ fcd2256f6971 Downloading 1.049MB
+ 37959ee093ce Downloading 4.194MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ 0eadbc03e8b2 Downloading 5.243MB
+ 69052d406445 Downloading 2.097MB
+ fcd2256f6971 Downloading 1.049MB
+ 37959ee093ce Downloading 4.194MB
+ e4b20ef7f22f Downloading 2.097MB
+ 0eadbc03e8b2 Downloading 5.243MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ fcd2256f6971 Downloading 1.049MB
+ 37959ee093ce Downloading 4.194MB
+ 0eadbc03e8b2 Downloading 5.243MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ fcd2256f6971 Downloading 1.049MB
+ 37959ee093ce Downloading 4.194MB
+ 0eadbc03e8b2 Downloading 5.243MB
+ 37959ee093ce Downloading 4.194MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ fcd2256f6971 Downloading 1.049MB
+ 0eadbc03e8b2 Downloading 5.243MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ fcd2256f6971 Downloading 2.097MB
+ 37959ee093ce Downloading 4.194MB
+ 0eadbc03e8b2 Downloading 5.243MB
+ 69052d406445 Downloading 2.097MB
+ fcd2256f6971 Downloading 2.097MB
+ 37959ee093ce Downloading 4.194MB
+ e4b20ef7f22f Downloading 2.097MB
+ 0eadbc03e8b2 Downloading 5.243MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ fcd2256f6971 Downloading 2.097MB
+ 37959ee093ce Downloading 4.194MB
+ 0eadbc03e8b2 Downloading 5.243MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ fcd2256f6971 Downloading 2.097MB
+ 37959ee093ce Downloading 4.194MB
+ 0eadbc03e8b2 Downloading 6.291MB
+ fcd2256f6971 Downloading 2.097MB
+ 37959ee093ce Downloading 4.194MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ 0eadbc03e8b2 Downloading 6.291MB
+ fcd2256f6971 Downloading 2.097MB
+ 37959ee093ce Downloading 4.194MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ 0eadbc03e8b2 Downloading 6.291MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ fcd2256f6971 Downloading 2.097MB
+ 37959ee093ce Downloading 4.194MB
+ 0eadbc03e8b2 Downloading 6.291MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ a25cd16f2d86 Downloading 1.049MB
+ fcd2256f6971 Downloading 2.097MB
+ 37959ee093ce Downloading 5.243MB
+ 0eadbc03e8b2 Downloading 6.291MB
+ fcd2256f6971 Downloading 3.146MB
+ 37959ee093ce Downloading 5.243MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ a25cd16f2d86 Downloading 1.049MB
+ 0eadbc03e8b2 Downloading 6.291MB
+ 37959ee093ce Downloading 5.243MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ a25cd16f2d86 Downloading 1.049MB
+ fcd2256f6971 Downloading 3.146MB
+ 0eadbc03e8b2 Downloading 6.291MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ a25cd16f2d86 Downloading 1.049MB
+ fcd2256f6971 Downloading 4.194MB
+ 37959ee093ce Downloading 5.243MB
+ 0eadbc03e8b2 Downloading 6.291MB
+ a25cd16f2d86 Downloading 1.049MB
+ fcd2256f6971 Downloading 4.194MB
+ 37959ee093ce Downloading 6.291MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ 0eadbc03e8b2 Downloading 7.34MB
+ 69052d406445 Downloading 2.097MB
+ a25cd16f2d86 Downloading 1.049MB
+ fcd2256f6971 Downloading 4.194MB
+ 37959ee093ce Downloading 6.291MB
+ e4b20ef7f22f Downloading 2.097MB
+ 0eadbc03e8b2 Downloading 7.34MB
+ fcd2256f6971 Downloading 4.194MB
+ 37959ee093ce Downloading 6.291MB
+ e4b20ef7f22f Downloading 2.097MB
+ 69052d406445 Downloading 2.097MB
+ a25cd16f2d86 Downloading 1.049MB
+ 0eadbc03e8b2 Downloading 7.34MB
+ e4b20ef7f22f Downloading 3.146MB
+ 69052d406445 Downloading 2.097MB
+ a25cd16f2d86 Downloading 1.049MB
+ fcd2256f6971 Downloading 4.194MB
+ 37959ee093ce Downloading 6.291MB
+ 0eadbc03e8b2 Downloading 7.34MB
+ e4b20ef7f22f Downloading 3.146MB
+ 69052d406445 Downloading 2.097MB
+ a25cd16f2d86 Downloading 1.049MB
+ fcd2256f6971 Downloading 4.194MB
+ 37959ee093ce Downloading 6.291MB
+ 0eadbc03e8b2 Downloading 7.34MB
+ e4b20ef7f22f Downloading 3.146MB
+ 69052d406445 Downloading 3.146MB
+ a25cd16f2d86 Downloading 1.049MB
+ fcd2256f6971 Downloading 5.243MB
+ 37959ee093ce Downloading 6.291MB
+ 0eadbc03e8b2 Downloading 7.34MB
+ 37959ee093ce Downloading 6.291MB
+ e4b20ef7f22f Downloading 3.146MB
+ 69052d406445 Downloading 3.146MB
+ a25cd16f2d86 Downloading 1.049MB
+ fcd2256f6971 Downloading 5.243MB
+ 0eadbc03e8b2 Downloading 7.34MB
+ e4b20ef7f22f Downloading 3.146MB
+ 69052d406445 Downloading 3.146MB
+ a25cd16f2d86 Downloading 1.049MB
+ fcd2256f6971 Downloading 5.243MB
+ 37959ee093ce Downloading 6.291MB
+ 0eadbc03e8b2 Downloading 8.389MB
+ e4b20ef7f22f Downloading 3.146MB
+ 69052d406445 Downloading 3.146MB
+ a25cd16f2d86 Downloading 1.049MB
+ fcd2256f6971 Download complete 0B
+ 37959ee093ce Downloading 7.34MB
+ 0eadbc03e8b2 Downloading 8.389MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 7.34MB
+ e4b20ef7f22f Downloading 3.146MB
+ 69052d406445 Downloading 3.146MB
+ 0eadbc03e8b2 Downloading 8.389MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 7.34MB
+ e4b20ef7f22f Downloading 3.146MB
+ 69052d406445 Downloading 3.146MB
+ 0eadbc03e8b2 Downloading 8.389MB
+ e4b20ef7f22f Downloading 3.146MB
+ 69052d406445 Downloading 3.146MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 8.389MB
+ 0eadbc03e8b2 Downloading 9.437MB
+ 37959ee093ce Downloading 8.389MB
+ e4b20ef7f22f Downloading 3.146MB
+ 69052d406445 Downloading 3.146MB
+ a25cd16f2d86 Downloading 1.049MB
+ 0eadbc03e8b2 Downloading 9.437MB
+ e4b20ef7f22f Downloading 4.194MB
+ 69052d406445 Downloading 3.146MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 8.389MB
+ 0eadbc03e8b2 Downloading 9.437MB
+ e4b20ef7f22f Downloading 4.194MB
+ 69052d406445 Downloading 3.146MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 8.389MB
+ 0eadbc03e8b2 Downloading 9.437MB
+ 69052d406445 Downloading 3.146MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 8.389MB
+ e4b20ef7f22f Downloading 4.194MB
+ 0eadbc03e8b2 Downloading 10.49MB
+ 37959ee093ce Downloading 9.437MB
+ e4b20ef7f22f Downloading 4.194MB
+ 69052d406445 Downloading 4.194MB
+ a25cd16f2d86 Downloading 1.049MB
+ 0eadbc03e8b2 Downloading 10.49MB
+ 0eadbc03e8b2 Downloading 10.49MB
+ 37959ee093ce Downloading 9.437MB
+ e4b20ef7f22f Downloading 4.194MB
+ 69052d406445 Downloading 4.194MB
+ a25cd16f2d86 Downloading 1.049MB
+ e4b20ef7f22f Downloading 4.194MB
+ 69052d406445 Downloading 4.194MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 9.437MB
+ 0eadbc03e8b2 Downloading 10.49MB
+ e4b20ef7f22f Downloading 4.194MB
+ 69052d406445 Downloading 4.194MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 9.437MB
+ 0eadbc03e8b2 Downloading 10.49MB
+ 69052d406445 Downloading 4.194MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 9.437MB
+ e4b20ef7f22f Downloading 4.194MB
+ 0eadbc03e8b2 Downloading 11.53MB
+ e4b20ef7f22f Downloading 5.243MB
+ 69052d406445 Downloading 4.194MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 10.49MB
+ 0eadbc03e8b2 Downloading 11.53MB
+ e4b20ef7f22f Downloading 5.243MB
+ 69052d406445 Downloading 4.194MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 10.49MB
+ 0eadbc03e8b2 Downloading 11.53MB
+ 69052d406445 Downloading 4.194MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 10.49MB
+ e4b20ef7f22f Downloading 5.243MB
+ 0eadbc03e8b2 Downloading 11.53MB
+ 69052d406445 Downloading 5.243MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 10.49MB
+ e4b20ef7f22f Downloading 5.243MB
+ 0eadbc03e8b2 Downloading 11.53MB
+ e4b20ef7f22f Downloading 5.243MB
+ 69052d406445 Downloading 5.243MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 10.49MB
+ 0eadbc03e8b2 Downloading 12.58MB
+ e4b20ef7f22f Downloading 5.243MB
+ 69052d406445 Downloading 5.243MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 11.53MB
+ 0eadbc03e8b2 Downloading 12.58MB
+ e4b20ef7f22f Downloading 5.243MB
+ 69052d406445 Downloading 5.243MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 11.53MB
+ 0eadbc03e8b2 Downloading 12.58MB
+ e4b20ef7f22f Downloading 5.243MB
+ 69052d406445 Downloading 5.243MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 11.53MB
+ 0eadbc03e8b2 Downloading 12.58MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 11.53MB
+ e4b20ef7f22f Download complete 0B
+ 69052d406445 Downloading 5.243MB
+ 0eadbc03e8b2 Downloading 12.58MB
+ 69052d406445 Downloading 5.243MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 11.53MB
+ 0eadbc03e8b2 Downloading 13.63MB
+ 69052d406445 Downloading 5.243MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 12.58MB
+ 0eadbc03e8b2 Downloading 13.63MB
+ 69052d406445 Downloading 6.291MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 12.58MB
+ 0eadbc03e8b2 Downloading 13.63MB
+ 69052d406445 Downloading 6.291MB
+ a25cd16f2d86 Downloading 1.049MB
+ 37959ee093ce Downloading 12.58MB
+ 0eadbc03e8b2 Download complete 0B
+ 0eadbc03e8b2 Extracting 1B
+ 69052d406445 Downloading 6.291MB
+ a25cd16f2d86 Downloading 2.097MB
+ 37959ee093ce Downloading 12.58MB
+ 0eadbc03e8b2 Extracting 1B
+ 37959ee093ce Downloading 13.63MB
+ 69052d406445 Downloading 6.291MB
+ a25cd16f2d86 Downloading 2.097MB
+ 0f258677fb76 Pull complete 0B
+ 67ff9f205913 Pull complete 0B
+ 0eadbc03e8b2 Pull complete 0B
+ Image registry:latest Pulled 
+ 69052d406445 Downloading 6.291MB
+ a25cd16f2d86 Downloading 2.097MB
+ 37959ee093ce Downloading 13.63MB
+ a25cd16f2d86 Downloading 2.097MB
+ 37959ee093ce Downloading 14.68MB
+ 69052d406445 Downloading 6.291MB
+ 69052d406445 Downloading 7.34MB
+ a25cd16f2d86 Downloading 2.097MB
+ 37959ee093ce Downloading 14.68MB
+ a25cd16f2d86 Downloading 2.097MB
+ 37959ee093ce Downloading 14.68MB
+ 69052d406445 Downloading 7.34MB
+ 69052d406445 Downloading 7.34MB
+ a25cd16f2d86 Downloading 2.097MB
+ 37959ee093ce Downloading 15.73MB
+ 69052d406445 Downloading 7.34MB
+ a25cd16f2d86 Downloading 2.097MB
+ 37959ee093ce Downloading 15.73MB
+ 69052d406445 Download complete 0B
+ a25cd16f2d86 Downloading 2.097MB
+ 37959ee093ce Downloading 15.73MB
+ a25cd16f2d86 Downloading 2.097MB
+ 37959ee093ce Downloading 16.78MB
+ 37959ee093ce Downloading 16.78MB
+ a25cd16f2d86 Downloading 3.146MB
+ a25cd16f2d86 Downloading 3.146MB
+ 37959ee093ce Downloading 17.83MB
+ a25cd16f2d86 Downloading 3.146MB
+ 37959ee093ce Downloading 17.83MB
+ a25cd16f2d86 Downloading 3.146MB
+ 37959ee093ce Downloading 18.87MB
+ a25cd16f2d86 Downloading 3.146MB
+ 37959ee093ce Downloading 19.92MB
+ 37959ee093ce Downloading 19.92MB
+ a25cd16f2d86 Downloading 3.146MB
+ a25cd16f2d86 Downloading 3.146MB
+ 37959ee093ce Downloading 20.97MB
+ a25cd16f2d86 Downloading 3.146MB
+ 37959ee093ce Downloading 20.97MB
+ a25cd16f2d86 Downloading 3.146MB
+ 37959ee093ce Downloading 22.02MB
+ a25cd16f2d86 Downloading 4.194MB
+ 37959ee093ce Downloading 22.02MB
+ a25cd16f2d86 Downloading 4.194MB
+ 37959ee093ce Downloading 23.07MB
+ a25cd16f2d86 Downloading 4.194MB
+ 37959ee093ce Downloading 23.07MB
+ a25cd16f2d86 Downloading 4.194MB
+ 37959ee093ce Downloading 24.12MB
+ a25cd16f2d86 Downloading 4.194MB
+ 37959ee093ce Downloading 24.12MB
+ a25cd16f2d86 Downloading 5.243MB
+ 37959ee093ce Downloading 25.17MB
+ 37959ee093ce Downloading 25.17MB
+ a25cd16f2d86 Downloading 5.243MB
+ a25cd16f2d86 Downloading 5.243MB
+ 37959ee093ce Downloading 26.21MB
+ a25cd16f2d86 Downloading 5.243MB
+ 37959ee093ce Downloading 26.21MB
+ a25cd16f2d86 Downloading 5.243MB
+ 37959ee093ce Downloading 26.21MB
+ a25cd16f2d86 Downloading 6.291MB
+ 37959ee093ce Downloading 27.26MB
+ a25cd16f2d86 Downloading 6.291MB
+ 37959ee093ce Downloading 27.26MB
+ a25cd16f2d86 Downloading 6.291MB
+ 37959ee093ce Downloading 28.31MB
+ 37959ee093ce Downloading 28.31MB
+ a25cd16f2d86 Downloading 6.291MB
+ a25cd16f2d86 Downloading 7.34MB
+ 37959ee093ce Downloading 28.31MB
+ a25cd16f2d86 Downloading 7.34MB
+ 37959ee093ce Downloading 29.36MB
+ a25cd16f2d86 Downloading 7.34MB
+ 37959ee093ce Downloading 29.36MB
+ 37959ee093ce Downloading 30.41MB
+ a25cd16f2d86 Downloading 7.34MB
+ a25cd16f2d86 Downloading 8.389MB
+ 37959ee093ce Downloading 30.41MB
+ a25cd16f2d86 Downloading 8.389MB
+ 37959ee093ce Downloading 30.41MB
+ a25cd16f2d86 Downloading 8.389MB
+ 37959ee093ce Downloading 31.46MB
+ a25cd16f2d86 Downloading 8.389MB
+ 37959ee093ce Downloading 31.46MB
+ a25cd16f2d86 Downloading 9.437MB
+ 37959ee093ce Downloading 32.51MB
+ a25cd16f2d86 Downloading 9.437MB
+ 37959ee093ce Downloading 32.51MB
+ a25cd16f2d86 Downloading 9.437MB
+ 37959ee093ce Downloading 32.51MB
+ a25cd16f2d86 Downloading 10.49MB
+ 37959ee093ce Downloading 33.55MB
+ a25cd16f2d86 Downloading 10.49MB
+ 37959ee093ce Downloading 33.55MB
+ a25cd16f2d86 Downloading 10.49MB
+ 37959ee093ce Downloading 33.55MB
+ 37959ee093ce Downloading 34.6MB
+ a25cd16f2d86 Downloading 11.53MB
+ a25cd16f2d86 Downloading 11.53MB
+ 37959ee093ce Downloading 34.6MB
+ a25cd16f2d86 Downloading 11.53MB
+ 37959ee093ce Downloading 35.65MB
+ a25cd16f2d86 Downloading 11.53MB
+ 37959ee093ce Downloading 35.65MB
+ a25cd16f2d86 Downloading 12.58MB
+ 37959ee093ce Downloading 35.65MB
+ a25cd16f2d86 Downloading 12.58MB
+ 37959ee093ce Downloading 36.7MB
+ a25cd16f2d86 Downloading 12.58MB
+ 37959ee093ce Downloading 36.7MB
+ a25cd16f2d86 Downloading 13.63MB
+ 37959ee093ce Downloading 36.7MB
+ a25cd16f2d86 Downloading 13.63MB
+ 37959ee093ce Downloading 37.75MB
+ a25cd16f2d86 Downloading 13.63MB
+ 37959ee093ce Downloading 37.75MB
+ a25cd16f2d86 Downloading 14.68MB
+ 37959ee093ce Downloading 37.75MB
+ a25cd16f2d86 Downloading 14.68MB
+ 37959ee093ce Downloading 38.8MB
+ 37959ee093ce Downloading 38.8MB
+ a25cd16f2d86 Downloading 14.68MB
+ a25cd16f2d86 Downloading 15.73MB
+ 37959ee093ce Downloading 38.8MB
+ a25cd16f2d86 Downloading 15.73MB
+ 37959ee093ce Downloading 39.85MB
+ a25cd16f2d86 Downloading 15.73MB
+ 37959ee093ce Downloading 39.85MB
+ a25cd16f2d86 Downloading 16.78MB
+ 37959ee093ce Downloading 39.85MB
+ a25cd16f2d86 Downloading 16.78MB
+ 37959ee093ce Downloading 40.89MB
+ a25cd16f2d86 Downloading 16.78MB
+ 37959ee093ce Downloading 40.89MB
+ a25cd16f2d86 Downloading 17.83MB
+ 37959ee093ce Downloading 40.89MB
+ a25cd16f2d86 Downloading 17.83MB
+ 37959ee093ce Downloading 41.94MB
+ a25cd16f2d86 Downloading 17.83MB
+ 37959ee093ce Downloading 41.94MB
+ a25cd16f2d86 Downloading 18.87MB
+ 37959ee093ce Downloading 41.94MB
+ 37959ee093ce Downloading 42.99MB
+ a25cd16f2d86 Downloading 18.87MB
+ a25cd16f2d86 Downloading 18.87MB
+ 37959ee093ce Downloading 42.99MB
+ a25cd16f2d86 Downloading 19.92MB
+ 37959ee093ce Downloading 42.99MB
+ a25cd16f2d86 Downloading 19.92MB
+ 37959ee093ce Downloading 42.99MB
+ a25cd16f2d86 Downloading 20.97MB
+ 37959ee093ce Downloading 44.04MB
+ a25cd16f2d86 Downloading 20.97MB
+ 37959ee093ce Downloading 44.04MB
+ a25cd16f2d86 Downloading 20.97MB
+ 37959ee093ce Downloading 44.04MB
+ 37959ee093ce Downloading 44.04MB
+ a25cd16f2d86 Downloading 22.02MB
+ a25cd16f2d86 Downloading 22.02MB
+ 37959ee093ce Downloading 45.09MB
+ a25cd16f2d86 Downloading 22.02MB
+ 37959ee093ce Downloading 45.09MB
+ a25cd16f2d86 Downloading 23.07MB
+ 37959ee093ce Downloading 45.09MB
+ a25cd16f2d86 Downloading 23.07MB
+ 37959ee093ce Downloading 45.09MB
+ a25cd16f2d86 Downloading 24.12MB
+ 37959ee093ce Downloading 46.14MB
+ a25cd16f2d86 Downloading 24.12MB
+ 37959ee093ce Downloading 46.14MB
+ 37959ee093ce Downloading 46.14MB
+ a25cd16f2d86 Downloading 24.12MB
+ a25cd16f2d86 Downloading 25.17MB
+ 37959ee093ce Downloading 46.14MB
+ a25cd16f2d86 Downloading 25.17MB
+ 37959ee093ce Downloading 47.19MB
+ a25cd16f2d86 Downloading 26.21MB
+ 37959ee093ce Downloading 47.19MB
+ a25cd16f2d86 Downloading 26.21MB
+ 37959ee093ce Downloading 47.19MB
+ a25cd16f2d86 Downloading 27.26MB
+ 37959ee093ce Downloading 47.19MB
+ 37959ee093ce Downloading 48.23MB
+ a25cd16f2d86 Downloading 27.26MB
+ a25cd16f2d86 Downloading 28.31MB
+ 37959ee093ce Downloading 48.23MB
+ a25cd16f2d86 Downloading 28.31MB
+ 37959ee093ce Downloading 48.23MB
+ a25cd16f2d86 Downloading 28.31MB
+ 37959ee093ce Downloading 48.23MB
+ 37959ee093ce Downloading 48.23MB
+ a25cd16f2d86 Downloading 29.36MB
+ a25cd16f2d86 Downloading 30.15MB
+ 37959ee093ce Downloading 49.28MB
+ a25cd16f2d86 Download complete 0B
+ 37959ee093ce Downloading 49.28MB
+ a25cd16f2d86 Extracting 1B
+ 37959ee093ce Downloading 49.28MB
+ a25cd16f2d86 Extracting 1B
+ 37959ee093ce Downloading 49.28MB
+ a25cd16f2d86 Extracting 1B
+ 37959ee093ce Downloading 50.33MB
+ 9abe8b2c9796 Pull complete 0B
+ e4b20ef7f22f Extracting 1B
+ a25cd16f2d86 Pull complete 0B
+ 37959ee093ce Downloading 50.33MB
+ 074c47bbd4c6 Pull complete 0B
+ e4b20ef7f22f Pull complete 0B
+ 69052d406445 Extracting 1B
+ 37959ee093ce Downloading 51.38MB
+ f0f2a1865cac Pull complete 0B
+ 62c4a880c42b Pull complete 0B
+ 8f0f34e06df6 Pull complete 0B
+ 69052d406445 Pull complete 0B
+ 37959ee093ce Downloading 51.38MB
+ 37959ee093ce Downloading 51.38MB
+ 37959ee093ce Downloading 52.43MB
+ 37959ee093ce Downloading 53.48MB
+ 37959ee093ce Downloading 53.48MB
+ 37959ee093ce Downloading 54.53MB
+ 37959ee093ce Downloading 55.57MB
+ 37959ee093ce Downloading 55.57MB
+ 37959ee093ce Downloading 56.62MB
+ 37959ee093ce Downloading 57.67MB
+ 37959ee093ce Downloading 57.67MB
+ 37959ee093ce Downloading 58.72MB
+ 37959ee093ce Downloading 59.77MB
+ 37959ee093ce Downloading 59.77MB
+ 37959ee093ce Downloading 60.82MB
+ 37959ee093ce Downloading 61.87MB
+ 37959ee093ce Downloading 61.87MB
+ 37959ee093ce Downloading 62.91MB
+ 37959ee093ce Downloading 63.96MB
+ 37959ee093ce Downloading 63.96MB
+ 37959ee093ce Downloading 65.01MB
+ 37959ee093ce Downloading 66.06MB
+ 37959ee093ce Downloading 66.06MB
+ 37959ee093ce Downloading 67.11MB
+ 37959ee093ce Downloading 68.16MB
+ 37959ee093ce Downloading 68.16MB
+ 37959ee093ce Downloading 69.21MB
+ 37959ee093ce Downloading 70.25MB
+ 37959ee093ce Downloading 70.25MB
+ 37959ee093ce Downloading 71.3MB
+ 37959ee093ce Downloading 72.35MB
+ 37959ee093ce Downloading 72.35MB
+ 37959ee093ce Downloading 73.4MB
+ 37959ee093ce Downloading 74.45MB
+ 37959ee093ce Downloading 74.45MB
+ 37959ee093ce Downloading 75.5MB
+ 37959ee093ce Downloading 75.5MB
+ 37959ee093ce Downloading 76.55MB
+ 37959ee093ce Downloading 77.59MB
+ 37959ee093ce Downloading 78.64MB
+ 37959ee093ce Downloading 78.64MB
+ 37959ee093ce Downloading 79.69MB
+ 37959ee093ce Downloading 80.74MB
+ 37959ee093ce Downloading 80.74MB
+ 37959ee093ce Downloading 81.79MB
+ 37959ee093ce Downloading 82.84MB
+ 37959ee093ce Downloading 82.84MB
+ 37959ee093ce Downloading 83.89MB
+ 37959ee093ce Downloading 83.89MB
+ 37959ee093ce Downloading 84.93MB
+ 37959ee093ce Downloading 85.98MB
+ 37959ee093ce Downloading 85.98MB
+ 37959ee093ce Downloading 87.03MB
+ 37959ee093ce Downloading 88.08MB
+ 37959ee093ce Downloading 88.08MB
+ 37959ee093ce Downloading 89.13MB
+ 37959ee093ce Downloading 90.18MB
+ 37959ee093ce Downloading 90.18MB
+ 37959ee093ce Downloading 91.23MB
+ 37959ee093ce Downloading 92.27MB
+ 37959ee093ce Downloading 92.27MB
+ 37959ee093ce Downloading 93.32MB
+ 37959ee093ce Downloading 94.37MB
+ 37959ee093ce Downloading 94.37MB
+ 37959ee093ce Downloading 95.42MB
+ 37959ee093ce Downloading 96.47MB
+ 37959ee093ce Downloading 96.47MB
+ 37959ee093ce Downloading 97.52MB
+ 37959ee093ce Downloading 98.57MB
+ 37959ee093ce Downloading 98.57MB
+ 37959ee093ce Downloading 99.61MB
+ 37959ee093ce Downloading 100.7MB
+ 37959ee093ce Downloading 100.7MB
+ 37959ee093ce Downloading 101.7MB
+ 37959ee093ce Downloading 102.8MB
+ 37959ee093ce Downloading 102.8MB
+ 37959ee093ce Downloading 103.8MB
+ 37959ee093ce Downloading 104.9MB
+ 37959ee093ce Downloading 104.9MB
+ 37959ee093ce Downloading 105.9MB
+ 37959ee093ce Downloading 107MB
+ 37959ee093ce Downloading 107MB
+ 37959ee093ce Downloading 108MB
+ 37959ee093ce Downloading 109.1MB
+ 37959ee093ce Downloading 109.1MB
+ 37959ee093ce Downloading 110.1MB
+ 37959ee093ce Downloading 111.1MB
+ 37959ee093ce Downloading 111.1MB
+ 37959ee093ce Downloading 112.2MB
+ 37959ee093ce Downloading 113.2MB
+ 37959ee093ce Downloading 113.9MB
+ 37959ee093ce Downloading 113.9MB
+ 37959ee093ce Download complete 0B
+ 37959ee093ce Extracting 1B
+ 37959ee093ce Extracting 1B
+ 37959ee093ce Extracting 1B
+ 37959ee093ce Extracting 1B
+ 37959ee093ce Extracting 1B
+ 37959ee093ce Extracting 1B
+ 37959ee093ce Extracting 1B
+ 37959ee093ce Extracting 1B
+ 37959ee093ce Extracting 1B
+ 37959ee093ce Extracting 1B
+ 37959ee093ce Extracting 1B
+ 37959ee093ce Extracting 2B
+ bacb4041056c Pull complete 0B
+ 8245948a1590 Pull complete 0B
+ 2b8379579b4f Pull complete 0B
+ 8aca0237d2d6 Pull complete 0B
+ 37959ee093ce Pull complete 0B
+ Image postgres:latest Pulled 
+ Image power-outages-scraping-main-airflow-scheduler Building 
+ Image power-outages-scraping-main-airflow-dag-processor Building 
+ Image power-outages-scraping-main-airflow-init Building 
+ Image power-outages-scraping-main-airflow-webserver Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.25kB done
+#1 DONE 0.0s
+
+#2 [airflow-init internal] load build definition from Dockerfile.airflow
+#2 transferring dockerfile: 211B done
+#2 DONE 0.0s
+
+#3 [airflow-dag-processor internal] load metadata for docker.io/apache/airflow:latest
+#3 ...
+
+#4 [auth] apache/airflow:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#3 [airflow-dag-processor internal] load metadata for docker.io/apache/airflow:latest
+#3 DONE 1.5s
+
+#5 [airflow-init internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [airflow-webserver 1/2] FROM docker.io/apache/airflow:latest@sha256:bef4d135ec7b64658cf64089973edd62cab8fd72203f280c7e0952213c17d912
+#6 resolve docker.io/apache/airflow:latest@sha256:bef4d135ec7b64658cf64089973edd62cab8fd72203f280c7e0952213c17d912 done
+#6 sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B 0.1s done
+#6 sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 32B / 32B 0.1s done
+#6 sha256:2223780ed6c962a2a8cffccec5eadbef6d6de7ac5319aa1b46776c3249a60119 0B / 431B 0.2s
+#6 sha256:983b0a798941de27ca955b492827b38ca69211aa127095dc36ed76f048377774 0B / 115B 0.2s
+#6 sha256:d10fd3fb4487708a406b2986ac039c1c8c7a62a2929d7494d2ef0a85414a4ef9 430B / 430B 0.2s done
+#6 sha256:f1bb396c9df7903deedbae80e4efee2f4be3a96b61e7d09dec105ab628780784 0B / 1.06kB 0.2s
+#6 sha256:2223780ed6c962a2a8cffccec5eadbef6d6de7ac5319aa1b46776c3249a60119 431B / 431B 0.3s done
+#6 sha256:983b0a798941de27ca955b492827b38ca69211aa127095dc36ed76f048377774 115B / 115B 0.3s done
+#6 sha256:f1bb396c9df7903deedbae80e4efee2f4be3a96b61e7d09dec105ab628780784 1.06kB / 1.06kB 0.2s done
+#6 sha256:1cd01eb26a7657d8aa3112cefd0a250e948da684d781ed11af08c4c52f441abb 5.88kB / 5.88kB 0.1s done
+#6 sha256:32f5d8abc4a055ba9ea38564f52323d3d88816a2abffaef034e1c5b0640c9dd8 292B / 292B 0.1s done
+#6 sha256:32f5d8abc4a055ba9ea38564f52323d3d88816a2abffaef034e1c5b0640c9dd8 292B / 292B 0.1s done
+#6 sha256:9248a04ed6e0fe82900c2d60d7a61174497c08fa1d347bfcde70ecc3347736d8 906B / 906B 0.1s done
+#6 sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 0B / 28.12MB 0.2s
+#6 sha256:a8c06e52fcb9b32b5b14aae3d57b8d10ab3c622e486c721268fb8a34c37e2191 0B / 23.42MB 0.2s
+#6 sha256:76b838c33d0ae2269237eb936dcd72ae235acf19ad7a58038bdb9f879f804c5a 0B / 2.60kB 0.2s
+#6 sha256:76b838c33d0ae2269237eb936dcd72ae235acf19ad7a58038bdb9f879f804c5a 2.60kB / 2.60kB 0.2s done
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 0B / 482.73MB 0.3s
+#6 sha256:f18fa7541f596fe3920fe24c394f427f06e9c802f4c271b23b724081631e70d4 2.13kB / 2.13kB 0.2s done
+#6 sha256:ba5d966945c7bbdc6696defe6fe8b83c0ca089cdb0af5332db31815b53051535 0B / 11.50kB 0.2s
+#6 sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 2.10MB / 28.12MB 0.8s
+#6 sha256:ba5d966945c7bbdc6696defe6fe8b83c0ca089cdb0af5332db31815b53051535 11.50kB / 11.50kB 0.2s done
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 0B / 85.62MB 0.2s
+#6 sha256:a8c06e52fcb9b32b5b14aae3d57b8d10ab3c622e486c721268fb8a34c37e2191 2.10MB / 23.42MB 1.2s
+#6 sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 4.19MB / 28.12MB 2.3s
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 5.24MB / 85.62MB 1.8s
+#6 sha256:a8c06e52fcb9b32b5b14aae3d57b8d10ab3c622e486c721268fb8a34c37e2191 4.19MB / 23.42MB 3.3s
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 10.49MB / 85.62MB 3.5s
+#6 sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 6.29MB / 28.12MB 4.8s
+#6 sha256:a8c06e52fcb9b32b5b14aae3d57b8d10ab3c622e486c721268fb8a34c37e2191 6.29MB / 23.42MB 5.3s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 9.44MB / 482.73MB 5.4s
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 15.73MB / 85.62MB 5.9s
+#6 sha256:a8c06e52fcb9b32b5b14aae3d57b8d10ab3c622e486c721268fb8a34c37e2191 8.39MB / 23.42MB 7.1s
+#6 sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 8.39MB / 28.12MB 8.3s
+#6 sha256:a8c06e52fcb9b32b5b14aae3d57b8d10ab3c622e486c721268fb8a34c37e2191 10.49MB / 23.42MB 9.2s
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 20.97MB / 85.62MB 9.3s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 27.26MB / 482.73MB 10.5s
+#6 sha256:a8c06e52fcb9b32b5b14aae3d57b8d10ab3c622e486c721268fb8a34c37e2191 12.58MB / 23.42MB 11.1s
+#6 sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 10.49MB / 28.12MB 11.6s
+#6 sha256:a8c06e52fcb9b32b5b14aae3d57b8d10ab3c622e486c721268fb8a34c37e2191 14.68MB / 23.42MB 12.6s
+#6 sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 12.58MB / 28.12MB 13.5s
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 26.21MB / 85.62MB 13.2s
+#6 sha256:a8c06e52fcb9b32b5b14aae3d57b8d10ab3c622e486c721268fb8a34c37e2191 16.78MB / 23.42MB 14.1s
+#6 sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 14.68MB / 28.12MB 15.3s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 41.94MB / 482.73MB 15.6s
+#6 sha256:a8c06e52fcb9b32b5b14aae3d57b8d10ab3c622e486c721268fb8a34c37e2191 18.87MB / 23.42MB 15.8s
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 31.46MB / 85.62MB 15.6s
+#6 sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 16.78MB / 28.12MB 17.0s
+#6 sha256:a8c06e52fcb9b32b5b14aae3d57b8d10ab3c622e486c721268fb8a34c37e2191 20.97MB / 23.42MB 17.7s
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 36.70MB / 85.62MB 17.4s
+#6 sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 18.87MB / 28.12MB 18.6s
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 41.94MB / 85.62MB 18.9s
+#6 sha256:a8c06e52fcb9b32b5b14aae3d57b8d10ab3c622e486c721268fb8a34c37e2191 23.07MB / 23.42MB 20.1s
+#6 sha256:a8c06e52fcb9b32b5b14aae3d57b8d10ab3c622e486c721268fb8a34c37e2191 23.42MB / 23.42MB 20.5s done
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 50.33MB / 482.73MB 20.7s
+#6 sha256:51c1fddcf49631ad501aba4a5505ad4326b7461c82164fa215a3c316a679a37b 4.80kB / 4.80kB 0.1s done
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 47.19MB / 85.62MB 20.1s
+#6 sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 20.97MB / 28.12MB 21.0s
+#6 sha256:b2c411cfb02ec17d5f98dc31cfcc0590fd2d7bc40edd681578a1b945882893aa 4.16kB / 4.16kB 0.2s done
+#6 sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 0B / 29.58MB 0.2s
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 52.43MB / 85.62MB 21.5s
+#6 sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 23.07MB / 28.12MB 23.4s
+#6 sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 2.10MB / 29.58MB 2.7s
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 57.67MB / 85.62MB 23.9s
+#6 sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 25.17MB / 28.12MB 25.1s
+#6 sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 4.19MB / 29.58MB 4.1s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 58.72MB / 482.73MB 25.8s
+#6 sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 6.29MB / 29.58MB 5.3s
+#6 sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 27.26MB / 28.12MB 26.6s
+#6 sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 28.12MB / 28.12MB 27.2s done
+#6 extracting sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669
+#6 sha256:001311ebaab081d790a28c773aea4a5a5ca66710facfed2854fa08bf669e94a8 6.78kB / 6.78kB 0.2s done
+#6 sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 8.39MB / 29.58MB 6.5s
+#6 extracting sha256:f400d36d7784570c9fb7558e367d2b5d38e8b2f1d6faee041815acea7f87e669 0.4s done
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 62.91MB / 85.62MB 27.5s
+#6 sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 10.49MB / 29.58MB 7.4s
+#6 sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 12.58MB / 29.58MB 8.4s
+#6 sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 14.68MB / 29.58MB 9.3s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 74.45MB / 482.73MB 30.9s
+#6 sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 16.78MB / 29.58MB 10.5s
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 68.16MB / 85.62MB 31.4s
+#6 sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 18.87MB / 29.58MB 11.3s
+#6 sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 20.97MB / 29.58MB 12.0s
+#6 sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 23.07MB / 29.58MB 12.6s
+#6 sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 25.17MB / 29.58MB 13.2s
+#6 sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 27.26MB / 29.58MB 13.8s
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 73.40MB / 85.62MB 34.4s
+#6 sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 29.58MB / 29.58MB 14.4s done
+#6 extracting sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b
+#6 extracting sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 0.3s done
+#6 extracting sha256:18bbab390e0b5103bd7d6d501d39ac14f600116af1f6212230bbaa96dae32a9b 0.3s done
+#6 extracting sha256:51c1fddcf49631ad501aba4a5505ad4326b7461c82164fa215a3c316a679a37b done
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 85.98MB / 482.73MB 36.0s
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 78.64MB / 85.62MB 36.2s
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 83.89MB / 85.62MB 37.7s
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 85.62MB / 85.62MB 38.1s done
+#6 sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 85.62MB / 85.62MB 38.1s done
+#6 extracting sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae
+#6 extracting sha256:8b1fd95552af36d43de10e790b79f08a86863e92b721894cb06bbb3dbc63f3ae 0.9s done
+#6 extracting sha256:76b838c33d0ae2269237eb936dcd72ae235acf19ad7a58038bdb9f879f804c5a done
+#6 extracting sha256:ba5d966945c7bbdc6696defe6fe8b83c0ca089cdb0af5332db31815b53051535 done
+#6 extracting sha256:f18fa7541f596fe3920fe24c394f427f06e9c802f4c271b23b724081631e70d4 done
+#6 extracting sha256:a8c06e52fcb9b32b5b14aae3d57b8d10ab3c622e486c721268fb8a34c37e2191
+#6 extracting sha256:a8c06e52fcb9b32b5b14aae3d57b8d10ab3c622e486c721268fb8a34c37e2191 0.3s done
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 109.05MB / 482.73MB 41.1s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 134.22MB / 482.73MB 44.7s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 159.38MB / 482.73MB 49.7s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 184.55MB / 482.73MB 53.6s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 209.72MB / 482.73MB 57.3s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 234.88MB / 482.73MB 61.2s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 260.05MB / 482.73MB 64.8s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 285.21MB / 482.73MB 68.4s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 310.38MB / 482.73MB 72.3s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 335.54MB / 482.73MB 76.4s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 360.71MB / 482.73MB 80.0s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 385.88MB / 482.73MB 83.9s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 411.04MB / 482.73MB 87.6s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 436.21MB / 482.73MB 91.5s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 461.37MB / 482.73MB 95.1s
+#6 sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 482.73MB / 482.73MB 98.2s done
+#6 extracting sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160
+#6 extracting sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 7.5s done
+#6 extracting sha256:a013de1ab7a7869206eae0371ba00d6fd36d19dcc2e46548b4eaba743adcf160 7.5s done
+#6 extracting sha256:001311ebaab081d790a28c773aea4a5a5ca66710facfed2854fa08bf669e94a8 done
+#6 extracting sha256:95d2b39b4ecdf74f81358ccb4c4424ccabd343bf8528dada1764e65ce9b4d0a4 done
+#6 extracting sha256:b2c411cfb02ec17d5f98dc31cfcc0590fd2d7bc40edd681578a1b945882893aa done
+#6 extracting sha256:9248a04ed6e0fe82900c2d60d7a61174497c08fa1d347bfcde70ecc3347736d8 done
+#6 extracting sha256:32f5d8abc4a055ba9ea38564f52323d3d88816a2abffaef034e1c5b0640c9dd8 done
+#6 extracting sha256:1cd01eb26a7657d8aa3112cefd0a250e948da684d781ed11af08c4c52f441abb done
+#6 extracting sha256:f1bb396c9df7903deedbae80e4efee2f4be3a96b61e7d09dec105ab628780784 done
+#6 extracting sha256:983b0a798941de27ca955b492827b38ca69211aa127095dc36ed76f048377774 done
+#6 extracting sha256:2223780ed6c962a2a8cffccec5eadbef6d6de7ac5319aa1b46776c3249a60119 done
+#6 extracting sha256:d10fd3fb4487708a406b2986ac039c1c8c7a62a2929d7494d2ef0a85414a4ef9 done
+#6 extracting sha256:4f4fb700ef54461cfa02571ae0db9a0dc1e0cdb5577484a6d75e68dc38e8acc1 done
+#6 DONE 106.3s
+
+#7 [airflow-dag-processor 2/2] RUN pip install --no-cache-dir       apache-airflow-providers-docker       apache-airflow-providers-fab       pyyaml
+#7 1.527 Defaulting to user installation because normal site-packages is not writeable
+#7 1.609 Requirement already satisfied: apache-airflow-providers-docker in /home/airflow/.local/lib/python3.13/site-packages (4.5.6)
+#7 1.609 Requirement already satisfied: apache-airflow-providers-fab in /home/airflow/.local/lib/python3.13/site-packages (3.6.4)
+#7 1.618 Requirement already satisfied: pyyaml in /home/airflow/.local/lib/python3.13/site-packages (6.0.3)
+#7 1.618 Requirement already satisfied: apache-airflow>=2.11.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-docker) (3.2.2)
+#7 1.618 Requirement already satisfied: apache-airflow-providers-common-compat>=1.10.1 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-docker) (1.15.0)
+#7 1.623 Requirement already satisfied: docker>=7.1.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-docker) (7.1.0)
+#7 1.623 Requirement already satisfied: python-dotenv>=0.21.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-docker) (1.2.2)
+#7 1.626 Requirement already satisfied: blinker>=1.6.2 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-fab) (1.9.0)
+#7 1.626 Requirement already satisfied: cachetools>=6.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-fab) (7.1.4)
+#7 1.627 Requirement already satisfied: flask-appbuilder==5.2.1 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-fab) (5.2.1)
+#7 1.628 Requirement already satisfied: flask-limiter!=3.13,>3 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-fab) (3.12)
+#7 1.629 Requirement already satisfied: flask-login>=0.6.2 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-fab) (0.6.3)
+#7 1.629 Requirement already satisfied: flask-session>=0.8.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-fab) (0.8.0)
+#7 1.639 Requirement already satisfied: flask-sqlalchemy>=3.0.5 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-fab) (3.1.1)
+#7 1.641 Requirement already satisfied: flask-wtf>=1.1.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-fab) (1.3.0)
+#7 1.644 Requirement already satisfied: flask>=2.2.1 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-fab) (3.1.3)
+#7 1.644 Requirement already satisfied: jmespath>=0.7.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-fab) (1.1.0)
+#7 1.644 Requirement already satisfied: marshmallow>=3 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-fab) (3.26.2)
+#7 1.644 Requirement already satisfied: msgpack>=1.0.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-fab) (1.1.2)
+#7 1.644 Requirement already satisfied: pyjwt>=2.11.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-fab) (2.13.0)
+#7 1.644 Requirement already satisfied: werkzeug>=2.2 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-fab) (3.1.8)
+#7 1.645 Requirement already satisfied: wtforms>=3.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-fab) (3.2.2)
+#7 1.646 Requirement already satisfied: apispec<7,>=6.0.0 in /home/airflow/.local/lib/python3.13/site-packages (from apispec[yaml]<7,>=6.0.0->flask-appbuilder==5.2.1->apache-airflow-providers-fab) (6.10.0)
+#7 1.646 Requirement already satisfied: colorama<1,>=0.3.9 in /home/airflow/.local/lib/python3.13/site-packages (from flask-appbuilder==5.2.1->apache-airflow-providers-fab) (0.4.6)
+#7 1.647 Requirement already satisfied: click<9,>=8 in /home/airflow/.local/lib/python3.13/site-packages (from flask-appbuilder==5.2.1->apache-airflow-providers-fab) (8.4.1)
+#7 1.647 Requirement already satisfied: email-validator>=1.0.5 in /home/airflow/.local/lib/python3.13/site-packages (from flask-appbuilder==5.2.1->apache-airflow-providers-fab) (2.3.0)
+#7 1.647 Requirement already satisfied: Flask-Babel<5,>=3 in /home/airflow/.local/lib/python3.13/site-packages (from flask-appbuilder==5.2.1->apache-airflow-providers-fab) (4.0.0)
+#7 1.648 Requirement already satisfied: Flask-JWT-Extended<5.0.0,>=4.0.0 in /home/airflow/.local/lib/python3.13/site-packages (from flask-appbuilder==5.2.1->apache-airflow-providers-fab) (4.7.4)
+#7 1.648 Requirement already satisfied: jsonschema<5,>=3 in /home/airflow/.local/lib/python3.13/site-packages (from flask-appbuilder==5.2.1->apache-airflow-providers-fab) (4.26.0)
+#7 1.648 Requirement already satisfied: marshmallow-sqlalchemy<3.0.0,>=0.22.0 in /home/airflow/.local/lib/python3.13/site-packages (from flask-appbuilder==5.2.1->apache-airflow-providers-fab) (1.5.0)
+#7 1.648 Requirement already satisfied: python-dateutil<3,>=2.3 in /home/airflow/.local/lib/python3.13/site-packages (from flask-appbuilder==5.2.1->apache-airflow-providers-fab) (2.9.0.post0)
+#7 1.649 Requirement already satisfied: prison<1.0.0,>=0.2.1 in /home/airflow/.local/lib/python3.13/site-packages (from flask-appbuilder==5.2.1->apache-airflow-providers-fab) (0.2.1)
+#7 1.649 Requirement already satisfied: SQLAlchemy<3,>=1.4.0 in /home/airflow/.local/lib/python3.13/site-packages (from flask-appbuilder==5.2.1->apache-airflow-providers-fab) (2.0.49)
+#7 1.649 Requirement already satisfied: sqlalchemy-utils<1,>=0.32.21 in /home/airflow/.local/lib/python3.13/site-packages (from flask-appbuilder==5.2.1->apache-airflow-providers-fab) (0.42.1)
+#7 1.650 Requirement already satisfied: packaging>=21.3 in /home/airflow/.local/lib/python3.13/site-packages (from apispec<7,>=6.0.0->apispec[yaml]<7,>=6.0.0->flask-appbuilder==5.2.1->apache-airflow-providers-fab) (26.2)
+#7 1.653 Requirement already satisfied: itsdangerous>=2.2.0 in /home/airflow/.local/lib/python3.13/site-packages (from flask>=2.2.1->apache-airflow-providers-fab) (2.2.0)
+#7 1.653 Requirement already satisfied: jinja2>=3.1.2 in /home/airflow/.local/lib/python3.13/site-packages (from flask>=2.2.1->apache-airflow-providers-fab) (3.1.6)
+#7 1.654 Requirement already satisfied: markupsafe>=2.1.1 in /home/airflow/.local/lib/python3.13/site-packages (from flask>=2.2.1->apache-airflow-providers-fab) (3.0.3)
+#7 1.654 Requirement already satisfied: Babel>=2.12 in /home/airflow/.local/lib/python3.13/site-packages (from Flask-Babel<5,>=3->flask-appbuilder==5.2.1->apache-airflow-providers-fab) (2.18.0)
+#7 1.655 Requirement already satisfied: pytz>=2022.7 in /home/airflow/.local/lib/python3.13/site-packages (from Flask-Babel<5,>=3->flask-appbuilder==5.2.1->apache-airflow-providers-fab) (2026.2)
+#7 1.656 Requirement already satisfied: limits>=3.13 in /home/airflow/.local/lib/python3.13/site-packages (from flask-limiter!=3.13,>3->apache-airflow-providers-fab) (5.8.0)
+#7 1.656 Requirement already satisfied: ordered-set<5,>4 in /home/airflow/.local/lib/python3.13/site-packages (from flask-limiter!=3.13,>3->apache-airflow-providers-fab) (4.1.0)
+#7 1.656 Requirement already satisfied: rich<14,>=12 in /home/airflow/.local/lib/python3.13/site-packages (from flask-limiter!=3.13,>3->apache-airflow-providers-fab) (13.9.4)
+#7 1.659 Requirement already satisfied: attrs>=22.2.0 in /home/airflow/.local/lib/python3.13/site-packages (from jsonschema<5,>=3->flask-appbuilder==5.2.1->apache-airflow-providers-fab) (26.1.0)
+#7 1.659 Requirement already satisfied: jsonschema-specifications>=2023.03.6 in /home/airflow/.local/lib/python3.13/site-packages (from jsonschema<5,>=3->flask-appbuilder==5.2.1->apache-airflow-providers-fab) (2025.9.1)
+#7 1.659 Requirement already satisfied: referencing>=0.28.4 in /home/airflow/.local/lib/python3.13/site-packages (from jsonschema<5,>=3->flask-appbuilder==5.2.1->apache-airflow-providers-fab) (0.37.0)
+#7 1.660 Requirement already satisfied: rpds-py>=0.25.0 in /home/airflow/.local/lib/python3.13/site-packages (from jsonschema<5,>=3->flask-appbuilder==5.2.1->apache-airflow-providers-fab) (0.30.0)
+#7 1.664 Requirement already satisfied: six in /home/airflow/.local/lib/python3.13/site-packages (from prison<1.0.0,>=0.2.1->flask-appbuilder==5.2.1->apache-airflow-providers-fab) (1.17.0)
+#7 1.666 Requirement already satisfied: markdown-it-py>=2.2.0 in /home/airflow/.local/lib/python3.13/site-packages (from rich<14,>=12->flask-limiter!=3.13,>3->apache-airflow-providers-fab) (4.2.0)
+#7 1.666 Requirement already satisfied: pygments<3.0.0,>=2.13.0 in /home/airflow/.local/lib/python3.13/site-packages (from rich<14,>=12->flask-limiter!=3.13,>3->apache-airflow-providers-fab) (2.20.0)
+#7 1.668 Requirement already satisfied: greenlet>=1 in /home/airflow/.local/lib/python3.13/site-packages (from SQLAlchemy<3,>=1.4.0->flask-appbuilder==5.2.1->apache-airflow-providers-fab) (3.5.1)
+#7 1.668 Requirement already satisfied: typing-extensions>=4.6.0 in /home/airflow/.local/lib/python3.13/site-packages (from SQLAlchemy<3,>=1.4.0->flask-appbuilder==5.2.1->apache-airflow-providers-fab) (4.15.0)
+#7 1.674 Requirement already satisfied: apache-airflow-core==3.2.2 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow>=2.11.0->apache-airflow-providers-docker) (3.2.2)
+#7 1.674 Requirement already satisfied: apache-airflow-task-sdk==1.2.2 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.2.2)
+#7 1.682 Requirement already satisfied: a2wsgi>=1.10.8 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.10.10)
+#7 1.682 Requirement already satisfied: aiosqlite<0.22.0,>=0.20.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.21.0)
+#7 1.682 Requirement already satisfied: alembic<2.0,>=1.13.1 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.18.4)
+#7 1.683 Requirement already satisfied: apache-airflow-providers-common-io>=1.6.3 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.7.2)
+#7 1.683 Requirement already satisfied: apache-airflow-providers-common-sql>=1.28.1 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2.0.0)
+#7 1.683 Requirement already satisfied: apache-airflow-providers-smtp>=2.3.1 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (3.0.1)
+#7 1.683 Requirement already satisfied: apache-airflow-providers-standard>=1.9.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.13.1)
+#7 1.684 Requirement already satisfied: argcomplete>=1.10 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (3.6.3)
+#7 1.684 Requirement already satisfied: asgiref>=2.3.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (3.11.1)
+#7 1.684 Requirement already satisfied: cadwyn>=6.1.1 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (6.2.2)
+#7 1.685 Requirement already satisfied: colorlog>=6.8.2 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (6.10.1)
+#7 1.686 Requirement already satisfied: cron-descriptor>=1.2.24 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2.0.8)
+#7 1.686 Requirement already satisfied: croniter>=2.0.2 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (6.2.2)
+#7 1.686 Requirement already satisfied: cryptography>=44.0.3 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (48.0.0)
+#7 1.687 Requirement already satisfied: deprecated>=1.2.13 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.3.1)
+#7 1.687 Requirement already satisfied: dill>=0.2.2 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.4.1)
+#7 1.687 Requirement already satisfied: fastapi>=0.129.0 in /home/airflow/.local/lib/python3.13/site-packages (from fastapi[standard-no-fastapi-cloud-cli]>=0.129.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.136.1)
+#7 1.687 Requirement already satisfied: httpx>=0.25.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.28.1)
+#7 1.688 Requirement already satisfied: importlib-metadata>=7.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (9.0.0)
+#7 1.688 Requirement already satisfied: lazy-object-proxy>=1.2.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.12.0)
+#7 1.688 Requirement already satisfied: libcst>=1.8.2 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.8.6)
+#7 1.689 Requirement already satisfied: linkify-it-py>=2.0.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2.1.0)
+#7 1.689 Requirement already satisfied: lockfile>=0.12.2 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.12.2)
+#7 1.689 Requirement already satisfied: methodtools>=0.4.7 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.4.7)
+#7 1.689 Requirement already satisfied: msgspec>=0.19.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.21.1)
+#7 1.690 Requirement already satisfied: natsort>=8.4.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (8.4.0)
+#7 1.690 Requirement already satisfied: opentelemetry-api>=1.27.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.42.1)
+#7 1.690 Requirement already satisfied: opentelemetry-exporter-otlp>=1.27.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.42.1)
+#7 1.691 Requirement already satisfied: opentelemetry-proto<9999,>=1.27.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.42.1)
+#7 1.692 Requirement already satisfied: pathspec>=0.9.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.1.1)
+#7 1.692 Requirement already satisfied: pendulum>=3.1.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (3.2.0)
+#7 1.692 Requirement already satisfied: pluggy>=1.5.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.6.0)
+#7 1.692 Requirement already satisfied: psutil>=5.8.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (7.2.2)
+#7 1.693 Requirement already satisfied: pydantic>=2.11.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2.13.4)
+#7 1.693 Requirement already satisfied: pygtrie>=2.5.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2.5.0)
+#7 1.693 Requirement already satisfied: python-daemon>=3.0.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (3.1.2)
+#7 1.694 Requirement already satisfied: python-slugify>=5.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (8.0.4)
+#7 1.694 Requirement already satisfied: requests<3,>=2.32.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2.34.2)
+#7 1.694 Requirement already satisfied: rich-argparse>=1.0.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.8.0)
+#7 1.695 Requirement already satisfied: setproctitle>=1.3.3 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.3.7)
+#7 1.695 Requirement already satisfied: starlette>=1.0.1 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.1.0)
+#7 1.695 Requirement already satisfied: structlog>=25.4.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (25.5.0)
+#7 1.695 Requirement already satisfied: svcs>=25.1.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (25.1.0)
+#7 1.696 Requirement already satisfied: tabulate>=0.9.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.10.0)
+#7 1.696 Requirement already satisfied: tenacity>=8.3.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (9.1.4)
+#7 1.696 Requirement already satisfied: termcolor>=3.0.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (3.3.0)
+#7 1.697 Requirement already satisfied: universal-pathlib>=0.3.8 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.3.10)
+#7 1.697 Requirement already satisfied: uuid6>=2024.7.10 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2025.0.1)
+#7 1.697 Requirement already satisfied: uvicorn>=0.37.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.47.0)
+#7 1.699 Requirement already satisfied: fsspec>=2023.10.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-task-sdk==1.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2026.4.0)
+#7 1.699 Requirement already satisfied: greenback>=1.2.1 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-task-sdk==1.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.3.0)
+#7 1.708 Requirement already satisfied: Mako in /home/airflow/.local/lib/python3.13/site-packages (from alembic<2.0,>=1.13.1->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.3.12)
+#7 1.710 Requirement already satisfied: protobuf<7.0,>=5.0 in /home/airflow/.local/lib/python3.13/site-packages (from opentelemetry-proto<9999,>=1.27.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (6.33.6)
+#7 1.712 Requirement already satisfied: charset_normalizer<4,>=2 in /home/airflow/.local/lib/python3.13/site-packages (from requests<3,>=2.32.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (3.4.7)
+#7 1.713 Requirement already satisfied: idna<4,>=2.5 in /home/airflow/.local/lib/python3.13/site-packages (from requests<3,>=2.32.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (3.16)
+#7 1.713 Requirement already satisfied: urllib3<3,>=1.26 in /home/airflow/.local/lib/python3.13/site-packages (from requests<3,>=2.32.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2.7.0)
+#7 1.714 Requirement already satisfied: certifi>=2023.5.7 in /home/airflow/.local/lib/python3.13/site-packages (from requests<3,>=2.32.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2026.5.20)
+#7 1.720 Requirement already satisfied: sqlparse>=0.5.1 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-common-sql>=1.28.1->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.5.5)
+#7 1.721 Requirement already satisfied: more-itertools>=9.0.0 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-common-sql>=1.28.1->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (11.1.0)
+#7 1.723 Requirement already satisfied: aiosmtplib>=0.1.6 in /home/airflow/.local/lib/python3.13/site-packages (from apache-airflow-providers-smtp>=2.3.1->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (5.1.0)
+#7 1.734 Requirement already satisfied: typing-inspection>=0.4.0 in /home/airflow/.local/lib/python3.13/site-packages (from cadwyn>=6.1.1->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.4.2)
+#7 1.740 Requirement already satisfied: cffi>=2.0.0 in /home/airflow/.local/lib/python3.13/site-packages (from cryptography>=44.0.3->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2.0.0)
+#7 1.742 Requirement already satisfied: pycparser in /home/airflow/.local/lib/python3.13/site-packages (from cffi>=2.0.0->cryptography>=44.0.3->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (3.0)
+#7 1.743 Requirement already satisfied: wrapt<3,>=1.10 in /home/airflow/.local/lib/python3.13/site-packages (from deprecated>=1.2.13->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2.2.1)
+#7 1.749 Requirement already satisfied: dnspython>=2.0.0 in /home/airflow/.local/lib/python3.13/site-packages (from email-validator>=1.0.5->flask-appbuilder==5.2.1->apache-airflow-providers-fab) (2.8.0)
+#7 1.753 Requirement already satisfied: annotated-doc>=0.0.2 in /home/airflow/.local/lib/python3.13/site-packages (from fastapi>=0.129.0->fastapi[standard-no-fastapi-cloud-cli]>=0.129.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.0.4)
+#7 1.757 Requirement already satisfied: fastapi-cli>=0.0.8 in /home/airflow/.local/lib/python3.13/site-packages (from fastapi-cli[standard-no-fastapi-cloud-cli]>=0.0.8; extra == "standard-no-fastapi-cloud-cli"->fastapi[standard-no-fastapi-cloud-cli]>=0.129.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.0.24)
+#7 1.758 Requirement already satisfied: python-multipart>=0.0.18 in /home/airflow/.local/lib/python3.13/site-packages (from fastapi[standard-no-fastapi-cloud-cli]>=0.129.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.0.29)
+#7 1.759 Requirement already satisfied: pydantic-settings>=2.0.0 in /home/airflow/.local/lib/python3.13/site-packages (from fastapi[standard-no-fastapi-cloud-cli]>=0.129.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2.14.1)
+#7 1.759 Requirement already satisfied: pydantic-extra-types>=2.0.0 in /home/airflow/.local/lib/python3.13/site-packages (from fastapi[standard-no-fastapi-cloud-cli]>=0.129.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2.11.1)
+#7 1.761 Requirement already satisfied: anyio in /home/airflow/.local/lib/python3.13/site-packages (from httpx>=0.25.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (4.13.0)
+#7 1.762 Requirement already satisfied: httpcore==1.* in /home/airflow/.local/lib/python3.13/site-packages (from httpx>=0.25.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.0.9)
+#7 1.767 Requirement already satisfied: h11>=0.16 in /home/airflow/.local/lib/python3.13/site-packages (from httpcore==1.*->httpx>=0.25.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.16.0)
+#7 1.769 Requirement already satisfied: typer>=0.16.0 in /home/airflow/.local/lib/python3.13/site-packages (from fastapi-cli>=0.0.8->fastapi-cli[standard-no-fastapi-cloud-cli]>=0.0.8; extra == "standard-no-fastapi-cloud-cli"->fastapi[standard-no-fastapi-cloud-cli]>=0.129.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.25.1)
+#7 1.770 Requirement already satisfied: rich-toolkit>=0.14.8 in /home/airflow/.local/lib/python3.13/site-packages (from fastapi-cli>=0.0.8->fastapi-cli[standard-no-fastapi-cloud-cli]>=0.0.8; extra == "standard-no-fastapi-cloud-cli"->fastapi[standard-no-fastapi-cloud-cli]>=0.129.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.19.10)
+#7 1.773 Requirement already satisfied: cachelib in /home/airflow/.local/lib/python3.13/site-packages (from flask-session>=0.8.0->apache-airflow-providers-fab) (0.14.0)
+#7 1.779 Requirement already satisfied: sniffio in /home/airflow/.local/lib/python3.13/site-packages (from greenback>=1.2.1->apache-airflow-task-sdk==1.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.3.1)
+#7 1.780 Requirement already satisfied: outcome in /home/airflow/.local/lib/python3.13/site-packages (from greenback>=1.2.1->apache-airflow-task-sdk==1.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.3.0.post0)
+#7 1.785 Requirement already satisfied: zipp>=3.20 in /home/airflow/.local/lib/python3.13/site-packages (from importlib-metadata>=7.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (4.1.0)
+#7 1.796 Requirement already satisfied: pyyaml-ft>=8.0.0 in /home/airflow/.local/lib/python3.13/site-packages (from libcst>=1.8.2->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (8.0.0)
+#7 1.801 Requirement already satisfied: uc-micro-py in /home/airflow/.local/lib/python3.13/site-packages (from linkify-it-py>=2.0.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2.0.0)
+#7 1.805 Requirement already satisfied: mdurl~=0.1 in /home/airflow/.local/lib/python3.13/site-packages (from markdown-it-py>=2.2.0->rich<14,>=12->flask-limiter!=3.13,>3->apache-airflow-providers-fab) (0.1.2)
+#7 1.813 Requirement already satisfied: wirerope>=0.4.7 in /home/airflow/.local/lib/python3.13/site-packages (from methodtools>=0.4.7->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.0.0)
+#7 1.827 Requirement already satisfied: opentelemetry-exporter-otlp-proto-grpc==1.42.1 in /home/airflow/.local/lib/python3.13/site-packages (from opentelemetry-exporter-otlp>=1.27.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.42.1)
+#7 1.827 Requirement already satisfied: opentelemetry-exporter-otlp-proto-http==1.42.1 in /home/airflow/.local/lib/python3.13/site-packages (from opentelemetry-exporter-otlp>=1.27.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.42.1)
+#7 1.829 Requirement already satisfied: googleapis-common-protos~=1.57 in /home/airflow/.local/lib/python3.13/site-packages (from opentelemetry-exporter-otlp-proto-grpc==1.42.1->opentelemetry-exporter-otlp>=1.27.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.75.0)
+#7 1.830 Requirement already satisfied: grpcio<2.0.0,>=1.66.2 in /home/airflow/.local/lib/python3.13/site-packages (from opentelemetry-exporter-otlp-proto-grpc==1.42.1->opentelemetry-exporter-otlp>=1.27.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.80.0)
+#7 1.830 Requirement already satisfied: opentelemetry-exporter-otlp-proto-common==1.42.1 in /home/airflow/.local/lib/python3.13/site-packages (from opentelemetry-exporter-otlp-proto-grpc==1.42.1->opentelemetry-exporter-otlp>=1.27.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.42.1)
+#7 1.831 Requirement already satisfied: opentelemetry-sdk~=1.42.1 in /home/airflow/.local/lib/python3.13/site-packages (from opentelemetry-exporter-otlp-proto-grpc==1.42.1->opentelemetry-exporter-otlp>=1.27.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.42.1)
+#7 1.843 Requirement already satisfied: opentelemetry-semantic-conventions==0.63b1 in /home/airflow/.local/lib/python3.13/site-packages (from opentelemetry-sdk~=1.42.1->opentelemetry-exporter-otlp-proto-grpc==1.42.1->opentelemetry-exporter-otlp>=1.27.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.63b1)
+#7 1.855 Requirement already satisfied: tzdata>=2020.1 in /home/airflow/.local/lib/python3.13/site-packages (from pendulum>=3.1.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2026.2)
+#7 1.862 Requirement already satisfied: annotated-types>=0.6.0 in /home/airflow/.local/lib/python3.13/site-packages (from pydantic>=2.11.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.7.0)
+#7 1.862 Requirement already satisfied: pydantic-core==2.46.4 in /home/airflow/.local/lib/python3.13/site-packages (from pydantic>=2.11.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (2.46.4)
+#7 1.877 Requirement already satisfied: text-unidecode>=1.3 in /home/airflow/.local/lib/python3.13/site-packages (from python-slugify>=5.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.3)
+#7 1.917 Requirement already satisfied: shellingham>=1.3.0 in /home/airflow/.local/lib/python3.13/site-packages (from typer>=0.16.0->fastapi-cli>=0.0.8->fastapi-cli[standard-no-fastapi-cloud-cli]>=0.0.8; extra == "standard-no-fastapi-cloud-cli"->fastapi[standard-no-fastapi-cloud-cli]>=0.129.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.5.4)
+#7 1.924 Requirement already satisfied: pathlib-abc<0.6.0,>=0.5.1 in /home/airflow/.local/lib/python3.13/site-packages (from universal-pathlib>=0.3.8->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.5.2)
+#7 1.933 Requirement already satisfied: httptools>=0.6.3 in /home/airflow/.local/lib/python3.13/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard-no-fastapi-cloud-cli"->fastapi[standard-no-fastapi-cloud-cli]>=0.129.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.7.1)
+#7 1.933 Requirement already satisfied: uvloop>=0.15.1 in /home/airflow/.local/lib/python3.13/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard-no-fastapi-cloud-cli"->fastapi[standard-no-fastapi-cloud-cli]>=0.129.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (0.22.1)
+#7 1.934 Requirement already satisfied: watchfiles>=0.20 in /home/airflow/.local/lib/python3.13/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard-no-fastapi-cloud-cli"->fastapi[standard-no-fastapi-cloud-cli]>=0.129.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (1.2.0)
+#7 1.934 Requirement already satisfied: websockets>=10.4 in /home/airflow/.local/lib/python3.13/site-packages (from uvicorn[standard]>=0.12.0; extra == "standard-no-fastapi-cloud-cli"->fastapi[standard-no-fastapi-cloud-cli]>=0.129.0->apache-airflow-core==3.2.2->apache-airflow>=2.11.0->apache-airflow-providers-docker) (16.0)
+#7 2.174 
+#7 2.174 [notice] A new release of pip is available: 26.1.1 -> 26.1.2
+#7 2.174 [notice] To update, run: /usr/python/bin/python3.13 -m pip install --upgrade pip
+#7 DONE 2.3s
+
+#8 [airflow-init] exporting to image
+#8 exporting layers
+#8 exporting layers 0.2s done
+#8 exporting manifest sha256:39a72cded7d034afbdc18895b8f00804a4011e47c751a688444137ac5e4b758a 0.0s done
+#8 exporting config sha256:53f16d5d5b5ce6fd163200bd7f9e4db7c59969f81816f217e1ad26acfe538d0f 0.0s done
+#8 exporting attestation manifest sha256:8b996d07f09b221295709c7e795c4586a013b0f332e976e8e1a14c821f033138 0.0s done
+#8 exporting manifest list sha256:96559fbe06df8c6f99047c54ff919c197263892babd0a5363a37586e0b8b77a6 done
+#8 naming to docker.io/library/power-outages-scraping-main-airflow-init:latest done
+#8 unpacking to docker.io/library/power-outages-scraping-main-airflow-init:latest
+#8 unpacking to docker.io/library/power-outages-scraping-main-airflow-init:latest 0.1s done
+#8 DONE 0.3s
+
+#9 [airflow-scheduler] exporting to image
+#9 exporting layers 0.2s done
+#9 exporting manifest sha256:e5a0ccb50b95a97952443342c08c45739956e3075346b242f82c3e5c5548c4d8 done
+#9 exporting config sha256:f66781bd44c0dbb33d42f63143f0e6203ba072371dc6f282ada78e042f2a3962 0.0s done
+#9 exporting attestation manifest sha256:9adbaa8fd65d1ee330e982f21d4b715cea521a0488805e65d1d9b75089d7114f 0.0s done
+#9 exporting manifest list sha256:82cc840590b679c2425602f220c17739bd79f6b2f1094037da5b84cf709538df done
+#9 naming to docker.io/library/power-outages-scraping-main-airflow-scheduler:latest done
+#9 unpacking to docker.io/library/power-outages-scraping-main-airflow-scheduler:latest 0.1s done
+#9 DONE 0.3s
+
+#10 [airflow-webserver] exporting to image
+#10 exporting layers 0.2s done
+#10 exporting manifest sha256:6a3e1164063cdf3e143ece3d288063e5f9001efcb2171cc97188c6527ba2839c 0.0s done
+#10 exporting config sha256:6e2ea6c11252ced43117dfd8ff183093f3249e7ceeb09347f856e31386f065e4 0.0s done
+#10 exporting attestation manifest sha256:9fa1f2dce3545941d4a91dff26982592af1d27455e1398891bbbd483cd1504a7 0.0s done
+#10 exporting manifest list sha256:430cb8331ee7cfb852a84462494220455ab22ffa536f40c7c29a37649da160f1 done
+#10 naming to docker.io/library/power-outages-scraping-main-airflow-webserver:latest done
+#10 unpacking to docker.io/library/power-outages-scraping-main-airflow-webserver:latest 0.1s done
+#10 DONE 0.3s
+
+#11 [airflow-dag-processor] exporting to image
+#11 exporting layers 0.2s done
+#11 exporting manifest sha256:6cf13395ed706e33e8f857b5991d3ee8b4d890c4f094656a537dc37e19ca501b done
+#11 exporting config sha256:caf3181f3b75a63d205dfc5b53324923f3af8ebe39cad842f358e7c9e4bf4cd7 0.0s done
+#11 exporting attestation manifest sha256:7623bf301fc328ff436667f8a6077509df2560d95acd4d51e94890f4a3503bd1 0.0s done
+#11 exporting manifest list sha256:7ea78bbd45d4edad7f4384457e4a43ac8d1ad1c3bc26bfc6b3381646bf87adeb done
+#11 naming to docker.io/library/power-outages-scraping-main-airflow-dag-processor:latest done
+#11 unpacking to docker.io/library/power-outages-scraping-main-airflow-dag-processor:latest 0.1s done
+#11 DONE 0.3s
+
+#12 [airflow-dag-processor] resolving provenance for metadata file
+#12 DONE 0.0s
+
+#13 [airflow-init] resolving provenance for metadata file
+#13 DONE 0.0s
+
+#14 [airflow-scheduler] resolving provenance for metadata file
+#14 DONE 0.0s
+
+#15 [airflow-webserver] resolving provenance for metadata file
+#15 DONE 0.0s
+ Image power-outages-scraping-main-airflow-init Built 
+ Image power-outages-scraping-main-airflow-scheduler Built 
+ Image power-outages-scraping-main-airflow-webserver Built 
+ Image power-outages-scraping-main-airflow-dag-processor Built 
+ Network power-outages-scraping-main_default Creating 
+ Network power-outages-scraping-main_default Created 
+ Volume power-outages-scraping-main_postgres-db-volume Creating 
+ Volume power-outages-scraping-main_postgres-db-volume Created 
+ Container power-outages-scraping-main-registry-1 Creating 
+ Container power-outages-scraping-main-postgres-1 Creating 
+ Container power-outages-scraping-main-registry-1 Created 
+ Container power-outages-scraping-main-postgres-1 Created 
+ Container power-outages-scraping-main-airflow-init-1 Creating 
+ Container power-outages-scraping-main-airflow-init-1 Created 
+ Container power-outages-scraping-main-airflow-webserver-1 Creating 
+ Container power-outages-scraping-main-airflow-scheduler-1 Creating 
+ Container power-outages-scraping-main-airflow-dag-processor-1 Creating 
+ Container power-outages-scraping-main-airflow-dag-processor-1 Created 
+ Container power-outages-scraping-main-airflow-webserver-1 Created 
+ Container power-outages-scraping-main-airflow-scheduler-1 Created 
+ Container power-outages-scraping-main-registry-1 Starting 
+ Container power-outages-scraping-main-postgres-1 Starting 
+ Container power-outages-scraping-main-postgres-1 Started 
+Error response from daemon: ports are not available: exposing port TCP 0.0.0.0:5000 -> 127.0.0.1:0: listen tcp 0.0.0.0:5000: bind: address already in use
+NAME                                     IMAGE             COMMAND                  SERVICE    CREATED        STATUS                                     PORTS
+power-outages-scraping-main-postgres-1   postgres:latest   "docker-entrypoint.s…"   postgres   1 second ago   Up Less than a second (health: starting)   5432/tcp

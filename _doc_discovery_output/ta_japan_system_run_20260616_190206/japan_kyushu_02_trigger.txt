@@ -1,0 +1,30 @@
+## Trigger japan_kyushu
+Tue Jun 16 19:02:26 PDT 2026
+
+--- unpause ---
+The container is run as root user. For security, consider using a regular user account.
+2026-06-17T02:02:28.935670Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T02:02:28.936138Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T02:02:28.936291Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T02:02:28.936424Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T02:02:28.936495Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T02:02:28.936746Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+dag_id       | is_paused
+=============+==========
+japan_kyushu | True     
+                        
+
+--- trigger ---
+The container is run as root user. For security, consider using a regular user account.
+2026-06-17T02:02:31.040114Z [info     ] setup plugin alembic.autogenerate.schemas [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T02:02:31.040268Z [info     ] setup plugin alembic.autogenerate.tables [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T02:02:31.040334Z [info     ] setup plugin alembic.autogenerate.types [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T02:02:31.040382Z [info     ] setup plugin alembic.autogenerate.constraints [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T02:02:31.040421Z [info     ] setup plugin alembic.autogenerate.defaults [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T02:02:31.040470Z [info     ] setup plugin alembic.autogenerate.comments [alembic.runtime.plugins] loc=plugins.py:37
+2026-06-17T02:02:31.327204Z [info     ] creating dag run               [airflow.serialization.definitions.dag] loc=dag.py:526 logical_date=None partition_key=None run_after=datetime.datetime(2026, 6, 17, 2, 2, 31, 321160, tzinfo=Timezone('UTC')) run_id=manual__2026-06-17T02:02:31.321160+00:00
+conf | dag_id       | dag_run_id                  | data_interval_start | data_interval_end | end_date | last_scheduling_decision | logical_date | run_type | start_date | state  | triggering_user_name
+=====+==============+=============================+=====================+===================+==========+==========================+==============+==========+============+========+=====================
+{}   | japan_kyushu | manual__2026-06-17T02:02:31 | None                | None              | None     | None                     | None         | manual   | None       | queued | root                
+     |              | .321160+00:00               |                     |                   |          |                          |              |          |            |        |                     
+                                                                                                                                                                                                        

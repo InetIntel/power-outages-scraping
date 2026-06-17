@@ -1,0 +1,40 @@
+## Kansai processed JSON quick check
+Tue Jun 16 18:58:32 PDT 2026
+===== /data/japan/japan/kansai/processed/2026/06/power_outages.JP.kansai.processed.2026-06-17.json =====
+137837 /data/japan/japan/kansai/processed/2026/06/power_outages.JP.kansai.processed.2026-06-17.json
+[
+  {
+    "date": "2026-06-11",
+    "start": "2026-06-11 20:59",
+    "end": "2026-06-11 22:02",
+    "duration_(hours)": 1.05,
+    "prefecture": "兵庫県",
+    "city": "姫路市",
+    "area": "豊富町　豊富",
+    "houses_affected": 26,
+    "total_event_houses": 291,
+    "reason": "弊社設備への樹木や鳥獣等の接触"
+  },
+  {
+    "date": "2026-06-11",
+    "start": "2026-06-11 20:59",
+    "end": "2026-06-11 22:02",
+    "duration_(hours)": 1.05,
+    "prefecture": "兵庫県",
+    "city": "姫路市",
+    "area": "船津町",
+    "houses_affected": 265,
+    "total_event_houses": 291,
+    "reason": "弊社設備への樹木や鳥獣等の接触"
+  },
+  {
+    "date": "2026-06-11",
+    "start": "2026-06-11 20:59",
+    "end": "2026-06-11 21:10",
+    "duration_(hours)": 0.18,
+    "prefecture": "兵庫県",
+    "city": "姫路市",
+    "area": "豊富町　豊富",
+    "houses_affected": 0,
+    "total_event_houses": 0,
+    "reason": "弊社設備への樹木や鳥獣等の接�

@@ -1,0 +1,121 @@
+## Build japan_tepco
+Tue Jun 16 19:04:46 PDT 2026
+=== Building: japan_tepco ===
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 270B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-alpine
+#2 DONE 0.7s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/python:3.13-alpine@sha256:585f88f854292ed2e4c84b96f7f5a21a20a13cb84efdde7a67639aae93f46206
+#4 resolve docker.io/library/python:3.13-alpine@sha256:585f88f854292ed2e4c84b96f7f5a21a20a13cb84efdde7a67639aae93f46206 done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 8.53kB 0.0s done
+#5 DONE 0.1s
+
+#6 [2/6] WORKDIR /app
+#6 CACHED
+
+#7 [3/6] COPY ./src/scrapers/japan/tepco/requirements.txt .
+#7 CACHED
+
+#8 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#8 CACHED
+
+#9 [5/6] COPY ./src/scrapers/japan/tepco/*.py .
+#9 DONE 0.0s
+
+#10 [6/6] COPY ./utils/ utils/
+#10 DONE 0.0s
+
+#11 exporting to image
+#11 exporting layers 0.0s done
+#11 exporting manifest sha256:5a475736a469fb6b9e6aec7b58adb72d529af1ed97bea6d4bdf0ebea3b778abc done
+#11 exporting config sha256:91294f492344fe54a9d604fa451fc86ab3221c7ab81c1c2277705f946daf9d1e done
+#11 exporting attestation manifest sha256:b3986cbb1b0c58850405c3ee6fc2efe2230f37dea35814b775c91c7fc55ee4a3 done
+#11 exporting manifest list sha256:8449ed5af2b15267c89fe971119326c751822877bc0d8d55a1351091b58ad4c9 done
+#11 naming to localhost:5000/japan_tepco:latest done
+#11 unpacking to localhost:5000/japan_tepco:latest 0.0s done
+#11 DONE 0.1s
+The push refers to repository [localhost:5000/japan_tepco]
+38141a9ae7dd: Waiting
+c4786242540a: Waiting
+eaacd48516bc: Waiting
+999956602afb: Waiting
+b7045cd887ad: Waiting
+5de55e5ef9c0: Waiting
+efbec88780d1: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+999956602afb: Waiting
+b7045cd887ad: Waiting
+5de55e5ef9c0: Waiting
+efbec88780d1: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+38141a9ae7dd: Waiting
+c4786242540a: Waiting
+eaacd48516bc: Waiting
+b7045cd887ad: Waiting
+5de55e5ef9c0: Waiting
+efbec88780d1: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+38141a9ae7dd: Waiting
+c4786242540a: Waiting
+eaacd48516bc: Waiting
+999956602afb: Waiting
+b7045cd887ad: Waiting
+5de55e5ef9c0: Waiting
+efbec88780d1: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+38141a9ae7dd: Waiting
+c4786242540a: Waiting
+eaacd48516bc: Waiting
+999956602afb: Waiting
+999956602afb: Waiting
+b7045cd887ad: Waiting
+5de55e5ef9c0: Waiting
+efbec88780d1: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+38141a9ae7dd: Waiting
+c4786242540a: Waiting
+eaacd48516bc: Waiting
+999956602afb: Waiting
+b7045cd887ad: Waiting
+5de55e5ef9c0: Waiting
+efbec88780d1: Waiting
+af3403a13d65: Waiting
+c037cb9c46ca: Waiting
+652bad6c4ced: Waiting
+38141a9ae7dd: Waiting
+c4786242540a: Waiting
+eaacd48516bc: Waiting
+eaacd48516bc: Mounted from japan_okinawa
+999956602afb: Pushed
+b7045cd887ad: Pushed
+5de55e5ef9c0: Mounted from japan_okinawa
+efbec88780d1: Mounted from japan_okinawa
+af3403a13d65: Mounted from japan_okinawa
+c037cb9c46ca: Mounted from japan_okinawa
+652bad6c4ced: Mounted from japan_okinawa
+38141a9ae7dd: Pushed
+c4786242540a: Mounted from japan_okinawa
+latest: digest: sha256:8449ed5af2b15267c89fe971119326c751822877bc0d8d55a1351091b58ad4c9 size: 856
+  Done: japan_tepco

@@ -1,0 +1,5 @@
+## japan_tepco_06_dag_runs
+Tue Jun 16 19:59:53 PDT 2026
+
+The container is run as root user. For security, consider using a regular user account.
+/entrypoint: line 313: exec: airflow: not found

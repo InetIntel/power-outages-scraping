@@ -1,0 +1,39 @@
+## Kansai raw JSON quick check
+Tue Jun 16 18:57:57 PDT 2026
+===== /data/japan/japan/kansai/raw/2026/06/power_outages.JP.kansai.raw.2026-06-17.json =====
+98700 /data/japan/japan/kansai/raw/2026/06/power_outages.JP.kansai.raw.2026-06-17.json
+{
+  "provider": "kansai",
+  "country": "japan",
+  "fetched_at": "2026-06-17 10:57:02",
+  "entries": {
+    "list": [
+      {
+        "date": "2026-06-11",
+        "list": [
+          {
+            "number": 291,
+            "lessthan": 0,
+            "offdatetime": "2026-06-11 20:59",
+            "repairtime": "2026-06-11 22:02",
+            "offcause": "弊社設備への樹木や鳥獣等の接触",
+            "areas": [
+              {
+                "code": "28",
+                "name": "兵庫県",
+                "children": [
+                  {
+                    "code": "201",
+                    "name": "姫路市",
+                    "children": [
+                      {
+                        "name": "豊富町　豊富",
+                        "number": 26
+                      },
+                      {
+                        "name": "船津町",
+                        "number": 265
+                      }
+                    ]
+                  }
+                ]

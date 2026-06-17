@@ -1,0 +1,56 @@
+## Processed quick check for japan_kyushu
+Tue Jun 16 19:03:32 PDT 2026
+===== /data/japan/japan/kyushu/processed/2026/06/kyushu_power_outages.json =====
+36442 /data/japan/japan/kyushu/processed/2026/06/kyushu_power_outages.json
+[
+  {
+    "start_time": "2026-06-13 15:52",
+    "end_time": "2026-06-13 17:53",
+    "duration_minutes": 121,
+    "reason": "弊社設備の故障",
+    "households_affected": "30",
+    "areas": [
+      {
+        "prefecture": "Kyushu",
+        "city": "田川郡福智町",
+        "area": "市場"
+      }
+    ]
+  },
+  {
+    "start_time": "2026-06-16 18:56",
+    "end_time": "2026-06-16 20:10",
+    "duration_minutes": 74,
+    "reason": "鳥獣・営巣等の接触",
+    "households_affected": "40",
+    "areas": [
+      {
+        "prefecture": "Kyushu",
+        "city": "那珂川市",
+        "area": "片縄３丁目"
+      }
+    ]
+  },
+  {
+    "start_time": "2026-06-16 18:56",
+    "end_time": "2026-06-16 20:10",
+    "duration_minutes": 74,
+    "reason": "鳥獣・営巣等の接触",
+    "households_affected": "10",
+    "areas": [
+      {
+        "prefecture": "Kyushu",
+        "city": "那珂川市",
+        "area": "片縄５丁目"
+      }
+    ]
+  },
+  {
+    "start_time": "2026-06-11 16:20",
+    "end_time": "2026-06-11 17:14",
+    "duration_minutes": 54,
+    "reason": "樹木接触・倒木の影響",
+    "households_affected": "90",
+    "areas": [
+      {
+        "prefecture": "K

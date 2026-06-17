@@ -1,0 +1,121 @@
+## Build japan_tohoku
+Tue Jun 16 19:05:54 PDT 2026
+=== Building: japan_tohoku ===
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 272B done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-alpine
+#2 DONE 0.6s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.0s
+
+#4 [1/6] FROM docker.io/library/python:3.13-alpine@sha256:585f88f854292ed2e4c84b96f7f5a21a20a13cb84efdde7a67639aae93f46206
+#4 resolve docker.io/library/python:3.13-alpine@sha256:585f88f854292ed2e4c84b96f7f5a21a20a13cb84efdde7a67639aae93f46206 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 16.18kB 0.1s done
+#5 DONE 0.1s
+
+#6 [3/6] COPY ./src/scrapers/japan/tohoku/requirements.txt .
+#6 CACHED
+
+#7 [2/6] WORKDIR /app
+#7 CACHED
+
+#8 [4/6] RUN pip install --no-cache-dir -r requirements.txt
+#8 CACHED
+
+#9 [5/6] COPY ./src/scrapers/japan/tohoku/*.py .
+#9 DONE 0.0s
+
+#10 [6/6] COPY ./utils/ utils/
+#10 DONE 0.0s
+
+#11 exporting to image
+#11 exporting layers 0.0s done
+#11 exporting manifest sha256:73699a1022108e6ba029e1c99013e758f17aa456c13fdc3a8049f905f6c0187e 0.0s done
+#11 exporting config sha256:3fd29970426423add695cce03b2b94ee54b142e004b99b064ef5d81c4651f177 done
+#11 exporting attestation manifest sha256:8b8112c82173bdae0844425bf2bd89e2a6e643cb26ff802cb3bcdff80fdc1337 done
+#11 exporting manifest list sha256:df4cc65018595318572253d98469f7f60a7b27309388798c85ce9207cd1545be done
+#11 naming to localhost:5000/japan_tohoku:latest done
+#11 unpacking to localhost:5000/japan_tohoku:latest 0.0s done
+#11 DONE 0.1s
+The push refers to repository [localhost:5000/japan_tohoku]
+228b2f86cb36: Waiting
+af3403a13d65: Waiting
+f7ae88d3f4b0: Waiting
+eaacd48516bc: Waiting
+652bad6c4ced: Waiting
+c037cb9c46ca: Waiting
+54c144f4c1b6: Waiting
+c4786242540a: Waiting
+5de55e5ef9c0: Waiting
+efbec88780d1: Waiting
+5de55e5ef9c0: Waiting
+efbec88780d1: Waiting
+228b2f86cb36: Waiting
+af3403a13d65: Waiting
+f7ae88d3f4b0: Waiting
+eaacd48516bc: Waiting
+652bad6c4ced: Waiting
+c037cb9c46ca: Waiting
+54c144f4c1b6: Waiting
+c4786242540a: Waiting
+652bad6c4ced: Waiting
+c037cb9c46ca: Waiting
+54c144f4c1b6: Waiting
+c4786242540a: Waiting
+5de55e5ef9c0: Waiting
+efbec88780d1: Waiting
+228b2f86cb36: Waiting
+af3403a13d65: Waiting
+f7ae88d3f4b0: Waiting
+eaacd48516bc: Waiting
+54c144f4c1b6: Waiting
+c4786242540a: Waiting
+5de55e5ef9c0: Waiting
+efbec88780d1: Waiting
+228b2f86cb36: Waiting
+af3403a13d65: Waiting
+f7ae88d3f4b0: Waiting
+eaacd48516bc: Waiting
+652bad6c4ced: Waiting
+c037cb9c46ca: Waiting
+af3403a13d65: Waiting
+f7ae88d3f4b0: Waiting
+eaacd48516bc: Waiting
+652bad6c4ced: Waiting
+c037cb9c46ca: Waiting
+54c144f4c1b6: Waiting
+c4786242540a: Waiting
+5de55e5ef9c0: Waiting
+efbec88780d1: Waiting
+228b2f86cb36: Waiting
+5de55e5ef9c0: Waiting
+efbec88780d1: Waiting
+228b2f86cb36: Waiting
+af3403a13d65: Waiting
+f7ae88d3f4b0: Waiting
+eaacd48516bc: Waiting
+652bad6c4ced: Waiting
+c037cb9c46ca: Waiting
+54c144f4c1b6: Waiting
+c4786242540a: Waiting
+efbec88780d1: Mounted from japan_tepco
+af3403a13d65: Mounted from japan_tepco
+eaacd48516bc: Mounted from japan_tepco
+652bad6c4ced: Mounted from japan_tepco
+c037cb9c46ca: Mounted from japan_tepco
+c4786242540a: Mounted from japan_tepco
+5de55e5ef9c0: Mounted from japan_tepco
+f7ae88d3f4b0: Pushed
+54c144f4c1b6: Pushed
+228b2f86cb36: Pushed
+latest: digest: sha256:df4cc65018595318572253d98469f7f60a7b27309388798c85ce9207cd1545be size: 856
+  Done: japan_tohoku

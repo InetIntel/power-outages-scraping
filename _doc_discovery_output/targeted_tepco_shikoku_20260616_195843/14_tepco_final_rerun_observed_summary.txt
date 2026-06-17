@@ -1,0 +1,15 @@
+## Final TEPCO rerun observed result
+
+The final TEPCO rerun still produced only an empty processed JSON file.
+
+Observed output:
+
+/data/japan/japan/tepco/processed/2026/06/power_outages.JP.tepco.processed.2026-06-17.json
+
+File size: 2 bytes
+
+Contents:
+[]
+
+Interpretation:
+TEPCO orchestration runs, but runtime fetches do not produce raw XML output. The DAG post_process step still uploads an empty processed JSON array. Status remains CHECK / PARTIAL.

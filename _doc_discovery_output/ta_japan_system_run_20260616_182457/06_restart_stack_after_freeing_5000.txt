@@ -1,0 +1,140 @@
+## Restart stack after freeing port 5000
+Tue Jun 16 18:44:46 PDT 2026
+ Image postgres:latest Pulling 
+ Image registry:latest Pulling 
+ Image registry:latest Pulled 
+ Image postgres:latest Pulled 
+ Image power-outages-scraping-main-airflow-webserver Building 
+ Image power-outages-scraping-main-airflow-scheduler Building 
+ Image power-outages-scraping-main-airflow-dag-processor Building 
+ Image power-outages-scraping-main-airflow-init Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 2.25kB done
+#1 DONE 0.0s
+
+#2 [airflow-dag-processor internal] load build definition from Dockerfile.airflow
+#2 transferring dockerfile: 211B done
+#2 DONE 0.0s
+
+#3 [airflow-init internal] load metadata for docker.io/apache/airflow:latest
+#3 ...
+
+#4 [auth] apache/airflow:pull token for registry-1.docker.io
+#4 DONE 0.0s
+
+#3 [airflow-init internal] load metadata for docker.io/apache/airflow:latest
+#3 DONE 0.8s
+
+#5 [airflow-dag-processor internal] load .dockerignore
+#5 transferring context: 2B done
+#5 DONE 0.0s
+
+#6 [airflow-init 1/2] FROM docker.io/apache/airflow:latest@sha256:bef4d135ec7b64658cf64089973edd62cab8fd72203f280c7e0952213c17d912
+#6 resolve docker.io/apache/airflow:latest@sha256:bef4d135ec7b64658cf64089973edd62cab8fd72203f280c7e0952213c17d912 0.0s done
+#6 DONE 0.0s
+
+#7 [airflow-webserver 2/2] RUN pip install --no-cache-dir       apache-airflow-providers-docker       apache-airflow-providers-fab       pyyaml
+#7 CACHED
+
+#8 [airflow-scheduler] exporting to image
+#8 exporting layers done
+#8 exporting manifest sha256:e5a0ccb50b95a97952443342c08c45739956e3075346b242f82c3e5c5548c4d8 done
+#8 exporting config sha256:f66781bd44c0dbb33d42f63143f0e6203ba072371dc6f282ada78e042f2a3962 done
+#8 exporting attestation manifest sha256:d100caec145cf7e13e8f9ab9ef3d936594720fd910479211285fa520cbb75062 0.0s done
+#8 exporting manifest list sha256:cbe22b04834353c896356a1c8295cf67a466dfac787f53e51cec2d0b68d2d0e4 0.0s done
+#8 naming to docker.io/library/power-outages-scraping-main-airflow-scheduler:latest
+#8 naming to docker.io/library/power-outages-scraping-main-airflow-scheduler:latest done
+#8 unpacking to docker.io/library/power-outages-scraping-main-airflow-scheduler:latest done
+#8 DONE 0.1s
+
+#9 [airflow-dag-processor] exporting to image
+#9 exporting layers done
+#9 exporting manifest sha256:6cf13395ed706e33e8f857b5991d3ee8b4d890c4f094656a537dc37e19ca501b done
+#9 exporting config sha256:caf3181f3b75a63d205dfc5b53324923f3af8ebe39cad842f358e7c9e4bf4cd7 done
+#9 exporting attestation manifest sha256:14e3ab6d766c175221f0c66e537af690093d698b899ee322268de6054157d1ac 0.0s done
+#9 exporting manifest list sha256:f53e2472a0e12da1216317c1d348e2c754462afab28eb348285034839642318f 0.0s done
+#9 naming to docker.io/library/power-outages-scraping-main-airflow-dag-processor:latest done
+#9 unpacking to docker.io/library/power-outages-scraping-main-airflow-dag-processor:latest done
+#9 DONE 0.1s
+
+#10 [airflow-init] exporting to image
+#10 exporting layers done
+#10 exporting manifest sha256:39a72cded7d034afbdc18895b8f00804a4011e47c751a688444137ac5e4b758a done
+#10 exporting config sha256:53f16d5d5b5ce6fd163200bd7f9e4db7c59969f81816f217e1ad26acfe538d0f done
+#10 exporting attestation manifest sha256:466308f2a862b103c9557a5d534a38c21a9a587b7c14dded3d2b35d204b7214d 0.0s done
+#10 exporting manifest list sha256:62294691b1b49f1d1fe02f9d4a3a493257a5f3e927d7295232ec408af83e34d5 0.0s done
+#10 naming to docker.io/library/power-outages-scraping-main-airflow-init:latest done
+#10 unpacking to docker.io/library/power-outages-scraping-main-airflow-init:latest done
+#10 DONE 0.1s
+
+#11 [airflow-webserver] exporting to image
+#11 exporting layers 0.0s done
+#11 exporting manifest sha256:6a3e1164063cdf3e143ece3d288063e5f9001efcb2171cc97188c6527ba2839c done
+#11 exporting config sha256:6e2ea6c11252ced43117dfd8ff183093f3249e7ceeb09347f856e31386f065e4 done
+#11 exporting attestation manifest sha256:6b3b82d1959edaddfda82daa70c73ea8919d2224765b511135f1f9aa0e8b6b7e 0.0s done
+#11 exporting manifest list sha256:2b2ca12db1a753e930da6ec9c5c1795662ab16ba90719859d91ce640483d8b89 done
+#11 naming to docker.io/library/power-outages-scraping-main-airflow-webserver:latest done
+#11 unpacking to docker.io/library/power-outages-scraping-main-airflow-webserver:latest done
+#11 DONE 0.1s
+
+#12 [airflow-dag-processor] resolving provenance for metadata file
+#12 DONE 0.1s
+
+#13 [airflow-init] resolving provenance for metadata file
+#13 DONE 0.0s
+
+#14 [airflow-scheduler] resolving provenance for metadata file
+#14 DONE 0.0s
+
+#15 [airflow-webserver] resolving provenance for metadata file
+#15 DONE 0.0s
+ Image power-outages-scraping-main-airflow-init Built 
+ Image power-outages-scraping-main-airflow-webserver Built 
+ Image power-outages-scraping-main-airflow-dag-processor Built 
+ Image power-outages-scraping-main-airflow-scheduler Built 
+ Network power-outages-scraping-main_default Creating 
+ Network power-outages-scraping-main_default Created 
+ Container power-outages-scraping-main-registry-1 Creating 
+ Container power-outages-scraping-main-postgres-1 Creating 
+ Container power-outages-scraping-main-registry-1 Created 
+ Container power-outages-scraping-main-postgres-1 Created 
+ Container power-outages-scraping-main-airflow-init-1 Creating 
+ Container power-outages-scraping-main-airflow-init-1 Created 
+ Container power-outages-scraping-main-airflow-dag-processor-1 Creating 
+ Container power-outages-scraping-main-airflow-scheduler-1 Creating 
+ Container power-outages-scraping-main-airflow-webserver-1 Creating 
+ Container power-outages-scraping-main-airflow-dag-processor-1 Created 
+ Container power-outages-scraping-main-airflow-scheduler-1 Created 
+ Container power-outages-scraping-main-airflow-webserver-1 Created 
+ Container power-outages-scraping-main-postgres-1 Starting 
+ Container power-outages-scraping-main-registry-1 Starting 
+ Container power-outages-scraping-main-postgres-1 Started 
+ Container power-outages-scraping-main-postgres-1 Waiting 
+ Container power-outages-scraping-main-registry-1 Started 
+ Container power-outages-scraping-main-postgres-1 Healthy 
+ Container power-outages-scraping-main-airflow-init-1 Starting 
+ Container power-outages-scraping-main-airflow-init-1 Started 
+ Container power-outages-scraping-main-postgres-1 Waiting 
+ Container power-outages-scraping-main-airflow-init-1 Waiting 
+ Container power-outages-scraping-main-postgres-1 Waiting 
+ Container power-outages-scraping-main-airflow-init-1 Waiting 
+ Container power-outages-scraping-main-airflow-init-1 Waiting 
+ Container power-outages-scraping-main-postgres-1 Waiting 
+ Container power-outages-scraping-main-postgres-1 Healthy 
+ Container power-outages-scraping-main-postgres-1 Healthy 
+ Container power-outages-scraping-main-postgres-1 Healthy 
+ Container power-outages-scraping-main-airflow-init-1 Exited 
+ Container power-outages-scraping-main-airflow-scheduler-1 Starting 
+ Container power-outages-scraping-main-airflow-init-1 Exited 
+ Container power-outages-scraping-main-airflow-webserver-1 Starting 
+ Container power-outages-scraping-main-airflow-init-1 Exited 
+ Container power-outages-scraping-main-airflow-dag-processor-1 Starting 
+ Container power-outages-scraping-main-airflow-scheduler-1 Started 
+ Container power-outages-scraping-main-airflow-dag-processor-1 Started 
+ Container power-outages-scraping-main-airflow-webserver-1 Started 
+NAME                                                  IMAGE                                               COMMAND                  SERVICE                 CREATED          STATUS                                     PORTS
+power-outages-scraping-main-airflow-dag-processor-1   power-outages-scraping-main-airflow-dag-processor   "/usr/bin/dumb-init …"   airflow-dag-processor   15 seconds ago   Up Less than a second                      8080/tcp
+power-outages-scraping-main-airflow-scheduler-1       power-outages-scraping-main-airflow-scheduler       "/usr/bin/dumb-init …"   airflow-scheduler       15 seconds ago   Up Less than a second                      8080/tcp
+power-outages-scraping-main-airflow-webserver-1       power-outages-scraping-main-airflow-webserver       "/usr/bin/dumb-init …"   airflow-webserver       15 seconds ago   Up Less than a second (health: starting)   0.0.0.0:8080->8080/tcp, [::]:8080->8080/tcp
+power-outages-scraping-main-postgres-1                postgres:latest                                     "docker-entrypoint.s…"   postgres                15 seconds ago   Up 15 seconds (healthy)                    5432/tcp
+power-outages-scraping-main-registry-1                registry:latest                                     "/entrypoint.sh /etc…"   registry                15 seconds ago   Up 15 seconds                              0.0.0.0:5000->5000/tcp, [::]:5000->5000/tcp
