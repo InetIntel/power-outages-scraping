@@ -1,3 +1,5 @@
+# Spain Power Outage Data (e-distribución / Endesa)
+
 ## Data Retrieved
 
 note - string, A brief message to the customer describing the status of the outage.
@@ -11,11 +13,11 @@ latitude - latitude coordinate of the outage location.
 
 municipality - string, town or city where the outage is occuring.
 
-reposition date - string, expected date and time when the power will be restored.
+reposition_date - string, expected date and time when the power will be restored. (Corrected 2026-07-22: field name has an underscore, not a space — matches `reposition_date` in the sample record below.)
 
 service_des_ca - ?
 
-affected client - int, number of clients affected by the outage.
+affected_client - int, number of clients affected by the outage. (Corrected 2026-07-22: field name has an underscore, not a space — matches `affected_client` used in `post_process.py` and the sample record below.)
 
 des_cause_es - ?
 
@@ -114,18 +116,23 @@ outage then also contains an attributes and a geometry field:
 
 Code Process
 
-scrape.py:
+> Rewritten 2026-07-22: previously said "Refer to spain/naturgy scraper" for both files without describing the actual logic. This scraper maintains outage lifecycle state (`in_progress` / `resolved`) across runs via a `current_outages.json` file in the shared bucket — the same architecture as `italy/edistribuzione` (both are Enel-family ArcGIS FeatureServer scrapers).
 
-Refer to spain/naturgy scraper.
+**scrape.py** (Airflow `scrape` task):
+1. `get_data()` pages through the ArcGIS FeatureServer using `objectid1 > last_id` cursor pagination (2000 records/page) until a page comes back empty.
+2. Downloads today's pre-existing raw JSON (if any) and merges it with the new fetch via `update_raw_data()`, tagging each record `outage_ended_today: true/false`.
+3. Downloads `current_outages.json` and updates it via `update_current_outages()`: new outage IDs get `ioda_status: "in_progress"` plus `ioda_detection_date`/`ioda_update_date` timestamps; outages still present get `affected_client` bumped to the max seen; outages that dropped out of the new fetch get `ioda_status: "resolved"`.
+4. Uploads both the updated raw file and the updated `current_outages.json`.
 
-
-post_process.py:
-
-Refer to spain/naturgy scraper.
+**post_process.py** (Airflow `post_process` task):
+1. Downloads `current_outages.json` and splits it into `resolved` vs. still-`in_progress` via `get_resolved_outages()`.
+2. Re-uploads `current_outages.json` containing only the still-`in_progress` records.
+3. For each resolved outage, computes duration from `ioda_detection_date`/`ioda_update_date`, and builds a processed record with `country`, `start_utc`, `end_utc`, `duration_(hours)`, `event_category` (`des_cause_en` if it's a string, else `"Unplanned"`), `clients_affected` (`affected_client`), and `area_affected` (`municipality`).
+4. Appends these to the day's existing processed-data file (if any) and re-uploads.
 
 
 ## Other Notes
 
-The dataset updates every 5 minutes, so the scraper is scheduled for every 4 minutes to make sure all data is captured.
+The dataset updates every 5 minutes. Corrected 2026-07-22: the scraper (`spain_edistribucion`) is actually scheduled every 3 hours (`0 */3 * * *` in `airflow/config/scraper_registry.yaml`), not every 4 minutes — this README previously misstated the schedule.
 
-Outage categories include Planned (maintenance) and Unplanned (faults).
+Outage categories include Planned (maintenance) and Unplanned (faults), reflected in `event_category` as the raw `des_cause_en` string when present (e.g. "Unplanned outage"), or `"Unplanned"` as a fallback.

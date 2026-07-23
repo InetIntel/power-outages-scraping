@@ -1,3 +1,5 @@
+# UK Power Outage Data (UK Power Networks)
+
 ## Data Retrieved
 
 incidentreference – unique alphanumeric identifier for the outage record.
@@ -132,19 +134,16 @@ Each API response contains a JSON payload with an array of outage records in the
 
 Code Process
 
-The retrieval script:
+> Corrected 2026-07-22: this section previously described `crawler.py`'s pandas/CSV logic and didn't mention `post_process.py`. The Airflow DAG only ever executes `scrape.py` then `post_process.py` (see `airflow/dags/dag_factory.py`); `crawler.py` is a legacy standalone script. Confirmed: `requirements.txt` lists only `requests`, so `crawler.py` (which imports `pandas`) could not run inside the built scraper image.
 
-Requests records 100 at a time using pagination (limit + offset).
+**`scrape.py`** (Airflow `scrape` task):
+1. Requests records 100 at a time using pagination (`limit` + `offset`) until a page returns fewer than 100 records or is empty.
+2. Deduplicates in-memory by `incidentreference` using a Python `set` (not pandas).
+3. Writes the deduplicated records as `power_outages.GB.power_networks.raw.<date>.json` to a local temp path, uploads via `Uploader` to `power_networks/raw/<year>/<month>/`, then deletes the local temp file.
 
-Stores retrieved data in a pandas DataFrame.
+**`post_process.py`** (Airflow `post_process` task): downloads that same-day raw JSON and re-uploads it unchanged as `power_networks/processed/<year>/<month>/power_outages.GB.power_networks.processed.<date>.json` — no field parsing, filtering, or further deduplication happens here. Accepts an optional `YYYY-MM-DD` argument to reprocess a past date.
 
-If a CSV already exists (power_networks_power_outage.csv), new data is concatenated and duplicates are dropped using the incidentreference field.
-
-Each iteration pauses 0.5–1.5 seconds before requesting the next batch.
-
-The process ends when fewer than 100 records are returned (indicating the final page).
-
-This ensures a complete, up-to-date collection of outages from the UK Power Networks live feed.
+**`crawler.py`** (legacy, not run by Airflow): an earlier standalone version that accumulates results into a pandas DataFrame and appends to a local CSV (`power_networks_power_outage.csv`), deduplicating on `incidentreference` with `keep="last"`. Kept for reference only.
 
 ## Other Notes
 

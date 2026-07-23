@@ -1,3 +1,5 @@
+# Ireland Power Outage Data (ESB Networks PowerCheck)
+
 Note on the Data Retrieved and the Process of Retrieval
 
 ## Data Retrieved ##
@@ -25,12 +27,14 @@ headers = {
 The parameters I use are to go through all the pages (if there is more than one).
 params = {
             "page": {page},
-            "results": 1000,
+            "results": 100,
             "sort": 3,
             "order": 1,
             "filter": "",
             "rnd": "0.123456"
         }
+
+> Corrected 2026-07-22: `results` is 100, not 1000. `scrape.py` sets `results_per_page = 100` (its own docstring: "Paginates at 100 results per page"); an earlier draft of this note carried over an unused `results: 1000` value from a dead code path in `crawler.py` that is immediately overwritten before any request is made. Pagination stops per-region on the first `404` response or a page with fewer than 100 results.
 
 The API requires going through each region they have in order to get data for the whole country.
 regions = ["Arklow", "Athlone", "Ballina", "Bandon", "Castlebar", 
@@ -43,5 +47,14 @@ regions = ["Arklow", "Athlone", "Ballina", "Bandon", "Castlebar",
 url = f"https://api.esb.ie/esbn/powercheck/v1.0/plannergroups/{region}/outages"
 
 
+## Code Process ##
+`scrape.py` (Airflow `scrape` task) is the production path: it fetches every region as above, writes the combined raw JSON to `power_outages.IE.esb.raw.<date>.json`, and uploads it via `Uploader` to `ireland/raw/<year>/<month>/`.
+
+`post_process.py` (Airflow `post_process` task) downloads that same raw JSON and re-uploads it unchanged to `ireland/processed/<year>/<month>/` — there is no field parsing, filtering, or deduplication at this stage. It accepts an optional `YYYY-MM-DD` argument to reprocess a past date.
+
+`crawler.py` is an earlier standalone version (pandas/CSV based, `output/ireland_power_outage.csv`) not run by Airflow; kept for reference only.
+
 ## Other Notes ##
-Data stays for at least 3 hours after the fault is restored, so the API should be called faster than that. The exact refresh rate is still being determined. 
+Data stays for at least 3 hours after the fault is restored, so the API should be called faster than that. The exact refresh rate is still being determined.
+
+Note: the `api-subscription-key` shown above is a real value taken directly from the site's public API calls and is reproduced verbatim in `scrape.py` and `crawler.py`. It is not a secret introduced by this README, but treat it as public/embedded-in-frontend, not a credential to protect.

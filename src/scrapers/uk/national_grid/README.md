@@ -1,7 +1,9 @@
+# UK Power Outage Data (National Grid)
+
 Note on the Data Retrieved and the Process of Retrieval
 ## Data Retrieved ##
 
-id – internal index number for the dataset record, added by the source or API. This is not global. It is only for this data pull.
+_id (corrected 2026-07-22, was listed as "id" — matches the sample response below) – internal index number for the dataset record, added by the source or API. This is not global. It is only for this data pull.
 Example: 1
 
 Upload Date – timestamp of when this outage record was last updated or uploaded to the National Grid API.
@@ -88,26 +90,24 @@ Data is returned as a JSON object with the structure:
 
 Code Process
 
-The script iterates through pages of results (1,000 records at a time) until no additional records are returned.
+> Corrected 2026-07-22: this section previously described `crawler.py`'s pandas/CSV logic. That is not what runs in production — the Airflow DAG only ever executes `scrape.py` then `post_process.py` (see `airflow/dags/dag_factory.py`), and `crawler.py` is a legacy standalone script. Confirmed: `requirements.txt` lists only `requests`, so `crawler.py` (which imports `pandas`) could not run inside the built scraper image.
 
-For each page:
+**`scrape.py`** (Airflow `scrape` task):
+1. Pages through the CKAN DataStore API 1,000 records at a time (`offset`/`limit`) until a page returns fewer than `limit` records or an empty page.
+2. Deduplicates in-memory by `Incident ID` using a Python `set` (not pandas), keeping the first record seen per ID (crawler.py's `drop_duplicates(..., keep="last")` behavior is not replicated here).
+3. Writes the deduplicated records as `power_outages.GB.national_grid.raw.<date>.json` to a local temp path, uploads it via `Uploader` to `national_grid/raw/<year>/<month>/`, then deletes the local temp file.
 
-Data is retrieved via an HTTP GET request to the API.
+**`post_process.py`** (Airflow `post_process` task):
+1. Downloads that same-day raw JSON file.
+2. Re-uploads it unchanged as `national_grid/processed/<year>/<month>/power_outages.GB.national_grid.processed.<date>.json` — no field parsing, filtering, or further deduplication happens here.
+3. Accepts an optional `YYYY-MM-DD` argument to reprocess a past date.
 
-Records are temporarily stored in a pandas DataFrame.
-
-New records are appended to an existing CSV file (national_grid_power_outage.csv).
-
-Duplicate records (based on Incident ID) are dropped to ensure only the latest record per incident remains.
-
-The script pauses briefly (0.5–1.5s) between calls to avoid rate limiting.
-
-This ensures the CSV contains all current and recent outage events from the National Grid’s feed.
+**`crawler.py`** (legacy, not run by Airflow): an earlier standalone version that accumulates results into a pandas DataFrame and appends to a local CSV (`national_grid_power_outage.csv`), deduplicating on `Incident ID` with `keep="last"`. Kept for reference only.
 
 ## Other Notes ##
 
 The dataset is live and frequently updated every 5 minutes by the National Grid.
 
-We should be polling data either every 5 minutes (just after the data update) or faster.
+We should be polling data either every 5 minutes (just after the data update) or faster. As of 2026-07-22, the actual configured schedule (`uk_national_grid` in `airflow/config/scraper_registry.yaml`) is every 2 hours (`0 */2 * * *`) — well short of this recommendation; noting the gap for future tuning rather than treating "every 5 minutes" as the current behavior.
 
 All data is in GMT time

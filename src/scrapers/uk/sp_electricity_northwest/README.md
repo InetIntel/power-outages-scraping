@@ -109,10 +109,12 @@ params = {
     "pageNumber": page_number,    # pagination control
     "includeCurrent": True,        # include currently active faults
     "includeResolved": True,       # include resolved outages
-    "includeTodaysPlanned": True,
+    "includeTodaysPlanned": False,
     "includeFuturePlanned": False,
     "includeCancelledPlanned": False,
 }
+
+Corrected 2026-07-22: `includeTodaysPlanned` is `False` in both `scrape.py` and `crawler.py` — this README previously had it as `True`. Today's planned outages are currently excluded from what this scraper collects.
 
 Authentication
 
@@ -134,23 +136,16 @@ The API returns a paginated JSON structure with a list of outage items:
 
 Code Process
 
-The script retrieves outage data 100 records at a time, continuing to request additional pages until all data has been collected.
+> Corrected 2026-07-22: this section previously described `crawler.py`'s pandas/CSV logic and didn't mention `post_process.py`. The Airflow DAG only ever executes `scrape.py` then `post_process.py` (see `airflow/dags/dag_factory.py`); `crawler.py` is a legacy standalone script. Confirmed: `requirements.txt` lists only `requests`, so `crawler.py` (which imports `pandas`) could not run inside the built scraper image.
 
-For each page:
+**`scrape.py`** (Airflow `scrape` task):
+1. Requests outage data 100 records at a time (`pageSize`/`pageNumber`) until a page returns fewer than 100 records or is empty.
+2. Deduplicates in-memory by `faultNumber` using a Python `set` (not pandas).
+3. Writes the deduplicated records as `power_outages.GB.sp_electricity_northwest.raw.<date>.json` to a local temp path, uploads via `Uploader` to `sp_electricity_northwest/raw/<year>/<month>/`, then deletes the local temp file.
 
-Data is requested via an HTTP GET call to the API.
+**`post_process.py`** (Airflow `post_process` task): downloads that same-day raw JSON and re-uploads it unchanged as `sp_electricity_northwest/processed/<year>/<month>/power_outages.GB.sp_electricity_northwest.processed.<date>.json` — no field parsing, filtering, or further deduplication happens here. Accepts an optional `YYYY-MM-DD` argument to reprocess a past date.
 
-The JSON response is converted into a pandas DataFrame.
-
-If a local CSV file (sp_electricity_northwest.csv) already exists, the new data is appended and combined.
-
-Duplicate records are removed based on the unique field faultNumber.
-
-The process pauses randomly between 0.5 and 1.5 seconds between requests to avoid overwhelming the server.
-
-The loop terminates once a page contains fewer than the requested 100 records.
-
-The resulting CSV file contains the full current and historical set of outages provided by Electricity North West’s live system.
+**`crawler.py`** (legacy, not run by Airflow): an earlier standalone version that accumulates results into a pandas DataFrame and appends to a local CSV (`sp_electricity_northwest.csv`), deduplicating on `faultNumber` with `keep="last"`. Its own comments admit `# Need an IODA API key! The current one is my personal one` even though no API key parameter is actually sent — likely a stale comment copied from another scraper in this family (see `uk/northern_powergrid`, where the equivalent comment is accurate). Kept for reference only.
 
 ## Other Notes
 

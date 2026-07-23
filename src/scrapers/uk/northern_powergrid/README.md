@@ -1,3 +1,5 @@
+# UK Power Outage Data (Northern Powergrid)
+
 ## Data Retrieved
 
 reference – unique alphanumeric identifier for the outage record.
@@ -136,10 +138,9 @@ params = {
 
 Authentication
 
-This API requires an API key for access.
-You can obtain one by creating a free account on the Northern Powergrid Open Data Portal and generating an API key from your profile settings.
+This API is documented as requiring an API key for access — you can obtain one by creating a free account on the Northern Powergrid Open Data Portal and generating an API key from your profile settings.
 
-Once you have your key, include it in each request under the apikey parameter as shown above.
+**Correction 2026-07-22: neither `scrape.py` nor `crawler.py` actually sends one.** `scrape.py` sends `"apikey": ""` (empty string). `crawler.py` has the same empty value with its own comment admitting the gap: `apikey = ""  # Need this from the administrators`, and an earlier comment: `# Need an IODA API key! The current one is my personal one`. Whether the endpoint tolerates an empty key (some Opendatasoft public catalogs allow anonymous reads) or the scraper is silently failing/rate-limited without one has not been verified — treat "authentication is configured" as false until an actual key is wired in and confirmed working.
 
 Example JSON Response
 {
@@ -165,23 +166,16 @@ Example JSON Response
 
 Code Process
 
-The script retrieves outage data 100 records at a time, continuing to request new pages until all records are collected.
+> Corrected 2026-07-22: this section previously described `crawler.py`'s pandas/CSV logic and didn't mention `post_process.py` at all. The Airflow DAG only ever executes `scrape.py` then `post_process.py` (see `airflow/dags/dag_factory.py`); `crawler.py` is a legacy standalone script. Confirmed: `requirements.txt` lists only `requests`, so `crawler.py` (which imports `pandas`) could not run inside the built scraper image.
 
-For each page:
+**`scrape.py`** (Airflow `scrape` task):
+1. Retrieves outage data 100 records at a time from the Opendatasoft API, paging via `offset`, until a page returns fewer than 100 records or is empty.
+2. Unlike `uk/national_grid`'s scraper, **no deduplication happens here** — records are simply concatenated (`all_records.extend(results)`).
+3. Writes the combined records as `power_outages.GB.northern_powergrid.raw.<date>.json` to a local temp path, uploads via `Uploader` to `northern_powergrid/raw/<year>/<month>/`, then deletes the local temp file.
 
-Data is retrieved via an HTTP GET request to the Opendatasoft API.
+**`post_process.py`** (Airflow `post_process` task): downloads that same-day raw JSON and re-uploads it unchanged as `northern_powergrid/processed/<year>/<month>/power_outages.GB.northern_powergrid.processed.<date>.json` — no field parsing, filtering, or deduplication happens here either. Accepts an optional `YYYY-MM-DD` argument to reprocess a past date.
 
-Records are stored in a temporary pandas DataFrame.
-
-If a CSV file (northern_powergrid_power_outage.csv) already exists, the new data is concatenated with existing records.
-
-Duplicate handling (based on reference) can be enabled if desired.
-
-The script pauses for 0.5–1.5 seconds between requests to avoid throttling or rate limits.
-
-The loop exits once a response contains fewer than 100 records.
-
-This ensures the resulting CSV always contains the full, most up-to-date set of live outages from Northern Powergrid.
+**`crawler.py`** (legacy, not run by Airflow): an earlier standalone version that accumulates results into a pandas DataFrame and appends to a local CSV (`northern_powergrid_power_outage.csv`). Its deduplication line (`combined.drop_duplicates(subset=['reference'], keep='last')`) is commented out, so even this legacy version does not dedupe. Kept for reference only.
 
 ## Other Notes
 

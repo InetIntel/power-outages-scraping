@@ -1,3 +1,5 @@
+# Spain Power Outage Data (Naturgy / UFD)
+
 ## Data Retrieved
 
 OBJECTID - unique integer identifier for the outage event. helpful for tracking an individual outage across multiple 
@@ -13,7 +15,7 @@ ID_GRUPO_INCI - (English: Groupd ID INCI?), Integer value
 
 PROVINCIA - (English: Province), Province of Spain where the outage is taking place.
 
-TIPO - (English: Type), integer value representing the category of the outage. (1: Planned, 2: Unplanned)
+TIPO - (English: Type), integer value representing the category of the outage. Corrected 2026-07-22: `post_process.py`'s `outage_types_dict = {1: "Unplanned", 2: "Planned"}` — i.e. **1: Unplanned, 2: Planned** (this README previously had it backwards). If this doesn't match Naturgy's own published legend, trust the code's actual behavior over this note until reconciled.
 
 CENTRO - (English: Center), integer value
 
@@ -160,8 +162,8 @@ post_process.py:
 
 This script starts by downloading "current_outages.json" from minio (description above in scrape.py notes). It then 
 iterates through each of the outages in this file and checks the "ioda_status" value. An outage marked as "in_progress" 
-is still ongoing and is ignored. An outage marked as "resolved" is completed and can not be processed and removed 
-from the file.
+is still ongoing and is ignored. An outage marked as "resolved" is completed and can now be processed and removed 
+from the file. (Corrected 2026-07-22: previously read "can not," which reversed the meaning — resolved outages are exactly the ones that get processed, via `process_data(resolved_outages)`.)
 
 This script only stores one processed data file per day in minio. So if this file already exists in minio, then it 
 is retrieved so that we can be appended to. If it does not exist then we start with an empty list.
@@ -175,8 +177,8 @@ The updated "current_outages,json" file is also uploaded to minio. The resolved 
 
 ## Other Notes
 
-The dataset updates every 5 minutes, so the scraper is scheduled for every 4 minutes to make sure all data is captured.
+The dataset updates every 5 minutes. Corrected 2026-07-22: the scraper (`spain_naturgy`) is actually scheduled every 3 hours (`0 */3 * * *` in `airflow/config/scraper_registry.yaml`), not every 4 minutes — this README previously misstated the schedule (and the error had propagated by copy into the `italy/edistribuzione` and `spain/edistribucion` READMEs, which pointed here and have since been corrected independently).
 
-Outage categories include Planned (maintenance) and Unplanned (faults).
+Outage categories include Planned (maintenance) and Unplanned (faults) — see the corrected `TIPO` mapping above.
 
 Timestamps follow UTC (millisecond count since 1970).

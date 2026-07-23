@@ -106,6 +106,8 @@ Example: (empty)
 internalLampId – internal lamp or streetlight identifier when applicable.
 Example: (empty)
 
+incidentreference – not observed in the sample record below, but both `post_process.py` and `crawler.py` treat this as the unique key for deduplication (records missing it are kept as-is rather than dropped). Confirm its presence/format against a live response before relying on it.
+
 ## Data Retrieval
 
 This dataset comes from Störungsauskunft, Germany’s national outage reporting platform used by grid operators and consumers. It aggregates live customer-reported and operator-confirmed outages across Germany.
@@ -192,33 +194,22 @@ The API returns a list of outage objects in the following format:
 
 Code Process
 
-Because the German API delivers all outages in one call, the retrieval process is simpler than the UK or Ireland versions.
+> Corrected 2026-07-22: this section previously described `crawler.py`'s pandas/CSV logic. That is not what runs in production — the Airflow DAG only ever executes `scrape.py` then `post_process.py` (see `airflow/dags/dag_factory.py`), and `crawler.py` is a legacy standalone script. Confirmed: `requirements.txt` lists only `requests`, so `crawler.py` (which imports `pandas`) could not even run inside the built scraper image.
 
-For each run:
+Because the German API delivers all outages in one call, the retrieval process is simple — no pandas, no CSV, no pagination or rate limiting.
 
-The script issues a single HTTP GET request to the Störungsauskunft outage API.
+**`scrape.py`** (Airflow `scrape` task):
+1. Issues a single HTTP GET to the Störungsauskunft outage API with the required headers, basic-auth credentials, and the `SectorType` parameter.
+2. Writes the full JSON response as-is to `power_outages.DE.stoerungsauskunft.raw.<date>.json`.
+3. Uploads that raw file to the shared volume via `Uploader` at `stoerungsauskunft/raw/<year>/<month>/`.
 
-This request includes:
+**`post_process.py`** (Airflow `post_process` task):
+1. Downloads that same-day raw JSON file back from the shared volume.
+2. Deduplicates records by the `incidentreference` field, keeping the last occurrence of each (records without one are kept as-is).
+3. Uploads the deduplicated result to `stoerungsauskunft/processed/<year>/<month>/`.
+4. Accepts an optional `YYYY-MM-DD` argument to reprocess a past date.
 
-The required headers
-
-Authentication credentials
-
-The SectorType parameter
-
-The full list of outages is returned in a single JSON response.
-
-Results are stored in a pandas DataFrame.
-
-If a CSV file (storungsauskunft.csv) already exists, the new results are appended and combined.
-
-Duplicate records can be removed by specifying a unique identifier field.
-
-The final combined dataset is written to the output CSV.
-
-Unlike the UK and Ireland APIs, there is no pagination and no rate limiting, so no delays are required between requests.
-
-This process ensures you maintain a full historical record of all outages displayed on the Störungsauskunft map.
+**`crawler.py`** (legacy, not run by Airflow): an earlier standalone version that accumulates results into a pandas DataFrame and appends to a local CSV (`storungsauskunft.csv`), deduplicating on `incidentreference` the same way. Kept for reference only.
 
 ## Other Notes
 
