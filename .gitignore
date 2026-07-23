@@ -1,39 +1,38 @@
+# Environment / secrets
 .env
 .env.local
 .env.*.local
 !.env.example
 
+# Python
 __pycache__/
 *.py[cod]
 *$py.class
 *.egg-info/
 build/
 dist/
-
 .venv/
 venv/
 env/
-
 .ruff_cache/
 .pytest_cache/
 .mypy_cache/
 .ipynb_checkpoints/
 
+# Editors / OS
 .idea/
 .vscode/
+.claude/
 *.swp
 *.swo
-
 .DS_Store
 Thumbs.db
 desktop.ini
 
+# Local runtime data (never commit)
 registry_data/
 minio_data/
-airflow/logs/
 dagu_config/
-
-src/scrapers/**/Dockerfile
 
 # Airflow
 airflow/logs/
@@ -42,10 +41,10 @@ airflow.cfg
 airflow.db
 airflow-webserver.pid
 standalone_admin_password.txt
-__pycache__/
-*.pyc
-*.pyo
 .airflowignore
 
+# Generated per-scraper Dockerfiles (publish.sh regenerates from Dockerfile.template / Dockerfile.selenium)
+src/scrapers/**/Dockerfile
 
-.gitignore
+# Local audit / doc-discovery output
+_doc_discovery_output/
