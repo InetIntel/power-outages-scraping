@@ -1,48 +1,41 @@
 # Japan Power Outage Scrapers
 
-This group of folders are the collection of scrapers for storing and processing power outage data from power companies across Japan.
+Scrapers for collecting and processing power outage data from the major Japanese power companies. In production these run as Docker containers orchestrated by Airflow — see the repo root `README.md` for the full deploy/run workflow. This document covers what is specific to the Japan scrapers.
 
-## Overview
-Each of these scrapers aims to collect the outage data from a past outages table for each respective company. Every folder for each power company contains at least the following files:
+## Layout
 
-1. **Scrape.py** - Responsible for fetching raw data from the past outage tables, either using the company's endpoints for a group of XML, CSV, or JSON files. If not available, the website's HTML is saved to be processed. Regardless, it will store these files under:
-    ```bash
-    <company>/data/raw
-    ```
+Each `<company>/` directory contains the standard scraper files:
 
-2. **Post_Process.py** - Reads the raw files and converts them into a standardized JSON structure. It will then store these files under:
-    ```bash
-    <company>/data/processed
-    ```
+1. **scrape.py** - Fetches raw data from the company's past-outages tables, either via endpoints serving XML, CSV, or JSON files, or by saving the page HTML when no data endpoint is available. Raw files are written under the scraper's `data/raw` directory.
 
+2. **post_process.py** - Reads the raw files and converts them into a standardized JSON structure, written under `data/processed`.
 
-## Usage
+3. **README.md** - Per-provider documentation (endpoints, data shape, known risks). These are generated drafts under review — verify against the code before trusting details.
 
-### 1. Run scrape.py
-If running a terminal under the path scrapers/japan and downloading the required dependencies, run:
+## Running locally
+
+From `src/scrapers/japan` with dependencies from the scraper's `requirements.txt` installed:
 
     python <company_name>/scrape.py
-
-If successful, you should see the folder under the path stated in the overview populated with files.
-
-### 2. Run post_process.py
-Make sure that the data/raw folder is populated with the corresponding HTML/JSON/XML files, then run:
-
     python <company_name>/post_process.py
 
-If successful, you should see the processed JSON in the folder under the path stated in the overview.
+Run `scrape.py` first and confirm `data/raw` is populated before running `post_process.py`. In production the same two steps run as the `scrape` → `post_process` Airflow tasks.
 
-## Output Format
-Though the format may vary slightly depending on the table for each website scraped from, here are the general details:
+## Output format
 
-- **Start**: The start time for a power outage.
-- **End**: The end time for a power outage.
-- **Area**: The area where the outage occurred in. Details depend on the table scraped from, but the prefecture should always be included, sometimes along with cities & towns.
-- **Households Affected**: The number of household affected by the power outage, sometimes blank if under investigation or unknown at current time.
-- **Reason**: The reason the power outage occurred, also may be blank if under investigation.
+The exact fields vary slightly by source table, but in general:
 
-## Notes
-- These scrapers are designed at the moment to be ran locally, however tohoku has extra files to run with DAGU. Run tohoku.py then tohoku_process.py to run locally.
-- Often times it would be best to delete data in the raw folder before running post_process.py as it may try to process duplicate instances for the same outage.
-- All scrapers are designed to scrape data for the past week, but Tokyo(TEPCO) and Tohoku should have data for the past two months and one month respectively.
-- Kyushu's scrape.py is unique as it scrapes a group of CSV files 40-46 that appear to align with ISO codes for Japan. You will most likely get varied numbers of responses(resultant files) depending on which areas had outages or not.
+- **Start**: The start time of the outage.
+- **End**: The end time of the outage.
+- **Area**: Where the outage occurred. The prefecture should always be included, sometimes along with cities and towns.
+- **Households Affected**: Number of households affected; may be blank if under investigation or unknown.
+- **Reason**: Cause of the outage; may also be blank if under investigation.
+
+## Provider-specific notes
+
+- It is often best to delete `data/raw` contents before rerunning `post_process.py`, as it may otherwise process duplicate instances of the same outage.
+- Corrected 2026-07-22: all scrapers target roughly the past week of data. `tepco/scrape.py` and `tepco/post_process.py` both default to `days_back=7` ("last 7 days + today (8 total)" per the code's own docstring), and `tohoku/scrape.py`'s `run()` fetches `rirekiinfo01–07.json` and is documented in its own code comment as producing a "combined weekly JSON" — this README previously and incorrectly claimed TEPCO covers ~two months and Tohoku ~one month.
+- **kyushu** scrapes a group of CSV files (40-46) that appear to align with ISO codes for Japan; the number of resultant files varies depending on which areas had outages.
+- **tepco** returns `403 Forbidden` from some environments even though the endpoint is reachable from a browser — treat failures as request/access sensitivity, not a dead URL.
+- **shikoku** currently points at Okinawa/OKIDEN endpoints (source/provider mismatch) — see its `README.md` before relying on its output.
+- **tohoku** still writes to a stale DAGU-era `/dagu/data` path in `scrape.py` — pending fix.

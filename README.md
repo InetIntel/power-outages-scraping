@@ -10,6 +10,28 @@ This repo scrapes power outage data from utility providers around the world. Eac
 - **Postgres** - Airflow metadata DB.
 - **Shared volume** - scraped data is written to the external `santandrea-power-outages` Docker volume.
 
+## Repository layout
+
+```
+airflow/            DAG factory + scraper registry (config-driven DAG generation)
+src/scrapers/       One directory per scraper: <country>/<provider>/
+src/llm_scraper/    Experimental LLM-assisted scraper (not registered in Airflow)
+utils/              Shared Uploader (copied into every scraper image)
+scripts/            One-off audit / doc-generation tooling
+old_misc/           Deprecated scrapers, WIP experiments, and legacy docs (not built or scheduled)
+publish.sh          Build + push images for every scraper
+publish-single.sh   Build + push one scraper's image
+```
+
+Standard files in each scraper directory:
+
+- `scrape.py` - fetches raw data (required; its presence is what `publish.sh` auto-detects).
+- `post_process.py` - transforms raw data into standardized JSON.
+- `requirements.txt` - Python deps. Prefer pinned versions (`package==x.y.z`) for reproducible images.
+- `README.md` - per-provider documentation: endpoints, data shape, known risks (auto-rendered when browsing the folder on GitHub). Many are generated drafts pending review (marked as such in the file).
+- `crawler.py` - optional; some scrapers (UK, Germany, Romania) split raw fetching into a separate crawler module used by `scrape.py`.
+- `Dockerfile` - **generated, not committed**: `publish.sh` regenerates it from `Dockerfile.template` (or `Dockerfile.selenium`) on every build.
+
 ## Requirements
 
 - Docker + Docker Compose
@@ -48,7 +70,8 @@ Useful URLs once running:
 1. Create the scraper directory under `src/scrapers/<country>/<provider>/` containing:
    - `scrape.py` - fetches raw data, writes to `$DATA_DIR` (mounted at `/data`).
    - `post_process.py` - transforms/validates the raw data.
-   - `requirements.txt` - Python deps. If `selenium` is listed, `Dockerfile.selenium` is used automatically; otherwise `Dockerfile.template`.
+   - `requirements.txt` - Python deps (pin versions). If `selenium` is listed, `Dockerfile.selenium` is used automatically; otherwise `Dockerfile.template`.
+   - `README.md` - document the provider: source URLs/endpoints, data fields, quirks, and known risks.
 2. Build and push just this scraper:
    ```bash
    ./publish-single.sh ./src/scrapers/<country>/<provider>
@@ -80,6 +103,12 @@ After any change to the Python files, rerun `./publish-single.sh <path>` to rebu
 - Each DAG has two tasks: `scrape` → `post_process`. Logs are per-task in the UI.
 - To rerun only `post_process` after a successful `scrape`, clear just that task in the Grid view.
 - After editing Python in a scraper, you must rebuild the image (`publish-single.sh`) before rerunning - Airflow pulls the image with `force_pull=True` on each run.
+
+## Troubleshooting
+
+- **`network power-outages-scraping-main_default not found`** - the Airflow DockerOperator attaches scraper containers to the Compose default network, whose name derives from the directory you run `docker compose` from. If your checkout directory is named anything else, either rename it or pass an explicit project name: `docker compose -p power-outages-scraping-main up -d`.
+- **Health checks** - Airflow 3 moved the health endpoint. Use `curl http://localhost:8080/api/v2/monitor/health` (the old `/health` returns a "Moved in Airflow 3" error).
+- **Duplicated country path in the data volume** (e.g. `/data/japan/japan/chugoku/...`) - known quirk of how the Uploader prefixes country onto paths that already include it; harmless but be aware when browsing the volume.
 
 ## Resources
 
