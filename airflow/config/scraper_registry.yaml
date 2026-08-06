@@ -228,4 +228,4 @@ scrapers:
     schedule: null
     retries: 0
     params:
-      mode: crash
+      mode: success

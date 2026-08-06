@@ -10,6 +10,8 @@ from airflow.providers.docker.operators.docker import DockerOperator
 from airflow.sdk import Asset
 from docker.types import Mount
 
+from alerting import notify_dag_failure, notify_dag_recovery
+
 log = logging.getLogger(__name__)
 
 REGISTRY_PATH = Path(__file__).parent.parent / "config" / "scraper_registry.yaml"
@@ -108,6 +110,8 @@ def _build_dag(entry: dict, defaults: dict) -> DAG:
         catchup=False,
         tags=tags,
         default_args=default_args,
+        on_failure_callback=notify_dag_failure,
+        on_success_callback=notify_dag_recovery,
         doc_md=f"""
 ## {scraper_id}
 

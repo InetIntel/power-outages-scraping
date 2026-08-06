@@ -15,6 +15,7 @@ x-airflow-common: &airflow-common
     AIRFLOW__CORE__BASE_URL: "http://airflow-webserver:8080"
     AIRFLOW__API_AUTH__JWT_SECRET: ${AIRFLOW_JWT_SECRET:?AIRFLOW_JWT_SECRET must be set in .env}
     SCRAPER_DOCKER_NETWORK: power-outages-scraping-main_default
+    SLACK_CHANNEL_ID: ${SLACK_CHANNEL_ID:?SLACK_CHANNEL_ID must be set in .env}
   volumes:
     - ./airflow/dags:/opt/airflow/dags
     - ./airflow/logs:/opt/airflow/logs
