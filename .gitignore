@@ -48,3 +48,8 @@ src/scrapers/**/Dockerfile
 
 # Local audit / doc-discovery output
 _doc_discovery_output/
+
+# Claude tooling artifacts (headroom MCP)
+node_modules/
+package.json
+package-lock.json

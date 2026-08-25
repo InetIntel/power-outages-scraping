@@ -223,3 +223,9 @@ scrapers:
     module: ukraine.zhytomyr
     schedule: "0 */6 * * *"
     tags: [ukraine, europe]
+    
+  - scraper_id: local_monitoring_test
+    schedule: null
+    retries: 0
+    params:
+      mode: success
