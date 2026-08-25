@@ -14,6 +14,10 @@ x-airflow-common: &airflow-common
     AIRFLOW__CORE__EXECUTION_API_SERVER_URL: "http://airflow-webserver:8080/execution/"
     AIRFLOW__CORE__BASE_URL: "http://airflow-webserver:8080"
     AIRFLOW__API_AUTH__JWT_SECRET: ${AIRFLOW_JWT_SECRET:?AIRFLOW_JWT_SECRET must be set in .env}
+    # Team-reachable Airflow UI URL — used to build "View Logs" links in Slack
+    # alerts. On the server, set in .env:
+    #   AIRFLOW_PUBLIC_URL=https://inetintel.cc.gatech.edu/airflow/
+    AIRFLOW__API__BASE_URL: ${AIRFLOW_PUBLIC_URL:-http://localhost:8080/}
     SCRAPER_DOCKER_NETWORK: power-outages-scraping-main_default
     SLACK_CHANNEL_ID: ${SLACK_CHANNEL_ID:?SLACK_CHANNEL_ID must be set in .env}
   volumes:
